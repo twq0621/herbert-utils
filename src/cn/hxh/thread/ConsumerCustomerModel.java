@@ -3,6 +3,9 @@ package cn.hxh.thread;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 生产者消费者模型，简单的消息队列机制，可以用作消息的缓冲，其实也是一种线程间通讯的方式
  * TODO 加入notify机制，在queue内容为0时线程sleep，有请求过来继续执行,wait,notify
@@ -14,7 +17,7 @@ public class ConsumerCustomerModel {
 	private LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<String>(10000);
 
 	public void init() {
-		Thread sendThread = new Thread(new SendThread(queue));
+		Thread sendThread = new Thread(new SendThread(queue), "send-thread");
 		sendThread.setDaemon(true);
 		sendThread.start();
 	}
@@ -39,6 +42,8 @@ public class ConsumerCustomerModel {
 class SendThread implements Runnable {
 
 	private LinkedBlockingQueue<String> queue;
+
+	private static Logger logger = LoggerFactory.getLogger(SendThread.class);
 
 	public SendThread(LinkedBlockingQueue<String> queue) {
 		this.queue = queue;
@@ -69,7 +74,7 @@ class SendThread implements Runnable {
 	public void send() throws InterruptedException {
 		if (queue.size() > 0) {
 			String str = queue.poll(50, TimeUnit.MILLISECONDS);
-			System.out.println(str);
+			logger.info(str);
 		}
 	}
 
