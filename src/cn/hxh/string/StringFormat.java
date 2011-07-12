@@ -1,6 +1,6 @@
 package cn.hxh.string;
 
-public class StringTest {
+public class StringFormat {
 	public static void main(String[] args) {
 		StringBuilder sb = new StringBuilder("00100");
 		if (sb.charAt(2) == '1') {
