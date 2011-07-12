@@ -1,4 +1,4 @@
-package cn.hxh.time;
+package cn.hxh.string;
 
 import java.util.Date;
 
