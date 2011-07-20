@@ -1,0 +1,98 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>americia.joint</groupId>
+  <artifactId>americia.joint</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+  	<jetty.version>7.3.1.v20110307</jetty.version>
+  	<org.slf4j.version>1.6.1</org.slf4j.version>
+  	<jackson.version>1.7.5</jackson.version>
+  </properties>
+  
+   <repositories>
+       <repository>
+           <id>repo2_maven_org</id>
+           <url>http://repo2.maven.org/maven2</url>
+       </repository>
+   </repositories>
+   
+   <dependencies>
+	   <dependency>
+           <groupId>org.eclipse.jetty</groupId>
+           <!--  artifactId>jetty-servlet</artifactId-->
+           <artifactId>jetty-server</artifactId>
+           <version>${jetty.version}</version>
+       </dependency>
+       
+       <!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${org.slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${org.slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>runtime</scope>
+		</dependency>
+	    <dependency>
+	      <artifactId>junit</artifactId>
+	      <groupId>junit</groupId>
+	      <version>3.8.2</version>
+	      <scope>test</scope>
+    	</dependency>
+	    <dependency>
+	    	<groupId>commons-httpclient</groupId>
+	    	<artifactId>commons-httpclient</artifactId>
+	    	<version>3.1</version>
+	    </dependency>
+	    <dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-jaxrs</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+   </dependencies>
+  
+</project>
