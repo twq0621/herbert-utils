@@ -16,11 +16,13 @@ public class UuidTest {
 		System.out.println(uuidStr);
 		System.out.println(uuidStr.length());
 		System.out.println(System.currentTimeMillis());
-		Date a = new Date(1308055999*1000);
+		Date a = new Date(1308055999 * 1000);
 		System.out.println(a);
 		Calendar c = Calendar.getInstance();
 		c.setTime(a);
 		System.out.println(c);
+		System.out.println("sub string test");
+		System.out.println("1001123".substring(0, 3).equals("100"));
 	}
 
 }
