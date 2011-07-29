@@ -379,5 +379,10 @@
 			<artifactId>neo4j</artifactId>
 			<version>1.4</version>
 		</dependency>
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
+		</dependency>
 	</dependencies>
 </project>
