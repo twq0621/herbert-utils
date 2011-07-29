@@ -2,28 +2,19 @@ package cn.hxh.json;
 
 import java.io.IOException;
 
+import junit.framework.TestCase;
+
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
-public class TestMain {
+public class TestMain extends TestCase {
 
 	private ObjectMapper mapper = new ObjectMapper();
 
-	/**
-	 * @param args
-	 * @throws IOException 
-	 * @throws JsonMappingException 
-	 * @throws JsonParseException 
-	 */
-	public static void main(String[] args) throws JsonParseException, JsonMappingException, IOException {
-		TestMain test = new TestMain();
-		test.readError();
-	}
-
-	public void readError() throws JsonParseException, JsonMappingException, IOException {
+	public void testReadError() throws JsonParseException, JsonMappingException, IOException {
 		ErrorResponse response = mapper.readValue("{\"errno\":1}", ErrorResponse.class);
-		System.out.println(response.getErrno());
+		assertEquals("1", response.getErrno());
 	}
 }
 
