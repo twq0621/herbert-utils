@@ -2,7 +2,7 @@ package cn.hxh.algorithm;
 
 import junit.framework.TestCase;
 
-public class LinkListJointTest extends TestCase {
+public class CommonTest extends TestCase {
 
 	private LinkList l1;
 	private LinkList l2;
@@ -21,6 +21,16 @@ public class LinkListJointTest extends TestCase {
 	public void testJoint() {
 		boolean ret = CheckListJoin.isListJoint(l1, l2);
 		assertEquals(ret, true);
+	}
+	
+	public void testCount1() {
+		int ret = Count1.count(23);
+		assertEquals(ret, 4);
+	}
+
+	public void testCount2() {
+		int ret = Count1.count2(23);
+		assertEquals(ret, 4);
 	}
 
 }
