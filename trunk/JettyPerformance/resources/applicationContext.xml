@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<description>Spring公共配置文件</description>
+
+	<!-- 定义受环境影响易变的变量 -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath:application.properties</value>
+				<value>classpath:application.local.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 数据源配置,主要用于开发测试环境 -->
+	<!-- bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" /> <property 
+		name="url" value="${jdbc_url}" /> <property name="username" value="${jdbc_user}" 
+		/> <property name="password" value="${jdbc_pwd}" /> </bean -->
+
+	<!-- 数据源配置,在生产环境使用应用服务器的数据库连接池 -->
+	<!-- <jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/miniservice" 
+		/> -->
+
+	<!-- Hibernate配置 -->
+	<!-- bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"> 
+		<property name="dataSource" ref="dataSource" /> <property name="namingStrategy"> 
+		<bean class="org.hibernate.cfg.ImprovedNamingStrategy" /> </property> <property 
+		name="hibernateProperties"> <props> <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect 
+		</prop> <prop key="hibernate.cache.use_query_cache">true</prop> <prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider 
+		</prop> <prop key="hibernate.cache.provider_configuration_file_resource_path">/ehcache-hibernate.xml</prop> 
+		<prop key="hibernate.show_sql">${hibernate.show_sql}</prop> </props> </property> 
+		<property name="annotatedClasses"> <list> <value>cn.dotech.sms.entity.user.User</value> 
+		<value>cn.dotech.sms.entity.user.Role</value> <value>cn.dotech.sms.entity.user.Authority</value> 
+		<value>cn.dotech.sms.entity.sms.SendSms</value> <value>cn.dotech.sms.entity.sms.ReceiveSms</value> 
+		</list> </property> </bean -->
+
+	<!-- 事务配置 -->
+	<!-- bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean -->
+
+	<bean id="jettyServer" class="org.eclipse.jetty.server.Server"
+		init-method="start" destroy-method="stop">
+		<property name="threadPool">
+			<bean id="defaultThreadPool" class="org.eclipse.jetty.util.thread.QueuedThreadPool">
+				<property name="minThreads" value="10" />
+				<property name="maxThreads" value="100" />
+			</bean>
+		</property>
+		<property name="connectors">
+			<list>
+				<bean id="connector" class="org.eclipse.jetty.server.nio.SelectChannelConnector">
+					<property name="port" value="8081" />
+					<property name="maxIdleTime" value="30000" />
+					<property name="lowResourcesConnections" value="5000" />
+					<property name="lowResourcesMaxIdleTime" value="5000" />
+					<property name="acceptors" value="2" />
+					<property name="statsOn" value="false" />
+				</bean>
+			</list>
+		</property>
+		<property name="handler">
+			<bean id="handlerList" class="org.eclipse.jetty.server.handler.HandlerCollection">
+				<property name="handlers">
+				<list>
+					<bean class="cn.hxh.jetty.HelloHandler" />
+					<bean class="org.eclipse.jetty.server.handler.DefaultHandler" />
+					<!-- bean class="org.eclipse.jetty.server.handler.RequestLogHandler">
+						<property name="requestLog">
+							<bean class="org.eclipse.jetty.server.NCSARequestLog">
+								<property name="append" value="true" />
+								<property name="filename" value="/log/rat/jetty.log_yyyy_mm_dd" />
+								<property name="extended" value="true" />
+								<property name="retainDays" value="999" />
+								<property name="filenameDateFormat" value="yyyy-MM-dd" />
+							</bean>
+						</property>
+					</bean -->
+				</list>
+				</property>
+			</bean>
+		</property>
+		<property name="stopAtShutdown" value="true"/>
+		<property name="sendServerVersion" value="true"/>
+		<property name="sendDateHeader" value="true"/>
+		<property name="gracefulShutdown" value="1000"/>
+		<property name="dumpAfterStart" value="false"/>
+		<property name="dumpBeforeStop" value="false"/>
+	</bean>
+
+	<!-- JTA环境的事务配置 <bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager 
+		or WebLogicJtaTransactionManager"/> -->
+
+	<!-- 使用annotation定义事务 -->
+	<!-- tx:annotation-driven transaction-manager="transactionManager" / -->
+
+</beans>
