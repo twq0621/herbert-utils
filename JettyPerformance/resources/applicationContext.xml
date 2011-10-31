@@ -52,18 +52,19 @@
 		<property name="threadPool">
 			<bean id="defaultThreadPool" class="org.eclipse.jetty.util.thread.QueuedThreadPool">
 				<property name="minThreads" value="10" />
-				<property name="maxThreads" value="100" />
+				<property name="maxThreads" value="200" />
 			</bean>
 		</property>
 		<property name="connectors">
 			<list>
 				<bean id="connector" class="org.eclipse.jetty.server.nio.SelectChannelConnector">
-					<property name="port" value="8081" />
+					<property name="port" value="8080" />
 					<property name="maxIdleTime" value="30000" />
 					<property name="lowResourcesConnections" value="5000" />
 					<property name="lowResourcesMaxIdleTime" value="5000" />
-					<property name="acceptors" value="2" />
+					<property name="acceptors" value="4" />
 					<property name="statsOn" value="false" />
+					<property name="acceptQueueSize" value="1000" />
 				</bean>
 			</list>
 		</property>
