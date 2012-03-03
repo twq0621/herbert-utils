@@ -13,7 +13,8 @@ public enum Permission {
 
 	USER_VIEW("user:view", "查看用戶"), USER_EDIT("user:edit", "修改用户"),
 
-	GROUP_VIEW("group:view", "查看权限组"), GROUP_EDIT("group:edit", "修改权限组");
+	GROUP_VIEW("group:view", "查看权限组"), GROUP_EDIT("group:edit", "修改权限组"), COMMON_VIEW(
+			"common:view", "常规统计");
 
 	public String value;
 	public String displayName;

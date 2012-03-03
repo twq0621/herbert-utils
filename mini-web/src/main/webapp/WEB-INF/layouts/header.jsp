@@ -14,7 +14,7 @@
 	<div id="menu">
 		<ul>
 			<shiro:user>
-			<shiro:hasPermission name="group:view">
+			<shiro:hasPermission name="common:view">
 				<li><a href="${ctx}/common/">常规统计</a></li>
 			</shiro:hasPermission>
 			<shiro:hasPermission name="group:view">
