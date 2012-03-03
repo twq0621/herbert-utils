@@ -1,0 +1,31 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<html>
+<head>
+	<title>新注册的角色</title>
+	<script>
+		$(document).ready(function() {
+			$("#inputForm").validate();
+		});
+	</script>
+</head>
+
+<body>
+	<form:form id="inputForm" modelAttribute="group" action="${ctx}/common/newRole/result" method="post">
+		<fieldset class="prepend-top">
+			<legend>每天新注册的角色数量</legend>
+			<div>
+				<label for="name" class="field">日期:</label>
+				<input type="text" id="queryDate" name="queryDate" size="40" class="required" value="2012-03-03"/>
+			</div>
+		</fieldset>
+		<div>
+			<input id="submit" class="button" type="submit" value="提交"/>&nbsp;	
+			<input id="cancel" class="button" type="button" value="返回" onclick="history.back()"/>
+		</div>
+	</form:form>
+</body>
+</html>
