@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd"
+	default-lazy-init="true">
+
+	<description>Shiro Configuration</description>
+
+	<!-- Shiro's main business-tier object for web-enabled applications -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="shiroDbRealm" />
+		<property name="cacheManager" ref="cacheManager" />
+	</bean>
+
+	<!-- 項目自定义Realm -->
+	<bean id="shiroDbRealm" class="org.springside.examples.miniweb.service.account.ShiroDbRealm" />
+
+	<!-- Shiro Filter -->
+	<bean id="shiroFilter" class="org.springside.modules.security.shiro.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<property name="loginUrl" value="/login" />
+		<property name="successUrl" value="/common/" />
+		<property name="unauthorizedUrl" value="/login?unauthorized=true" />
+		<property name="filterChainDefinitions">
+			<value>
+				/login = authc
+				/logout = logout
+				/static/** = anon
+		    	/account/user/save/** = perms["user:edit"]
+		    	/account/user/delete/** = perms["user:edit"]
+		    	/account/user/** = perms["user:view"]
+		    	/account/group/save/** = perms["group:edit"]
+		    	/account/group/delete/** = perms["group:edit"]
+		    	/account/group/** = perms["group:view"] 		    				
+		 	</value>
+		</property>
+	</bean>
+
+	<bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager" />
+</beans>
