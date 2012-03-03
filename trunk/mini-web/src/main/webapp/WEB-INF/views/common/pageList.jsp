@@ -25,7 +25,9 @@
 			<td>每日新用户</td>
 			<td>新注册的用户</td>
 			<td>
-				<a href="newRole" id="viewLink-1">查看</a>
+				<shiro:hasPermission name="common:view">
+					<a href="newRole" id="viewLink-1">查看</a>
+				</shiro:hasPermission>
 			</td>
 		</tr>
 		<tr>
@@ -33,7 +35,9 @@
 			<td>目标用户</td>
 			<td>新注册游戏，并且通过新手引导的目标玩家</td>
 			<td>
-				<a href="passRookie" id="viewLink-2">查看</a>
+				<shiro:hasPermission name="common:view">
+					<a href="passRookie" id="viewLink-2">查看</a>
+				</shiro:hasPermission>
 			</td>
 		</tr>
 	</table>
