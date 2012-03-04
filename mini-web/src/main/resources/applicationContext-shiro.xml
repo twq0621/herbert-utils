@@ -18,7 +18,7 @@
 	<bean id="shiroFilter" class="org.springside.modules.security.shiro.ShiroFilterFactoryBean">
 		<property name="securityManager" ref="securityManager" />
 		<property name="loginUrl" value="/login" />
-		<property name="successUrl" value="/common/" />
+		<property name="successUrl" value="/account/" />
 		<property name="unauthorizedUrl" value="/login?unauthorized=true" />
 		<property name="filterChainDefinitions">
 			<value>

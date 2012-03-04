@@ -6,9 +6,11 @@
 <html>
 <head>
 	<title>新注册的角色</title>
+	<%@ include file="/WEB-INF/layouts/date-picker.jsp"%>
 	<script>
 		$(document).ready(function() {
 			$("#inputForm").validate();
+			$("#queryDate").datepicker({ dateFormat: "yy-mm-dd" });
 		});
 	</script>
 </head>
@@ -27,5 +29,6 @@
 			<input id="cancel" class="button" type="button" value="返回" onclick="history.back()"/>
 		</div>
 	</form:form>
+	<div id="datepicker"></div>
 </body>
 </html>

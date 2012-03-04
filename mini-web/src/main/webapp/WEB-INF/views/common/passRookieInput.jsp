@@ -6,9 +6,11 @@
 <html>
 <head>
 	<title>新注册游戏，并且通过新手引导的目标玩家</title>
+	<%@ include file="/WEB-INF/layouts/date-picker.jsp"%>
 	<script>
 		$(document).ready(function() {
 			$("#inputForm").validate();
+			$("#queryDate").datepicker({ dateFormat: "yy-mm-dd" });
 		});
 	</script>
 </head>
