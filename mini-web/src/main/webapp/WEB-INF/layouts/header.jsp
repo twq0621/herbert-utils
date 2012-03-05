@@ -17,10 +17,10 @@
 			<shiro:hasPermission name="common:view">
 				<li><a href="${ctx}/common/">常规统计</a></li>
 			</shiro:hasPermission>
-			<shiro:hasPermission name="group:view">
+			<shiro:hasPermission name="userCount:view">
 				<li><a href="${ctx}/userCount/">用户群体</a></li>
 			</shiro:hasPermission>
-			<shiro:hasPermission name="group:view">
+			<shiro:hasPermission name="income:view">
 				<li><a href="${ctx}/income/">收益</a></li>
 			</shiro:hasPermission>
 			<shiro:hasPermission name="user:view">
