@@ -87,7 +87,7 @@ public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
 			System.out.println("end");
 
 		} catch (Throwable e) {
-
+			e.printStackTrace();
 			sr.setSuccessful(false);
 
 		} finally {
@@ -113,6 +113,7 @@ public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
 			in.close();
 			out.close();
 			socket.close();
+			socket = null;
 			System.out.println("close socket connection!");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -135,6 +136,8 @@ public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
 	private void sendMsg(String ip, int port) throws Exception {
 
 		socket = new Socket(ip, port);
+
+		socket.setReuseAddress(true);
 
 		in = new DataInputStream(socket.getInputStream());
 
