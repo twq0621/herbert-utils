@@ -19,12 +19,12 @@ import cn.hxh.codec.Amf3Writer;
 import cn.hxh.io.Amf3Request;
 
 /**
- * 简单的登陆测试
+ * 玩家持续创建角色，删除角色
  * 
  * @author hexuhui
  * 
  */
-public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
+public class ActServerRoleTest extends AbstractJavaSamplerClient {
 
 	// Sock begin----------------------------------------------
 
@@ -37,6 +37,12 @@ public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
 	private String ip;
 
 	private String port;
+
+	private String userName;
+
+	private String password;
+
+	private String roleName;
 
 	// Sock end------------------------------------------------
 
@@ -67,6 +73,12 @@ public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
 
 		params.addArgument("port", "1863");
 
+		params.addArgument("userName", "ddt");
+
+		params.addArgument("password", "ddt");
+
+		params.addArgument("roleName", "ddtRole");
+
 		return params;
 
 	}
@@ -76,6 +88,10 @@ public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
 		ip = arg0.getParameter("ip");
 
 		port = arg0.getParameter("port");
+
+		userName = arg0.getParameter("userName");
+		password = arg0.getParameter("password");
+		roleName = arg0.getParameter("roleName");
 
 		sr = new SampleResult();
 
@@ -146,17 +162,53 @@ public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
 		out = new DataOutputStream(new BufferedOutputStream(
 				socket.getOutputStream()));
 		// 发送请求
-		Amf3Request request = new Amf3Request("login", "yangwq", "yangwq");
+		Amf3Request request = new Amf3Request("login", userName, password);
 		encodeAndSend(request);
 		Object retObj = decode();
 		// 处理返回结果
 		ASObject retAsObj = (ASObject) retObj;
-		// System.out.println("method:" + retAsObj.get("method"));
-		// Object[] oList = (Object[]) retAsObj.get("args");
-		// System.out.println("args:" + (ASObject) oList[0]);
+		ASObject subAsObj = (ASObject) ((Object[]) retAsObj.get("args"))[0];
+		Object[] rolesObj = (Object[]) subAsObj.get("roles");
+		int roleCount = rolesObj.length;
+		System.out.println("role count=" + roleCount);
+		if (roleCount == 0) {
+			createRole();
+		} else {
+			removeRole(0);
+		}
 
 		return retAsObj.get("method").toString();
 
+	}
+
+	private void removeRole(int roleIndex) throws IOException {
+		Amf3Request request = new Amf3Request("removeRole", roleIndex);
+		encodeAndSend(request);
+		Object retObj = decode();
+		ASObject retAsObj = (ASObject) retObj;
+		Object subObj = ((Object[]) retAsObj.get("args"))[0];
+		if (subObj instanceof Integer) {
+			int retCode = (Integer) subObj;
+			System.out.println("removeRole retCode:" + retCode);
+		} else {
+			ASObject subAsObj = (ASObject) subObj;
+			System.out.println("removeRole " + subAsObj);
+		}
+	}
+
+	private void createRole() throws IOException {
+		Amf3Request request = new Amf3Request("createRole", roleName, 1);
+		encodeAndSend(request);
+		Object retObj = decode();
+		ASObject retAsObj = (ASObject) retObj;
+		Object subObj = ((Object[]) retAsObj.get("args"))[0];
+		if (subObj instanceof Integer) {
+			int retCode = (Integer) subObj;
+			System.out.println("createRole retCode:" + retCode);
+		} else {
+			ASObject subAsObj = (ASObject) subObj;
+			System.out.println("createRole " + subAsObj);
+		}
 	}
 
 	private Object decode() throws IOException {
