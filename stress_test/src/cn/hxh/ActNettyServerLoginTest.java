@@ -4,6 +4,7 @@ import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.Map;
 
@@ -45,9 +46,6 @@ public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
 	 */
 
 	public void setupTest(JavaSamplerContext arg0) {
-
-		System.out.println("setupTest");
-
 	}
 
 	/**
@@ -80,22 +78,17 @@ public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
 		try {
 			sr.sampleStart(); // 记录程序执行时间，以及执行结果
 			// 发送数据
-			System.out.println("begin");
-			sendMsg(ip, Integer.parseInt(port));
+			String retMsg = sendMsg(ip, Integer.parseInt(port));
 			sr.setSuccessful(true);
 			closeConnections();
-			System.out.println("end");
-
+			sr.setResponseMessage(retMsg);
 		} catch (Throwable e) {
+			sr.setResponseMessage(e.getMessage());
 			e.printStackTrace();
 			sr.setSuccessful(false);
-
 		} finally {
-
 			sr.sampleEnd();
-
 		}
-
 		return sr;
 	}
 
@@ -105,7 +98,7 @@ public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
 	 */
 
 	public void teardownTest(JavaSamplerContext arg0) {
-		System.out.println("tearDown test!");
+		// System.out.println("tearDown test!");
 	}
 
 	public void closeConnections() {
@@ -114,7 +107,6 @@ public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
 			out.close();
 			socket.close();
 			socket = null;
-			System.out.println("close socket connection!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -133,11 +125,15 @@ public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
 	 * @throws Exception
 	 */
 
-	private void sendMsg(String ip, int port) throws Exception {
+	private String sendMsg(String ip, int port) throws Exception {
 
-		socket = new Socket(ip, port);
+		socket = new Socket();
 
 		socket.setReuseAddress(true);
+
+		socket.setSoLinger(true, 0);
+
+		socket.connect(new InetSocketAddress(ip, port));
 
 		in = new DataInputStream(socket.getInputStream());
 
@@ -149,11 +145,11 @@ public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
 		Object retObj = decode();
 		// 处理返回结果
 		ASObject retAsObj = (ASObject) retObj;
-		System.out.println("method:" + retAsObj.get("method"));
-		Object[] oList = (Object[]) retAsObj.get("args");
-		System.out.println("args:" + (ASObject) oList[0]);
+		// System.out.println("method:" + retAsObj.get("method"));
+		// Object[] oList = (Object[]) retAsObj.get("args");
+		// System.out.println("args:" + (ASObject) oList[0]);
 
-		System.out.println("success");
+		return retAsObj.get("method").toString();
 
 	}
 
@@ -168,7 +164,6 @@ public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
 		Map<String, Object> msg = request.toMap();
 		byte[] data = Amf3Writer.write(msg);
 		int length = data.length;
-		System.out.println("data length:" + length);
 		out.writeInt(length);
 		out.write(data);
 		out.flush();
