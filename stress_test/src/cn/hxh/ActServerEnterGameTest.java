@@ -19,12 +19,12 @@ import cn.hxh.codec.Amf3Writer;
 import cn.hxh.io.Amf3Request;
 
 /**
- * 简单的登陆测试
+ * 玩家不断登陆游戏世界
  * 
  * @author hexuhui
  * 
  */
-public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
+public class ActServerEnterGameTest extends AbstractJavaSamplerClient {
 
 	// Sock begin----------------------------------------------
 
@@ -37,6 +37,12 @@ public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
 	private String ip;
 
 	private String port;
+
+	private String userName;
+
+	private String password;
+
+	private String roleName;
 
 	// Sock end------------------------------------------------
 
@@ -67,6 +73,12 @@ public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
 
 		params.addArgument("port", "1863");
 
+		params.addArgument("userName", "ddt");
+
+		params.addArgument("password", "ddt");
+
+		params.addArgument("roleName", "ddtRole");
+
 		return params;
 
 	}
@@ -77,10 +89,14 @@ public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
 
 		port = arg0.getParameter("port");
 
+		userName = arg0.getParameter("userName");
+		password = arg0.getParameter("password");
+		roleName = arg0.getParameter("roleName");
+
 		sr = new SampleResult();
 
 		sr.setSampleLabel(label);
-
+		System.out.println("run test!");
 		try {
 			sr.sampleStart(); // 记录程序执行时间，以及执行结果
 			// 发送数据
@@ -88,6 +104,8 @@ public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
 			sr.setSuccessful(true);
 			closeConnections();
 			sr.setResponseMessage(retMsg);
+			// 等待服务器在客户端端关闭socket连接之后踢出玩家
+			Thread.sleep(10);
 		} catch (Throwable e) {
 			sr.setResponseMessage(e.getMessage());
 			e.printStackTrace();
@@ -133,6 +151,8 @@ public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
 
 	private String sendMsg(String ip, int port) throws Exception {
 
+		System.out.println("create socket!");
+
 		socket = new Socket();
 
 		socket.setReuseAddress(true);
@@ -146,17 +166,51 @@ public class ActNettyServerLoginTest extends AbstractJavaSamplerClient {
 		out = new DataOutputStream(new BufferedOutputStream(
 				socket.getOutputStream()));
 		// 发送请求
-		Amf3Request request = new Amf3Request("login", "yangwq", "yangwq");
+		System.out.println("call login!");
+		Amf3Request request = new Amf3Request("login", userName, password);
 		encodeAndSend(request);
+		System.out.println("get response!");
 		Object retObj = decode();
+		System.out.println("login return!");
 		// 处理返回结果
 		ASObject retAsObj = (ASObject) retObj;
-		// System.out.println("method:" + retAsObj.get("method"));
-		// Object[] oList = (Object[]) retAsObj.get("args");
-		// System.out.println("args:" + (ASObject) oList[0]);
+		ASObject subAsObj = (ASObject) ((Object[]) retAsObj.get("args"))[0];
+		Object[] rolesObj = (Object[]) subAsObj.get("roles");
+		int roleCount = rolesObj.length;
+		System.out.println("role count=" + roleCount);
+		if (roleCount == 0) {
+			createRole();
+		}
+		enterGame(0);
 
-		return retAsObj.get("method").toString();
+		return "success";
 
+	}
+
+	private void enterGame(int roleIndex) throws IOException {
+		Amf3Request request = new Amf3Request("joinGame", roleIndex);
+		encodeAndSend(request);
+		// 会接收到5个返回
+		decode();
+		decode();
+		decode();
+		decode();
+		decode();
+	}
+
+	private void createRole() throws IOException {
+		Amf3Request request = new Amf3Request("createRole", roleName, 1);
+		encodeAndSend(request);
+		Object retObj = decode();
+		ASObject retAsObj = (ASObject) retObj;
+		Object subObj = ((Object[]) retAsObj.get("args"))[0];
+		if (subObj instanceof Integer) {
+			int retCode = (Integer) subObj;
+			System.out.println("createRole retCode:" + retCode);
+		} else {
+			ASObject subAsObj = (ASObject) subObj;
+			System.out.println("createRole " + subAsObj);
+		}
 	}
 
 	private Object decode() throws IOException {
