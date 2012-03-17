@@ -102,7 +102,6 @@ public class ActServerRoleTest extends AbstractJavaSamplerClient {
 			// 发送数据
 			String retMsg = sendMsg(ip, Integer.parseInt(port));
 			sr.setSuccessful(true);
-			closeConnections();
 			sr.setResponseMessage(retMsg);
 		} catch (Throwable e) {
 			sr.setResponseMessage(e.getMessage());
@@ -110,6 +109,7 @@ public class ActServerRoleTest extends AbstractJavaSamplerClient {
 			sr.setSuccessful(false);
 		} finally {
 			sr.sampleEnd();
+			closeConnections();
 		}
 		return sr;
 	}

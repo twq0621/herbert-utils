@@ -100,18 +100,16 @@ public class ActServerEnterGameTest extends AbstractJavaSamplerClient {
 		try {
 			sr.sampleStart(); // 记录程序执行时间，以及执行结果
 			// 发送数据
-			String retMsg = sendMsg(ip, Integer.parseInt(port));
-			sr.setSuccessful(true);
-			closeConnections();
-			sr.setResponseMessage(retMsg);
+			boolean retMsg = sendMsg(ip, Integer.parseInt(port));
+			sr.setSuccessful(retMsg);
 			// 等待服务器在客户端端关闭socket连接之后踢出玩家
-			Thread.sleep(10);
-		} catch (Throwable e) {
+		} catch (Exception e) {
 			sr.setResponseMessage(e.getMessage());
 			e.printStackTrace();
 			sr.setSuccessful(false);
 		} finally {
 			sr.sampleEnd();
+			closeConnections();
 		}
 		return sr;
 	}
@@ -149,15 +147,19 @@ public class ActServerEnterGameTest extends AbstractJavaSamplerClient {
 	 * @throws Exception
 	 */
 
-	private String sendMsg(String ip, int port) throws Exception {
-
+	private boolean sendMsg(String ip, int port) throws Exception {
+		boolean ret = true;
 		System.out.println("create socket!");
 
 		socket = new Socket();
 
 		socket.setReuseAddress(true);
 
+		// 关闭socket之后马上中断连接
 		socket.setSoLinger(true, 0);
+
+		// 设置超时
+		socket.setSoTimeout(50);
 
 		socket.connect(new InetSocketAddress(ip, port));
 
@@ -178,13 +180,17 @@ public class ActServerEnterGameTest extends AbstractJavaSamplerClient {
 		Object[] rolesObj = (Object[]) subAsObj.get("roles");
 		int roleCount = rolesObj.length;
 		System.out.println("role count=" + roleCount);
+		int retCode = 0;
 		if (roleCount == 0) {
-			createRole();
+			retCode = createRole();
 		}
-		enterGame(0);
-
-		return "success";
-
+		if (retCode == 0) {
+			enterGame(0);
+		} else {
+			ret = false;
+			sr.setResponseCode(String.valueOf(retCode));
+		}
+		return ret;
 	}
 
 	private void enterGame(int roleIndex) throws IOException {
@@ -198,7 +204,8 @@ public class ActServerEnterGameTest extends AbstractJavaSamplerClient {
 		decode();
 	}
 
-	private void createRole() throws IOException {
+	private int createRole() throws IOException {
+		int ret = 0;
 		Amf3Request request = new Amf3Request("createRole", roleName, 1);
 		encodeAndSend(request);
 		Object retObj = decode();
@@ -207,10 +214,12 @@ public class ActServerEnterGameTest extends AbstractJavaSamplerClient {
 		if (subObj instanceof Integer) {
 			int retCode = (Integer) subObj;
 			System.out.println("createRole retCode:" + retCode);
+			ret = retCode;
 		} else {
 			ASObject subAsObj = (ASObject) subObj;
 			System.out.println("createRole " + subAsObj);
 		}
+		return ret;
 	}
 
 	private Object decode() throws IOException {
