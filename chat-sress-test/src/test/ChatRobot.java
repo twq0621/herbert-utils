@@ -104,7 +104,6 @@ public class ChatRobot extends ARobot {
 		if (code == 0) {
 			Object[] rolesObj = (Object[]) retAsObj.get("roles");
 			int roleCount = rolesObj.length;
-			// System.out.println("role count=" + roleCount);
 			if (roleCount == 0) {
 				createRole();
 			} else {
@@ -125,7 +124,6 @@ public class ChatRobot extends ARobot {
 	}
 
 	private void sendChatMsg() {
-		// System.out.println("chat start!");
 		chatStartTime = new Date().getTime();
 		for (int i = 1; i <= maxMsgCount; i++) {
 			String msg = "test chat msg[" + i + "]";
