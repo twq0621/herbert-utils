@@ -6,12 +6,13 @@ import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
+import java.util.AbstractQueue;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-
-import org.apache.jmeter.protocol.java.sampler.JavaSamplerContext;
-import org.apache.jmeter.samplers.SampleResult;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import cn.hxh.ActConstants;
 import cn.hxh.codec.ASObject;
@@ -23,16 +24,20 @@ public class ActChatClientSingle {
 
 	// private static Log logger = LogFactory.getLog(EchoNioClient.class);
 	private SocketChannel socketChannel = null;
-	private ByteBuffer sendBuffer = ByteBuffer
-			.allocate(ActConstants.BUFF_CAPACITY);
+	private AbstractQueue<ByteBuffer> bufferList = new ConcurrentLinkedQueue<ByteBuffer>();
 	private ByteBuffer receiveBuffer = ByteBuffer
 			.allocate(ActConstants.BUFF_CAPACITY);
 	private Selector selector;
 
-	private JavaSamplerContext params;
+	private int chatMsgCount = 10;
 
-	public ActChatClientSingle(String ip, int port, JavaSamplerContext params)
-			throws IOException {
+	private String userName = "xlm";
+
+	private String password = "xlm";
+
+	private String roleName = "xlmRole";
+
+	public ActChatClientSingle(String ip, int port) throws IOException {
 		socketChannel = SocketChannel.open();
 		System.out.println("connecting to " + ip + ":" + port);
 		InetSocketAddress isa = new InetSocketAddress(ip, port);
@@ -40,15 +45,17 @@ public class ActChatClientSingle {
 		socketChannel.configureBlocking(false);
 		System.out.println("connect to server success!");
 		selector = Selector.open();
-		this.params = params;
 	}
 
 	public static void main(String args[]) throws IOException {
-		// final ActChatClient client = new ActChatClient("192.168.83.102",
-		// 1863,
-		// new JavaSamplerContext());
-		// client.callLogin();
-		// client.talk();
+		final ActChatClientSingle client = new ActChatClientSingle(
+				"192.168.83.102", 1863);
+		ExecutorService threadPool = Executors.newFixedThreadPool(20);
+		for (int i = 1; i <= 2; i++) {
+			ChatThread chatThread = new ChatThread(i, client);
+			threadPool.execute(chatThread);
+		}
+		client.talk();
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -83,6 +90,7 @@ public class ActChatClientSingle {
 						}
 					}
 				}// #while
+				Thread.sleep(1);
 			}// #while
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -97,12 +105,9 @@ public class ActChatClientSingle {
 
 	public void send(SelectionKey key) throws IOException {
 		SocketChannel socketChannel = (SocketChannel) key.channel();
-		synchronized (sendBuffer) {
-			if (sendBuffer.position() != 0) {
-				sendBuffer.flip(); // 把极限设为位置
-				socketChannel.write(sendBuffer);
-				sendBuffer.compact();
-			}
+		ByteBuffer toSendMsg = bufferList.poll();
+		if (toSendMsg != null) {
+			socketChannel.write(toSendMsg);
 		}
 	}
 
@@ -113,6 +118,7 @@ public class ActChatClientSingle {
 		Object retObj = decodeAmf3(receiveBuffer);
 		ASObject retAsObj = (ASObject) retObj;
 		Object callMethod = retAsObj.get("method");
+		System.out.println("receive:" + callMethod);
 		if (callMethod.equals("call_login")) {
 			ASObject subAsObj = (ASObject) ((Object[]) retAsObj.get("args"))[0];
 			Object[] rolesObj = (Object[]) subAsObj.get("roles");
@@ -145,11 +151,10 @@ public class ActChatClientSingle {
 			// 发送聊天消息
 			sendChatMsg();
 		} else if (callMethod.equals("call_broadcast")) {
-			System.out.println("receive broadcast message!");
 			Object[] oList = (Object[]) retAsObj.get("args");
 			String receiveMsgContent = "";
 			for (Object chatMsg : oList) {
-				receiveMsgContent += "; " + chatMsg;
+				receiveMsgContent += chatMsg + "; ";
 			}
 			System.out.println(receiveMsgContent);
 		}
@@ -158,12 +163,11 @@ public class ActChatClientSingle {
 	}
 
 	private void sendChatMsg() {
-		int msgCount = Integer.valueOf(params
-				.getParameter(ActConstants.CHAT_MESSAGE_COUNT));
+		int msgCount = chatMsgCount;
 		for (int i = 1; i <= msgCount; i++) {
 			String msg = "test chat msg[" + i + "]";
 			Amf3Request request = new Amf3Request("broadcast", msg, 1);
-			sendBuffer.put(encodeAmf3(request));
+			bufferList.add(encodeAmf3(request));
 			System.out.println("send msg:" + msg);
 		}
 	}
@@ -171,12 +175,11 @@ public class ActChatClientSingle {
 	/**
 	 * 登陆界面
 	 */
-	public void callLogin() {
+	public void callLogin(int i) {
 		System.out.println("call login!");
-		Amf3Request request = new Amf3Request("login",
-				params.getParameter(ActConstants.USER_NAME),
-				params.getParameter(ActConstants.PASSWORD));
-		sendBuffer.put(encodeAmf3(request));
+		Amf3Request request = new Amf3Request("login", userName + i, password
+				+ i);
+		bufferList.add(encodeAmf3(request));
 	}
 
 	/**
@@ -187,7 +190,7 @@ public class ActChatClientSingle {
 	private void enterGame(int roleIndex) {
 		System.out.println("call join game!");
 		Amf3Request request = new Amf3Request("joinGame", roleIndex);
-		sendBuffer.put(encodeAmf3(request));
+		bufferList.add(encodeAmf3(request));
 	}
 
 	/**
@@ -196,9 +199,8 @@ public class ActChatClientSingle {
 	 * @return
 	 */
 	private void createRole() {
-		Amf3Request request = new Amf3Request("createRole",
-				params.getParameter(ActConstants.ROLE_NAME), 1);
-		sendBuffer.put(encodeAmf3(request));
+		Amf3Request request = new Amf3Request("createRole", roleName, 1);
+		bufferList.add(encodeAmf3(request));
 	}
 
 	public Object decodeAmf3(ByteBuffer buffer) throws IOException {
