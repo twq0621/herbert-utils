@@ -31,11 +31,11 @@ public class TestServer {
 		int maxThreadCount = Integer.valueOf(args[2]);
 		int maxMsgCount = Integer.valueOf(args[3]);
 		Amf3CP cp = new Amf3CP(host, port);
-		IRobotHandler handler = new ActHandler(maxThreadCount, maxMsgCount);
+		ActHandler handler = new ActHandler(maxThreadCount, maxMsgCount);
 		ExecutorService threadPool = Executors
 				.newFixedThreadPool(maxThreadCount);
 		for (int i = 1; i <= maxThreadCount; i++) {
-			final EnterGameRobot robot = new EnterGameRobot(handler, cp, "xlm",
+			final ChatRobot robot = new ChatRobot(handler, cp, "xlm",
 					i);
 			robot.setMaxMsgCount(maxMsgCount);
 			robot.setMaxThreadCount(maxThreadCount);
