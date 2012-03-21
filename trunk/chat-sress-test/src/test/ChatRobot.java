@@ -4,17 +4,15 @@ import gear.amf3.Amf3CP;
 import gear.codec.ASObject;
 import gear.io.Amf3Request;
 import gear.robot.ARobot;
-import gear.robot.IRobotHandler;
 
 import java.util.Date;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class EnterGameRobot extends ARobot {
+public class ChatRobot extends ARobot {
 
-	private static Logger logger = LoggerFactory
-			.getLogger(EnterGameRobot.class);
+	private static Logger logger = LoggerFactory.getLogger(ChatRobot.class);
 
 	private int roleIndex;
 
@@ -28,7 +26,7 @@ public class EnterGameRobot extends ARobot {
 
 	private long chatStartTime;
 
-	public EnterGameRobot(IRobotHandler handler, Amf3CP cp, String username,
+	public ChatRobot(ActHandler handler, Amf3CP cp, String username,
 			int roleIndex) {
 		super(handler, cp, username);
 		this.roleIndex = roleIndex;
@@ -77,13 +75,9 @@ public class EnterGameRobot extends ARobot {
 	public void call_broadcast(String src, String msg, int channelId,
 			int retCode) {
 		currentMsgCount++;
-		System.out.println(String.format("thread[%s] receiveMsgCount=%s",
-				roleIndex, currentMsgCount));
+		((ActHandler) _handler).logReceiveMessage(this);
 		if (maxMsgCount * maxThreadCount == currentMsgCount) {
 			chatTakeMs = new Date().getTime() - chatStartTime;
-			System.out.println(String.format(
-					"thread no[%s] receive msgCount[%s],take time:[%sms]",
-					roleIndex, currentMsgCount, Math.abs(chatTakeMs)));
 			_handler.complete(this);
 			close();
 		}
@@ -162,6 +156,22 @@ public class EnterGameRobot extends ARobot {
 
 	public void setMaxThreadCount(int maxThreadCount) {
 		this.maxThreadCount = maxThreadCount;
+	}
+
+	public int getRoleIndex() {
+		return roleIndex;
+	}
+
+	public void setRoleIndex(int roleIndex) {
+		this.roleIndex = roleIndex;
+	}
+
+	public int getCurrentMsgCount() {
+		return currentMsgCount;
+	}
+
+	public void setCurrentMsgCount(int currentMsgCount) {
+		this.currentMsgCount = currentMsgCount;
 	}
 
 }
