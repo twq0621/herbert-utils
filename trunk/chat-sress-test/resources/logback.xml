@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="LOG_HOME" value="/log" />
+  <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+      <encoder charset="UTF-8">
+          <pattern>%d [%thread] %-5level %logger{36}:%line - %msg%n</pattern>
+      </encoder>
+  </appender>  
+ 
+     <!-- 按照每天生成日志文件 -->  
+	<appender name="FILE"  
+        class="ch.qos.logback.core.rolling.RollingFileAppender">  
+        <Encoding>UTF-8</Encoding>  
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">  
+            <FileNamePattern>${LOG_HOME}/jact.%d{yyyy-MM-dd}.log</FileNamePattern>  
+            <MaxHistory>30</MaxHistory>  
+        </rollingPolicy>  
+        <layout class="ch.qos.logback.classic.PatternLayout">  
+            <pattern>%d [%thread] %-5level %logger{36}:%line - %msg%n</pattern>  
+        </layout>
+    </appender>
+ 
+  <root level="DEBUG">
+    <appender-ref ref="stdout" />
+    <!-- appender-ref ref="FILE" / -->
+  </root>
+</configuration>
