@@ -7,6 +7,11 @@ import org.springframework.stereotype.Component;
 
 import cn.hxh.dao.CommonStatDao;
 
+/**
+ * 统计工具
+ * @author hexuhui
+ *
+ */
 @Component
 public class CommonStatManager {
 
