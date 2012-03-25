@@ -8,7 +8,7 @@ public class ProtobufRedisTemplate extends RedisTemplate<String, Object> {
 
 	public ProtobufRedisTemplate() {
 		RedisSerializer<String> stringSerializer = new StringRedisSerializer();
-		RedisSerializer<Object> protobufSerializer = new ProtobufRedisSerializer<Object>();
+		RedisSerializer<Object> protobufSerializer = new ProtobufRedisSerializer();
 		setKeySerializer(stringSerializer);
 		setValueSerializer(protobufSerializer);
 		setHashKeySerializer(stringSerializer);
