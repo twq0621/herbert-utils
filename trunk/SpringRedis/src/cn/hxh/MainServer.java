@@ -21,6 +21,6 @@ public class MainServer {
 				.getBean(CommonStatManager.class);
 		int ret = commonStatManager.getNewRole("2012-03-23");
 		logger.info("login role={}", ret);
+		commonStatManager.testProtoGet();
 	}
-
 }
