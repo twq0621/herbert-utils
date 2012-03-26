@@ -86,7 +86,6 @@ class AddPerson {
 		FileOutputStream output = new FileOutputStream(args[0]);
 		addressBook.build().writeTo(output);
 		addressBook.build().toByteArray();
-		addressBook.build().parseFrom(new byte[]{});
 		output.close();
 	}
 }
