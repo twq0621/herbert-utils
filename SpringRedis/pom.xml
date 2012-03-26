@@ -7,6 +7,13 @@
 	<properties>
 		<spring.version>3.1.1.RELEASE</spring.version>
 	</properties>
+	<repositories>
+		<repository>
+		   <id>SpringFlex</id>
+		   <name>SpringFlex Source Repo</name>
+		   <url>https://src.springsource.org/svn/spring-flex/tags/spring-flex-1.5.0.RELEASE/local-repo/</url>
+		</repository>
+	</repositories>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.data</groupId>
@@ -66,5 +73,20 @@
 			<artifactId>spring-context-support</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<dependency>
+            <groupId>org.jboss.netty</groupId>
+            <artifactId>netty</artifactId>
+            <version>3.2.7.Final</version>
+        </dependency>
+        <dependency>
+        	<groupId>com.adobe.blazeds</groupId>
+            <artifactId>blazeds-core</artifactId>
+            <version>4.0.0.14931</version>
+        </dependency>
+        <dependency>
+        	<groupId>com.adobe.blazeds</groupId>
+            <artifactId>blazeds-common</artifactId>
+            <version>4.0.0.14931</version>
+        </dependency>
 	</dependencies>
 </project>
