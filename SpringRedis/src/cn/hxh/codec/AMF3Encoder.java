@@ -28,6 +28,7 @@ public class AMF3Encoder extends OneToOneEncoder {
 			// buffer.writeInt(Constants.MAGIC_NUM_PUSH_MSG);
 			// else if (arg2 instanceof CommandMessage)
 			// buffer.writeInt(Constants.MAGIC_NUM_COMMAND_MSG);
+			buffer.writeInt(11);// TODO
 			buffer.writeInt(objSe.length);
 			buffer.writeBytes(objSe);
 			return buffer;
