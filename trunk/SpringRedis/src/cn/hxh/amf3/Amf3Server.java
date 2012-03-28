@@ -35,8 +35,6 @@ public class Amf3Server {
 
 	private ServerBootstrap _bootstrap;
 
-	private static final int PORT = 8643;
-
 	private final Amf3SeverChannelHandler handler = new Amf3SeverChannelHandler();
 
 	private final ChannelUpstreamHandlerFactory handlerFactory = new ChannelUpstreamHandlerFactory() {

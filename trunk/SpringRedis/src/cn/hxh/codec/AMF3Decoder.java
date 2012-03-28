@@ -36,7 +36,7 @@ public class AMF3Decoder extends LengthFieldBasedFrameDecoder {
 	 * @param maxFrameLength
 	 */
 	public AMF3Decoder(int maxFrameLength) {
-		super(maxFrameLength, 4, 4, 0, 0);
+		super(maxFrameLength, 0, 4, 0, 0);
 	}
 
 	/**
@@ -51,9 +51,8 @@ public class AMF3Decoder extends LengthFieldBasedFrameDecoder {
 			return null;
 		}
 		//
-		int magicNum = frame.readInt();
 		int dataLength = frame.readInt();
-		logger.info("magic num={},data length={}", magicNum, dataLength);
+		logger.info("data length={}", dataLength);
 		// 读AMF3字节流的内容
 		byte[] content = new byte[frame.readableBytes()];
 		frame.readBytes(content);
