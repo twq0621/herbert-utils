@@ -1,7 +1,5 @@
 package cn.hxh.amf3;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.log4j.Logger;
@@ -11,6 +9,8 @@ import org.jboss.netty.channel.ExceptionEvent;
 import org.jboss.netty.channel.MessageEvent;
 import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
 
+import cn.hxh.core.CallPool;
+
 public class Amf3ClientChannelHandler extends SimpleChannelUpstreamHandler {
 
 	private static final Logger logger = Logger
@@ -18,18 +18,8 @@ public class Amf3ClientChannelHandler extends SimpleChannelUpstreamHandler {
 
 	private final AtomicInteger seqNum = new AtomicInteger(0);
 
-	private final Map<Integer, ResponsePrototypeRpcCallback> callbackMap = new ConcurrentHashMap<Integer, ResponsePrototypeRpcCallback>();
-
 	public int getNextSeqId() {
 		return seqNum.getAndIncrement();
-	}
-
-	public synchronized void registerCallback(int seqId,
-			ResponsePrototypeRpcCallback callback) {
-		if (callbackMap.containsKey(seqId)) {
-			throw new IllegalArgumentException("Callback already registered");
-		}
-		callbackMap.put(seqId, callback);
 	}
 
 	@Override
@@ -40,29 +30,11 @@ public class Amf3ClientChannelHandler extends SimpleChannelUpstreamHandler {
 	@Override
 	public void messageReceived(ChannelHandlerContext ctx, MessageEvent e)
 			throws Exception {
-
-		RpcResponse response = (RpcResponse) e.getMessage();
-
-		if (!response.hasId()) {
-			logger.debug("Should never receive response without seqId");
-			return;
-		}
-
-		int seqId = response.getId();
-		ResponsePrototypeRpcCallback callback = callbackMap.remove(seqId);
-
-		if (response.hasErrorCode() && callback != null
-				&& callback.getRpcController() != null) {
-			callback.getRpcController().setFailed(response.getErrorMessage());
-		}
-
-		if (callback == null) {
-			logger.debug("Received response with no callback registered");
+		if (e.getMessage() != null) {
+			CallPool.execute(e.getChannel(), e.getMessage());
 		} else {
-			logger.debug("Invoking callback with response");
-			callback.run(response);
+			logger.error("message is null!");
 		}
-
 	}
 
 	@Override

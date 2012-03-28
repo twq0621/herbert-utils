@@ -47,6 +47,15 @@ public class Amf3Server {
 
 	private final ChannelPipelineFactory pipelineFactory = new Amf3PipelineFactory(
 			handlerFactory);
+	
+	public Amf3Server()
+	{
+		init();
+	}
+
+	private void init() {
+		handler.init();
+	}
 
 	public void initServer() {
 		boolean threadPoolDisabled = true;
@@ -73,9 +82,9 @@ public class Amf3Server {
 		_bootstrap.setPipelineFactory(pipelineFactory);
 	}
 
-	protected boolean startServer() {
+	public boolean startServer(int serverPort) {
 		try {
-			_bootstrap.bind(new InetSocketAddress(PORT)).isBound();
+			_bootstrap.bind(new InetSocketAddress(serverPort)).isBound();
 			return true;
 		} catch (ChannelException e) {
 			logger.error("", e);

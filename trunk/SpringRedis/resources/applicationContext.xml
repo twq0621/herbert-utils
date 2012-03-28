@@ -57,5 +57,9 @@
 			</list>
 		</property>
 	</bean>
+	
+	<!-- 以静态变量保存ApplicationContext -->
+		<bean class="cn.hxh.core.SpringContextHolder"
+			lazy-init="false" />
 
 </beans>

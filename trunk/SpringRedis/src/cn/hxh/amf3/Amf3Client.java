@@ -34,11 +34,6 @@ public class Amf3Client {
 	private final ChannelPipelineFactory pipelineFactory = new Amf3PipelineFactory(
 			handlerFactory);
 
-	public NettyRpcChannel blockingConnect(SocketAddress sa) {
-		return new NettyRpcChannel(bootstrap.connect(sa).awaitUninterruptibly()
-				.getChannel());
-	}
-
 	public void shutdown() {
 		bootstrap.releaseExternalResources();
 	}

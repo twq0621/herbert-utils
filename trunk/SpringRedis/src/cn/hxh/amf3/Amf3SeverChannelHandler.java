@@ -10,6 +10,9 @@ import org.jboss.netty.channel.SimpleChannelHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import cn.hxh.core.CallPool;
+import cn.hxh.core.GameService;
+
 public class Amf3SeverChannelHandler extends SimpleChannelHandler {
 
 	public static Logger logger = LoggerFactory
@@ -18,18 +21,14 @@ public class Amf3SeverChannelHandler extends SimpleChannelHandler {
 	@Override
 	public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) {
 		if (e.getMessage() != null) {
-			// ChannelManager channelManager = PushServerContext
-			// .getBean(ChannelManager.class);
-			// if (e.getMessage() instanceof CommandMessage) {
-			// channelManager.handleMsg((CommandMessage) e.getMessage(),
-			// e.getChannel());
-			// } else if (e.getMessage() instanceof PushMessage) {
-			// channelManager.handleMsg((PushMessage) e.getMessage(),
-			// e.getChannel());
-			// } else {
-			// log.warn("unkown message {}", e);
-			// }
+			CallPool.execute(e.getChannel(), e.getMessage());
+		} else {
+			logger.error("", e);
 		}
+	}
+
+	public void init() {
+		CallPool.init(GameService.class);
 	}
 
 	@Override
