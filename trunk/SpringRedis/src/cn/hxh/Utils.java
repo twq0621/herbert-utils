@@ -24,6 +24,8 @@ public class Utils {
 	private static final char BYTE_SEPARATOR = ' ';
 
 	public static final String DTO_END_STR = "_C2S";
+	
+	public static final String S2C_END_STR = "_S2C";
 
 	public static String toHex(final byte[] ba) {
 		return toHex(ba, false);

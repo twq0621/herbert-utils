@@ -9,7 +9,7 @@ import org.jboss.netty.channel.ExceptionEvent;
 import org.jboss.netty.channel.MessageEvent;
 import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
 
-import cn.hxh.core.CallPool;
+import cn.hxh.core.ClientCallPool;
 
 public class Amf3ClientChannelHandler extends SimpleChannelUpstreamHandler {
 
@@ -31,7 +31,7 @@ public class Amf3ClientChannelHandler extends SimpleChannelUpstreamHandler {
 	public void messageReceived(ChannelHandlerContext ctx, MessageEvent e)
 			throws Exception {
 		if (e.getMessage() != null) {
-			CallPool.execute(e.getChannel(), e.getMessage());
+			ClientCallPool.execute(e.getChannel(), e.getMessage());
 		} else {
 			logger.error("message is null!");
 		}

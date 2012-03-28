@@ -12,7 +12,7 @@ import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
 
 import cn.hxh.core.ProtobufRedisTemplate;
-import cn.hxh.stat.StatConstants;
+import cn.hxh.service.StatConstants;
 
 import com.example.tutorial.AddressBookProtos.Person;
 import com.google.protobuf.InvalidProtocolBufferException;
