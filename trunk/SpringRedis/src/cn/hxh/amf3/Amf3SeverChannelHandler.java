@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.channels.ClosedChannelException;
 
 import org.jboss.netty.channel.ChannelHandlerContext;
+import org.jboss.netty.channel.ChannelStateEvent;
 import org.jboss.netty.channel.ExceptionEvent;
 import org.jboss.netty.channel.MessageEvent;
 import org.jboss.netty.channel.SimpleChannelHandler;
@@ -25,6 +26,12 @@ public class Amf3SeverChannelHandler extends SimpleChannelHandler {
 		} else {
 			logger.error("", e);
 		}
+	}
+
+	@Override
+	public void channelClosed(ChannelHandlerContext ctx, ChannelStateEvent e)
+			throws Exception {
+		super.channelClosed(ctx, e);
 	}
 
 	public void init() {

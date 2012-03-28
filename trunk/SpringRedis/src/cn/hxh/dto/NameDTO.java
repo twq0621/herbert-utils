@@ -1,5 +1,7 @@
 package cn.hxh.dto;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
 public class NameDTO {
 
 	private String name;
@@ -40,6 +42,11 @@ public class NameDTO {
 
 	public void setMoney(float money) {
 		this.money = money;
+	}
+
+	@Override
+	public String toString() {
+		return ReflectionToStringBuilder.toString(this);
 	}
 
 }

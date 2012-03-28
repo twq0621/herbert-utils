@@ -40,7 +40,8 @@ public class ClientCallPool {
 					simpleClassName.indexOf((Utils.S2C_END_STR))).toLowerCase();
 			Method callMethod = methodMap.get(methodName);
 			if (callMethod == null) {
-				logger.error("method not find!name={}", methodName);
+				logger.error("method not find!name={},class={}", methodName,
+						ClientCallPool.gameService.getName());
 				return;
 			}
 			try {

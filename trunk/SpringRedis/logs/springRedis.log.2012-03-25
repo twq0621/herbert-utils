@@ -1,0 +1,60 @@
+2012-03-25 11:51:42,515 [main] INFO  [cn.hxh.stat.CommonStatManager] - query date:2012-03-23
+2012-03-25 11:51:42,609 [main] INFO  [cn.hxh.MainServer] - login role=0
+2012-03-25 14:14:32,781 [main] INFO  [cn.hxh.stat.CommonStatManager] - query date:2012-03-23
+2012-03-25 14:14:32,859 [main] INFO  [cn.hxh.MainServer] - login role=0
+2012-03-25 15:28:27,859 [main] INFO  [cn.hxh.stat.CommonStatManager] - query date:2012-03-23
+2012-03-25 15:28:27,921 [main] INFO  [cn.hxh.MainServer] - login role=0
+2012-03-25 15:28:27,921 [main] INFO  [cn.hxh.dao.CommonStatDao] - protobuf save person!
+2012-03-25 15:34:53,437 [main] INFO  [cn.hxh.stat.CommonStatManager] - query date:2012-03-23
+2012-03-25 15:34:53,500 [main] INFO  [cn.hxh.MainServer] - login role=0
+2012-03-25 15:34:53,656 [main] INFO  [cn.hxh.dao.CommonStatDao] - p=name: "John Doe"
+id: 1234
+email: "jdoe@example.com"
+phone {
+  number: "555-4321"
+  type: HOME
+}
+
+2012-03-25 15:53:03,781 [main] INFO  [cn.hxh.stat.CommonStatManager] - query date:2012-03-23
+2012-03-25 15:53:03,843 [main] INFO  [cn.hxh.MainServer] - login role=0
+2012-03-25 15:53:04,015 [main] INFO  [cn.hxh.dao.CommonStatDao] - p=name: "John Doe"
+id: 1234
+email: "jdoe@example.com"
+phone {
+  number: "555-4321"
+  type: HOME
+}
+
+2012-03-25 15:57:58,968 [main] INFO  [cn.hxh.stat.CommonStatManager] - query date:2012-03-23
+2012-03-25 15:57:59,031 [main] INFO  [cn.hxh.MainServer] - login role=0
+2012-03-25 15:57:59,187 [main] INFO  [cn.hxh.dao.CommonStatDao] - p=name: "John Doe"
+id: 1234
+email: "jdoe@example.com"
+phone {
+  number: "555-4321"
+  type: HOME
+}
+
+2012-03-25 15:57:59,187 [main] INFO  [cn.hxh.dao.CommonStatDao] - retAge=56
+2012-03-25 20:27:23,625 [main] INFO  [cn.hxh.stat.CommonStatManager] - query date:2012-03-23
+2012-03-25 20:27:23,703 [main] INFO  [cn.hxh.MainServer] - login role=0
+2012-03-25 20:27:23,843 [main] INFO  [cn.hxh.dao.CommonStatDao] - p=name: "John Doe"
+id: 1234
+email: "jdoe@example.com"
+phone {
+  number: "555-4321"
+  type: HOME
+}
+
+2012-03-25 20:27:23,859 [main] INFO  [cn.hxh.dao.CommonStatDao] - retAge=28
+2012-03-25 20:29:23,484 [main] INFO  [cn.hxh.stat.CommonStatManager] - query date:2012-03-23
+2012-03-25 20:29:23,546 [main] INFO  [cn.hxh.MainServer] - login role=0
+2012-03-25 20:29:23,687 [main] INFO  [cn.hxh.dao.CommonStatDao] - p=name: "John Doe"
+id: 1234
+email: "jdoe@example.com"
+phone {
+  number: "555-4321"
+  type: HOME
+}
+
+2012-03-25 20:29:23,687 [main] INFO  [cn.hxh.dao.CommonStatDao] - retAge=56
