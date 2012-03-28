@@ -30,14 +30,16 @@ public class MainServer {
 		ApplicationContext factory = new ClassPathXmlApplicationContext(
 				"applicationContext.xml");
 		MainServer server = new MainServer();
+		logger.info("server init success!,factory={},server={}", factory,
+				server);
 		// CommonStatManager commonStatManager = factory
 		// .getBean(CommonStatManager.class);
 		// int ret = commonStatManager.getNewRole("2012-03-23");
 		// logger.info("login role={}", ret);
 		// commonStatManager.testProtoGet();
-//		CallPool.init(GameService.class);
-//		GetNewRole_C2S c2s = new GetNewRole_C2S();
-//		c2s.setQueryDay("2012-03-13");
+		// CallPool.init(GameService.class);
+		// GetNewRole_C2S c2s = new GetNewRole_C2S();
+		// c2s.setQueryDay("2012-03-13");
 		// CallPool.execute(c2s);
 	}
 }
