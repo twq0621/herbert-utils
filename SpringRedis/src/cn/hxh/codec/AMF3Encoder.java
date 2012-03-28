@@ -23,12 +23,11 @@ public class AMF3Encoder extends OneToOneEncoder {
 		amf3Output.writeObject(arg2);
 		byte[] objSe = stream.toByteArray();
 		if (objSe != null && objSe.length > 0) {
-			ChannelBuffer buffer = ChannelBuffers.buffer(objSe.length + 8);
+			ChannelBuffer buffer = ChannelBuffers.buffer(objSe.length + 4);
 			// if (arg2 instanceof PushMessage)
 			// buffer.writeInt(Constants.MAGIC_NUM_PUSH_MSG);
 			// else if (arg2 instanceof CommandMessage)
 			// buffer.writeInt(Constants.MAGIC_NUM_COMMAND_MSG);
-			buffer.writeInt(11);// TODO
 			buffer.writeInt(objSe.length);
 			buffer.writeBytes(objSe);
 			return buffer;
