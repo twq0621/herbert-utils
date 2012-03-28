@@ -2,7 +2,7 @@ package cn.hxh.dto;
 
 import java.io.Serializable;
 
-public class GetNewRole_C2S extends Amf3BaseDto implements Serializable {
+public class GetNewRole_C2S implements Serializable {
 
 	private static final long serialVersionUID = -6474250436607778655L;
 

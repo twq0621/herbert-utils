@@ -1,4 +1,4 @@
-package cn.hxh.stat;
+package cn.hxh.service;
 
 public class StatConstants {
 

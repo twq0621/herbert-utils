@@ -1,4 +1,4 @@
-package cn.hxh.stat;
+package cn.hxh.service;
 
 import org.jboss.netty.channel.Channel;
 import org.slf4j.Logger;
@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import cn.hxh.dao.CommonStatDao;
+import cn.hxh.dto.GetNewRole_S2C;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 
@@ -25,10 +26,13 @@ public class CommonStatManager {
 	@Autowired
 	private CommonStatDao commonStatDao;
 
-	public Integer getNewRole(Channel channel, String queryDate) {
+	public void getNewRole(Channel channel, String queryDate) {
 		logger.info("query date:{}", queryDate);
-		Long retCount = commonStatDao.getDailyNewRole(queryDate);
-		return retCount.intValue();
+		// Long retCount = commonStatDao.getDailyNewRole(queryDate);
+		GetNewRole_S2C retMsg = new GetNewRole_S2C();
+		retMsg.setRetCode(1);
+		retMsg.setRoleCount(100);
+		channel.write(retMsg);
 	}
 
 	public Integer getPassRookieCount(String queryDate) {

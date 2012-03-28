@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cn.hxh.core.CallPool;
-import cn.hxh.core.GameService;
+import cn.hxh.service.ServerGameService;
 
 public class Amf3SeverChannelHandler extends SimpleChannelHandler {
 
@@ -28,7 +28,7 @@ public class Amf3SeverChannelHandler extends SimpleChannelHandler {
 	}
 
 	public void init() {
-		CallPool.init(GameService.class);
+		CallPool.init(ServerGameService.class);
 	}
 
 	@Override

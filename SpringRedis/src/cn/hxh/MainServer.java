@@ -6,9 +6,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import cn.hxh.amf3.Amf3Server;
-import cn.hxh.core.CallPool;
-import cn.hxh.core.GameService;
-import cn.hxh.dto.GetNewRole_C2S;
 
 public class MainServer {
 
@@ -38,9 +35,9 @@ public class MainServer {
 		// int ret = commonStatManager.getNewRole("2012-03-23");
 		// logger.info("login role={}", ret);
 		// commonStatManager.testProtoGet();
-		CallPool.init(GameService.class);
-		GetNewRole_C2S c2s = new GetNewRole_C2S();
-		c2s.setQueryDay("2012-03-13");
+//		CallPool.init(GameService.class);
+//		GetNewRole_C2S c2s = new GetNewRole_C2S();
+//		c2s.setQueryDay("2012-03-13");
 		// CallPool.execute(c2s);
 	}
 }
