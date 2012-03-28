@@ -5,11 +5,26 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cn.hxh.stat.CommonStatManager;
+import cn.hxh.amf3.Amf3Server;
+import cn.hxh.core.CallPool;
+import cn.hxh.core.GameService;
+import cn.hxh.dto.GetNewRole_C2S;
 
 public class MainServer {
 
 	private static Logger logger = LoggerFactory.getLogger(MainServer.class);
+
+	private Amf3Server amf3Server;
+
+	public MainServer() {
+		init();
+	}
+
+	private void init() {
+		amf3Server = new Amf3Server();
+		amf3Server.initServer();
+		amf3Server.startServer(8653);
+	}
 
 	/**
 	 * @param args
@@ -17,10 +32,15 @@ public class MainServer {
 	public static void main(String[] args) {
 		ApplicationContext factory = new ClassPathXmlApplicationContext(
 				"applicationContext.xml");
-		CommonStatManager commonStatManager = factory
-				.getBean(CommonStatManager.class);
-		int ret = commonStatManager.getNewRole("2012-03-23");
-		logger.info("login role={}", ret);
-		commonStatManager.testProtoGet();
+		MainServer server = new MainServer();
+		// CommonStatManager commonStatManager = factory
+		// .getBean(CommonStatManager.class);
+		// int ret = commonStatManager.getNewRole("2012-03-23");
+		// logger.info("login role={}", ret);
+		// commonStatManager.testProtoGet();
+		CallPool.init(GameService.class);
+		GetNewRole_C2S c2s = new GetNewRole_C2S();
+		c2s.setQueryDay("2012-03-13");
+		// CallPool.execute(c2s);
 	}
 }
