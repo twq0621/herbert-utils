@@ -10,10 +10,10 @@ import org.jboss.netty.channel.SimpleChannelHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Amf3ProtocolHandler extends SimpleChannelHandler {
+public class Amf3SeverChannelHandler extends SimpleChannelHandler {
 
 	public static Logger logger = LoggerFactory
-			.getLogger(Amf3ProtocolHandler.class);
+			.getLogger(Amf3SeverChannelHandler.class);
 
 	@Override
 	public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) {

@@ -7,6 +7,8 @@ import java.util.concurrent.TimeUnit;
 import org.jboss.netty.bootstrap.ServerBootstrap;
 import org.jboss.netty.channel.AdaptiveReceiveBufferSizePredictorFactory;
 import org.jboss.netty.channel.ChannelException;
+import org.jboss.netty.channel.ChannelPipelineFactory;
+import org.jboss.netty.channel.ChannelUpstreamHandler;
 import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 import org.jboss.netty.handler.execution.ExecutionHandler;
 import org.jboss.netty.handler.execution.OrderedMemoryAwareThreadPoolExecutor;
@@ -35,6 +37,17 @@ public class Amf3Server {
 
 	private static final int PORT = 8643;
 
+	private final Amf3SeverChannelHandler handler = new Amf3SeverChannelHandler();
+
+	private final ChannelUpstreamHandlerFactory handlerFactory = new ChannelUpstreamHandlerFactory() {
+		public ChannelUpstreamHandler getChannelUpstreamHandler() {
+			return handler;
+		}
+	};
+
+	private final ChannelPipelineFactory pipelineFactory = new Amf3PipelineFactory(
+			handlerFactory);
+
 	public void initServer() {
 		boolean threadPoolDisabled = true;
 		int workerCount = Runtime.getRuntime().availableProcessors() * 2 + 1;
@@ -57,7 +70,7 @@ public class Amf3Server {
 				new AdaptiveReceiveBufferSizePredictorFactory(
 						MIN_READ_BUFFER_SIZE, INITIAL_READ_BUFFER_SIZE,
 						MAX_READ_BUFFER_SIZE));
-		_bootstrap.setPipelineFactory(new Amf3ServerPipelineFactory());
+		_bootstrap.setPipelineFactory(pipelineFactory);
 	}
 
 	protected boolean startServer() {
