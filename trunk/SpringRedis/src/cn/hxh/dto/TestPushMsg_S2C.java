@@ -2,7 +2,7 @@ package cn.hxh.dto;
 
 import java.io.Serializable;
 
-public class TestPushMsg_S2C extends Amf3BaseDto implements Serializable {
+public class TestPushMsg_S2C extends Amf3BaseDTO implements Serializable {
 
 	private static final long serialVersionUID = 6110053063586313065L;
 

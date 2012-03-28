@@ -30,7 +30,7 @@ public class CommonStatManager {
 		logger.info("query date:{}", queryDate);
 		// Long retCount = commonStatDao.getDailyNewRole(queryDate);
 		GetNewRole_S2C retMsg = new GetNewRole_S2C();
-		retMsg.setRetCode(1);
+		retMsg.setCode(1);
 		retMsg.setRoleCount(100);
 		channel.write(retMsg);
 	}
