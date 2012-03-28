@@ -1,10 +1,10 @@
 package cn.hxh.core;
 
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.jboss.netty.channel.Channel;
-import org.jboss.netty.util.internal.ConcurrentHashMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,7 +14,7 @@ public class CallPool {
 
 	private static Logger logger = LoggerFactory.getLogger(CallPool.class);
 
-	private static Map<String, Method> methodMap = new ConcurrentHashMap<String, Method>();
+	private static Map<String, Method> methodMap = new HashMap<String, Method>();
 
 	private static Class<? extends IGameService> gameService;
 
@@ -40,7 +40,8 @@ public class CallPool {
 					simpleClassName.indexOf((Utils.DTO_END_STR))).toLowerCase();
 			Method callMethod = methodMap.get(methodName);
 			if (callMethod == null) {
-				logger.error("method not find!name={}", methodName);
+				logger.error("method not find!name={},class={}", methodName,
+						CallPool.gameService.getName());
 				return;
 			}
 			try {
