@@ -1,0 +1,164 @@
+2012-03-28 14:05:36,689 [main] INFO  [cn.hxh.core.CallPool] - cn.hxh.core.GameService
+2012-03-28 14:05:36,689 [main] INFO  [cn.hxh.core.CallPool] - cn.hxh.core
+2012-03-28 14:05:36,689 [main] INFO  [cn.hxh.core.CallPool] - GameService
+2012-03-28 16:01:41,810 [main] ERROR [cn.hxh.core.CallPool] - method could not find!name=getnewrole
+2012-03-28 16:02:10,367 [main] ERROR [cn.hxh.core.CallPool] - 
+java.lang.IllegalStateException: applicaitonContext属性未注入, 请在applicationContext.xml中定义SpringContextHolder.
+	at org.apache.commons.lang3.Validate.validState(Validate.java:826)
+	at cn.hxh.core.SpringContextHolder.assertContextInjected(SpringContextHolder.java:85)
+	at cn.hxh.core.SpringContextHolder.getBean(SpringContextHolder.java:44)
+	at cn.hxh.core.CallPool.execute(CallPool.java:48)
+	at cn.hxh.MainServer.main(MainServer.java:30)
+2012-03-28 16:04:11,264 [main] INFO  [cn.hxh.stat.CommonStatManager] - query date:2012-03-13
+2012-03-28 16:04:12,359 [main] ERROR [cn.hxh.core.CallPool] - 
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at cn.hxh.core.CallPool.execute(CallPool.java:47)
+	at cn.hxh.MainServer.main(MainServer.java:31)
+Caused by: org.springframework.dao.DataAccessResourceFailureException: Cannot get Jedis connection; nested exception is redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at org.springframework.data.redis.connection.jedis.JedisConnectionFactory.fetchJedisConnector(JedisConnectionFactory.java:101)
+	at org.springframework.data.redis.connection.jedis.JedisConnectionFactory.getConnection(JedisConnectionFactory.java:148)
+	at org.springframework.data.redis.connection.jedis.JedisConnectionFactory.getConnection(JedisConnectionFactory.java:41)
+	at org.springframework.data.redis.core.RedisConnectionUtils.doGetConnection(RedisConnectionUtils.java:82)
+	at org.springframework.data.redis.core.RedisConnectionUtils.getConnection(RedisConnectionUtils.java:54)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:150)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:133)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:75)
+	at org.springframework.data.redis.core.DefaultSetOperations.size(DefaultSetOperations.java:197)
+	at cn.hxh.dao.CommonStatDao.getDailyNewRole(CommonStatDao.java:36)
+	at cn.hxh.stat.CommonStatManager.getNewRole(CommonStatManager.java:29)
+	at cn.hxh.core.GameService.getNewRole(GameService.java:16)
+	... 6 more
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at redis.clients.util.Pool.getResource(Pool.java:22)
+	at org.springframework.data.redis.connection.jedis.JedisConnectionFactory.fetchJedisConnector(JedisConnectionFactory.java:94)
+	... 17 more
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused: connect
+	at redis.clients.jedis.Connection.connect(Connection.java:124)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:54)
+	at redis.clients.jedis.BinaryJedis.connect(BinaryJedis.java:1657)
+	at redis.clients.jedis.JedisPool$JedisFactory.makeObject(JedisPool.java:63)
+	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:1158)
+	at redis.clients.util.Pool.getResource(Pool.java:20)
+	... 18 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:351)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:213)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:200)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at redis.clients.jedis.Connection.connect(Connection.java:119)
+	... 23 more
+2012-03-28 16:04:28,600 [main] INFO  [cn.hxh.stat.CommonStatManager] - query date:2012-03-13
+2012-03-28 16:09:09,657 [main] INFO  [cn.hxh.stat.CommonStatManager] - query date:2012-03-13
+2012-03-28 20:16:35,250 [New I/O client worker #1-1] INFO  [cn.hxh.amf3.Amf3ClientChannelHandler] - Channel connected
+2012-03-28 20:16:35,283 [New I/O server worker #1-2] INFO  [cn.hxh.codec.AMF3Decoder] - magic num=11,data length=49
+2012-03-28 20:16:35,379 [New I/O server worker #1-2] INFO  [cn.hxh.stat.CommonStatManager] - query date:2012-03-14
+2012-03-28 20:17:06,117 [New I/O server worker #1-2] INFO  [cn.hxh.amf3.Amf3SeverChannelHandler] - IOException: 远程主机强迫关闭了一个现有的连接。
+2012-03-28 20:23:42,512 [New I/O client worker #1-1] INFO  [cn.hxh.amf3.Amf3ClientChannelHandler] - Channel connected
+2012-03-28 20:23:42,540 [New I/O server worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - magic num=11,data length=49
+2012-03-28 20:23:42,612 [New I/O server worker #1-1] INFO  [cn.hxh.stat.CommonStatManager] - query date:2012-03-14
+2012-03-28 20:23:42,620 [New I/O client worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - magic num=11,data length=50
+2012-03-28 20:23:56,314 [New I/O server worker #1-1] INFO  [cn.hxh.amf3.Amf3SeverChannelHandler] - IOException: 远程主机强迫关闭了一个现有的连接。
+2012-03-28 20:25:22,756 [New I/O client worker #1-1] INFO  [cn.hxh.amf3.Amf3ClientChannelHandler] - Channel connected
+2012-03-28 20:25:22,773 [New I/O server worker #1-2] INFO  [cn.hxh.codec.AMF3Decoder] - magic num=11,data length=49
+2012-03-28 20:25:22,774 [New I/O server worker #1-2] INFO  [cn.hxh.stat.CommonStatManager] - query date:2012-03-14
+2012-03-28 20:25:22,776 [New I/O client worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - magic num=11,data length=50
+2012-03-28 20:25:26,235 [New I/O server worker #1-2] INFO  [cn.hxh.amf3.Amf3SeverChannelHandler] - IOException: 远程主机强迫关闭了一个现有的连接。
+2012-03-28 20:25:31,560 [New I/O client worker #1-1] INFO  [cn.hxh.amf3.Amf3ClientChannelHandler] - Channel connected
+2012-03-28 20:25:31,591 [New I/O server worker #1-3] INFO  [cn.hxh.codec.AMF3Decoder] - magic num=11,data length=49
+2012-03-28 20:25:31,591 [New I/O server worker #1-3] INFO  [cn.hxh.stat.CommonStatManager] - query date:2012-03-14
+2012-03-28 20:25:31,591 [New I/O client worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - magic num=11,data length=50
+2012-03-28 20:25:55,796 [New I/O server worker #1-3] INFO  [cn.hxh.amf3.Amf3SeverChannelHandler] - IOException: 远程主机强迫关闭了一个现有的连接。
+2012-03-28 20:26:40,580 [New I/O client worker #1-1] INFO  [cn.hxh.amf3.Amf3ClientChannelHandler] - Channel connected
+2012-03-28 20:26:40,596 [New I/O server worker #1-4] INFO  [cn.hxh.codec.AMF3Decoder] - magic num=11,data length=49
+2012-03-28 20:26:40,596 [New I/O server worker #1-4] INFO  [cn.hxh.stat.CommonStatManager] - query date:2012-03-14
+2012-03-28 20:26:40,596 [New I/O client worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - magic num=11,data length=50
+2012-03-28 20:26:40,597 [New I/O client worker #1-1] ERROR [cn.hxh.core.CallPool] - 
+java.lang.IllegalStateException: applicaitonContext属性未注入, 请在applicationContext.xml中定义SpringContextHolder.
+	at org.apache.commons.lang3.Validate.validState(Validate.java:826)
+	at cn.hxh.core.SpringContextHolder.assertContextInjected(SpringContextHolder.java:85)
+	at cn.hxh.core.SpringContextHolder.getBean(SpringContextHolder.java:44)
+	at cn.hxh.core.ClientCallPool.execute(ClientCallPool.java:48)
+	at cn.hxh.amf3.Amf3ClientChannelHandler.messageReceived(Amf3ClientChannelHandler.java:34)
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:80)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564)
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:783)
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:302)
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:321)
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.callDecode(FrameDecoder.java:299)
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.messageReceived(FrameDecoder.java:216)
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:80)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:559)
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:274)
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:261)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:351)
+	at org.jboss.netty.channel.socket.nio.NioWorker.processSelectedKeys(NioWorker.java:282)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:202)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:44)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:662)
+2012-03-28 20:27:17,501 [New I/O server worker #1-4] INFO  [cn.hxh.amf3.Amf3SeverChannelHandler] - IOException: 远程主机强迫关闭了一个现有的连接。
+2012-03-28 20:28:01,276 [New I/O client worker #1-1] INFO  [cn.hxh.amf3.Amf3ClientChannelHandler] - Channel connected
+2012-03-28 20:28:01,305 [New I/O server worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - magic num=11,data length=49
+2012-03-28 20:28:01,376 [New I/O server worker #1-1] INFO  [cn.hxh.stat.CommonStatManager] - query date:2012-03-14
+2012-03-28 20:28:01,384 [New I/O client worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - magic num=11,data length=50
+2012-03-28 20:28:01,400 [New I/O client worker #1-1] INFO  [cn.hxh.MainServer] - receive getNewRoleMsg,count=100
+2012-03-28 20:28:06,251 [New I/O server worker #1-1] INFO  [cn.hxh.amf3.Amf3SeverChannelHandler] - IOException: 远程主机强迫关闭了一个现有的连接。
+2012-03-28 20:42:58,412 [New I/O client worker #1-1] INFO  [cn.hxh.amf3.Amf3ClientChannelHandler] - Channel connected
+2012-03-28 20:42:58,443 [New I/O server worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - magic num=11,data length=32
+2012-03-28 20:42:58,522 [New I/O client worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - magic num=11,data length=53
+2012-03-28 20:42:58,538 [New I/O client worker #1-1] INFO  [cn.hxh.MainServer] - getOnlineNames,ret=null
+2012-03-28 20:43:34,043 [New I/O server worker #1-1] INFO  [cn.hxh.amf3.Amf3SeverChannelHandler] - IOException: 远程主机强迫关闭了一个现有的连接。
+2012-03-28 20:43:52,789 [New I/O client worker #1-1] INFO  [cn.hxh.amf3.Amf3ClientChannelHandler] - Channel connected
+2012-03-28 20:43:52,816 [New I/O server worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - magic num=11,data length=32
+2012-03-28 20:43:52,889 [New I/O client worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - magic num=11,data length=99
+2012-03-28 20:43:52,906 [New I/O client worker #1-1] INFO  [cn.hxh.MainServer] - getOnlineNames,ret=[he, xu]
+2012-03-28 20:44:04,433 [New I/O server worker #1-1] INFO  [cn.hxh.amf3.Amf3SeverChannelHandler] - IOException: 远程主机强迫关闭了一个现有的连接。
+2012-03-28 20:53:30,273 [New I/O client worker #1-1] INFO  [cn.hxh.amf3.Amf3ClientChannelHandler] - Channel connected
+2012-03-28 20:53:30,299 [New I/O server worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - magic num=11,data length=49
+2012-03-28 20:53:30,370 [New I/O server worker #1-1] INFO  [cn.hxh.service.CommonStatManager] - query date:2012-03-14
+2012-03-28 20:53:30,376 [New I/O server worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - magic num=11,data length=32
+2012-03-28 20:53:30,378 [New I/O client worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - magic num=11,data length=50
+2012-03-28 20:53:30,394 [New I/O client worker #1-1] INFO  [cn.hxh.MainServer] - receive getNewRoleMsg,count=100
+2012-03-28 20:53:30,394 [New I/O client worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - magic num=11,data length=99
+2012-03-28 20:53:30,395 [New I/O client worker #1-1] INFO  [cn.hxh.MainServer] - getOnlineNames,ret=[he, xu]
+2012-03-28 20:54:08,252 [New I/O server worker #1-1] INFO  [cn.hxh.amf3.Amf3SeverChannelHandler] - IOException: 远程主机强迫关闭了一个现有的连接。
+2012-03-28 20:57:20,617 [New I/O client worker #1-1] INFO  [cn.hxh.amf3.Amf3ClientChannelHandler] - Channel connected
+2012-03-28 20:57:24,159 [New I/O server worker #1-1] INFO  [cn.hxh.amf3.Amf3SeverChannelHandler] - IOException: 远程主机强迫关闭了一个现有的连接。
+2012-03-28 20:57:53,792 [New I/O client worker #1-1] INFO  [cn.hxh.amf3.Amf3ClientChannelHandler] - Channel connected
+2012-03-28 20:57:53,824 [New I/O server worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - data length=49
+2012-03-28 20:57:53,887 [New I/O server worker #1-1] INFO  [cn.hxh.service.CommonStatManager] - query date:2012-03-14
+2012-03-28 20:57:53,887 [New I/O server worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - data length=32
+2012-03-28 20:57:53,903 [New I/O client worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - data length=50
+2012-03-28 20:57:53,918 [New I/O client worker #1-1] INFO  [cn.hxh.MainServer] - receive getNewRoleMsg,count=100
+2012-03-28 20:57:53,918 [New I/O client worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - data length=99
+2012-03-28 20:57:53,918 [New I/O client worker #1-1] INFO  [cn.hxh.MainServer] - getOnlineNames,ret=[he, xu]
+2012-03-28 20:58:33,692 [New I/O server worker #1-1] INFO  [cn.hxh.amf3.Amf3SeverChannelHandler] - IOException: 远程主机强迫关闭了一个现有的连接。
+2012-03-28 20:58:41,632 [New I/O client worker #1-1] INFO  [cn.hxh.amf3.Amf3ClientChannelHandler] - Channel connected
+2012-03-28 20:58:41,664 [New I/O server worker #1-2] INFO  [cn.hxh.codec.AMF3Decoder] - data length=49
+2012-03-28 20:58:41,664 [New I/O server worker #1-2] INFO  [cn.hxh.service.CommonStatManager] - query date:2012-03-14
+2012-03-28 20:58:41,664 [New I/O server worker #1-2] INFO  [cn.hxh.codec.AMF3Decoder] - data length=32
+2012-03-28 20:58:41,664 [New I/O client worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - data length=50
+2012-03-28 20:58:41,665 [New I/O client worker #1-1] INFO  [cn.hxh.MainServer] - receive getNewRoleMsg,count=100
+2012-03-28 20:58:41,665 [New I/O client worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - data length=99
+2012-03-28 20:58:58,731 [New I/O client worker #1-1] INFO  [cn.hxh.MainServer] - getOnlineNames,ret=[he, xu]
+2012-03-28 20:59:00,479 [New I/O server worker #1-2] INFO  [cn.hxh.amf3.Amf3SeverChannelHandler] - IOException: 远程主机强迫关闭了一个现有的连接。
+2012-03-28 21:04:18,909 [main] INFO  [cn.hxh.MainServer] - server init success!,factory=org.springframework.context.support.ClassPathXmlApplicationContext@ae000d: startup date [Wed Mar 28 21:04:18 CST 2012]; root of context hierarchy,server=cn.hxh.MainServer@b33d0a
+2012-03-28 21:04:29,428 [main] INFO  [cn.hxh.MainClient] - spring init success!,factory=org.springframework.context.support.ClassPathXmlApplicationContext@ae000d: startup date [Wed Mar 28 21:04:29 CST 2012]; root of context hierarchy
+2012-03-28 21:04:29,488 [New I/O client worker #1-1] INFO  [cn.hxh.amf3.Amf3ClientChannelHandler] - Channel connected
+2012-03-28 21:04:29,515 [New I/O server worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - data length=49
+2012-03-28 21:04:29,589 [New I/O server worker #1-1] INFO  [cn.hxh.service.CommonStatManager] - query date:2012-03-14
+2012-03-28 21:04:29,594 [New I/O server worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - data length=32
+2012-03-28 21:04:29,596 [New I/O client worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - data length=50
+2012-03-28 21:04:29,612 [New I/O client worker #1-1] INFO  [cn.hxh.MainServer] - receive getNewRoleMsg,count=100
+2012-03-28 21:04:29,612 [New I/O client worker #1-1] INFO  [cn.hxh.codec.AMF3Decoder] - data length=99
+2012-03-28 21:04:29,614 [New I/O client worker #1-1] INFO  [cn.hxh.MainServer] - getOnlineNames,ret=[he, xu]
+2012-03-28 21:04:41,487 [New I/O server worker #1-1] INFO  [cn.hxh.amf3.Amf3SeverChannelHandler] - IOException: 远程主机强迫关闭了一个现有的连接。

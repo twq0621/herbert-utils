@@ -8,6 +8,6 @@ public class ErrorCode {
 	
 	public static final int USER_NAME_EXIST = 2;
 	
-	public static final int ROLE_NAME_EXIST = 3;
+	public static final int ROLE_NAME_ALREADY_EXIST = 3;
 
 }

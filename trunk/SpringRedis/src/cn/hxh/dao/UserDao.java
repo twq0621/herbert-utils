@@ -1,11 +1,14 @@
 package cn.hxh.dao;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
+import org.springframework.data.redis.core.SetOperations;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
@@ -14,7 +17,10 @@ import cn.hxh.common.RedisFieldConstants;
 import cn.hxh.common.RedisKeyConstants;
 import cn.hxh.core.ProtobufRedisTemplate;
 import cn.hxh.dto.CreateRole_C2S;
+import cn.hxh.dto.RoleDto;
 import cn.hxh.entity.RoleInfoProtos.RoleInfo;
+
+import com.google.protobuf.InvalidProtocolBufferException;
 
 @Component
 public class UserDao {
@@ -87,7 +93,27 @@ public class UserDao {
 		vo.set(roleKey, roleInfo);
 		// 保存角色名
 		String userRolesKey = getUserRolesKey(userName);
-		
+		SetOperations<String, String> setOp = stringRedisTemplate.opsForSet();
+		setOp.add(userRolesKey, msg.getRoleName());
+	}
+
+	public Set<RoleDto> getRoles(String userName) throws InvalidProtocolBufferException {
+		Set<RoleDto> retList = new HashSet<RoleDto>();
+		String userRolesKey = getUserRolesKey(userName);
+		SetOperations<String, String> setOp = stringRedisTemplate.opsForSet();
+		ValueOperations<String, Object> vo = protobufRedisTemplate.opsForValue();
+		Set<String> roleNames = setOp.members(userRolesKey);
+		for (String roleName : roleNames) {
+			String roleKey = getRoleNameKey(roleName);
+			Object ret = vo.get(roleKey);
+			RoleInfo roleInfo = RoleInfo.parseFrom((byte[]) ret);
+			RoleDto dto = new RoleDto();
+			dto.setCharacterId(roleInfo.getCharacterId());
+			dto.setGender(roleInfo.getGender());
+			dto.setName(roleInfo.getName());
+			retList.add(dto);
+		}
+		return retList;
 	}
 
 }
