@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 
 class AddPerson {
-	// This function fills in a Person message based on user input.
+	// This function fills in a Person message based on user input.test
 	static Person PromptForAddress(BufferedReader stdin, PrintStream stdout)
 			throws IOException {
 		Person.Builder person = Person.newBuilder();
