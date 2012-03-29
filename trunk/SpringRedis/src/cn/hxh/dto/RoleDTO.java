@@ -2,7 +2,7 @@ package cn.hxh.dto;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
-public class RoleDto {
+public class RoleDTO {
 
 	private String name;
 
