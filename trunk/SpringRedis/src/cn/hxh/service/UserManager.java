@@ -21,7 +21,7 @@ import cn.hxh.dto.GetOnlineNames_S2C;
 import cn.hxh.dto.Login_C2S;
 import cn.hxh.dto.Login_S2C;
 import cn.hxh.dto.NameDTO;
-import cn.hxh.dto.RoleDto;
+import cn.hxh.dto.RoleDTO;
 import cn.hxh.dto.TestPushMsg_S2C;
 
 import com.google.protobuf.InvalidProtocolBufferException;
@@ -79,7 +79,7 @@ public class UserManager {
 			}
 		}
 		try {
-			Set<RoleDto> dtoSet = userDao.getRoles(msg.getName());
+			Set<RoleDTO> dtoSet = userDao.getRoles(msg.getName());
 			retMsg.setRoleList(dtoSet);
 		} catch (InvalidProtocolBufferException e) {
 			logger.error("", e);

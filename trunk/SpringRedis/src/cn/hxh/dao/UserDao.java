@@ -17,7 +17,7 @@ import cn.hxh.common.RedisFieldConstants;
 import cn.hxh.common.RedisKeyConstants;
 import cn.hxh.core.ProtobufRedisTemplate;
 import cn.hxh.dto.CreateRole_C2S;
-import cn.hxh.dto.RoleDto;
+import cn.hxh.dto.RoleDTO;
 import cn.hxh.entity.RoleInfoProtos.RoleInfo;
 import cn.hxh.entity.UserRolesProtos.UserRoles;
 
@@ -106,8 +106,8 @@ public class UserDao {
 		hoProto.put(uNameKey, RedisFieldConstants.ROLES, userRoles);
 	}
 
-	public Set<RoleDto> getRoles(String userName) throws InvalidProtocolBufferException {
-		Set<RoleDto> retList = new HashSet<RoleDto>();
+	public Set<RoleDTO> getRoles(String userName) throws InvalidProtocolBufferException {
+		Set<RoleDTO> retList = new HashSet<RoleDTO>();
 		HashOperations<String, Object, Object> hashProto = protobufRedisTemplate.opsForHash();
 		String uNameKey = getUserNameKey(userName);
 		Object rolesList = hashProto.get(uNameKey, RedisFieldConstants.ROLES);
@@ -115,7 +115,7 @@ public class UserDao {
 			UserRoles userRoles = UserRoles.parseFrom((byte[]) rolesList);
 			List<RoleInfo> roleInfoList = userRoles.getRoleInfoList();
 			for (RoleInfo roleInfo : roleInfoList) {
-				RoleDto dto = new RoleDto();
+				RoleDTO dto = new RoleDTO();
 				dto.setCharacterId(roleInfo.getCharacterId());
 				dto.setGender(roleInfo.getGender());
 				dto.setName(roleInfo.getName());
