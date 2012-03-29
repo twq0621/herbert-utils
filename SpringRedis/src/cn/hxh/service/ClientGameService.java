@@ -12,6 +12,8 @@ import cn.hxh.common.ErrorCode;
 import cn.hxh.core.IGameService;
 import cn.hxh.dto.CreateRole_C2S;
 import cn.hxh.dto.CreateRole_S2C;
+import cn.hxh.dto.EnterGame_C2S;
+import cn.hxh.dto.EnterGame_S2C;
 import cn.hxh.dto.GetNewRole_S2C;
 import cn.hxh.dto.GetOnlineNames_S2C;
 import cn.hxh.dto.Login_S2C;
@@ -40,19 +42,31 @@ public class ClientGameService implements IGameService {
 		if (msg.getCode() == ErrorCode.SUCCESS) {
 			//获取角色信息
 			Set<RoleDTO> dtoSet = msg.getRoleList();
-			for (RoleDTO roleDto : dtoSet) {
-				logger.info("ret={}", roleDto);
+			if (dtoSet.size() > 0) {
+				EnterGame_C2S reqMsg = new EnterGame_C2S();
+				reqMsg.setSelectedRole(dtoSet.iterator().next().getName());
+				channel.write(reqMsg);
+			} else {
+				CreateRole_C2S reqMsg = new CreateRole_C2S();
+				reqMsg.setRoleName("亲");
+				reqMsg.setGender(2);
+				reqMsg.setCharacterId(1);
+				channel.write(reqMsg);
 			}
-			CreateRole_C2S reqMsg = new CreateRole_C2S();
-			reqMsg.setRoleName("亲");
-			reqMsg.setGender(2);
-			reqMsg.setCharacterId(1);
-			channel.write(reqMsg);
 		}
 	}
 
 	public void createRole(Channel channel, CreateRole_S2C msg) {
 		logger.info("createRole ret={}", msg.getCode());
+		if (msg.getCode() == ErrorCode.SUCCESS) {
+			EnterGame_C2S reqMsg = new EnterGame_C2S();
+			reqMsg.setSelectedRole("亲");
+			channel.write(reqMsg);
+		}
+	}
+
+	public void enterGame(Channel channel, EnterGame_S2C msg) {
+		logger.info("enterGame ret={}", msg.getCode());
 	}
 
 }

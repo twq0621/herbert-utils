@@ -1,7 +1,5 @@
 package cn.hxh.service;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -16,13 +14,11 @@ import cn.hxh.common.ErrorCode;
 import cn.hxh.dao.UserDao;
 import cn.hxh.dto.CreateRole_C2S;
 import cn.hxh.dto.CreateRole_S2C;
-import cn.hxh.dto.GetOnlineNames_C2S;
-import cn.hxh.dto.GetOnlineNames_S2C;
+import cn.hxh.dto.EnterGame_C2S;
+import cn.hxh.dto.EnterGame_S2C;
 import cn.hxh.dto.Login_C2S;
 import cn.hxh.dto.Login_S2C;
-import cn.hxh.dto.NameDTO;
 import cn.hxh.dto.RoleDTO;
-import cn.hxh.dto.TestPushMsg_S2C;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 
@@ -35,28 +31,6 @@ public class UserManager {
 
 	@Autowired
 	private UserDao userDao;
-
-	/**
-	 * just for test
-	 * @param channel
-	 * @param queryMsg
-	 */
-	public void getOnlineNames(Channel channel, GetOnlineNames_C2S queryMsg) {
-		List<String> roleNames = new ArrayList<String>();
-		roleNames.add("he");
-		roleNames.add("xu");
-		GetOnlineNames_S2C retMsg = new GetOnlineNames_S2C();
-		retMsg.setRoleNames(roleNames);
-		channel.write(retMsg);
-		TestPushMsg_S2C retMsg2 = new TestPushMsg_S2C();
-		NameDTO dto = new NameDTO();
-		dto.setAge(18);
-		dto.setMoney(250.4f);
-		dto.setName("huijige");
-		dto.setPasswprd("pwd");
-		retMsg2.setNameDTO(dto);
-		channel.write(retMsg2);
-	}
 
 	/**
 	 * 登陆游戏
@@ -109,6 +83,36 @@ public class UserManager {
 		} catch (InvalidProtocolBufferException e) {
 			logger.error("", e);
 		}
+		userInfo.send(retMsg);
+	}
+
+	/**
+	 * 登陆游戏
+	 * @param userInfo
+	 * @param reqMsg
+	 * @throws InvalidProtocolBufferException 
+	 */
+	public void enterGame(UserInfo userInfo, EnterGame_C2S reqMsg) throws InvalidProtocolBufferException {
+		logger.info("enterGame");
+		EnterGame_S2C retMsg = new EnterGame_S2C();
+		String selectedRoleName = reqMsg.getSelectedRole();
+		//检查选择的角色是否有效
+		boolean nameValid = false;
+		Set<RoleDTO> roleSet = userDao.getRoles(userInfo.getUserName());
+		for (RoleDTO roleDTO : roleSet) {
+			if (roleDTO.getName().equals(selectedRoleName)) {
+				nameValid = true;
+				break;
+			}
+		}
+		if (!nameValid) {
+			retMsg.setCode(ErrorCode.SELECT_ROLE_NAME_INVALID);
+			userInfo.send(retMsg);
+			return;
+		}
+		//发送成功的消息
+		userInfo.setCurrentRoleName(selectedRoleName);
+		retMsg.setCode(ErrorCode.SUCCESS);
 		userInfo.send(retMsg);
 	}
 
