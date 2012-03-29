@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import cn.hxh.core.IGameService;
 import cn.hxh.dto.GetNewRole_C2S;
 import cn.hxh.dto.GetOnlineNames_C2S;
+import cn.hxh.dto.Login_C2S;
 
 @Component
 public class ServerGameService implements IGameService {
@@ -22,6 +23,10 @@ public class ServerGameService implements IGameService {
 
 	public void getOnlineNames(Channel channel, GetOnlineNames_C2S queryMsg) {
 		userManager.getOnlineNames(channel, queryMsg);
+	}
+
+	public void login(Channel channel, Login_C2S msg) {
+		userManager.login(channel, msg);
 	}
 
 }

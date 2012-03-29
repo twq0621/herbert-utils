@@ -20,8 +20,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 @Component
 public class CommonStatManager {
 
-	private static Logger logger = LoggerFactory
-			.getLogger(CommonStatManager.class);
+	private static Logger logger = LoggerFactory.getLogger(CommonStatManager.class);
 
 	@Autowired
 	private CommonStatDao commonStatDao;
