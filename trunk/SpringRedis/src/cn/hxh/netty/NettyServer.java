@@ -1,4 +1,4 @@
-package cn.hxh.amf3;
+package cn.hxh.netty;
 
 import java.net.InetSocketAddress;
 import java.util.concurrent.Executors;
@@ -15,10 +15,10 @@ import org.jboss.netty.handler.execution.OrderedMemoryAwareThreadPoolExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Amf3Server {
+public class NettyServer {
 
 	private static final Logger logger = LoggerFactory
-			.getLogger(Amf3Server.class);
+			.getLogger(NettyServer.class);
 
 	public static final int MIN_READ_BUFFER_SIZE = 64;
 
@@ -35,7 +35,7 @@ public class Amf3Server {
 
 	private ServerBootstrap _bootstrap;
 
-	private final Amf3SeverChannelHandler handler = new Amf3SeverChannelHandler();
+	private final NettySeverChannelHandler handler = new NettySeverChannelHandler();
 
 	private final ChannelUpstreamHandlerFactory handlerFactory = new ChannelUpstreamHandlerFactory() {
 		public ChannelUpstreamHandler getChannelUpstreamHandler() {
@@ -46,7 +46,7 @@ public class Amf3Server {
 	private final ChannelPipelineFactory pipelineFactory = new Amf3PipelineFactory(
 			handlerFactory);
 
-	public Amf3Server() {
+	public NettyServer() {
 		init();
 	}
 

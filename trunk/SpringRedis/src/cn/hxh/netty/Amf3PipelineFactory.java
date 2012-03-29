@@ -1,4 +1,4 @@
-package cn.hxh.amf3;
+package cn.hxh.netty;
 
 import org.jboss.netty.channel.ChannelPipeline;
 import org.jboss.netty.channel.ChannelPipelineFactory;

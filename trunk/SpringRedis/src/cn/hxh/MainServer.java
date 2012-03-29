@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cn.hxh.amf3.Amf3Server;
+import cn.hxh.netty.NettyServer;
 
 /**
  * 主要启动的类
@@ -16,14 +16,14 @@ public class MainServer {
 
 	private static Logger logger = LoggerFactory.getLogger(MainServer.class);
 
-	private Amf3Server amf3Server;
+	private NettyServer amf3Server;
 
 	public MainServer() {
 		init();
 	}
 
 	private void init() {
-		amf3Server = new Amf3Server();
+		amf3Server = new NettyServer();
 		amf3Server.initServer();
 		amf3Server.startServer(8653);
 	}

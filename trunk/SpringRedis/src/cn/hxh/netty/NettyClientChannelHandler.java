@@ -1,4 +1,4 @@
-package cn.hxh.amf3;
+package cn.hxh.netty;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -11,10 +11,10 @@ import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
 
 import cn.hxh.core.ClientCallPool;
 
-public class Amf3ClientChannelHandler extends SimpleChannelUpstreamHandler {
+public class NettyClientChannelHandler extends SimpleChannelUpstreamHandler {
 
 	private static final Logger logger = Logger
-			.getLogger(Amf3ClientChannelHandler.class);
+			.getLogger(NettyClientChannelHandler.class);
 
 	private final AtomicInteger seqNum = new AtomicInteger(0);
 
