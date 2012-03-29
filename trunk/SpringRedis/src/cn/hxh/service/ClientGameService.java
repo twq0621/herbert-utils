@@ -44,9 +44,9 @@ public class ClientGameService implements IGameService {
 				logger.info("ret={}", roleDto);
 			}
 			CreateRole_C2S reqMsg = new CreateRole_C2S();
-			reqMsg.setRoleName("灰机哥");
-			reqMsg.setGender(1);
-			reqMsg.setCharacterId(2);
+			reqMsg.setRoleName("亲");
+			reqMsg.setGender(2);
+			reqMsg.setCharacterId(1);
 			channel.write(reqMsg);
 		}
 	}

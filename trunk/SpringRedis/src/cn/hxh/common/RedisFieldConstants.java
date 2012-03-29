@@ -9,5 +9,7 @@ public class RedisFieldConstants {
 	public static final String ADD_TIME = "addTime";
 
 	public static final String CURRENT_ROLE = "cRole";
+	
+	public static final String ROLES = "roles";
 
 }

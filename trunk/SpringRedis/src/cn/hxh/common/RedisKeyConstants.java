@@ -8,4 +8,6 @@ public class RedisKeyConstants {
 
 	public static final String USER_ROLES_KEY = "u:%s:roles";
 
+	public static final String ROLE_NAMES = "rNames";
+
 }

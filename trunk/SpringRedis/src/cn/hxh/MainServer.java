@@ -7,6 +7,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import cn.hxh.amf3.Amf3Server;
 
+/**
+ * 主要启动的类
+ * @author hexuhui
+ *
+ */
 public class MainServer {
 
 	private static Logger logger = LoggerFactory.getLogger(MainServer.class);

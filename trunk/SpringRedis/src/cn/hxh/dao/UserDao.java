@@ -2,6 +2,7 @@ package cn.hxh.dao;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.slf4j.Logger;
@@ -10,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.SetOperations;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
 
 import cn.hxh.common.RedisFieldConstants;
@@ -19,6 +19,7 @@ import cn.hxh.core.ProtobufRedisTemplate;
 import cn.hxh.dto.CreateRole_C2S;
 import cn.hxh.dto.RoleDto;
 import cn.hxh.entity.RoleInfoProtos.RoleInfo;
+import cn.hxh.entity.UserRolesProtos.UserRoles;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 
@@ -81,37 +82,45 @@ public class UserDao {
 	public boolean checkRoleNameExist(String roleName) {
 		logger.info("check role exist,roleName={}", roleName);
 		boolean ret = false;
-		String roleNameKey = getRoleNameKey(roleName);
-		ret = stringRedisTemplate.hasKey(roleNameKey);
+		SetOperations<String, String> setOp = stringRedisTemplate.opsForSet();
+		ret = setOp.isMember(RedisKeyConstants.ROLE_NAMES, roleName);
 		return ret;
 	}
 
-	public void createRole(String userName, CreateRole_C2S msg) {
-		ValueOperations<String, Object> vo = protobufRedisTemplate.opsForValue();
-		RoleInfo roleInfo = RoleInfo.newBuilder().setName(msg.getRoleName()).setCharacterId(msg.getCharacterId()).setGender(msg.getGender()).build();
-		String roleKey = getRoleNameKey(msg.getRoleName());
-		vo.set(roleKey, roleInfo);
+	public void createRole(String userName, CreateRole_C2S msg) throws InvalidProtocolBufferException {
 		// 保存角色名
-		String userRolesKey = getUserRolesKey(userName);
 		SetOperations<String, String> setOp = stringRedisTemplate.opsForSet();
-		setOp.add(userRolesKey, msg.getRoleName());
+		setOp.add(RedisKeyConstants.ROLE_NAMES, msg.getRoleName());
+		// 保存玩家的角色
+		String uNameKey = getUserNameKey(userName);
+		HashOperations<String, Object, Object> hoProto = protobufRedisTemplate.opsForHash();
+		Object rolesSet = hoProto.get(uNameKey, RedisFieldConstants.ROLES);
+		UserRoles userRoles;
+		if (rolesSet == null) {
+			userRoles = UserRoles.newBuilder().build();
+		} else {
+			userRoles = UserRoles.parseFrom((byte[]) rolesSet);
+		}
+		RoleInfo roleInfo = RoleInfo.newBuilder().setName(msg.getRoleName()).setCharacterId(msg.getCharacterId()).setGender(msg.getGender()).build();
+		userRoles = userRoles.toBuilder().addRoleInfo(roleInfo).build();
+		hoProto.put(uNameKey, RedisFieldConstants.ROLES, userRoles);
 	}
 
 	public Set<RoleDto> getRoles(String userName) throws InvalidProtocolBufferException {
 		Set<RoleDto> retList = new HashSet<RoleDto>();
-		String userRolesKey = getUserRolesKey(userName);
-		SetOperations<String, String> setOp = stringRedisTemplate.opsForSet();
-		ValueOperations<String, Object> vo = protobufRedisTemplate.opsForValue();
-		Set<String> roleNames = setOp.members(userRolesKey);
-		for (String roleName : roleNames) {
-			String roleKey = getRoleNameKey(roleName);
-			Object ret = vo.get(roleKey);
-			RoleInfo roleInfo = RoleInfo.parseFrom((byte[]) ret);
-			RoleDto dto = new RoleDto();
-			dto.setCharacterId(roleInfo.getCharacterId());
-			dto.setGender(roleInfo.getGender());
-			dto.setName(roleInfo.getName());
-			retList.add(dto);
+		HashOperations<String, Object, Object> hashProto = protobufRedisTemplate.opsForHash();
+		String uNameKey = getUserNameKey(userName);
+		Object rolesList = hashProto.get(uNameKey, RedisFieldConstants.ROLES);
+		if (rolesList != null) {
+			UserRoles userRoles = UserRoles.parseFrom((byte[]) rolesList);
+			List<RoleInfo> roleInfoList = userRoles.getRoleInfoList();
+			for (RoleInfo roleInfo : roleInfoList) {
+				RoleDto dto = new RoleDto();
+				dto.setCharacterId(roleInfo.getCharacterId());
+				dto.setGender(roleInfo.getGender());
+				dto.setName(roleInfo.getName());
+				retList.add(dto);
+			}
 		}
 		return retList;
 	}
