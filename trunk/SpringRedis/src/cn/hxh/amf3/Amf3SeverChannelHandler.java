@@ -12,25 +12,32 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cn.hxh.core.CallPool;
+import cn.hxh.core.SpringContextHolder;
 import cn.hxh.service.ServerGameService;
+import cn.hxh.service.UserInfo;
+import cn.hxh.service.UserManager;
 
 public class Amf3SeverChannelHandler extends SimpleChannelHandler {
 
-	public static Logger logger = LoggerFactory
-			.getLogger(Amf3SeverChannelHandler.class);
+	public static Logger logger = LoggerFactory.getLogger(Amf3SeverChannelHandler.class);
 
 	@Override
 	public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) {
 		if (e.getMessage() != null) {
-			CallPool.execute(e.getChannel(), e.getMessage());
+			UserManager userManager = SpringContextHolder.getBean(UserManager.class);
+			UserInfo uInfo = userManager.getUserInfo(e.getChannel().getId());
+			if (uInfo == null) {
+				CallPool.execute(e.getChannel(), e.getMessage());
+			} else {
+				CallPool.execute(uInfo, e.getMessage());
+			}
 		} else {
 			logger.error("", e);
 		}
 	}
 
 	@Override
-	public void channelClosed(ChannelHandlerContext ctx, ChannelStateEvent e)
-			throws Exception {
+	public void channelClosed(ChannelHandlerContext ctx, ChannelStateEvent e) throws Exception {
 		super.channelClosed(ctx, e);
 	}
 

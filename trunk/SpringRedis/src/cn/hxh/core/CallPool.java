@@ -4,7 +4,6 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.jboss.netty.channel.Channel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,8 +21,7 @@ public class CallPool {
 	public static void init(Class<? extends IGameService> gameService) {
 		CallPool.gameService = gameService;
 		try {
-			Class gameServiceClass = Class.forName(CallPool.gameService
-					.getName());
+			Class gameServiceClass = Class.forName(CallPool.gameService.getName());
 			Method[] methods = gameServiceClass.getDeclaredMethods();
 			for (Method method : methods) {
 				methodMap.put(method.getName().toLowerCase(), method);
@@ -33,21 +31,17 @@ public class CallPool {
 		}
 	}
 
-	public static void execute(Channel channel, Object remoteObj) {
+	public static void execute(Object baseParam, Object remoteObj) {
 		String simpleClassName = remoteObj.getClass().getSimpleName();
 		if (simpleClassName.endsWith(Utils.DTO_END_STR)) {
-			String methodName = simpleClassName.substring(0,
-					simpleClassName.indexOf((Utils.DTO_END_STR))).toLowerCase();
+			String methodName = simpleClassName.substring(0, simpleClassName.indexOf((Utils.DTO_END_STR))).toLowerCase();
 			Method callMethod = methodMap.get(methodName);
 			if (callMethod == null) {
-				logger.error("method not find!name={},class={}", methodName,
-						CallPool.gameService.getName());
+				logger.error("method not find!name={},class={}", methodName, CallPool.gameService.getName());
 				return;
 			}
 			try {
-				callMethod.invoke(
-						SpringContextHolder.getBean(CallPool.gameService),
-						channel, remoteObj);
+				callMethod.invoke(SpringContextHolder.getBean(CallPool.gameService), baseParam, remoteObj);
 			} catch (Exception e) {
 				logger.error("", e);
 			}
