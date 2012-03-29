@@ -15,7 +15,7 @@ import cn.hxh.dto.CreateRole_S2C;
 import cn.hxh.dto.GetNewRole_S2C;
 import cn.hxh.dto.GetOnlineNames_S2C;
 import cn.hxh.dto.Login_S2C;
-import cn.hxh.dto.RoleDto;
+import cn.hxh.dto.RoleDTO;
 import cn.hxh.dto.TestPushMsg_S2C;
 
 @Component
@@ -39,8 +39,8 @@ public class ClientGameService implements IGameService {
 		logger.info("login retCode={}", msg.getCode());
 		if (msg.getCode() == ErrorCode.SUCCESS) {
 			//获取角色信息
-			Set<RoleDto> dtoSet = msg.getRoleList();
-			for (RoleDto roleDto : dtoSet) {
+			Set<RoleDTO> dtoSet = msg.getRoleList();
+			for (RoleDTO roleDto : dtoSet) {
 				logger.info("ret={}", roleDto);
 			}
 			CreateRole_C2S reqMsg = new CreateRole_C2S();
