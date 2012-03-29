@@ -101,11 +101,11 @@ public class UserManager {
 		boolean roleNameExist = userDao.checkRoleNameExist(msg.getRoleName());
 		if (roleNameExist) {
 			retMsg.setCode(ErrorCode.ROLE_NAME_ALREADY_EXIST);
-			userInfo.write(retMsg);
+			userInfo.send(retMsg);
 			return;
 		}
 		userDao.createRole(userInfo.getUserName(), msg);
-		userInfo.write(retMsg);
+		userInfo.send(retMsg);
 	}
 
 	public UserInfo getUserInfo(int channelId) {
@@ -118,7 +118,7 @@ public class UserManager {
 	 */
 	public void sendAll(Object obj) {
 		for (UserInfo userInfo : usersMap.values()) {
-			userInfo.write(obj);
+			userInfo.send(obj);
 		}
 	}
 
