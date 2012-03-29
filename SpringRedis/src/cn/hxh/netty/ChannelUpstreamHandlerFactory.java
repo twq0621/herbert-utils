@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package cn.hxh.amf3;
+package cn.hxh.netty;
 
 import org.jboss.netty.channel.ChannelUpstreamHandler;
 

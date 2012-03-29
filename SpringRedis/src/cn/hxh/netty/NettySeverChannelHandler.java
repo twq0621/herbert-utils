@@ -1,4 +1,4 @@
-package cn.hxh.amf3;
+package cn.hxh.netty;
 
 import java.io.IOException;
 import java.nio.channels.ClosedChannelException;
@@ -17,9 +17,9 @@ import cn.hxh.service.ServerGameService;
 import cn.hxh.service.UserInfo;
 import cn.hxh.service.UserManager;
 
-public class Amf3SeverChannelHandler extends SimpleChannelHandler {
+public class NettySeverChannelHandler extends SimpleChannelHandler {
 
-	public static Logger logger = LoggerFactory.getLogger(Amf3SeverChannelHandler.class);
+	public static Logger logger = LoggerFactory.getLogger(NettySeverChannelHandler.class);
 
 	@Override
 	public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) {

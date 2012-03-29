@@ -5,8 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cn.hxh.amf3.Amf3Client;
 import cn.hxh.dto.Login_C2S;
+import cn.hxh.netty.NettyClient;
 import cn.hxh.sample.SampleClient;
 
 public class MainClient {
@@ -16,7 +16,7 @@ public class MainClient {
 	public static void main(String[] args) {
 		ApplicationContext factory = new ClassPathXmlApplicationContext("applicationContext.xml");
 		logger.info("spring init success!,factory={}", factory);
-		Amf3Client amf3Client = new Amf3Client();
+		NettyClient amf3Client = new NettyClient();
 		SampleClient sampleClient = new SampleClient(amf3Client);
 		sampleClient.connect("127.0.0.1", 8653);
 		//		GetNewRole_C2S msg = new GetNewRole_C2S();

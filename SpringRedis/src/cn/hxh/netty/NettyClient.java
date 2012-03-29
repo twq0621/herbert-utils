@@ -1,4 +1,4 @@
-package cn.hxh.amf3;
+package cn.hxh.netty;
 
 import java.net.InetSocketAddress;
 import java.util.concurrent.Executors;
@@ -13,13 +13,13 @@ import org.jboss.netty.channel.socket.nio.NioClientSocketChannelFactory;
 import cn.hxh.core.ClientCallPool;
 import cn.hxh.service.ClientGameService;
 
-public class Amf3Client {
+public class NettyClient {
 
 	protected NioClientSocketChannelFactory _factory;
 
 	private final ClientBootstrap bootstrap;
 
-	public Amf3Client() {
+	public NettyClient() {
 		_factory = new NioClientSocketChannelFactory(
 				Executors.newCachedThreadPool(),
 				Executors.newCachedThreadPool());
@@ -37,7 +37,7 @@ public class Amf3Client {
 
 	private final ChannelUpstreamHandlerFactory handlerFactory = new ChannelUpstreamHandlerFactory() {
 		public ChannelUpstreamHandler getChannelUpstreamHandler() {
-			return new Amf3ClientChannelHandler();
+			return new NettyClientChannelHandler();
 		}
 	};
 

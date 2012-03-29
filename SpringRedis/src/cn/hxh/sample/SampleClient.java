@@ -2,15 +2,15 @@ package cn.hxh.sample;
 
 import org.jboss.netty.channel.Channel;
 
-import cn.hxh.amf3.Amf3Client;
+import cn.hxh.netty.NettyClient;
 
 public class SampleClient {
 
-	private Amf3Client amf3Client;
+	private NettyClient amf3Client;
 
 	private Channel channel;
 
-	public SampleClient(Amf3Client amf3Client) {
+	public SampleClient(NettyClient amf3Client) {
 		this.amf3Client = amf3Client;
 	}
 
