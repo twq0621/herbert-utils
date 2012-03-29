@@ -104,7 +104,11 @@ public class UserManager {
 			userInfo.send(retMsg);
 			return;
 		}
-		userDao.createRole(userInfo.getUserName(), msg);
+		try {
+			userDao.createRole(userInfo.getUserName(), msg);
+		} catch (InvalidProtocolBufferException e) {
+			logger.error("", e);
+		}
 		userInfo.send(retMsg);
 	}
 
