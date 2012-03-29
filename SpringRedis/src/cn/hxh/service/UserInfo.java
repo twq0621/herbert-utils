@@ -31,7 +31,10 @@ public class UserInfo {
 		this.channel = channel;
 	}
 
-	public void write(Object obj) {
+	public void send(Object obj) {
+		if (obj == null || !channel.isConnected()) {
+			return;
+		}
 		channel.write(obj);
 	}
 
