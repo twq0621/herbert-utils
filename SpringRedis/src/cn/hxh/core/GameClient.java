@@ -2,38 +2,28 @@ package cn.hxh.core;
 
 import org.jboss.netty.channel.Channel;
 
+import cn.hxh.netty.NettyClient;
+
 public class GameClient {
+
+	private NettyClient amf3Client;
 
 	private Channel channel;
 
-	public GameClient(Channel channel) {
-		this.channel = channel;
+	public GameClient(NettyClient amf3Client) {
+		this.amf3Client = amf3Client;
 	}
 
-	public String getIP() {
-		return channel.getRemoteAddress().toString();
+	public void connect(String host, int port) {
+		channel = amf3Client.connect(host, port);
 	}
 
-	public int getChannelId() {
-		return channel.getId();
-	}
-
-	public Channel getChannel() {
-		return channel;
-	}
-
-	public void send(Object obj) {
-		if (obj == null || !channel.isConnected()) {
+	public void send(Object msg) {
+		if (channel == null || !channel.isConnected()) {
+			System.out.println("channel not ready!");
 			return;
 		}
-		channel.write(obj);
-	}
-
-	public void send(byte[] bytes) {
-		if (bytes == null || !channel.isConnected()) {
-			return;
-		}
-		channel.write(bytes);
+		channel.write(msg);
 	}
 
 }
