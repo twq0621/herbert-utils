@@ -25,7 +25,7 @@ public class MainClient {
 		//		GetOnlineNames_C2S msg2 = new GetOnlineNames_C2S();
 		Login_C2S msg = new Login_C2S();
 		msg.setName("hexuhui");
-		msg.setPwd("1234567");
+		msg.setPwd("123456");
 		sampleClient.send(msg);
 	}
 

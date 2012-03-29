@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import cn.hxh.core.IGameService;
+import cn.hxh.dto.CreateRole_C2S;
 import cn.hxh.dto.GetNewRole_C2S;
 import cn.hxh.dto.GetOnlineNames_C2S;
 import cn.hxh.dto.Login_C2S;
@@ -27,6 +28,10 @@ public class ServerGameService implements IGameService {
 
 	public void login(Channel channel, Login_C2S msg) {
 		userManager.login(channel, msg);
+	}
+
+	public void createRole(UserInfo userInfo, CreateRole_C2S msg) {
+		userManager.createRole(userInfo, msg);
 	}
 
 }

@@ -8,6 +8,8 @@ public class UserInfo {
 
 	private String userName;
 
+	private String currentRoleName;
+
 	public UserInfo(Channel channel, String userName) {
 		this.channel = channel;
 		this.userName = userName;
@@ -31,6 +33,14 @@ public class UserInfo {
 
 	public void write(Object obj) {
 		channel.write(obj);
+	}
+
+	public String getCurrentRoleName() {
+		return currentRoleName;
+	}
+
+	public void setCurrentRoleName(String currentRoleName) {
+		this.currentRoleName = currentRoleName;
 	}
 
 }
