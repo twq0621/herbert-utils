@@ -16,7 +16,7 @@ import java.util.Set;
 
 import javax.annotation.Resource;
 
-import lion.service.UserInfo;
+import lion.core.UserInfo;
 
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.util.internal.ConcurrentHashMap;

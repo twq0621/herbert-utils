@@ -11,5 +11,7 @@ public class RedisFieldConstants {
 	public static final String CURRENT_ROLE = "cRole";
 	
 	public static final String ROLES = "roles";
+	
+	public static final String SESSION_ID = "sid";
 
 }

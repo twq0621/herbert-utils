@@ -4,7 +4,7 @@ import game.dto.CreateRole_C2S;
 import game.dto.EnterGame_C2S;
 import game.dto.Login_C2S;
 import lion.core.IGameService;
-import lion.service.UserInfo;
+import lion.core.UserInfo;
 
 import org.jboss.netty.channel.Channel;
 import org.springframework.beans.factory.annotation.Autowired;
