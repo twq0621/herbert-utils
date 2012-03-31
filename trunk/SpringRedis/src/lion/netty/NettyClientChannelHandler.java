@@ -2,8 +2,6 @@ package lion.netty;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-import lion.core.CallPool;
-import lion.core.ChannelClose_C2S;
 import lion.core.ClientCallPool;
 
 import org.apache.log4j.Logger;
