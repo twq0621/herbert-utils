@@ -13,9 +13,6 @@ import org.slf4j.LoggerFactory;
 
 import cn.hxh.core.CallPool;
 import cn.hxh.core.IGameService;
-import cn.hxh.core.SpringContextHolder;
-import cn.hxh.service.UserInfo;
-import cn.hxh.service.UserManager;
 
 public class NettySeverChannelHandler extends SimpleChannelHandler {
 

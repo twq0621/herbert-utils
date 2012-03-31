@@ -2,8 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>SpringRedis</groupId>
-	<artifactId>SpringRedis</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>gameServer-parent</artifactId>
+	<name>gameServer::Module::parent</name>
+	<packaging>pom</packaging>
+	<version>0.1.0-RELEASE</version>
 	<properties>
 		<spring.version>3.1.1.RELEASE</spring.version>
 	</properties>
