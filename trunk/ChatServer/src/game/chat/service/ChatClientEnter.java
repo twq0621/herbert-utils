@@ -7,6 +7,7 @@ import game.chat.dto.Chat_S2C;
 import game.chat.dto.ConnectChat_S2C;
 import lion.core.ChannelClose_C2S;
 import lion.core.IGameService;
+import lion.core.Security_C2S;
 
 import org.jboss.netty.channel.Channel;
 import org.slf4j.Logger;
@@ -39,6 +40,11 @@ public class ChatClientEnter implements IGameService {
 	}
 
 	public void channelClose(Channel channel, ChannelClose_C2S dto) {
+		//have no use
+	}
+
+	@Override
+	public void security(Channel channel, Security_C2S securityDto) {
 		//have no use
 	}
 }
