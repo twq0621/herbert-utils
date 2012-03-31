@@ -2,7 +2,7 @@ package entity;
 
 import "RoleInfo.proto";
 
-option java_package = "cn.hxh.entity";
+option java_package = "lion.entity";
 option java_outer_classname = "UserRolesProtos";
 
 message UserRoles{

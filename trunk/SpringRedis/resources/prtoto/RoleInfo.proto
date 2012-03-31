@@ -1,6 +1,6 @@
 package entity;
 
-option java_package = "cn.hxh.entity";
+option java_package = "lion.entity";
 option java_outer_classname = "RoleInfoProtos";
 
 message RoleInfo{

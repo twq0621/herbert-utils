@@ -37,7 +37,7 @@
 
 	<!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
 	<context:annotation-config />
-	<context:component-scan base-package="cn.hxh">
+	<context:component-scan base-package="lion">
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
@@ -59,12 +59,12 @@
 		<property name="connectionFactory" ref="jedisConnectionFactory" />
 	</bean>
 
-	<bean id="protobufRedisTemplate" class="cn.hxh.core.ProtobufRedisTemplate">
+	<bean id="protobufRedisTemplate" class="lion.core.ProtobufRedisTemplate">
 		<property name="connectionFactory" ref="jedisConnectionFactory" />
 	</bean>
 
 	<!-- 以静态变量保存ApplicationContext -->
-	<bean class="cn.hxh.core.SpringContextHolder" lazy-init="false" />
+	<bean class="lion.core.SpringContextHolder" lazy-init="false" />
 
 	<!-- 第一个数据库 Master 负责写 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
