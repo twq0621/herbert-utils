@@ -3,8 +3,10 @@ package game.service;
 import game.dto.CreateRole_C2S;
 import game.dto.EnterGame_C2S;
 import game.dto.Login_C2S;
+import lion.common.Utils;
 import lion.core.ChannelClose_C2S;
 import lion.core.IGameService;
+import lion.core.Security_C2S;
 import lion.core.UserInfo;
 
 import org.jboss.netty.channel.Channel;
@@ -39,6 +41,10 @@ public class ServerServiceEnter implements IGameService {
 	}
 
 	public void channelClose(Channel channel, ChannelClose_C2S dto) {
+	}
+
+	public void security(Channel channel, Security_C2S securityDto) {
+		channel.write(Utils.crossDomain);
 	}
 
 }
