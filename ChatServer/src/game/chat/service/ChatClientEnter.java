@@ -1,6 +1,7 @@
 package game.chat.service;
 
 import game.chat.dto.ConnectChat_S2C;
+import lion.core.ChannelClose_C2S;
 import lion.core.IGameService;
 
 import org.jboss.netty.channel.Channel;
@@ -20,5 +21,9 @@ public class ChatClientEnter implements IGameService {
 
 	public void connectChat(Channel channel, ConnectChat_S2C reqMsg) {
 		logger.info("connectChat response,code={}", reqMsg.getCode());
+	}
+
+	public void channelClose(Channel channel, ChannelClose_C2S dto) {
+
 	}
 }

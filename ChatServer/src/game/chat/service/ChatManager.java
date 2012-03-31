@@ -26,6 +26,8 @@ public class ChatManager {
 
 	private Map<Integer, ChatingRole> chatingRoles = new ConcurrentHashMap<Integer, ChatingRole>();
 
+	private Map<String, ChatingRole> chatingRolesNameKey = new ConcurrentHashMap<String, ChatingRole>();
+
 	@Autowired
 	private UserDao userDao;
 
@@ -34,23 +36,24 @@ public class ChatManager {
 		ConnectChat_S2C retMsg = new ConnectChat_S2C();
 		boolean loginValid = userDao.checkLoginValid(reqMsg.getUserName(), reqMsg.getSid());
 		//聊天session无效
-		if (!loginValid) {
-			retMsg.setCode(ErrorCode.CHAT_SESSION_INVALID);
-			channel.write(retMsg);
-			return;
-		}
+//		if (!loginValid) {
+//			retMsg.setCode(ErrorCode.CHAT_SESSION_INVALID);
+//			channel.write(retMsg);
+//			return;
+//		}
 		//判断是否为当前角色的聊天
-		boolean roleValid = userDao.checkRoleValid(reqMsg.getUserName(), reqMsg.getRoleName());
-		if (!roleValid) {
-			retMsg.setCode(ErrorCode.CHAT_ROLE_INVALID);
-			channel.write(retMsg);
-			return;
-		}
+//		boolean roleValid = userDao.checkRoleValid(reqMsg.getUserName(), reqMsg.getRoleName());
+//		if (!roleValid) {
+//			retMsg.setCode(ErrorCode.CHAT_ROLE_INVALID);
+//			channel.write(retMsg);
+//			return;
+//		}
 		//存入玩家信息
 		ChatingRole chatingRole = chatingRoles.get(channel.getId());
 		if (chatingRole == null) {
 			chatingRole = new ChatingRole(reqMsg.getUserName(), reqMsg.getRoleName(), channel);
 			chatingRoles.put(channel.getId(), chatingRole);
+			chatingRolesNameKey.put(reqMsg.getRoleName(), chatingRole);
 		}
 		//返回成功信息
 		retMsg.setCode(ErrorCode.SUCCESS);
@@ -66,4 +69,18 @@ public class ChatManager {
 			entry.getValue().send(sendAllMsg);
 		}
 	}
+
+	/**
+	 * 移除玩家的缓存
+	 * @param channel
+	 */
+	public void removeRole(Channel channel) {
+		logger.info("channel close, remove role!");
+		ChatingRole chatingRole = chatingRoles.get(channel.getId());
+		if (chatingRole != null) {
+			chatingRolesNameKey.remove(chatingRole.getrName());
+			chatingRoles.remove(channel.getId());
+		}
+	}
+
 }

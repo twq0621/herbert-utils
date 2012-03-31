@@ -24,7 +24,7 @@ public class ChatServer {
 	public ChatServer(Class<? extends IGameService> serviceClass) {
 		amf3Server = new NettyServer(serviceClass);
 		amf3Server.initServer();
-		amf3Server.startServer(8653);
+		amf3Server.startServer(8650);
 	}
 
 	/**
