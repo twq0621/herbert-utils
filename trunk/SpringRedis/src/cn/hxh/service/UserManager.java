@@ -1,7 +1,10 @@
 package cn.hxh.service;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
+import javax.annotation.Resource;
 
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.util.internal.ConcurrentHashMap;
@@ -9,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import cn.hxh.common.ErrorCode;
 import cn.hxh.dao.UserDao;
@@ -23,20 +27,26 @@ import cn.hxh.dto.RoleDTO;
 import com.google.protobuf.InvalidProtocolBufferException;
 
 @Component
+@Transactional
 public class UserManager {
 
 	private static Logger logger = LoggerFactory.getLogger(UserManager.class);
 
 	private Map<Integer, UserInfo> usersMap = new ConcurrentHashMap<Integer, UserInfo>();
 
-	@Autowired
 	private UserDao userDao;
+	
+	@Resource
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
-	/**
+    /**
 	 * 登陆游戏
 	 * @param channel
 	 * @param msg
 	 */
+	@Transactional(readOnly = false)
 	public void login(Channel channel, Login_C2S msg) {
 		logger.info("user login!");
 		Login_S2C retMsg = new Login_S2C();
@@ -44,6 +54,10 @@ public class UserManager {
 		boolean userExist = userDao.checkUserExist(msg.getName());
 		if (!userExist) {
 			userDao.createUser(msg.getName(), msg.getPwd());
+			
+			System.out.println("+++++++++++++++++++++++");
+            Map map = new HashMap();
+           // System.out.println("========="+Integer.parseInt((String)map.get("key")));
 		} else {
 			boolean pwdValid = userDao.checkPwdValid(msg.getName(), msg.getPwd());
 			if (!pwdValid) {
@@ -69,6 +83,7 @@ public class UserManager {
 	 * @param userInfo
 	 * @param msg
 	 */
+	@Transactional(readOnly = false)
 	public void createRole(UserInfo userInfo, CreateRole_C2S msg) {
 		logger.info("create role!");
 		CreateRole_S2C retMsg = new CreateRole_S2C();
@@ -80,6 +95,8 @@ public class UserManager {
 		}
 		try {
 			userDao.createRole(userInfo.getUserName(), msg);
+			
+			
 		} catch (InvalidProtocolBufferException e) {
 			logger.error("", e);
 		}
