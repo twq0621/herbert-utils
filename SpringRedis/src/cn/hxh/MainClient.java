@@ -1,5 +1,6 @@
 package cn.hxh;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -25,7 +26,7 @@ public class MainClient {
 		//		sampleClient.send(msg);
 		//		GetOnlineNames_C2S msg2 = new GetOnlineNames_C2S();
 		Login_C2S msg = new Login_C2S();
-		msg.setName("hexuhui");
+		msg.setName("wujian");
 		msg.setPwd("123456");
 		sampleClient.send(msg);
 	}
