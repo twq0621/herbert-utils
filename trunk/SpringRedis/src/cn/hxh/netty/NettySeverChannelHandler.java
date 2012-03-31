@@ -12,8 +12,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cn.hxh.core.CallPool;
+import cn.hxh.core.IGameService;
 import cn.hxh.core.SpringContextHolder;
-import cn.hxh.service.ServerGameService;
 import cn.hxh.service.UserInfo;
 import cn.hxh.service.UserManager;
 
@@ -24,13 +24,7 @@ public class NettySeverChannelHandler extends SimpleChannelHandler {
 	@Override
 	public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) {
 		if (e.getMessage() != null) {
-			UserManager userManager = SpringContextHolder.getBean(UserManager.class);
-			UserInfo uInfo = userManager.getUserInfo(e.getChannel().getId());
-			if (uInfo == null) {
-				CallPool.execute(e.getChannel(), e.getMessage());
-			} else {
-				CallPool.execute(uInfo, e.getMessage());
-			}
+			CallPool.execute(e.getChannel(), e.getMessage());
 		} else {
 			logger.error("", e);
 		}
@@ -41,8 +35,8 @@ public class NettySeverChannelHandler extends SimpleChannelHandler {
 		super.channelClosed(ctx, e);
 	}
 
-	public void init() {
-		CallPool.init(ServerGameService.class);
+	public void init(Class<? extends IGameService> serviceClass) {
+		CallPool.init(serviceClass);
 	}
 
 	@Override

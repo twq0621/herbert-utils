@@ -11,7 +11,7 @@ import org.jboss.netty.channel.ChannelUpstreamHandler;
 import org.jboss.netty.channel.socket.nio.NioClientSocketChannelFactory;
 
 import cn.hxh.core.ClientCallPool;
-import cn.hxh.service.ClientGameService;
+import cn.hxh.core.IGameService;
 
 public class NettyClient {
 
@@ -19,20 +19,18 @@ public class NettyClient {
 
 	private final ClientBootstrap bootstrap;
 
-	public NettyClient() {
-		_factory = new NioClientSocketChannelFactory(
-				Executors.newCachedThreadPool(),
-				Executors.newCachedThreadPool());
+	public NettyClient(Class<? extends IGameService> serviceClass) {
+		_factory = new NioClientSocketChannelFactory(Executors.newCachedThreadPool(), Executors.newCachedThreadPool());
 		bootstrap = new ClientBootstrap(_factory);
 		bootstrap.setOption("tcpNoDelay", true);
 		bootstrap.setOption("connectTimeoutMillis", 10000);
 		bootstrap.setOption("soLinger", 0);// by hxh,断开连接立即释放socket资源
 		bootstrap.setPipelineFactory(pipelineFactory);
-		init();
+		init(serviceClass);
 	}
 
-	private void init() {
-		ClientCallPool.init(ClientGameService.class);
+	private void init(Class<? extends IGameService> serviceClass) {
+		ClientCallPool.init(serviceClass);
 	}
 
 	private final ChannelUpstreamHandlerFactory handlerFactory = new ChannelUpstreamHandlerFactory() {
@@ -41,16 +39,14 @@ public class NettyClient {
 		}
 	};
 
-	private final ChannelPipelineFactory pipelineFactory = new Amf3PipelineFactory(
-			handlerFactory);
+	private final ChannelPipelineFactory pipelineFactory = new Amf3PipelineFactory(handlerFactory);
 
 	public void shutdown() {
 		bootstrap.releaseExternalResources();
 	}
 
 	public Channel connect(String host, int port) {
-		ChannelFuture future = bootstrap.connect(new InetSocketAddress(host,
-				port));
+		ChannelFuture future = bootstrap.connect(new InetSocketAddress(host, port));
 		future.awaitUninterruptibly();
 		assert future.isDone();
 		if (future.isCancelled()) {

@@ -8,6 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import cn.hxh.core.GameClient;
 import cn.hxh.dto.Login_C2S;
 import cn.hxh.netty.NettyClient;
+import cn.hxh.service.ClientGameService;
 
 public class MainClient {
 
@@ -16,7 +17,7 @@ public class MainClient {
 	public static void main(String[] args) {
 		ApplicationContext factory = new ClassPathXmlApplicationContext("applicationContext.xml");
 		logger.info("spring init success!,factory={}", factory);
-		NettyClient amf3Client = new NettyClient();
+		NettyClient amf3Client = new NettyClient(ClientGameService.class);
 		GameClient sampleClient = new GameClient(amf3Client);
 		sampleClient.connect("127.0.0.1", 8653);
 		//		GetNewRole_C2S msg = new GetNewRole_C2S();

@@ -15,6 +15,8 @@ import org.jboss.netty.handler.execution.OrderedMemoryAwareThreadPoolExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import cn.hxh.core.IGameService;
+
 public class NettyServer {
 
 	private static final Logger logger = LoggerFactory
@@ -46,12 +48,12 @@ public class NettyServer {
 	private final ChannelPipelineFactory pipelineFactory = new Amf3PipelineFactory(
 			handlerFactory);
 
-	public NettyServer() {
-		init();
+	public NettyServer(Class<? extends IGameService> serviceClass) {
+		init(serviceClass);
 	}
 
-	private void init() {
-		handler.init();
+	private void init(Class<? extends IGameService> serviceClass) {
+		handler.init(serviceClass);
 	}
 
 	public void initServer() {
