@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.jboss.netty.channel.Channel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +32,7 @@ public class CallPool {
 		}
 	}
 
-	public static void execute(Object baseParam, Object remoteObj) {
+	public static void execute(Channel channel, Object remoteObj) {
 		String simpleClassName = remoteObj.getClass().getSimpleName();
 		if (simpleClassName.endsWith(Utils.DTO_END_STR)) {
 			String methodName = simpleClassName.substring(0, simpleClassName.indexOf((Utils.DTO_END_STR))).toLowerCase();
@@ -41,7 +42,7 @@ public class CallPool {
 				return;
 			}
 			try {
-				callMethod.invoke(SpringContextHolder.getBean(CallPool.gameService), baseParam, remoteObj);
+				callMethod.invoke(SpringContextHolder.getBean(CallPool.gameService), channel, remoteObj);
 			} catch (Exception e) {
 				logger.error("", e);
 			}
