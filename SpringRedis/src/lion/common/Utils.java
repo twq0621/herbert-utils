@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.Locale;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -26,6 +27,8 @@ public class Utils {
 	public static final String DTO_END_STR = "_C2S";
 	
 	public static final String S2C_END_STR = "_S2C";
+	
+	public final static Locale DEFAULT_LOCALE = Locale.CHINA;
 
 	public static String toHex(final byte[] ba) {
 		return toHex(ba, false);
