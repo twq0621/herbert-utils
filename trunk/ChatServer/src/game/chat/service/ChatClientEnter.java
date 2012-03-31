@@ -9,6 +9,11 @@ import org.springframework.stereotype.Component;
 
 import cn.hxh.core.IGameService;
 
+/**
+ * 客户端服务入口
+ * @author hexuhui
+ *
+ */
 @Component
 public class ChatClientEnter implements IGameService {
 
