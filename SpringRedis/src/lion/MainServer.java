@@ -5,9 +5,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cn.hxh.core.IGameService;
-import cn.hxh.netty.NettyServer;
-import cn.hxh.service.ServerGameService;
+import lion.core.IGameService;
+import lion.netty.NettyServer;
+import lion.service.ServerGameService;
 
 /**
  * 主要启动的类

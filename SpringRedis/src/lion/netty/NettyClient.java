@@ -10,8 +10,8 @@ import org.jboss.netty.channel.ChannelPipelineFactory;
 import org.jboss.netty.channel.ChannelUpstreamHandler;
 import org.jboss.netty.channel.socket.nio.NioClientSocketChannelFactory;
 
-import cn.hxh.core.ClientCallPool;
-import cn.hxh.core.IGameService;
+import lion.core.ClientCallPool;
+import lion.core.IGameService;
 
 public class NettyClient {
 

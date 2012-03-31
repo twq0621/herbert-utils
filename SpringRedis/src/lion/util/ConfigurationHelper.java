@@ -6,7 +6,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.context.NoSuchMessageException;
 import org.springframework.context.support.ResourceBundleMessageSource;
 
-import cn.hxh.common.KernelConstants;
+import lion.common.KernelConstants;
 
 
 public class ConfigurationHelper {

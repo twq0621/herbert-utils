@@ -9,17 +9,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import cn.hxh.common.ErrorCode;
-import cn.hxh.core.IGameService;
-import cn.hxh.dto.CreateRole_C2S;
-import cn.hxh.dto.CreateRole_S2C;
-import cn.hxh.dto.EnterGame_C2S;
-import cn.hxh.dto.EnterGame_S2C;
-import cn.hxh.dto.GetNewRole_S2C;
-import cn.hxh.dto.GetOnlineNames_S2C;
-import cn.hxh.dto.Login_S2C;
-import cn.hxh.dto.RoleDTO;
-import cn.hxh.dto.TestPushMsg_S2C;
+import lion.common.ErrorCode;
+import lion.core.IGameService;
+import lion.dto.CreateRole_C2S;
+import lion.dto.CreateRole_S2C;
+import lion.dto.EnterGame_C2S;
+import lion.dto.EnterGame_S2C;
+import lion.dto.GetNewRole_S2C;
+import lion.dto.GetOnlineNames_S2C;
+import lion.dto.Login_S2C;
+import lion.dto.RoleDTO;
+import lion.dto.TestPushMsg_S2C;
 
 @Component
 public class ClientGameService implements IGameService {

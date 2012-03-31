@@ -6,10 +6,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cn.hxh.core.GameClient;
-import cn.hxh.dto.Login_C2S;
-import cn.hxh.netty.NettyClient;
-import cn.hxh.service.ClientGameService;
+import lion.core.GameClient;
+import lion.dto.Login_C2S;
+import lion.netty.NettyClient;
+import lion.service.ClientGameService;
 
 public class MainClient {
 

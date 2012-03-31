@@ -11,14 +11,14 @@ import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.SetOperations;
 import org.springframework.stereotype.Repository;
 
-import cn.hxh.common.BaseDaoImpl;
-import cn.hxh.common.RedisFieldConstants;
-import cn.hxh.common.RedisKeyConstants;
-import cn.hxh.dto.CreateRole_C2S;
-import cn.hxh.dto.RoleDTO;
-import cn.hxh.entity.RoleInfoProtos.RoleInfo;
-import cn.hxh.entity.User;
-import cn.hxh.entity.UserRolesProtos.UserRoles;
+import lion.common.BaseDaoImpl;
+import lion.common.RedisFieldConstants;
+import lion.common.RedisKeyConstants;
+import lion.dto.CreateRole_C2S;
+import lion.dto.RoleDTO;
+import lion.entity.RoleInfoProtos.RoleInfo;
+import lion.entity.User;
+import lion.entity.UserRolesProtos.UserRoles;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 

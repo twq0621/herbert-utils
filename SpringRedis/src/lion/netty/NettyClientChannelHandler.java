@@ -9,7 +9,7 @@ import org.jboss.netty.channel.ExceptionEvent;
 import org.jboss.netty.channel.MessageEvent;
 import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
 
-import cn.hxh.core.ClientCallPool;
+import lion.core.ClientCallPool;
 
 public class NettyClientChannelHandler extends SimpleChannelUpstreamHandler {
 
