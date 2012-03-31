@@ -1,4 +1,4 @@
-package lion.dto;
+package lion.core;
 
 public class Amf3BaseDTO {
 
