@@ -6,7 +6,7 @@ public class Chat_C2S {
 
 	private int type;
 
-	private String tagetRole;
+	private String targetRole;
 
 	public String getContent() {
 		return content;
@@ -24,12 +24,12 @@ public class Chat_C2S {
 		this.type = type;
 	}
 
-	public String getTagetRole() {
-		return tagetRole;
+	public String getTargetRole() {
+		return targetRole;
 	}
 
-	public void setTagetRole(String tagetRole) {
-		this.tagetRole = tagetRole;
+	public void setTargetRole(String targetRole) {
+		this.targetRole = targetRole;
 	}
 
 }

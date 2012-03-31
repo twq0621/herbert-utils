@@ -27,7 +27,7 @@ public class ChatServerEnter implements IGameService {
 	}
 
 	public void chat(Channel channel, Chat_C2S reqMsg) {
-
+		chatManager.chat(channel, reqMsg);
 	}
 
 	public void channelClose(Channel channel, ChannelClose_C2S dto) {
