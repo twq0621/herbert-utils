@@ -1,0 +1,10 @@
+package entity;
+
+import "RoleInfo.proto";
+
+option java_package = "game.entity";
+option java_outer_classname = "UserRolesProtos";
+
+message UserRoles{
+	repeated RoleInfo roleInfo = 1;
+}
