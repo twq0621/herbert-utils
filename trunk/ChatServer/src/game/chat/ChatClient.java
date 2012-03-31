@@ -2,14 +2,13 @@ package game.chat;
 
 import game.chat.dto.ConnectChat_C2S;
 import game.chat.service.ChatClientEnter;
+import lion.core.GameClient;
+import lion.netty.NettyClient;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import cn.hxh.core.GameClient;
-import cn.hxh.netty.NettyClient;
 
 public class ChatClient {
 

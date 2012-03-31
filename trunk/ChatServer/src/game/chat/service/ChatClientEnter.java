@@ -1,13 +1,12 @@
 package game.chat.service;
 
 import game.chat.dto.ConnectChat_S2C;
+import lion.core.IGameService;
 
 import org.jboss.netty.channel.Channel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-
-import cn.hxh.core.IGameService;
 
 /**
  * 客户端服务入口

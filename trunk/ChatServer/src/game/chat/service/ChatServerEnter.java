@@ -1,12 +1,11 @@
 package game.chat.service;
 
 import game.chat.dto.ConnectChat_C2S;
+import lion.core.IGameService;
 
 import org.jboss.netty.channel.Channel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import cn.hxh.core.IGameService;
 
 /**
  * 服务端所有服务的入口
