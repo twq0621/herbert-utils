@@ -20,4 +20,7 @@ public class ErrorCode {
 	/** 角色异常 */
 	public static final int CHAT_ROLE_INVALID = 10002;
 
+	/** 目标不在线 */
+	public static final int CHAT_TARGET_OFFLINE = 10003;
+
 }
