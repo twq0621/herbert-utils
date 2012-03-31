@@ -3,6 +3,7 @@ package game.service;
 import game.dto.CreateRole_C2S;
 import game.dto.EnterGame_C2S;
 import game.dto.Login_C2S;
+import lion.core.ChannelClose_C2S;
 import lion.core.IGameService;
 import lion.core.UserInfo;
 
@@ -36,5 +37,8 @@ public class ServerServiceEnter implements IGameService {
 		UserInfo userInfo = userManager.getUserInfo(channel.getId());
 		userManager.enterGame(userInfo, reqMsg);
 	}
-	
+
+	public void channelClose(Channel channel, ChannelClose_C2S dto) {
+	}
+
 }
