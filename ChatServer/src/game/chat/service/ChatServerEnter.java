@@ -2,8 +2,10 @@ package game.chat.service;
 
 import game.chat.dto.Chat_C2S;
 import game.chat.dto.ConnectChat_C2S;
+import lion.common.Utils;
 import lion.core.ChannelClose_C2S;
 import lion.core.IGameService;
+import lion.core.Security_C2S;
 
 import org.jboss.netty.channel.Channel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +34,11 @@ public class ChatServerEnter implements IGameService {
 
 	public void channelClose(Channel channel, ChannelClose_C2S dto) {
 		chatManager.removeRole(channel);
+	}
+
+	@Override
+	public void security(Channel channel, Security_C2S securityDto) {
+		channel.write(Utils.crossDomain);
 	}
 
 }
