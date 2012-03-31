@@ -29,6 +29,12 @@ public class Utils {
 	public static final String S2C_END_STR = "_S2C";
 	
 	public final static Locale DEFAULT_LOCALE = Locale.CHINA;
+	
+	public static final String crossDomain = "<?xml version=\"1.0\"?>"
+			+ "<cross-domain-policy>"
+			+ "<site-control permitted-cross-domain-policies=\"all\"/>"
+			+ "<allow-access-from domain=\"*\" to-ports=\"*\" />"
+			+ "</cross-domain-policy>";
 
 	public static String toHex(final byte[] ba) {
 		return toHex(ba, false);
