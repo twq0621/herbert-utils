@@ -4,8 +4,8 @@ import org.jboss.netty.channel.ChannelPipeline;
 import org.jboss.netty.channel.ChannelPipelineFactory;
 import org.jboss.netty.channel.Channels;
 
-import cn.hxh.codec.AMF3Decoder;
-import cn.hxh.codec.AMF3Encoder;
+import lion.codec.AMF3Decoder;
+import lion.codec.AMF3Encoder;
 
 public class Amf3PipelineFactory implements ChannelPipelineFactory {
 

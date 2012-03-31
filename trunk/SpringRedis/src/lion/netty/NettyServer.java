@@ -15,7 +15,7 @@ import org.jboss.netty.handler.execution.OrderedMemoryAwareThreadPoolExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cn.hxh.core.IGameService;
+import lion.core.IGameService;
 
 public class NettyServer {
 

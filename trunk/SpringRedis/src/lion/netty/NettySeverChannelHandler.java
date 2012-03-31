@@ -11,8 +11,8 @@ import org.jboss.netty.channel.SimpleChannelHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cn.hxh.core.CallPool;
-import cn.hxh.core.IGameService;
+import lion.core.CallPool;
+import lion.core.IGameService;
 
 public class NettySeverChannelHandler extends SimpleChannelHandler {
 

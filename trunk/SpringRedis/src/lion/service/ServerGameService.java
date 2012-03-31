@@ -4,10 +4,10 @@ import org.jboss.netty.channel.Channel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import cn.hxh.core.IGameService;
-import cn.hxh.dto.CreateRole_C2S;
-import cn.hxh.dto.EnterGame_C2S;
-import cn.hxh.dto.Login_C2S;
+import lion.core.IGameService;
+import lion.dto.CreateRole_C2S;
+import lion.dto.EnterGame_C2S;
+import lion.dto.Login_C2S;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 

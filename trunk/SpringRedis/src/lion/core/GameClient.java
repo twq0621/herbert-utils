@@ -2,7 +2,7 @@ package lion.core;
 
 import org.jboss.netty.channel.Channel;
 
-import cn.hxh.netty.NettyClient;
+import lion.netty.NettyClient;
 
 public class GameClient {
 

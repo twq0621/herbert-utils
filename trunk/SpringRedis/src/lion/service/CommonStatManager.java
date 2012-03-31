@@ -6,8 +6,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import cn.hxh.dao.CommonStatDao;
-import cn.hxh.dto.GetNewRole_S2C;
+import lion.dao.CommonStatDao;
+import lion.dto.GetNewRole_S2C;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 
