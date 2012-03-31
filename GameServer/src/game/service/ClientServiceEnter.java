@@ -14,6 +14,7 @@ import game.dto.TestPushMsg_S2C;
 
 import java.util.Set;
 
+import lion.core.ChannelClose_C2S;
 import lion.core.IGameService;
 
 import org.jboss.netty.channel.Channel;
@@ -61,7 +62,7 @@ public class ClientServiceEnter implements IGameService {
 			}
 		}
 	}
-	
+
 	public void createRole(Channel channel, CreateRole_S2C msg) {
 		logger.info("createRole ret={}", msg.getCode());
 		if (msg.getCode() == ErrorCode.SUCCESS) {
@@ -74,5 +75,10 @@ public class ClientServiceEnter implements IGameService {
 	public void enterGame(Channel channel, EnterGame_S2C msg) {
 		logger.info("enterGame ret={}", msg.getCode());
 	}
-	
+
+	public void channelClose(Channel channel, ChannelClose_C2S dto) {
+		// TODO Auto-generated method stub
+
+	}
+
 }
