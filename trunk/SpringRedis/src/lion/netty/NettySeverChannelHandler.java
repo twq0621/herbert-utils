@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import lion.core.CallPool;
+import lion.core.ChannelClose_C2S;
 import lion.core.IGameService;
 
 public class NettySeverChannelHandler extends SimpleChannelHandler {
@@ -29,6 +30,7 @@ public class NettySeverChannelHandler extends SimpleChannelHandler {
 
 	@Override
 	public void channelClosed(ChannelHandlerContext ctx, ChannelStateEvent e) throws Exception {
+		CallPool.execute(e.getChannel(), new ChannelClose_C2S());
 		super.channelClosed(ctx, e);
 	}
 
