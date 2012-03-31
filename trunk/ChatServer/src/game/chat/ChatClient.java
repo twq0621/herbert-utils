@@ -19,8 +19,10 @@ public class ChatClient {
 		logger.info("spring init success!,factory={}", factory);
 		NettyClient amf3Client = new NettyClient(ChatClientEnter.class);
 		GameClient sampleClient = new GameClient(amf3Client);
-		sampleClient.connect("127.0.0.1", 8653);
+		sampleClient.connect("127.0.0.1", 8650);
 		ConnectChat_C2S reqMsg = new ConnectChat_C2S();
+		reqMsg.setSid("ddj3lslsl");
+		reqMsg.setUserName("机灰哥");
 		reqMsg.setRoleName("huige");
 		sampleClient.send(reqMsg);
 	}

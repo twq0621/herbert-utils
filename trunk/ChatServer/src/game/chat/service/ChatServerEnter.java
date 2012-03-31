@@ -1,6 +1,8 @@
 package game.chat.service;
 
+import game.chat.dto.Chat_C2S;
 import game.chat.dto.ConnectChat_C2S;
+import lion.core.ChannelClose_C2S;
 import lion.core.IGameService;
 
 import org.jboss.netty.channel.Channel;
@@ -22,6 +24,14 @@ public class ChatServerEnter implements IGameService {
 
 	public void connectChat(Channel channel, ConnectChat_C2S reqMsg) throws InvalidProtocolBufferException {
 		chatManager.connectChat(channel, reqMsg);
+	}
+
+	public void chat(Channel channel, Chat_C2S reqMsg) {
+
+	}
+
+	public void channelClose(Channel channel, ChannelClose_C2S dto) {
+		chatManager.removeRole(channel);
 	}
 
 }
