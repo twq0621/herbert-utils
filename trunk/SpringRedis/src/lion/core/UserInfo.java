@@ -1,4 +1,4 @@
-package lion.service;
+package lion.core;
 
 import org.jboss.netty.channel.Channel;
 
