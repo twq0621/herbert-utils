@@ -11,7 +11,7 @@ PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN"
 		<setting name="lazyLoadingEnabled" value="true" />
 	</settings>
 	<typeAliases>
-		<typeAlias alias="user" type="lion.entity.User" />
+		<typeAlias alias="user" type="game.entity.User" />
 	</typeAliases>
 	
 </configuration>  
