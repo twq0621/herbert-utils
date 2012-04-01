@@ -1,6 +1,5 @@
 ﻿package {
 	import cn.hxh.Circle;
-	import cn.hxh.NumberCmp;
 	import cn.hxh.SocketClient;
 	import cn.hxh.SocketData;
 
@@ -28,7 +27,6 @@
 			socketClient.addCallback("Login", loginCallBack);
 			var socketData : SocketData = new SocketData("default", "127.0.0.1", 8653);
 			socketClient.connect(socketData);
-			NumberCmp.relationOp();
 			var logo : Bitmap = new ActiveTutsLogo();
 			addChild(logo);
 			showShape();
@@ -37,6 +35,7 @@
 
 		private function loginCallBack(loginRet : Login_S2C) : void {
 			trace("login ret code:" + loginRet.code);
+			trace("role count:" + loginRet.roleList.length);
 		}
 
 		private function changeColor(event : MouseEvent) : void {

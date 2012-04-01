@@ -8,7 +8,7 @@ package cn.hxh {
 	/**
 	 * @author hexuhui
 	 */
-	public class CallPool {
+	public class CallPool implements IDispose {
 		private var _callbacks : Dictionary;
 		private var _list : Array;
 		private var _timer : Timer;
@@ -87,6 +87,15 @@ package cn.hxh {
 				index++;
 			}
 			return -1;
+		}
+
+		public function dispose() : void {
+			while (_list.length > 0) {
+			//	execute(_list.shift());
+			}
+			if (_timer.running) {
+				_timer.stop();
+			}
 		}
 	}
 }
