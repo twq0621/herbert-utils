@@ -23,6 +23,7 @@ package cn.hxh {
 		private var _length : int;
 		private var _writeBytes : uint = 0;
 		private var _readBytes : uint = 0;
+		private var callPool :CallPool;
 
 		public function SocketClient() {
 			init();
@@ -30,6 +31,7 @@ package cn.hxh {
 
 		private function init() : void {
 			reset();
+			callPool = new CallPool();
 			_socket = new Socket();
 			_socket.objectEncoding = ObjectEncoding.AMF3;
 			_data = new SocketData("default", "127.0.0.1", 1863);
@@ -61,7 +63,7 @@ package cn.hxh {
 					_buffer = new ByteArray();
 					_socket.readBytes(_buffer, 0, _length);
 					var value : Object = _buffer.readObject();
-					trace(value);
+					callPool.handleResponse(value);
 					_readBytes += _length + 4;
 				} catch(e : Error) {
 					trace(_data.toString(), _length, e.getStackTrace());
@@ -127,6 +129,16 @@ package cn.hxh {
 		public function get isActive() : Boolean {
 			return _socket.connected;
 		}
+		
+		/**
+		 * addCallback
+		 * 
+		 * @param method String 回调方法名
+		 * @param callback Function 回调函数
+		 */
+		public function addCallback(method : String, callback : Function) : void {
+			callPool.addCallback(method.toLowerCase(), callback);
+		}
 
 		/**
 		 * call 远程调用
@@ -139,6 +151,7 @@ package cn.hxh {
 				return;
 			}
 			var ba : ByteArray = new ByteArray();
+			ba.objectEncoding = ObjectEncoding.AMF3;
 			ba.writeObject(callObj);
 			_socket.writeUnsignedInt(ba.length);
 			_socket.writeBytes(ba, 0, ba.length);
