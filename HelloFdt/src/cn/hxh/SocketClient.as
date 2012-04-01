@@ -23,7 +23,7 @@ package cn.hxh {
 		private var _length : int;
 		private var _writeBytes : uint = 0;
 		private var _readBytes : uint = 0;
-		private var callPool :CallPool;
+		private var callPool : CallPool;
 
 		public function SocketClient() {
 			init();
@@ -46,8 +46,9 @@ package cn.hxh {
 			_socket.addEventListener(Event.CLOSE, socket_closeHandler);
 		}
 
-		private function socket_closeHandler() : void {
-			trace("socket_closeHandler");
+		private function socket_closeHandler(event : Event) : void {
+			trace("socket_close!");
+			callPool.dispose();
 		}
 
 		private function socket_dataHandler(event : ProgressEvent) : void {
@@ -76,12 +77,14 @@ package cn.hxh {
 			trace("socket_connectHandler");
 		}
 
-		private function socket_securityErrorHandler() : void {
+		private function socket_securityErrorHandler(event : SecurityErrorEvent) : void {
 			trace("socket_securityErrorHandler");
+			callPool.dispose();
 		}
 
-		private function socket_ioErrorHandler() : void {
-			trace("socket_ioErrorHandler");
+		private function socket_ioErrorHandler(event : IOErrorEvent) : void {
+			trace("socket io error!connection failed!");
+			callPool.dispose();
 		}
 
 		private function reset() : void {
@@ -129,7 +132,7 @@ package cn.hxh {
 		public function get isActive() : Boolean {
 			return _socket.connected;
 		}
-		
+
 		/**
 		 * addCallback
 		 * 
