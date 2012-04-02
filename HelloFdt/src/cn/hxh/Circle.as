@@ -27,6 +27,12 @@ package cn.hxh {
 			this.graphics.drawCircle(400, 150, _size);
 		}
 
+		public function changePosition(posX : int, posY : int) : void {
+			this.graphics.clear();
+			this.graphics.beginFill(color);
+			this.graphics.drawCircle(posX, posY, _size);
+		}
+
 		public function get size() : int {
 			return _size;
 		}
