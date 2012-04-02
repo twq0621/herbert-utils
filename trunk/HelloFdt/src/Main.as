@@ -1,5 +1,6 @@
 ﻿package {
 	import cn.hxh.Circle;
+	import cn.hxh.KeyboardControl;
 	import cn.hxh.NumberGuessingGame;
 
 	import game.service.LoginManager;
@@ -15,7 +16,8 @@
 		private var guessingGame : NumberGuessingGame;
 
 		public function Main() {
-			guessingGame = new NumberGuessingGame(stage);
+			var keyCtl : KeyboardControl = new KeyboardControl(stage);
+			// guessingGame = new NumberGuessingGame(stage);
 			// loginManager = new LoginManager();
 			// showShape();
 			// var logo : Bitmap = new ActiveTutsLogo();
