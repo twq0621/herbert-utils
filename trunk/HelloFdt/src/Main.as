@@ -1,12 +1,12 @@
 ﻿package {
 	import cn.hxh.Circle;
-	import cn.hxh.KeyboardControl;
 	import cn.hxh.NumberGuessingGame;
-
-	import game.service.LoginManager;
-
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;
+	import game.scrolling.BasicScrolling;
+	import game.service.LoginManager;
+
+
 
 	public class Main extends Sprite {
 		[Embed(source="assets/qb.jpg")]
@@ -16,7 +16,8 @@
 		private var guessingGame : NumberGuessingGame;
 
 		public function Main() {
-			var keyCtl : KeyboardControl = new KeyboardControl(stage);
+			// var keyCtl : KeyboardControl = new KeyboardControl(stage);
+			var basicScrolling : BasicScrolling = new BasicScrolling(stage);
 			// guessingGame = new NumberGuessingGame(stage);
 			// loginManager = new LoginManager();
 			// showShape();
