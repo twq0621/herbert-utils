@@ -1,4 +1,4 @@
-package cn.hxh {
+package game.scrolling {
 	import flash.display.DisplayObject;
 	import flash.display.Sprite;
 	import flash.display.Stage;
@@ -7,28 +7,30 @@ package cn.hxh {
 	import flash.ui.Keyboard;
 
 	/**
-	 * @author hexuhui
+	 * @author Administrator
 	 */
-	public class KeyboardControl {
-		// Create the game character objects
-		public var character : Sprite = new Sprite();
+	public class BasicScrolling {
+		[Embed(source="assets/background.jpg")]
+		public var ImageClass : Class;
+		public var backgroundImg : DisplayObject = new ImageClass();
+		public var backroundSprite : Sprite = new Sprite();
 		[Embed(source="assets/character.png")]
 		public var CharacterImg : Class;
 		public var characterImage : DisplayObject = new CharacterImg();
-		// Create and initialize the vx and vy variable
-		public var vx : int = 0;
-		public var vy : int = 0;
-		private var stage : Stage;
+		public var character : Sprite = new Sprite();
+		private var vx : int = 0;
+		private var vy : int = 0;
 
-		public function KeyboardControl(stage : Stage) {
-			// Load the image and add the character to the stage
-			this.stage = stage;
+		public function BasicScrolling(stage : Stage) {
+			// add the background
+			backroundSprite.addChild(backgroundImg);
+			stage.addChild(backroundSprite);
+			// add the character
 			character.addChild(characterImage);
 			stage.addChild(character);
-			character.x = 225;
-			character.y = 150;
-
-			// Add event listeners
+			character.x = 250;
+			character.y = 100;
+			// Add the event listeners
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDownHandler);
 			stage.addEventListener(KeyboardEvent.KEY_UP, keyUpHandler);
 			stage.addEventListener(Event.ENTER_FRAME, enterFrameHandler);
@@ -55,21 +57,22 @@ package cn.hxh {
 		}
 
 		public function enterFrameHandler(event : Event) : void {
-			// Move the player
-			character.x += vx;
-			character.y += vy;
-			// Stop the character at the stage edges
-			if (character.x < 0) {
-				character.x = 0;
+			// Move the background
+			backroundSprite.x -= vx;
+			backroundSprite.y -= vy;
+
+			// Check the stage boundaries
+			if (backroundSprite.x > 0) {
+				backroundSprite.x = 0;
 			}
-			if (character.y < 0) {
-				character.y = 0;
+			if (backroundSprite.y > 0) {
+				backroundSprite.y = 0;
 			}
-			if (character.x + character.width > stage.stageWidth) {
-				character.x = stage.stageWidth - character.width;
+			if (backroundSprite.x < backroundSprite.stage.stageWidth - backroundSprite.width) {
+				backroundSprite.x = backroundSprite.stage.stageWidth - backroundSprite.width;
 			}
-			if (character.y + character.height > stage.stageHeight) {
-				character.y = stage.stageHeight - character.height;
+			if (backroundSprite.y < backroundSprite.stage.stageHeight - backroundSprite.height) {
+				backroundSprite.y = backroundSprite.stage.stageHeight - backroundSprite.height;
 			}
 		}
 	}
