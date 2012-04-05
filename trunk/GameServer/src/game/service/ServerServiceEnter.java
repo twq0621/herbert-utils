@@ -24,20 +24,21 @@ import com.google.protobuf.InvalidProtocolBufferException;
 public class ServerServiceEnter implements IGameService {
 
 	@Autowired
-	private UserManager userManager;
-
+	private UserService userService;
+	
 	public void login(Channel channel, Login_C2S msg) {
-		userManager.login(channel, msg);
+		userService.login(channel, msg);
 	}
-
+	
+	
 	public void createRole(Channel channel, CreateRole_C2S msg) {
-		UserInfo userInfo = userManager.getUserInfo(channel.getId());
-		userManager.createRole(userInfo, msg);
+		UserInfo userInfo = userService.getUserInfo(channel.getId());
+		userService.createRole(userInfo, msg);
 	}
 
 	public void enterGame(Channel channel, EnterGame_C2S reqMsg) throws InvalidProtocolBufferException {
-		UserInfo userInfo = userManager.getUserInfo(channel.getId());
-		userManager.enterGame(userInfo, reqMsg);
+		UserInfo userInfo = userService.getUserInfo(channel.getId());
+		userService.enterGame(userInfo, reqMsg);
 	}
 
 	public void channelClose(Channel channel, ChannelClose_C2S dto) {

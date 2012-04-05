@@ -11,6 +11,7 @@ import game.dto.GetOnlineNames_S2C;
 import game.dto.Login_S2C;
 import game.dto.RoleDTO;
 import game.dto.TestPushMsg_S2C;
+import game.entity.Role;
 
 import java.util.Set;
 
@@ -49,11 +50,11 @@ public class ClientServiceEnter implements IGameService {
 		logger.info("login retCode={}", msg.getCode());
 		if (msg.getCode() == ErrorCode.SUCCESS) {
 			//获取角色信息
-			Set<RoleDTO> dtoSet = msg.getRoleList();
+			Set<Role> dtoSet = msg.getRoleList();
 			if (dtoSet.size() > 0) {
-				EnterGame_C2S reqMsg = new EnterGame_C2S();
-				reqMsg.setSelectedRole(dtoSet.iterator().next().getName());
-				channel.write(reqMsg);
+//				EnterGame_C2S reqMsg = new EnterGame_C2S();
+//				reqMsg.setSelectedRole(dtoSet.iterator().next().getName());
+//				channel.write(reqMsg);
 			} else {
 				CreateRole_C2S reqMsg = new CreateRole_C2S();
 				reqMsg.setRoleName("亲");
