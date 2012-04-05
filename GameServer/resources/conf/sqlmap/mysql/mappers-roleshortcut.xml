@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="roleShortcut">
+
+	<resultMap id="roleShortcut" type="roleShortcut">
+			<id property="id" column="ID" />
+				<result property="roleId" column="ROLE_ID"/>
+				<result property="skillId" column="SKILL_ID"/>
+		</resultMap>
+	
+	<insert id="insertRoleShortcut" parameterType="roleShortcut" useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO TBL_ROLE_SHORTCUT ( 
+		<trim suffixOverrides="," >  
+		<if test="roleId != null and roleId != '' ">  
+		      ROLE_ID,  
+		</if> 
+		<if test="skillId != null and skillId != '' ">  
+		      SKILL_ID 
+		</if> 
+		</trim>
+		) VALUES (
+		<trim suffixOverrides="," >  
+		<if test="roleId != null and roleId != '' ">  
+		       #{roleId},  
+	    </if> 
+		<if test="skillId != null and skillId != '' ">  
+		       #{skillId} 
+	    </if> 
+		</trim>
+   		)
+	</insert>
+	
+	<!-- 复用sql语句  查询RoleShortcut表所有字段 --> 
+	<sql id="selectRoleShortcutAll">
+		SELECT 
+			ID,
+			ROLE_ID,
+			SKILL_ID
+		FROM TBL_ROLE_SHORTCUT
+	</sql>
+	
+	<!-- 复用sql语句  查询roleShortcut表条件 -->
+	<sql id="selectRoleShortcutWhere">
+			<if test="id != null and id != '' ">  
+		        AND ID = #{id}   
+		    </if> 
+			<if test="roleId != null and roleId != '' ">  
+		        AND ROLE_ID = #{roleId}   
+		    </if> 
+			<if test="skillId != null and skillId != '' ">  
+		        AND SKILL_ID = #{skillId}   
+		    </if> 
+	</sql> 
+	
+	<select id="getRoleShortcut" parameterType="java.util.Map" resultMap="roleShortcut">  
+		<include refid="selectRoleShortcutAll"/>
+		<where>
+			<include refid="selectRoleShortcutWhere"/>
+		</where>
+	</select>
+	
+	<select id="listRoleShortcut" parameterType="java.util.Map" resultMap="roleShortcut">  
+		<include refid="selectRoleShortcutAll"/>
+		<where>
+			<include refid="selectRoleShortcutWhere"/>
+		</where>
+	</select>
+	
+	<update id="updateRoleShortcut" parameterType="roleShortcut">  
+		UPDATE TBL_ROLE_SHORTCUT        
+		<set>
+		<if test="roleId != null and roleId != '' ">  
+		       ROLE_ID = #{roleId},  
+	    </if> 
+		<if test="skillId != null and skillId != '' ">  
+		       SKILL_ID = #{skillId} 
+	    </if> 
+		</set>
+		WHERE ID = #{id}
+	</update>
+
+	<update id="deleteRoleShortcut" parameterType="java.util.Map" >  
+		UPDATE TBL_ROLE_SHORTCUT
+		SET
+			FLAG = #{flag}
+		WHERE ID = #{id}
+	</update>
+	
+	<update id="deleteListRoleShortcut">  
+		DELETE FROM TBL_ROLE_SHORTCUT WHERE ID IN
+		<foreach collection="array" item="ids" open="(" separator="," close=")" >
+			#{ids}
+		</foreach>
+	</update>
+
+	<select id="getCountRoleShortcut" resultType="java.lang.Integer">  
+		SELECT COUNT(*) C FROM TBL_ROLE_SHORTCUT
+		<where>
+			<include refid="selectRoleShortcutWhere"/>
+		</where>
+	</select>
+	
+	<select id="listSplitRoleShortcut" parameterType="java.util.Map" resultMap="roleShortcut">  
+		<include refid="selectRoleShortcutAll"/>
+		<where>
+			<include refid="selectRoleShortcutWhere"/>
+		</where>
+		<if test="orderByFlag == null or orderByFlag == ''">  
+		     ORDER BY CREATE_DATE DESC    
+		</if>
+		<if test="orderByFlag == 1 ">  
+			 ORDER BY CREATE_DATE ASC     
+		</if>  
+		<if test="orderByFlag == 0 ">  
+			 ORDER BY CREATE_DATE DESC     
+		</if>  
+		LIMIT #{start},#{ end}
+	</select>
+
+</mapper>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="baseBag">
+
+	<resultMap id="baseBag" type="baseBag">
+			<id property="id" column="ID" />
+				<result property="bagType" column="BAG_TYPE"/>
+				<result property="roleId" column="ROLE_ID"/>
+				<result property="max" column="MAX"/>
+				<result property="items" column="ITEMS"/>
+		</resultMap>
+	
+	<insert id="insertBaseBag" parameterType="baseBag" useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO TBL_BASE_BAG ( 
+		<trim suffixOverrides="," >  
+		<if test="bagType != null and bagType != '' ">  
+		      BAG_TYPE,  
+		</if> 
+		<if test="roleId != null and roleId != '' ">  
+		      ROLE_ID,  
+		</if> 
+		<if test="max != null and max != '' ">  
+		      MAX,  
+		</if> 
+		<if test="items != null and items != '' ">  
+		      ITEMS 
+		</if> 
+		</trim>
+		) VALUES (
+		<trim suffixOverrides="," >  
+		<if test="bagType != null and bagType != '' ">  
+		       #{bagType},  
+	    </if> 
+		<if test="roleId != null and roleId != '' ">  
+		       #{roleId},  
+	    </if> 
+		<if test="max != null and max != '' ">  
+		       #{max},  
+	    </if> 
+		<if test="items != null and items != '' ">  
+		       #{items} 
+	    </if> 
+		</trim>
+   		)
+	</insert>
+	
+	<!-- 复用sql语句  查询BaseBag表所有字段 --> 
+	<sql id="selectBaseBagAll">
+		SELECT 
+			ID,
+			BAG_TYPE,
+			ROLE_ID,
+			MAX,
+			ITEMS
+		FROM TBL_BASE_BAG
+	</sql>
+	
+	<!-- 复用sql语句  查询baseBag表条件 -->
+	<sql id="selectBaseBagWhere">
+			<if test="id != null and id != '' ">  
+		        AND ID = #{id}   
+		    </if> 
+			<if test="bagType != null and bagType != '' ">  
+		        AND BAG_TYPE = #{bagType}   
+		    </if> 
+			<if test="roleId != null and roleId != '' ">  
+		        AND ROLE_ID = #{roleId}   
+		    </if> 
+			<if test="max != null and max != '' ">  
+		        AND MAX = #{max}   
+		    </if> 
+			<if test="items != null and items != '' ">  
+		        AND ITEMS = #{items}   
+		    </if> 
+	</sql> 
+	
+	<select id="getBaseBag" parameterType="java.util.Map" resultMap="baseBag">  
+		<include refid="selectBaseBagAll"/>
+		<where>
+			<include refid="selectBaseBagWhere"/>
+		</where>
+	</select>
+	
+	<select id="listBaseBag" parameterType="java.util.Map" resultMap="baseBag">  
+		<include refid="selectBaseBagAll"/>
+		<where>
+			<include refid="selectBaseBagWhere"/>
+		</where>
+	</select>
+	
+	<update id="updateBaseBag" parameterType="baseBag">  
+		UPDATE TBL_BASE_BAG        
+		<set>
+		<if test="bagType != null and bagType != '' ">  
+		       BAG_TYPE = #{bagType},  
+	    </if> 
+		<if test="roleId != null and roleId != '' ">  
+		       ROLE_ID = #{roleId},  
+	    </if> 
+		<if test="max != null and max != '' ">  
+		       MAX = #{max},  
+	    </if> 
+		<if test="items != null and items != '' ">  
+		       ITEMS = #{items} 
+	    </if> 
+		</set>
+		WHERE ID = #{id}
+	</update>
+
+	<update id="deleteBaseBag" parameterType="java.util.Map" >  
+		UPDATE TBL_BASE_BAG
+		SET
+			FLAG = #{flag}
+		WHERE ID = #{id}
+	</update>
+	
+	<update id="deleteListBaseBag">  
+		DELETE FROM TBL_BASE_BAG WHERE ID IN
+		<foreach collection="array" item="ids" open="(" separator="," close=")" >
+			#{ids}
+		</foreach>
+	</update>
+
+	<select id="getCountBaseBag" resultType="java.lang.Integer">  
+		SELECT COUNT(*) C FROM TBL_BASE_BAG
+		<where>
+			<include refid="selectBaseBagWhere"/>
+		</where>
+	</select>
+	
+	<select id="listSplitBaseBag" parameterType="java.util.Map" resultMap="baseBag">  
+		<include refid="selectBaseBagAll"/>
+		<where>
+			<include refid="selectBaseBagWhere"/>
+		</where>
+		<if test="orderByFlag == null or orderByFlag == ''">  
+		     ORDER BY CREATE_DATE DESC    
+		</if>
+		<if test="orderByFlag == 1 ">  
+			 ORDER BY CREATE_DATE ASC     
+		</if>  
+		<if test="orderByFlag == 0 ">  
+			 ORDER BY CREATE_DATE DESC     
+		</if>  
+		LIMIT #{start},#{ end}
+	</select>
+
+</mapper>

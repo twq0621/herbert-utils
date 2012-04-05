@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="baseItem">
+
+	<resultMap id="baseItem" type="baseItem">
+			<id property="id" column="ID" />
+				<result property="type" column="TYPE"/>
+				<result property="name" column="NAME"/>
+				<result property="level" column="LEVEL"/>
+				<result property="icon" column="ICON"/>
+				<result property="quality" column="QUALITY"/>
+				<result property="profession" column="PROFESSION"/>
+				<result property="validTime" column="VALID_TIME"/>
+				<result property="price" column="PRICE"/>
+				<result property="colorId" column="COLOR_ID"/>
+				<result property="count" column="COUNT"/>
+				<result property="max" column="MAX"/>
+				<result property="remark" column="REMARK"/>
+				<result property="isBingding" column="IS_BINGDING"/>
+				<result property="about" column="ABOUT"/>
+				<result property="strong" column="STRONG"/>
+				<result property="inte" column="INTE"/>
+				<result property="phy" column="PHY"/>
+				<result property="spi" column="SPI"/>
+				<result property="att" column="ATT"/>
+				<result property="mat" column="MAT"/>
+				<result property="def" column="DEF"/>
+				<result property="mef" column="MEF"/>
+				<result property="maxHp" column="MAX_HP"/>
+				<result property="maxMp" column="MAX_MP"/>
+				<result property="moveSpeed" column="MOVE_SPEED"/>
+				<result property="hit" column="HIT"/>
+		</resultMap>
+	
+	<insert id="insertBaseItem" parameterType="baseItem" useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO TBL_BASE_ITEM ( 
+		<trim suffixOverrides="," >  
+		<if test="type != null and type != '' ">  
+		      TYPE,  
+		</if> 
+		<if test="name != null and name != '' ">  
+		      NAME,  
+		</if> 
+		<if test="level != null and level != '' ">  
+		      LEVEL,  
+		</if> 
+		<if test="icon != null and icon != '' ">  
+		      ICON,  
+		</if> 
+		<if test="quality != null and quality != '' ">  
+		      QUALITY,  
+		</if> 
+		<if test="profession != null and profession != '' ">  
+		      PROFESSION,  
+		</if> 
+		<if test="validTime != null and validTime != '' ">  
+		      VALID_TIME,  
+		</if> 
+		<if test="price != null and price != '' ">  
+		      PRICE,  
+		</if> 
+		<if test="colorId != null and colorId != '' ">  
+		      COLOR_ID,  
+		</if> 
+		<if test="count != null and count != '' ">  
+		      COUNT,  
+		</if> 
+		<if test="max != null and max != '' ">  
+		      MAX,  
+		</if> 
+		<if test="remark != null and remark != '' ">  
+		      REMARK,  
+		</if> 
+		<if test="isBingding != null and isBingding != '' ">  
+		      IS_BINGDING,  
+		</if> 
+		<if test="about != null and about != '' ">  
+		      ABOUT,  
+		</if> 
+		<if test="strong != null and strong != '' ">  
+		      STRONG,  
+		</if> 
+		<if test="inte != null and inte != '' ">  
+		      INTE,  
+		</if> 
+		<if test="phy != null and phy != '' ">  
+		      PHY,  
+		</if> 
+		<if test="spi != null and spi != '' ">  
+		      SPI,  
+		</if> 
+		<if test="att != null and att != '' ">  
+		      ATT,  
+		</if> 
+		<if test="mat != null and mat != '' ">  
+		      MAT,  
+		</if> 
+		<if test="def != null and def != '' ">  
+		      DEF,  
+		</if> 
+		<if test="mef != null and mef != '' ">  
+		      MEF,  
+		</if> 
+		<if test="maxHp != null and maxHp != '' ">  
+		      MAX_HP,  
+		</if> 
+		<if test="maxMp != null and maxMp != '' ">  
+		      MAX_MP,  
+		</if> 
+		<if test="moveSpeed != null and moveSpeed != '' ">  
+		      MOVE_SPEED,  
+		</if> 
+		<if test="hit != null and hit != '' ">  
+		      HIT 
+		</if> 
+		</trim>
+		) VALUES (
+		<trim suffixOverrides="," >  
+		<if test="type != null and type != '' ">  
+		       #{type},  
+	    </if> 
+		<if test="name != null and name != '' ">  
+		       #{name},  
+	    </if> 
+		<if test="level != null and level != '' ">  
+		       #{level},  
+	    </if> 
+		<if test="icon != null and icon != '' ">  
+		       #{icon},  
+	    </if> 
+		<if test="quality != null and quality != '' ">  
+		       #{quality},  
+	    </if> 
+		<if test="profession != null and profession != '' ">  
+		       #{profession},  
+	    </if> 
+		<if test="validTime != null and validTime != '' ">  
+		       #{validTime},  
+	    </if> 
+		<if test="price != null and price != '' ">  
+		       #{price},  
+	    </if> 
+		<if test="colorId != null and colorId != '' ">  
+		       #{colorId},  
+	    </if> 
+		<if test="count != null and count != '' ">  
+		       #{count},  
+	    </if> 
+		<if test="max != null and max != '' ">  
+		       #{max},  
+	    </if> 
+		<if test="remark != null and remark != '' ">  
+		       #{remark},  
+	    </if> 
+		<if test="isBingding != null and isBingding != '' ">  
+		       #{isBingding},  
+	    </if> 
+		<if test="about != null and about != '' ">  
+		       #{about},  
+	    </if> 
+		<if test="strong != null and strong != '' ">  
+		       #{strong},  
+	    </if> 
+		<if test="inte != null and inte != '' ">  
+		       #{inte},  
+	    </if> 
+		<if test="phy != null and phy != '' ">  
+		       #{phy},  
+	    </if> 
+		<if test="spi != null and spi != '' ">  
+		       #{spi},  
+	    </if> 
+		<if test="att != null and att != '' ">  
+		       #{att},  
+	    </if> 
+		<if test="mat != null and mat != '' ">  
+		       #{mat},  
+	    </if> 
+		<if test="def != null and def != '' ">  
+		       #{def},  
+	    </if> 
+		<if test="mef != null and mef != '' ">  
+		       #{mef},  
+	    </if> 
+		<if test="maxHp != null and maxHp != '' ">  
+		       #{maxHp},  
+	    </if> 
+		<if test="maxMp != null and maxMp != '' ">  
+		       #{maxMp},  
+	    </if> 
+		<if test="moveSpeed != null and moveSpeed != '' ">  
+		       #{moveSpeed},  
+	    </if> 
+		<if test="hit != null and hit != '' ">  
+		       #{hit} 
+	    </if> 
+		</trim>
+   		)
+	</insert>
+	
+	<!-- 复用sql语句  查询BaseItem表所有字段 --> 
+	<sql id="selectBaseItemAll">
+		SELECT 
+			ID,
+			TYPE,
+			NAME,
+			LEVEL,
+			ICON,
+			QUALITY,
+			PROFESSION,
+			VALID_TIME,
+			PRICE,
+			COLOR_ID,
+			COUNT,
+			MAX,
+			REMARK,
+			IS_BINGDING,
+			ABOUT,
+			STRONG,
+			INTE,
+			PHY,
+			SPI,
+			ATT,
+			MAT,
+			DEF,
+			MEF,
+			MAX_HP,
+			MAX_MP,
+			MOVE_SPEED,
+			HIT
+		FROM TBL_BASE_ITEM
+	</sql>
+	
+	<!-- 复用sql语句  查询baseItem表条件 -->
+	<sql id="selectBaseItemWhere">
+			<if test="id != null and id != '' ">  
+		        AND ID = #{id}   
+		    </if> 
+			<if test="type != null and type != '' ">  
+		        AND TYPE = #{type}   
+		    </if> 
+			<if test="name != null and name != '' ">  
+		        AND NAME = #{name}   
+		    </if> 
+			<if test="level != null and level != '' ">  
+		        AND LEVEL = #{level}   
+		    </if> 
+			<if test="icon != null and icon != '' ">  
+		        AND ICON = #{icon}   
+		    </if> 
+			<if test="quality != null and quality != '' ">  
+		        AND QUALITY = #{quality}   
+		    </if> 
+			<if test="profession != null and profession != '' ">  
+		        AND PROFESSION = #{profession}   
+		    </if> 
+			<if test="validTime != null and validTime != '' ">  
+		        AND VALID_TIME = #{validTime}   
+		    </if> 
+			<if test="price != null and price != '' ">  
+		        AND PRICE = #{price}   
+		    </if> 
+			<if test="colorId != null and colorId != '' ">  
+		        AND COLOR_ID = #{colorId}   
+		    </if> 
+			<if test="count != null and count != '' ">  
+		        AND COUNT = #{count}   
+		    </if> 
+			<if test="max != null and max != '' ">  
+		        AND MAX = #{max}   
+		    </if> 
+			<if test="remark != null and remark != '' ">  
+		        AND REMARK = #{remark}   
+		    </if> 
+			<if test="isBingding != null and isBingding != '' ">  
+		        AND IS_BINGDING = #{isBingding}   
+		    </if> 
+			<if test="about != null and about != '' ">  
+		        AND ABOUT = #{about}   
+		    </if> 
+			<if test="strong != null and strong != '' ">  
+		        AND STRONG = #{strong}   
+		    </if> 
+			<if test="inte != null and inte != '' ">  
+		        AND INTE = #{inte}   
+		    </if> 
+			<if test="phy != null and phy != '' ">  
+		        AND PHY = #{phy}   
+		    </if> 
+			<if test="spi != null and spi != '' ">  
+		        AND SPI = #{spi}   
+		    </if> 
+			<if test="att != null and att != '' ">  
+		        AND ATT = #{att}   
+		    </if> 
+			<if test="mat != null and mat != '' ">  
+		        AND MAT = #{mat}   
+		    </if> 
+			<if test="def != null and def != '' ">  
+		        AND DEF = #{def}   
+		    </if> 
+			<if test="mef != null and mef != '' ">  
+		        AND MEF = #{mef}   
+		    </if> 
+			<if test="maxHp != null and maxHp != '' ">  
+		        AND MAX_HP = #{maxHp}   
+		    </if> 
+			<if test="maxMp != null and maxMp != '' ">  
+		        AND MAX_MP = #{maxMp}   
+		    </if> 
+			<if test="moveSpeed != null and moveSpeed != '' ">  
+		        AND MOVE_SPEED = #{moveSpeed}   
+		    </if> 
+			<if test="hit != null and hit != '' ">  
+		        AND HIT = #{hit}   
+		    </if> 
+	</sql> 
+	
+	<select id="getBaseItem" parameterType="java.util.Map" resultMap="baseItem">  
+		<include refid="selectBaseItemAll"/>
+		<where>
+			<include refid="selectBaseItemWhere"/>
+		</where>
+	</select>
+	
+	<select id="listBaseItem" parameterType="java.util.Map" resultMap="baseItem">  
+		<include refid="selectBaseItemAll"/>
+		<where>
+			<include refid="selectBaseItemWhere"/>
+		</where>
+	</select>
+	
+	<update id="updateBaseItem" parameterType="baseItem">  
+		UPDATE TBL_BASE_ITEM        
+		<set>
+		<if test="type != null and type != '' ">  
+		       TYPE = #{type},  
+	    </if> 
+		<if test="name != null and name != '' ">  
+		       NAME = #{name},  
+	    </if> 
+		<if test="level != null and level != '' ">  
+		       LEVEL = #{level},  
+	    </if> 
+		<if test="icon != null and icon != '' ">  
+		       ICON = #{icon},  
+	    </if> 
+		<if test="quality != null and quality != '' ">  
+		       QUALITY = #{quality},  
+	    </if> 
+		<if test="profession != null and profession != '' ">  
+		       PROFESSION = #{profession},  
+	    </if> 
+		<if test="validTime != null and validTime != '' ">  
+		       VALID_TIME = #{validTime},  
+	    </if> 
+		<if test="price != null and price != '' ">  
+		       PRICE = #{price},  
+	    </if> 
+		<if test="colorId != null and colorId != '' ">  
+		       COLOR_ID = #{colorId},  
+	    </if> 
+		<if test="count != null and count != '' ">  
+		       COUNT = #{count},  
+	    </if> 
+		<if test="max != null and max != '' ">  
+		       MAX = #{max},  
+	    </if> 
+		<if test="remark != null and remark != '' ">  
+		       REMARK = #{remark},  
+	    </if> 
+		<if test="isBingding != null and isBingding != '' ">  
+		       IS_BINGDING = #{isBingding},  
+	    </if> 
+		<if test="about != null and about != '' ">  
+		       ABOUT = #{about},  
+	    </if> 
+		<if test="strong != null and strong != '' ">  
+		       STRONG = #{strong},  
+	    </if> 
+		<if test="inte != null and inte != '' ">  
+		       INTE = #{inte},  
+	    </if> 
+		<if test="phy != null and phy != '' ">  
+		       PHY = #{phy},  
+	    </if> 
+		<if test="spi != null and spi != '' ">  
+		       SPI = #{spi},  
+	    </if> 
+		<if test="att != null and att != '' ">  
+		       ATT = #{att},  
+	    </if> 
+		<if test="mat != null and mat != '' ">  
+		       MAT = #{mat},  
+	    </if> 
+		<if test="def != null and def != '' ">  
+		       DEF = #{def},  
+	    </if> 
+		<if test="mef != null and mef != '' ">  
+		       MEF = #{mef},  
+	    </if> 
+		<if test="maxHp != null and maxHp != '' ">  
+		       MAX_HP = #{maxHp},  
+	    </if> 
+		<if test="maxMp != null and maxMp != '' ">  
+		       MAX_MP = #{maxMp},  
+	    </if> 
+		<if test="moveSpeed != null and moveSpeed != '' ">  
+		       MOVE_SPEED = #{moveSpeed},  
+	    </if> 
+		<if test="hit != null and hit != '' ">  
+		       HIT = #{hit} 
+	    </if> 
+		</set>
+		WHERE ID = #{id}
+	</update>
+
+	<update id="deleteBaseItem" parameterType="java.util.Map" >  
+		UPDATE TBL_BASE_ITEM
+		SET
+			FLAG = #{flag}
+		WHERE ID = #{id}
+	</update>
+	
+	<update id="deleteListBaseItem">  
+		DELETE FROM TBL_BASE_ITEM WHERE ID IN
+		<foreach collection="array" item="ids" open="(" separator="," close=")" >
+			#{ids}
+		</foreach>
+	</update>
+
+	<select id="getCountBaseItem" resultType="java.lang.Integer">  
+		SELECT COUNT(*) C FROM TBL_BASE_ITEM
+		<where>
+			<include refid="selectBaseItemWhere"/>
+		</where>
+	</select>
+	
+	<select id="listSplitBaseItem" parameterType="java.util.Map" resultMap="baseItem">  
+		<include refid="selectBaseItemAll"/>
+		<where>
+			<include refid="selectBaseItemWhere"/>
+		</where>
+		<if test="orderByFlag == null or orderByFlag == ''">  
+		     ORDER BY CREATE_DATE DESC    
+		</if>
+		<if test="orderByFlag == 1 ">  
+			 ORDER BY CREATE_DATE ASC     
+		</if>  
+		<if test="orderByFlag == 0 ">  
+			 ORDER BY CREATE_DATE DESC     
+		</if>  
+		LIMIT #{start},#{ end}
+	</select>
+
+</mapper>

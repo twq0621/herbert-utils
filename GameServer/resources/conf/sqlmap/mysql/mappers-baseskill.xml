@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="baseSkill">
+
+	<resultMap id="baseSkill" type="baseSkill">
+			<id property="id" column="ID" />
+				<result property="name" column="NAME"/>
+				<result property="level" column="LEVEL"/>
+				<result property="profession" column="PROFESSION"/>
+		</resultMap>
+	
+	<insert id="insertBaseSkill" parameterType="baseSkill" useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO TBL_BASE_SKILL ( 
+		<trim suffixOverrides="," >  
+		<if test="name != null and name != '' ">  
+		      NAME,  
+		</if> 
+		<if test="level != null and level != '' ">  
+		      LEVEL,  
+		</if> 
+		<if test="profession != null and profession != '' ">  
+		      PROFESSION 
+		</if> 
+		</trim>
+		) VALUES (
+		<trim suffixOverrides="," >  
+		<if test="name != null and name != '' ">  
+		       #{name},  
+	    </if> 
+		<if test="level != null and level != '' ">  
+		       #{level},  
+	    </if> 
+		<if test="profession != null and profession != '' ">  
+		       #{profession} 
+	    </if> 
+		</trim>
+   		)
+	</insert>
+	
+	<!-- 复用sql语句  查询BaseSkill表所有字段 --> 
+	<sql id="selectBaseSkillAll">
+		SELECT 
+			ID,
+			NAME,
+			LEVEL,
+			PROFESSION
+		FROM TBL_BASE_SKILL
+	</sql>
+	
+	<!-- 复用sql语句  查询baseSkill表条件 -->
+	<sql id="selectBaseSkillWhere">
+			<if test="id != null and id != '' ">  
+		        AND ID = #{id}   
+		    </if> 
+			<if test="name != null and name != '' ">  
+		        AND NAME = #{name}   
+		    </if> 
+			<if test="level != null and level != '' ">  
+		        AND LEVEL = #{level}   
+		    </if> 
+			<if test="profession != null and profession != '' ">  
+		        AND PROFESSION = #{profession}   
+		    </if> 
+	</sql> 
+	
+	<select id="getBaseSkill" parameterType="java.util.Map" resultMap="baseSkill">  
+		<include refid="selectBaseSkillAll"/>
+		<where>
+			<include refid="selectBaseSkillWhere"/>
+		</where>
+	</select>
+	
+	<select id="listBaseSkill" parameterType="java.util.Map" resultMap="baseSkill">  
+		<include refid="selectBaseSkillAll"/>
+		<where>
+			<include refid="selectBaseSkillWhere"/>
+		</where>
+	</select>
+	
+	<update id="updateBaseSkill" parameterType="baseSkill">  
+		UPDATE TBL_BASE_SKILL        
+		<set>
+		<if test="name != null and name != '' ">  
+		       NAME = #{name},  
+	    </if> 
+		<if test="level != null and level != '' ">  
+		       LEVEL = #{level},  
+	    </if> 
+		<if test="profession != null and profession != '' ">  
+		       PROFESSION = #{profession} 
+	    </if> 
+		</set>
+		WHERE ID = #{id}
+	</update>
+
+	<update id="deleteBaseSkill" parameterType="java.util.Map" >  
+		UPDATE TBL_BASE_SKILL
+		SET
+			FLAG = #{flag}
+		WHERE ID = #{id}
+	</update>
+	
+	<update id="deleteListBaseSkill">  
+		DELETE FROM TBL_BASE_SKILL WHERE ID IN
+		<foreach collection="array" item="ids" open="(" separator="," close=")" >
+			#{ids}
+		</foreach>
+	</update>
+
+	<select id="getCountBaseSkill" resultType="java.lang.Integer">  
+		SELECT COUNT(*) C FROM TBL_BASE_SKILL
+		<where>
+			<include refid="selectBaseSkillWhere"/>
+		</where>
+	</select>
+	
+	<select id="listSplitBaseSkill" parameterType="java.util.Map" resultMap="baseSkill">  
+		<include refid="selectBaseSkillAll"/>
+		<where>
+			<include refid="selectBaseSkillWhere"/>
+		</where>
+		<if test="orderByFlag == null or orderByFlag == ''">  
+		     ORDER BY CREATE_DATE DESC    
+		</if>
+		<if test="orderByFlag == 1 ">  
+			 ORDER BY CREATE_DATE ASC     
+		</if>  
+		<if test="orderByFlag == 0 ">  
+			 ORDER BY CREATE_DATE DESC     
+		</if>  
+		LIMIT #{start},#{ end}
+	</select>
+
+</mapper>
