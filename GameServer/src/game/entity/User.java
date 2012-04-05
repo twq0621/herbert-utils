@@ -1,77 +1,120 @@
 package game.entity;
 
+
 import java.util.Date;
 
-public class User {
+import java.io.Serializable;
 
-    private Long id;
+/**
+ *  用户信息
+ * @Title  webGame
+ * @Description User.java
+ * @Copyright (c) 2012
+ * @Company www.kingnet.com
+ * 
+ * @author wujian
+ * @version 1.0
+ * @date Apr 4, 2012
+ */
+public class User implements Serializable{
 
-    private String name;
-    
-    private int age;
+	//用户ID
+	private Long id;
+	
+	//用户名
+	private String userName;
+	
+	//密码
+	private String password;
+	
+	//邮箱
+	private String email;
+	
+	//帐户余额
+	private Integer accountBalance;
+	
+	//创建日期
+	private Date createDate;
+	
+	//登录次数
+	private Integer loginCount;
+	
+	//帐号状态0正常
+	private Integer flag;
+	
+	//用户IP
+	private String loginIp;
+	
+	public Long getId() {
+		return this.id;
+	}
 
-    private String email;
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	public String getUserName() {
+		return this.userName;
+	}
 
-    private String source;
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
+	public String getPassword() {
+		return this.password;
+	}
 
-    private Date createDate;
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public String getEmail() {
+		return this.email;
+	}
 
-    private Date lastLoginDate;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public Integer getAccountBalance() {
+		return this.accountBalance;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public void setAccountBalance(Integer accountBalance) {
+		this.accountBalance = accountBalance;
+	}
+	
+	public Date getCreateDate() {
+		return this.createDate;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+	
+	public Integer getLoginCount() {
+		return this.loginCount;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setLoginCount(Integer loginCount) {
+		this.loginCount = loginCount;
+	}
+	
+	public Integer getFlag() {
+		return this.flag;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setFlag(Integer flag) {
+		this.flag = flag;
+	}
+	
+	public String getLoginIp() {
+		return this.loginIp;
+	}
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSource() {
-        return source;
-    }
-
-    public void setSource(String source) {
-        this.source = source;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Date getLastLoginDate() {
-        return lastLoginDate;
-    }
-
-    public void setLastLoginDate(Date lastLoginDate) {
-        this.lastLoginDate = lastLoginDate;
-    }
-
+	public void setLoginIp(String loginIp) {
+		this.loginIp = loginIp;
+	}
+	
 }
