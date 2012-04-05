@@ -12,6 +12,12 @@ PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN"
 	</settings>
 	<typeAliases>
 		<typeAlias alias="user" type="game.entity.User" />
+		<typeAlias alias="role" type="game.entity.Role" />
+		<typeAlias alias="baseBag" type="game.entity.BaseBag" />
+		<typeAlias alias="baseItem" type="game.entity.BaseItem" />
+		<typeAlias alias="baseSkill" type="game.entity.BaseSkill" />
+		<typeAlias alias="roleFriend" type="game.entity.RoleFriend" />
+		<typeAlias alias="roleShortcut" type="game.entity.RoleShortcut" />
 	</typeAliases>
 	
 </configuration>  
