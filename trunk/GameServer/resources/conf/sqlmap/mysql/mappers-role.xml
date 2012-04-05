@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="role">
+
+	<resultMap id="role" type="role">
+			<id property="id" column="ID" />
+				<result property="userId" column="USER_ID"/>
+				<result property="roleName" column="ROLE_NAME"/>
+				<result property="careerId" column="CAREER_ID"/>
+				<result property="sex" column="SEX"/>
+				<result property="level" column="LEVEL"/>
+				<result property="exp" column="EXP"/>
+				<result property="rookieId" column="ROOKIE_ID"/>
+				<result property="guildId" column="GUILD_ID"/>
+				<result property="gold" column="GOLD"/>
+				<result property="bindRmb" column="BIND_RMB"/>
+				<result property="sceneId" column="SCENE_ID"/>
+				<result property="hp" column="HP"/>
+				<result property="mp" column="MP"/>
+				<result property="wisdom" column="WISDOM"/>
+				<result property="dexterity" column="DEXTERITY"/>
+				<result property="strength" column="STRENGTH"/>
+				<result property="x" column="X"/>
+				<result property="y" column="Y"/>
+				<result property="physicalDefense" column="PHYSICAL_DEFENSE"/>
+				<result property="physicalDamage" column="PHYSICAL_DAMAGE"/>
+				<result property="magicDefense" column="MAGIC_DEFENSE"/>
+				<result property="magicDamage" column="MAGIC_DAMAGE"/>
+				<result property="onlineTime" column="ONLINE_TIME"/>
+				<result property="createDate" column="CREATE_DATE"/>
+				<result property="pkValue" column="PK_VALUE"/>
+				<result property="lastLogoutDate" column="LAST_LOGOUT_DATE"/>
+				<result property="gmGrade" column="GM_GRADE"/>
+		</resultMap>
+	
+	<insert id="insertRole" parameterType="role" useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO TBL_ROLE ( 
+		<trim suffixOverrides="," >  
+		<if test="userId != null and userId != '' ">  
+		      USER_ID,  
+		</if> 
+		<if test="roleName != null and roleName != '' ">  
+		      ROLE_NAME,  
+		</if> 
+		<if test="careerId != null and careerId != '' ">  
+		      CAREER_ID,  
+		</if> 
+		<if test="sex != null and sex != '' ">  
+		      SEX,  
+		</if> 
+		<if test="level != null and level != '' ">  
+		      LEVEL,  
+		</if> 
+		<if test="exp != null and exp != '' ">  
+		      EXP,  
+		</if> 
+		<if test="rookieId != null and rookieId != '' ">  
+		      ROOKIE_ID,  
+		</if> 
+		<if test="guildId != null and guildId != '' ">  
+		      GUILD_ID,  
+		</if> 
+		<if test="gold != null and gold != '' ">  
+		      GOLD,  
+		</if> 
+		<if test="bindRmb != null and bindRmb != '' ">  
+		      BIND_RMB,  
+		</if> 
+		<if test="sceneId != null and sceneId != '' ">  
+		      SCENE_ID,  
+		</if> 
+		<if test="hp != null and hp != '' ">  
+		      HP,  
+		</if> 
+		<if test="mp != null and mp != '' ">  
+		      MP,  
+		</if> 
+		<if test="wisdom != null and wisdom != '' ">  
+		      WISDOM,  
+		</if> 
+		<if test="dexterity != null and dexterity != '' ">  
+		      DEXTERITY,  
+		</if> 
+		<if test="strength != null and strength != '' ">  
+		      STRENGTH,  
+		</if> 
+		<if test="x != null and x != '' ">  
+		      X,  
+		</if> 
+		<if test="y != null and y != '' ">  
+		      Y,  
+		</if> 
+		<if test="physicalDefense != null and physicalDefense != '' ">  
+		      PHYSICAL_DEFENSE,  
+		</if> 
+		<if test="physicalDamage != null and physicalDamage != '' ">  
+		      PHYSICAL_DAMAGE,  
+		</if> 
+		<if test="magicDefense != null and magicDefense != '' ">  
+		      MAGIC_DEFENSE,  
+		</if> 
+		<if test="magicDamage != null and magicDamage != '' ">  
+		      MAGIC_DAMAGE,  
+		</if> 
+		<if test="onlineTime != null and onlineTime != '' ">  
+		      ONLINE_TIME,  
+		</if> 
+		<if test="createDate != null and createDate != '' ">  
+		      CREATE_DATE,  
+		</if> 
+		<if test="pkValue != null and pkValue != '' ">  
+		      PK_VALUE,  
+		</if> 
+		<if test="lastLogoutDate != null and lastLogoutDate != '' ">  
+		      LAST_LOGOUT_DATE,  
+		</if> 
+		<if test="gmGrade != null and gmGrade != '' ">  
+		      GM_GRADE 
+		</if> 
+		</trim>
+		) VALUES (
+		<trim suffixOverrides="," >  
+		<if test="userId != null and userId != '' ">  
+		       #{userId},  
+	    </if> 
+		<if test="roleName != null and roleName != '' ">  
+		       #{roleName},  
+	    </if> 
+		<if test="careerId != null and careerId != '' ">  
+		       #{careerId},  
+	    </if> 
+		<if test="sex != null and sex != '' ">  
+		       #{sex},  
+	    </if> 
+		<if test="level != null and level != '' ">  
+		       #{level},  
+	    </if> 
+		<if test="exp != null and exp != '' ">  
+		       #{exp},  
+	    </if> 
+		<if test="rookieId != null and rookieId != '' ">  
+		       #{rookieId},  
+	    </if> 
+		<if test="guildId != null and guildId != '' ">  
+		       #{guildId},  
+	    </if> 
+		<if test="gold != null and gold != '' ">  
+		       #{gold},  
+	    </if> 
+		<if test="bindRmb != null and bindRmb != '' ">  
+		       #{bindRmb},  
+	    </if> 
+		<if test="sceneId != null and sceneId != '' ">  
+		       #{sceneId},  
+	    </if> 
+		<if test="hp != null and hp != '' ">  
+		       #{hp},  
+	    </if> 
+		<if test="mp != null and mp != '' ">  
+		       #{mp},  
+	    </if> 
+		<if test="wisdom != null and wisdom != '' ">  
+		       #{wisdom},  
+	    </if> 
+		<if test="dexterity != null and dexterity != '' ">  
+		       #{dexterity},  
+	    </if> 
+		<if test="strength != null and strength != '' ">  
+		       #{strength},  
+	    </if> 
+		<if test="x != null and x != '' ">  
+		       #{x},  
+	    </if> 
+		<if test="y != null and y != '' ">  
+		       #{y},  
+	    </if> 
+		<if test="physicalDefense != null and physicalDefense != '' ">  
+		       #{physicalDefense},  
+	    </if> 
+		<if test="physicalDamage != null and physicalDamage != '' ">  
+		       #{physicalDamage},  
+	    </if> 
+		<if test="magicDefense != null and magicDefense != '' ">  
+		       #{magicDefense},  
+	    </if> 
+		<if test="magicDamage != null and magicDamage != '' ">  
+		       #{magicDamage},  
+	    </if> 
+		<if test="onlineTime != null and onlineTime != '' ">  
+		       #{onlineTime},  
+	    </if> 
+		<if test="createDate != null and createDate != '' ">  
+		       #{createDate},  
+	    </if> 
+		<if test="pkValue != null and pkValue != '' ">  
+		       #{pkValue},  
+	    </if> 
+		<if test="lastLogoutDate != null and lastLogoutDate != '' ">  
+		       #{lastLogoutDate},  
+	    </if> 
+		<if test="gmGrade != null and gmGrade != '' ">  
+		       #{gmGrade} 
+	    </if> 
+		</trim>
+   		)
+	</insert>
+	
+	<!-- 复用sql语句  查询Role表所有字段 --> 
+	<sql id="selectRoleAll">
+		SELECT 
+			ID,
+			USER_ID,
+			ROLE_NAME,
+			CAREER_ID,
+			SEX,
+			LEVEL,
+			EXP,
+			ROOKIE_ID,
+			GUILD_ID,
+			GOLD,
+			BIND_RMB,
+			SCENE_ID,
+			HP,
+			MP,
+			WISDOM,
+			DEXTERITY,
+			STRENGTH,
+			X,
+			Y,
+			PHYSICAL_DEFENSE,
+			PHYSICAL_DAMAGE,
+			MAGIC_DEFENSE,
+			MAGIC_DAMAGE,
+			ONLINE_TIME,
+			CREATE_DATE,
+			PK_VALUE,
+			LAST_LOGOUT_DATE,
+			GM_GRADE
+		FROM TBL_ROLE
+	</sql>
+	
+	<!-- 复用sql语句  查询role表条件 -->
+	<sql id="selectRoleWhere">
+			<if test="id != null and id != '' ">  
+		        AND ID = #{id}   
+		    </if> 
+			<if test="userId != null and userId != '' ">  
+		        AND USER_ID = #{userId}   
+		    </if> 
+			<if test="roleName != null and roleName != '' ">  
+		        AND ROLE_NAME = #{roleName}   
+		    </if> 
+			<if test="careerId != null and careerId != '' ">  
+		        AND CAREER_ID = #{careerId}   
+		    </if> 
+			<if test="sex != null and sex != '' ">  
+		        AND SEX = #{sex}   
+		    </if> 
+			<if test="level != null and level != '' ">  
+		        AND LEVEL = #{level}   
+		    </if> 
+			<if test="exp != null and exp != '' ">  
+		        AND EXP = #{exp}   
+		    </if> 
+			<if test="rookieId != null and rookieId != '' ">  
+		        AND ROOKIE_ID = #{rookieId}   
+		    </if> 
+			<if test="guildId != null and guildId != '' ">  
+		        AND GUILD_ID = #{guildId}   
+		    </if> 
+			<if test="gold != null and gold != '' ">  
+		        AND GOLD = #{gold}   
+		    </if> 
+			<if test="bindRmb != null and bindRmb != '' ">  
+		        AND BIND_RMB = #{bindRmb}   
+		    </if> 
+			<if test="sceneId != null and sceneId != '' ">  
+		        AND SCENE_ID = #{sceneId}   
+		    </if> 
+			<if test="hp != null and hp != '' ">  
+		        AND HP = #{hp}   
+		    </if> 
+			<if test="mp != null and mp != '' ">  
+		        AND MP = #{mp}   
+		    </if> 
+			<if test="wisdom != null and wisdom != '' ">  
+		        AND WISDOM = #{wisdom}   
+		    </if> 
+			<if test="dexterity != null and dexterity != '' ">  
+		        AND DEXTERITY = #{dexterity}   
+		    </if> 
+			<if test="strength != null and strength != '' ">  
+		        AND STRENGTH = #{strength}   
+		    </if> 
+			<if test="x != null and x != '' ">  
+		        AND X = #{x}   
+		    </if> 
+			<if test="y != null and y != '' ">  
+		        AND Y = #{y}   
+		    </if> 
+			<if test="physicalDefense != null and physicalDefense != '' ">  
+		        AND PHYSICAL_DEFENSE = #{physicalDefense}   
+		    </if> 
+			<if test="physicalDamage != null and physicalDamage != '' ">  
+		        AND PHYSICAL_DAMAGE = #{physicalDamage}   
+		    </if> 
+			<if test="magicDefense != null and magicDefense != '' ">  
+		        AND MAGIC_DEFENSE = #{magicDefense}   
+		    </if> 
+			<if test="magicDamage != null and magicDamage != '' ">  
+		        AND MAGIC_DAMAGE = #{magicDamage}   
+		    </if> 
+			<if test="onlineTime != null and onlineTime != '' ">  
+		        AND ONLINE_TIME = #{onlineTime}   
+		    </if> 
+			<if test="beginCreateDate != null and beginCreateDate != '' ">  
+		       <![CDATA[ 
+				CREATE_DATE >= #{beginCreateDate} 
+				]]>  
+		    </if> 
+			<if test="endCreateDate != null and endCreateDate != '' ">  
+		       <![CDATA[ 
+				CREATE_DATE <  #{endCreateDate}   
+				]]> 
+	  		</if> 
+			<if test="pkValue != null and pkValue != '' ">  
+		        AND PK_VALUE = #{pkValue}   
+		    </if> 
+			<if test="lastLogoutDate != null and lastLogoutDate != '' ">  
+		        AND LAST_LOGOUT_DATE = #{lastLogoutDate}   
+		    </if> 
+			<if test="gmGrade != null and gmGrade != '' ">  
+		        AND GM_GRADE = #{gmGrade}   
+		    </if> 
+	</sql> 
+	
+	<select id="getRole" parameterType="java.util.Map" resultMap="role">  
+		<include refid="selectRoleAll"/>
+		<where>
+			<include refid="selectRoleWhere"/>
+		</where>
+	</select>
+	
+	<select id="listRole" parameterType="java.util.Map" resultMap="role">  
+		<include refid="selectRoleAll"/>
+		<where>
+			<include refid="selectRoleWhere"/>
+		</where>
+	</select>
+	
+	<update id="updateRole" parameterType="role">  
+		UPDATE TBL_ROLE        
+		<set>
+		<if test="userId != null and userId != '' ">  
+		       USER_ID = #{userId},  
+	    </if> 
+		<if test="roleName != null and roleName != '' ">  
+		       ROLE_NAME = #{roleName},  
+	    </if> 
+		<if test="careerId != null and careerId != '' ">  
+		       CAREER_ID = #{careerId},  
+	    </if> 
+		<if test="sex != null and sex != '' ">  
+		       SEX = #{sex},  
+	    </if> 
+		<if test="level != null and level != '' ">  
+		       LEVEL = #{level},  
+	    </if> 
+		<if test="exp != null and exp != '' ">  
+		       EXP = #{exp},  
+	    </if> 
+		<if test="rookieId != null and rookieId != '' ">  
+		       ROOKIE_ID = #{rookieId},  
+	    </if> 
+		<if test="guildId != null and guildId != '' ">  
+		       GUILD_ID = #{guildId},  
+	    </if> 
+		<if test="gold != null and gold != '' ">  
+		       GOLD = #{gold},  
+	    </if> 
+		<if test="bindRmb != null and bindRmb != '' ">  
+		       BIND_RMB = #{bindRmb},  
+	    </if> 
+		<if test="sceneId != null and sceneId != '' ">  
+		       SCENE_ID = #{sceneId},  
+	    </if> 
+		<if test="hp != null and hp != '' ">  
+		       HP = #{hp},  
+	    </if> 
+		<if test="mp != null and mp != '' ">  
+		       MP = #{mp},  
+	    </if> 
+		<if test="wisdom != null and wisdom != '' ">  
+		       WISDOM = #{wisdom},  
+	    </if> 
+		<if test="dexterity != null and dexterity != '' ">  
+		       DEXTERITY = #{dexterity},  
+	    </if> 
+		<if test="strength != null and strength != '' ">  
+		       STRENGTH = #{strength},  
+	    </if> 
+		<if test="x != null and x != '' ">  
+		       X = #{x},  
+	    </if> 
+		<if test="y != null and y != '' ">  
+		       Y = #{y},  
+	    </if> 
+		<if test="physicalDefense != null and physicalDefense != '' ">  
+		       PHYSICAL_DEFENSE = #{physicalDefense},  
+	    </if> 
+		<if test="physicalDamage != null and physicalDamage != '' ">  
+		       PHYSICAL_DAMAGE = #{physicalDamage},  
+	    </if> 
+		<if test="magicDefense != null and magicDefense != '' ">  
+		       MAGIC_DEFENSE = #{magicDefense},  
+	    </if> 
+		<if test="magicDamage != null and magicDamage != '' ">  
+		       MAGIC_DAMAGE = #{magicDamage},  
+	    </if> 
+		<if test="onlineTime != null and onlineTime != '' ">  
+		       ONLINE_TIME = #{onlineTime},  
+	    </if> 
+		<if test="createDate != null and createDate != '' ">  
+		       CREATE_DATE = #{createDate},  
+	    </if> 
+		<if test="pkValue != null and pkValue != '' ">  
+		       PK_VALUE = #{pkValue},  
+	    </if> 
+		<if test="lastLogoutDate != null and lastLogoutDate != '' ">  
+		       LAST_LOGOUT_DATE = #{lastLogoutDate},  
+	    </if> 
+		<if test="gmGrade != null and gmGrade != '' ">  
+		       GM_GRADE = #{gmGrade} 
+	    </if> 
+		</set>
+		WHERE ID = #{id}
+	</update>
+
+	<update id="deleteRole" parameterType="java.util.Map" >  
+		UPDATE TBL_ROLE
+		SET
+			FLAG = #{flag}
+		WHERE ID = #{id}
+	</update>
+	
+	<update id="deleteListRole">  
+		DELETE FROM TBL_ROLE WHERE ID IN
+		<foreach collection="array" item="ids" open="(" separator="," close=")" >
+			#{ids}
+		</foreach>
+	</update>
+
+	<select id="getCountRole" resultType="java.lang.Integer">  
+		SELECT COUNT(*) C FROM TBL_ROLE
+		<where>
+			<include refid="selectRoleWhere"/>
+		</where>
+	</select>
+	
+	<select id="listSplitRole" parameterType="java.util.Map" resultMap="role">  
+		<include refid="selectRoleAll"/>
+		<where>
+			<include refid="selectRoleWhere"/>
+		</where>
+		<if test="orderByFlag == null or orderByFlag == ''">  
+		     ORDER BY CREATE_DATE DESC    
+		</if>
+		<if test="orderByFlag == 1 ">  
+			 ORDER BY CREATE_DATE ASC     
+		</if>  
+		<if test="orderByFlag == 0 ">  
+			 ORDER BY CREATE_DATE DESC     
+		</if>  
+		LIMIT #{start},#{ end}
+	</select>
+
+</mapper>

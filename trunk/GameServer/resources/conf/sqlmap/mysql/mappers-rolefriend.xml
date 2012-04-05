@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="roleFriend">
+
+	<resultMap id="roleFriend" type="roleFriend">
+			<id property="id" column="ID" />
+				<result property="roleId" column="ROLE_ID"/>
+				<result property="friendIds" column="FRIEND_IDS"/>
+				<result property="friendType" column="FRIEND_TYPE"/>
+		</resultMap>
+	
+	<insert id="insertRoleFriend" parameterType="roleFriend" useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO TBL_ROLE_FRIEND ( 
+		<trim suffixOverrides="," >  
+		<if test="roleId != null and roleId != '' ">  
+		      ROLE_ID,  
+		</if> 
+		<if test="friendIds != null and friendIds != '' ">  
+		      FRIEND_IDS,  
+		</if> 
+		<if test="friendType != null and friendType != '' ">  
+		      FRIEND_TYPE 
+		</if> 
+		</trim>
+		) VALUES (
+		<trim suffixOverrides="," >  
+		<if test="roleId != null and roleId != '' ">  
+		       #{roleId},  
+	    </if> 
+		<if test="friendIds != null and friendIds != '' ">  
+		       #{friendIds},  
+	    </if> 
+		<if test="friendType != null and friendType != '' ">  
+		       #{friendType} 
+	    </if> 
+		</trim>
+   		)
+	</insert>
+	
+	<!-- 复用sql语句  查询RoleFriend表所有字段 --> 
+	<sql id="selectRoleFriendAll">
+		SELECT 
+			ID,
+			ROLE_ID,
+			FRIEND_IDS,
+			FRIEND_TYPE
+		FROM TBL_ROLE_FRIEND
+	</sql>
+	
+	<!-- 复用sql语句  查询roleFriend表条件 -->
+	<sql id="selectRoleFriendWhere">
+			<if test="id != null and id != '' ">  
+		        AND ID = #{id}   
+		    </if> 
+			<if test="roleId != null and roleId != '' ">  
+		        AND ROLE_ID = #{roleId}   
+		    </if> 
+			<if test="friendIds != null and friendIds != '' ">  
+		        AND FRIEND_IDS = #{friendIds}   
+		    </if> 
+			<if test="friendType != null and friendType != '' ">  
+		        AND FRIEND_TYPE = #{friendType}   
+		    </if> 
+	</sql> 
+	
+	<select id="getRoleFriend" parameterType="java.util.Map" resultMap="roleFriend">  
+		<include refid="selectRoleFriendAll"/>
+		<where>
+			<include refid="selectRoleFriendWhere"/>
+		</where>
+	</select>
+	
+	<select id="listRoleFriend" parameterType="java.util.Map" resultMap="roleFriend">  
+		<include refid="selectRoleFriendAll"/>
+		<where>
+			<include refid="selectRoleFriendWhere"/>
+		</where>
+	</select>
+	
+	<update id="updateRoleFriend" parameterType="roleFriend">  
+		UPDATE TBL_ROLE_FRIEND        
+		<set>
+		<if test="roleId != null and roleId != '' ">  
+		       ROLE_ID = #{roleId},  
+	    </if> 
+		<if test="friendIds != null and friendIds != '' ">  
+		       FRIEND_IDS = #{friendIds},  
+	    </if> 
+		<if test="friendType != null and friendType != '' ">  
+		       FRIEND_TYPE = #{friendType} 
+	    </if> 
+		</set>
+		WHERE ID = #{id}
+	</update>
+
+	<update id="deleteRoleFriend" parameterType="java.util.Map" >  
+		UPDATE TBL_ROLE_FRIEND
+		SET
+			FLAG = #{flag}
+		WHERE ID = #{id}
+	</update>
+	
+	<update id="deleteListRoleFriend">  
+		DELETE FROM TBL_ROLE_FRIEND WHERE ID IN
+		<foreach collection="array" item="ids" open="(" separator="," close=")" >
+			#{ids}
+		</foreach>
+	</update>
+
+	<select id="getCountRoleFriend" resultType="java.lang.Integer">  
+		SELECT COUNT(*) C FROM TBL_ROLE_FRIEND
+		<where>
+			<include refid="selectRoleFriendWhere"/>
+		</where>
+	</select>
+	
+	<select id="listSplitRoleFriend" parameterType="java.util.Map" resultMap="roleFriend">  
+		<include refid="selectRoleFriendAll"/>
+		<where>
+			<include refid="selectRoleFriendWhere"/>
+		</where>
+		<if test="orderByFlag == null or orderByFlag == ''">  
+		     ORDER BY CREATE_DATE DESC    
+		</if>
+		<if test="orderByFlag == 1 ">  
+			 ORDER BY CREATE_DATE ASC     
+		</if>  
+		<if test="orderByFlag == 0 ">  
+			 ORDER BY CREATE_DATE DESC     
+		</if>  
+		LIMIT #{start},#{ end}
+	</select>
+
+</mapper>

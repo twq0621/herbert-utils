@@ -2,34 +2,213 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="user">
 
-	<resultMap type="user" id="user">
-		<id property="id" column="ID" />
-		<result property="name" column="NAME" />
-		<result property="age" column="AGE" />
-		<result property="email" column="EMAIL" />
-		<result property="source" column="SOURCE" />
-		<result property="createDate" column="CREATE_DATE" />
-		<result property="lastLoginDate" column="LAST_LOGIN_DATE" />
-	</resultMap>
+	<resultMap id="user" type="user">
+			<id property="id" column="ID" />
+				<result property="userName" column="USER_NAME"/>
+				<result property="password" column="PASSWORD"/>
+				<result property="email" column="EMAIL"/>
+				<result property="accountBalance" column="ACCOUNT_BALANCE"/>
+				<result property="createDate" column="CREATE_DATE"/>
+				<result property="loginCount" column="LOGIN_COUNT"/>
+				<result property="flag" column="FLAG"/>
+				<result property="loginIp" column="LOGIN_IP"/>
+		</resultMap>
 	
-	<insert id="insertUser" parameterType="user" >
-		insert into user
-		(name,source) values
-		(#{name},#{source})
+	<insert id="insertUser" parameterType="user" useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO TBL_USER ( 
+		<trim suffixOverrides="," >  
+		<if test="userName != null and userName != '' ">  
+		      USER_NAME,  
+		</if> 
+		<if test="password != null and password != '' ">  
+		      PASSWORD,  
+		</if> 
+		<if test="email != null and email != '' ">  
+		      EMAIL,  
+		</if> 
+		<if test="accountBalance != null and accountBalance != '' ">  
+		      ACCOUNT_BALANCE,  
+		</if> 
+		<if test="createDate != null and createDate != '' ">  
+		      CREATE_DATE,  
+		</if> 
+		<if test="loginCount != null and loginCount != '' ">  
+		      LOGIN_COUNT,  
+		</if> 
+		<if test="flag != null and flag != '' ">  
+		      FLAG,  
+		</if> 
+		<if test="loginIp != null and loginIp != '' ">  
+		      LOGIN_IP 
+		</if> 
+		</trim>
+		) VALUES (
+		<trim suffixOverrides="," >  
+		<if test="userName != null and userName != '' ">  
+		       #{userName},  
+	    </if> 
+		<if test="password != null and password != '' ">  
+		       #{password},  
+	    </if> 
+		<if test="email != null and email != '' ">  
+		       #{email},  
+	    </if> 
+		<if test="accountBalance != null and accountBalance != '' ">  
+		       #{accountBalance},  
+	    </if> 
+		<if test="createDate != null and createDate != '' ">  
+		       #{createDate},  
+	    </if> 
+		<if test="loginCount != null and loginCount != '' ">  
+		       #{loginCount},  
+	    </if> 
+		<if test="flag != null and flag != '' ">  
+		       #{flag},  
+	    </if> 
+		<if test="loginIp != null and loginIp != '' ">  
+		       #{loginIp} 
+	    </if> 
+		</trim>
+   		)
 	</insert>
 	
-	<select id="getUser" parameterType="user" resultType="user">
-		select
-		ID,NAME,AGE,EMAIL,SOURCE,CREATE_DATE,LAST_LOGIN_DATE
-		from user
-		where
-		name=#{name}
+	<!-- 复用sql语句  查询User表所有字段 --> 
+	<sql id="selectUserAll">
+		SELECT 
+			ID,
+			USER_NAME,
+			PASSWORD,
+			EMAIL,
+			ACCOUNT_BALANCE,
+			CREATE_DATE,
+			LOGIN_COUNT,
+			FLAG,
+			LOGIN_IP
+		FROM TBL_USER
+	</sql>
+	
+	<!-- 复用sql语句  查询user表条件 -->
+	<sql id="selectUserWhere">
+			<if test="id != null and id != '' ">  
+		        AND ID = #{id}   
+		    </if> 
+			<if test="userName != null and userName != '' ">  
+		        AND USER_NAME = #{userName}   
+		    </if> 
+			<if test="password != null and password != '' ">  
+		        AND PASSWORD = #{password}   
+		    </if> 
+			<if test="email != null and email != '' ">  
+		        AND EMAIL = #{email}   
+		    </if> 
+			<if test="accountBalance != null and accountBalance != '' ">  
+		        AND ACCOUNT_BALANCE = #{accountBalance}   
+		    </if> 
+			<if test="beginCreateDate != null and beginCreateDate != '' ">  
+		       <![CDATA[ 
+				CREATE_DATE >= #{beginCreateDate} 
+				]]>  
+		    </if> 
+			<if test="endCreateDate != null and endCreateDate != '' ">  
+		       <![CDATA[ 
+				CREATE_DATE <  #{endCreateDate}   
+				]]> 
+	  		</if> 
+			<if test="loginCount != null and loginCount != '' ">  
+		        AND LOGIN_COUNT = #{loginCount}   
+		    </if> 
+			<if test="flag != null and flag != '' ">  
+		        AND FLAG = #{flag}   
+		    </if> 
+			<if test="loginIp != null and loginIp != '' ">  
+		        AND LOGIN_IP = #{loginIp}   
+		    </if> 
+	</sql> 
+	
+	<select id="getUser" parameterType="java.util.Map" resultMap="user">  
+		<include refid="selectUserAll"/>
+		<where>
+			<include refid="selectUserWhere"/>
+		</where>
 	</select>
 	
-	<delete id="deleteAll">
-		delete from userinfo
-	</delete>
+	<select id="listUser" parameterType="java.util.Map" resultMap="user">  
+		<include refid="selectUserAll"/>
+		<where>
+			<include refid="selectUserWhere"/>
+		</where>
+	</select>
 	
+	<update id="updateUser" parameterType="user">  
+		UPDATE TBL_USER        
+		<set>
+		<if test="userName != null and userName != '' ">  
+		       USER_NAME = #{userName},  
+	    </if> 
+		<if test="password != null and password != '' ">  
+		       PASSWORD = #{password},  
+	    </if> 
+		<if test="email != null and email != '' ">  
+		       EMAIL = #{email},  
+	    </if> 
+		<if test="accountBalance != null and accountBalance != '' ">  
+		       ACCOUNT_BALANCE = #{accountBalance},  
+	    </if> 
+		<if test="createDate != null and createDate != '' ">  
+		       CREATE_DATE = #{createDate},  
+	    </if> 
+		<if test="loginCount != null and loginCount != '' ">  
+		       LOGIN_COUNT = #{loginCount},  
+	    </if> 
+		<if test="flag != null and flag != '' ">  
+		       FLAG = #{flag},  
+	    </if> 
+		<if test="loginIp != null and loginIp != '' ">  
+		       LOGIN_IP = #{loginIp} 
+	    </if> 
+		</set>
+		WHERE ID = #{id}
+	</update>
+
+	<update id="deleteUser" parameterType="java.util.Map" >  
+		UPDATE TBL_USER
+		SET
+			FLAG = #{flag}
+		WHERE ID = #{id}
+	</update>
+	
+	<update id="deleteListUser">  
+		DELETE FROM TBL_USER WHERE ID IN
+		<foreach collection="array" item="ids" open="(" separator="," close=")" >
+			#{ids}
+		</foreach>
+	</update>
+
+	<select id="getCountUser" resultType="java.lang.Integer">  
+		SELECT COUNT(*) C FROM TBL_USER
+		<where>
+			<include refid="selectUserWhere"/>
+		</where>
+	</select>
+	
+	<select id="listSplitUser" parameterType="java.util.Map" resultMap="user">  
+		<include refid="selectUserAll"/>
+		<where>
+			<include refid="selectUserWhere"/>
+		</where>
+		<if test="orderByFlag == null or orderByFlag == ''">  
+		     ORDER BY CREATE_DATE DESC    
+		</if>
+		<if test="orderByFlag == 1 ">  
+			 ORDER BY CREATE_DATE ASC     
+		</if>  
+		<if test="orderByFlag == 0 ">  
+			 ORDER BY CREATE_DATE DESC     
+		</if>  
+		LIMIT #{start},#{ end}
+	</select>
+
 </mapper>
