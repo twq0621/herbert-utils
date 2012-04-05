@@ -67,7 +67,7 @@
 	</bean>
 
 	<!-- 以静态变量保存ApplicationContext -->
-	<bean class="lion.core.SpringContextHolder" lazy-init="false" />
+	<bean id="springContextHolder" class="lion.core.SpringContextHolder" lazy-init="false" />
 
 	<!-- 第一个数据库 Master 负责写 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
