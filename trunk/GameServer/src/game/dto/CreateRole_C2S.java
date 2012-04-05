@@ -9,6 +9,9 @@ public class CreateRole_C2S extends Amf3BaseDTO {
 
 	/** 职业类型id */
 	private int characterId;
+	
+	/**用户ID*/
+	private long userId;
 
 	/** 性别 */
 	private int gender;
@@ -36,5 +39,15 @@ public class CreateRole_C2S extends Amf3BaseDTO {
 	public void setGender(int gender) {
 		this.gender = gender;
 	}
+
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+	
+	
 
 }
