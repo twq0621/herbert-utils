@@ -3,7 +3,6 @@
 /* Created on:     2012-4-5 15:50:22                            */
 /*==============================================================*/
 
-
 DROP TABLE IF EXISTS TBL_BASE_BAG;
 
 DROP TABLE IF EXISTS TBL_BASE_ITEM;
