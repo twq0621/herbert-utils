@@ -2,7 +2,7 @@ package lion.core;
 
 import org.jboss.netty.channel.Channel;
 
-public class UserInfo {
+public class UserSession {
 
 	private Channel channel;
 
@@ -10,7 +10,7 @@ public class UserInfo {
 
 	private String currentRoleName;
 
-	public UserInfo(Channel channel, String userName) {
+	public UserSession(Channel channel, String userName) {
 		this.channel = channel;
 		this.userName = userName;
 	}
