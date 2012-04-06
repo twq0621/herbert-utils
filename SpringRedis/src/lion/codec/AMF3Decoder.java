@@ -14,8 +14,7 @@ import flex.messaging.io.amf.Amf3Input;
 
 public class AMF3Decoder extends LengthFieldBasedFrameDecoder {
 
-	public static final Logger logger = LoggerFactory
-			.getLogger(AMF3Decoder.class);
+	public static final Logger logger = LoggerFactory.getLogger(AMF3Decoder.class);
 
 	/**
 	 * 
@@ -26,8 +25,7 @@ public class AMF3Decoder extends LengthFieldBasedFrameDecoder {
 	 * @param lengthFieldLength
 	 *            包头信息，长度位数
 	 */
-	public AMF3Decoder(int maxFrameLength, int lengthFieldOffset,
-			int lengthFieldLength) {
+	public AMF3Decoder(int maxFrameLength, int lengthFieldOffset, int lengthFieldLength) {
 		super(maxFrameLength, lengthFieldOffset, lengthFieldLength);
 	}
 
@@ -40,19 +38,16 @@ public class AMF3Decoder extends LengthFieldBasedFrameDecoder {
 	}
 
 	/**
-      * 
-      */
+	  * 
+	  */
 	@Override
-	protected Object decode(ChannelHandlerContext ctx, Channel channel,
-			ChannelBuffer buffer) throws Exception {
-		ChannelBuffer frame = (ChannelBuffer) super
-				.decode(ctx, channel, buffer);
+	protected Object decode(ChannelHandlerContext ctx, Channel channel, ChannelBuffer buffer) throws Exception {
+		ChannelBuffer frame = (ChannelBuffer) super.decode(ctx, channel, buffer);
 		if (frame == null) {
 			return null;
 		}
-		//
-		int dataLength = frame.readInt();
-		logger.info("data length={}", dataLength);
+		//int dataLength = frame.readInt();
+		//logger.info("data length={}", dataLength);
 		// 读AMF3字节流的内容
 		byte[] content = new byte[frame.readableBytes()];
 		frame.readBytes(content);
