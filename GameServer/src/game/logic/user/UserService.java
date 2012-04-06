@@ -1,4 +1,4 @@
-package game.service;
+package game.logic.user;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -16,8 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 import lion.common.BaseServiceImpl;
 import lion.core.UserInfo;
 import game.common.ErrorCode;
-import game.dao.RoleDao;
-import game.dao.UserDao;
 import game.dto.CreateRole_C2S;
 import game.dto.CreateRole_S2C;
 import game.dto.EnterGame_C2S;
@@ -26,6 +24,7 @@ import game.dto.Login_C2S;
 import game.dto.Login_S2C;
 import game.entity.Role;
 import game.entity.User;
+import game.logic.role.RoleDao;
 
 /**
  *  用户信息

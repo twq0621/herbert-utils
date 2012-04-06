@@ -3,6 +3,7 @@ package game.service;
 import game.dto.CreateRole_C2S;
 import game.dto.EnterGame_C2S;
 import game.dto.Login_C2S;
+import game.logic.user.UserService;
 import lion.common.Utils;
 import lion.core.ChannelClose_C2S;
 import lion.core.IGameService;

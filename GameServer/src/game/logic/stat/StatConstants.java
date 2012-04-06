@@ -1,4 +1,4 @@
-package game.service;
+package game.logic.stat;
 
 public class StatConstants {
 
