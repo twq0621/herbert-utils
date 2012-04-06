@@ -8,7 +8,7 @@ import lion.common.Utils;
 import lion.core.ChannelClose_C2S;
 import lion.core.IGameService;
 import lion.core.Security_C2S;
-import lion.core.UserInfo;
+import lion.core.UserSession;
 
 import org.jboss.netty.channel.Channel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,12 +32,12 @@ public class ServerServiceEnter implements IGameService {
 	}
 
 	public void createRole(Channel channel, CreateRole_C2S msg) {
-		UserInfo userInfo = userService.getUserInfo(channel.getId());
+		UserSession userInfo = userService.getUserInfo(channel.getId());
 		userService.createRole(userInfo, msg);
 	}
 
 	public void enterGame(Channel channel, EnterGame_C2S reqMsg) throws InvalidProtocolBufferException {
-		UserInfo userInfo = userService.getUserInfo(channel.getId());
+		UserSession userInfo = userService.getUserInfo(channel.getId());
 		userService.enterGame(userInfo, reqMsg);
 	}
 

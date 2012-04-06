@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import lion.common.BaseServiceImpl;
-import lion.core.UserInfo;
+import lion.core.UserSession;
 import game.common.ErrorCode;
 import game.dto.CreateRole_C2S;
 import game.dto.CreateRole_S2C;
@@ -41,7 +41,7 @@ import game.logic.role.RoleDao;
 @Transactional
 public class UserService extends BaseServiceImpl {
 
-	private Map<Integer, UserInfo> usersMap = new ConcurrentHashMap<Integer, UserInfo>();
+	private Map<Integer, UserSession> usersMap = new ConcurrentHashMap<Integer, UserSession>();
 	
 	private UserDao userDao;
 	
@@ -102,7 +102,7 @@ public class UserService extends BaseServiceImpl {
 		}
 		retMsg.setCode(ErrorCode.SUCCESS);
 		//初始化在线用户userInfo,存放在map中
-		UserInfo uInfo = new UserInfo(channel, msg.getName());
+		UserSession uInfo = new UserSession(channel, msg.getName());
 		usersMap.put(channel.getId(), uInfo);
 		
 		channel.write(retMsg);
@@ -117,7 +117,7 @@ public class UserService extends BaseServiceImpl {
 	  * @return void    返回类型
 	  * @throws
 	  */
-	public void createRole(UserInfo userInfo, CreateRole_C2S msg){
+	public void createRole(UserSession userInfo, CreateRole_C2S msg){
 		logger.info("create role!");
 		CreateRole_S2C retMsg = new CreateRole_S2C();
 		Map<String,Object> param = new HashMap<String,Object>();
@@ -147,7 +147,7 @@ public class UserService extends BaseServiceImpl {
 	  * @return void    返回类型
 	  * @throws
 	  */
-	public void enterGame(UserInfo userInfo, EnterGame_C2S reqMsg){
+	public void enterGame(UserSession userInfo, EnterGame_C2S reqMsg){
 		logger.info("enterGame");
 		EnterGame_S2C retMsg = new EnterGame_S2C();
 		String selectedRoleName = reqMsg.getSelectedRole();
@@ -159,7 +159,7 @@ public class UserService extends BaseServiceImpl {
 		userInfo.send(retMsg);
 	}
 
-	public UserInfo getUserInfo(int channelId) {
+	public UserSession getUserInfo(int channelId) {
 		return usersMap.get(channelId);
 	}
 
@@ -168,7 +168,7 @@ public class UserService extends BaseServiceImpl {
 	 * @param obj
 	 */
 	public void sendAll(Object obj) {
-		for (UserInfo userInfo : usersMap.values()) {
+		for (UserSession userInfo : usersMap.values()) {
 			userInfo.send(obj);
 		}
 	}

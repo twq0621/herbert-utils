@@ -21,17 +21,17 @@ public class MainClient {
 		NettyClient amf3Client = new NettyClient(ClientServiceEnter.class);
 		GameClient sampleClient = new GameClient(amf3Client);
 		sampleClient.connect("127.0.0.1", 8653);
-//		//登录
-//		Login_C2S msg = new Login_C2S();
-//		msg.setName("wujian");
-//		msg.setPwd("123456");
-		
-		CreateRole_C2S msg = new CreateRole_C2S();
-		msg.setRoleName("wujian");
-		msg.setUserId(1);
-		msg.setGender(0);
-		msg.setCharacterId(0);
-		sampleClient.send(msg);
+		//登录
+		Login_C2S msg = new Login_C2S();
+		msg.setName("wujian");
+		msg.setPwd("123456");
+
+		CreateRole_C2S msg2 = new CreateRole_C2S();
+		msg2.setRoleName("吴剑");
+		msg2.setUserId(1);
+		msg2.setGender(0);
+		msg2.setCharacterId(0);
+		sampleClient.send(msg2);
 	}
 
 }
