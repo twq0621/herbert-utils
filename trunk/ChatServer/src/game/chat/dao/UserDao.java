@@ -2,6 +2,7 @@ package game.chat.dao;
 
 import game.chat.common.RedisFieldConstants;
 import game.chat.common.RedisKeyConstants;
+import game.entity.User;
 import lion.common.BaseDaoImpl;
 
 import org.springframework.data.redis.core.HashOperations;
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Component;
 import com.google.protobuf.InvalidProtocolBufferException;
 
 @Component
-public class UserDao extends BaseDaoImpl {
+public class UserDao extends BaseDaoImpl<User> {
 
 	public String getUserNameKey(String userName) {
 		return String.format(RedisKeyConstants.USER_ENTITY_KEY, userName);
@@ -42,6 +43,12 @@ public class UserDao extends BaseDaoImpl {
 			}
 		}
 		return ret;
+	}
+
+	@Override
+	public Class getEntityClass() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
