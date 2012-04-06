@@ -46,8 +46,8 @@ public class AMF3Decoder extends LengthFieldBasedFrameDecoder {
 		if (frame == null) {
 			return null;
 		}
-		//int dataLength = frame.readInt();
-		//logger.info("data length={}", dataLength);
+		int dataLength = frame.readInt();
+		logger.info("data length={}", dataLength);
 		// 读AMF3字节流的内容
 		byte[] content = new byte[frame.readableBytes()];
 		frame.readBytes(content);
