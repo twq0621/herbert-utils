@@ -1,6 +1,5 @@
 package game.logic.stat;
 
-import game.dao.CommonStatDao;
 import game.dto.GetNewRole_S2C;
 
 import org.jboss.netty.channel.Channel;
