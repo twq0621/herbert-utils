@@ -38,18 +38,18 @@ public class ChatManager {
 		ConnectChat_S2C retMsg = new ConnectChat_S2C();
 		boolean loginValid = userDao.checkLoginValid(reqMsg.getUserName(), reqMsg.getSid());
 		//聊天session无效
-		if (!loginValid) {
-			retMsg.setCode(ErrorCode.CHAT_SESSION_INVALID);
-			channel.write(retMsg);
-			return;
-		}
+		//		if (!loginValid) {
+		//			retMsg.setCode(ErrorCode.CHAT_SESSION_INVALID);
+		//			channel.write(retMsg);
+		//			return;
+		//		}
 		//判断是否为当前角色的聊天
-		boolean roleValid = userDao.checkRoleValid(reqMsg.getUserName(), reqMsg.getRoleName());
-		if (!roleValid) {
-			retMsg.setCode(ErrorCode.CHAT_ROLE_INVALID);
-			channel.write(retMsg);
-			return;
-		}
+		//		boolean roleValid = userDao.checkRoleValid(reqMsg.getUserName(), reqMsg.getRoleName());
+		//		if (!roleValid) {
+		//			retMsg.setCode(ErrorCode.CHAT_ROLE_INVALID);
+		//			channel.write(retMsg);
+		//			return;
+		//		}
 		//存入玩家信息
 		ChatingRole chatingRole = chatingRoles.get(channel.getId());
 		if (chatingRole == null) {
@@ -99,6 +99,7 @@ public class ChatManager {
 			channel.write(retMsg);
 			return;
 		}
+		retMsg.setSenderName(chatingRole.getrName());
 		retMsg.setContent(reqMsg.getContent());
 		switch (reqMsg.getType()) {
 		case ChatConstants.CHAT_TYPE_ALL:
@@ -136,6 +137,7 @@ public class ChatManager {
 		}
 		//TODO 是否在对方的黑名单中
 		//发送聊天消息
+		retMsg.setSenderName(chatingRole.getrName());
 		retMsg.setContent(content);
 		targetChatingRole.send(retMsg);
 	}
