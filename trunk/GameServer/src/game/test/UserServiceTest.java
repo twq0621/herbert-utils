@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
 import game.dto.Login_C2S;
 import game.entity.User;
-import game.service.UserService;
+import game.logic.user.UserService;
 
 /**
  *  用户信息

@@ -11,7 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
 import game.entity.Role;
-import game.service.RoleService;
+import game.logic.role.RoleService;
 
 /**
  *  角色信息

@@ -1,13 +1,13 @@
-package game.dao;
+package game.logic.user;
 
 import lion.common.BaseDaoImpl;
 import org.springframework.stereotype.Repository;
-import game.entity.BaseItem;
+import game.entity.User;
 
 /**
- *  物品基础信息表
+ *  用户信息
  * @Title  webGame
- * @Description IBaseItemDaoImpl.java
+ * @Description IUserDaoImpl.java
  * @Copyright (c) 2012
  * @Company www.kingnet.com
  * 
@@ -16,11 +16,11 @@ import game.entity.BaseItem;
  * @date Apr 4, 2012
  */
 @Repository
-public class BaseItemDao extends BaseDaoImpl<BaseItem> {
+public class UserDao extends BaseDaoImpl<User> {
 
 	@Override
-	public Class<BaseItem> getEntityClass() {
-		return BaseItem.class;
+	public Class<User> getEntityClass() {
+		return User.class;
 	}
 
 }

@@ -1,4 +1,4 @@
-package game.service;
+package game.logic.item;
 
 import java.util.HashMap;
 import java.util.List;
@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import lion.common.BaseServiceImpl;
-import game.dao.BaseItemDao;
 import game.entity.BaseItem;
 
 /**

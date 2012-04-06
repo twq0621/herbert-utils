@@ -1,4 +1,4 @@
-package game.service;
+package game.logic.item;
 
 import java.util.HashMap;
 import java.util.List;

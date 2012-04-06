@@ -1,4 +1,4 @@
-package game.dao;
+package game.logic.role;
 
 import lion.common.BaseDaoImpl;
 import org.springframework.stereotype.Repository;
