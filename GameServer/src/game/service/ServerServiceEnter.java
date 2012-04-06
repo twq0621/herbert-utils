@@ -26,12 +26,11 @@ public class ServerServiceEnter implements IGameService {
 
 	@Autowired
 	private UserService userService;
-	
+
 	public void login(Channel channel, Login_C2S msg) {
 		userService.login(channel, msg);
 	}
-	
-	
+
 	public void createRole(Channel channel, CreateRole_C2S msg) {
 		UserInfo userInfo = userService.getUserInfo(channel.getId());
 		userService.createRole(userInfo, msg);

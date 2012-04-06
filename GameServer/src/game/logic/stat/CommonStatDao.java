@@ -1,4 +1,4 @@
-package game.dao;
+package game.logic.stat;
 
 import lion.core.ProtobufRedisTemplate;
 
