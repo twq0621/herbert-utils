@@ -1,4 +1,4 @@
-io采用netty框架，AMF3协议，数据库层采用redis和mysql。
+io采用netty框架，AMF3协议，数据库层采用redis和mysql，redis用protobuf框架进行存储。
 
 运行mvn package会生成dto的as文件，客户端可以直接拿来用，https://herbert-utils.googlecode.com/svn/trunk/FlashChatRoom 项目是as客户端的实例代码
 
