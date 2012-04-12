@@ -3,6 +3,10 @@ package lion.netty;
 import java.io.IOException;
 import java.nio.channels.ClosedChannelException;
 
+import lion.core.ChannelClose_C2S;
+import lion.core.IGameService;
+import lion.core.LogicExecuterPool;
+
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelStateEvent;
 import org.jboss.netty.channel.ExceptionEvent;
@@ -11,10 +15,6 @@ import org.jboss.netty.channel.SimpleChannelHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import lion.core.CallPool;
-import lion.core.ChannelClose_C2S;
-import lion.core.IGameService;
-
 public class NettySeverChannelHandler extends SimpleChannelHandler {
 
 	public static Logger logger = LoggerFactory.getLogger(NettySeverChannelHandler.class);
@@ -22,7 +22,7 @@ public class NettySeverChannelHandler extends SimpleChannelHandler {
 	@Override
 	public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) {
 		if (e.getMessage() != null) {
-			CallPool.execute(e.getChannel(), e.getMessage());
+			LogicExecuterPool.executeIoRequest(e.getChannel(), e.getMessage());
 		} else {
 			logger.error("", e);
 		}
@@ -30,12 +30,12 @@ public class NettySeverChannelHandler extends SimpleChannelHandler {
 
 	@Override
 	public void channelClosed(ChannelHandlerContext ctx, ChannelStateEvent e) throws Exception {
-		CallPool.execute(e.getChannel(), new ChannelClose_C2S());
+		LogicExecuterPool.execute(e.getChannel(), new ChannelClose_C2S());
 		super.channelClosed(ctx, e);
 	}
 
 	public void init(Class<? extends IGameService> serviceClass) {
-		CallPool.init(serviceClass);
+		LogicExecuterPool.init(serviceClass);
 	}
 
 	@Override

@@ -12,7 +12,7 @@ import lion.common.Utils;
 
 public class ClientCallPool {
 
-	private static Logger logger = LoggerFactory.getLogger(CallPool.class);
+	private static Logger logger = LoggerFactory.getLogger(ClientCallPool.class);
 
 	private static Map<String, Method> methodMap = new ConcurrentHashMap<String, Method>();
 
