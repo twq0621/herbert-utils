@@ -19,8 +19,7 @@ import lion.core.IGameService;
 
 public class NettyServer {
 
-	private static final Logger logger = LoggerFactory
-			.getLogger(NettyServer.class);
+	private static final Logger logger = LoggerFactory.getLogger(NettyServer.class);
 
 	public static final int MIN_READ_BUFFER_SIZE = 64;
 
@@ -32,8 +31,7 @@ public class NettyServer {
 
 	public static final int CHANNEL_MEMORY_LIMIT = MAX_READ_BUFFER_SIZE * 2;
 
-	public static final long GLOBAL_MEMORY_LIMIT = Runtime.getRuntime()
-			.maxMemory() / 3;
+	public static final long GLOBAL_MEMORY_LIMIT = Runtime.getRuntime().maxMemory() / 3;
 
 	private ServerBootstrap _bootstrap;
 
@@ -45,8 +43,7 @@ public class NettyServer {
 		}
 	};
 
-	private final ChannelPipelineFactory pipelineFactory = new Amf3PipelineFactory(
-			handlerFactory);
+	private final ChannelPipelineFactory pipelineFactory = new Amf3PipelineFactory(handlerFactory);
 
 	public NettyServer(Class<? extends IGameService> serviceClass) {
 		init(serviceClass);
@@ -59,25 +56,18 @@ public class NettyServer {
 	public void initServer() {
 		boolean threadPoolDisabled = true;
 		int workerCount = Runtime.getRuntime().availableProcessors() * 2 + 1;
-		NioServerSocketChannelFactory factory = new NioServerSocketChannelFactory(
-				Executors.newCachedThreadPool(),
-				Executors.newCachedThreadPool(), workerCount);
+		NioServerSocketChannelFactory factory = new NioServerSocketChannelFactory(Executors.newCachedThreadPool(), Executors.newCachedThreadPool(), workerCount);
 		_bootstrap = new ServerBootstrap(factory);
 		if (!threadPoolDisabled) {
 			_bootstrap.getPipeline().addLast(
 					"executor",
-					new ExecutionHandler(
-							new OrderedMemoryAwareThreadPoolExecutor(
-									THREAD_POOL_SIZE, CHANNEL_MEMORY_LIMIT,
-									GLOBAL_MEMORY_LIMIT, 0,
-									TimeUnit.MILLISECONDS)));
+					new ExecutionHandler(new OrderedMemoryAwareThreadPoolExecutor(THREAD_POOL_SIZE, CHANNEL_MEMORY_LIMIT, GLOBAL_MEMORY_LIMIT, 0,
+							TimeUnit.MILLISECONDS)));
 		}
 		_bootstrap.setOption("child.tcpNoDelay", true);
 		_bootstrap.setOption("child.keepAlive", true);
-		_bootstrap.setOption("child.receiveBufferSizePredictorFactory",
-				new AdaptiveReceiveBufferSizePredictorFactory(
-						MIN_READ_BUFFER_SIZE, INITIAL_READ_BUFFER_SIZE,
-						MAX_READ_BUFFER_SIZE));
+		_bootstrap.setOption("child.receiveBufferSizePredictorFactory", new AdaptiveReceiveBufferSizePredictorFactory(MIN_READ_BUFFER_SIZE,
+				INITIAL_READ_BUFFER_SIZE, MAX_READ_BUFFER_SIZE));
 		_bootstrap.setPipelineFactory(pipelineFactory);
 	}
 
@@ -88,6 +78,10 @@ public class NettyServer {
 			logger.error("", e);
 			return false;
 		}
+	}
+
+	public void stop() {
+		_bootstrap.getFactory().releaseExternalResources();
 	}
 
 }
