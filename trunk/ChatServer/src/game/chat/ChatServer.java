@@ -25,6 +25,7 @@ public class ChatServer {
 		amf3Server = new NettyServer(serviceClass);
 		amf3Server.initServer();
 		amf3Server.startServer(8650);
+		addShutDownHook();
 	}
 
 	/**
@@ -34,5 +35,19 @@ public class ChatServer {
 		ApplicationContext factory = new ClassPathXmlApplicationContext("applicationContext.xml");
 		ChatServer server = new ChatServer(ChatServerEnter.class);
 		logger.info("server init success!,factory={},server={}", factory, server);
+	}
+
+	private void addShutDownHook() {
+		Runtime.getRuntime().addShutdownHook(new Thread() {
+			public void run() {
+				amf3Server.stop();
+				onStop();
+				System.exit(0);
+			}
+		});
+	}
+
+	protected void onStop() {
+		//stop work
 	}
 }
