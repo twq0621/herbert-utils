@@ -3,7 +3,7 @@ mysql采用了MyBatis ORM框架,oscache缓存框架。
 
 运行mvn package会生成dto的as文件，客户端可以直接拿来用，https://herbert-utils.googlecode.com/svn/trunk/FlashChatRoom 项目是as客户端的实例代码
 
-TODO:IO线程和逻辑线程放在一起，有个问题是如果逻辑线程发生阻塞，会影响io线程，进而影响io的吞吐量，因此改进方向是异步的io请求都存储在一个队列中，
+IO线程和逻辑线程放在一起，有个问题是如果逻辑线程发生阻塞，会影响io线程，进而影响io的吞吐量，因此本框架将异步的io请求都存储在一个队列中，
 逻辑线程只有一个，读取队列里的消息，然后进行处理。
 
 TODO:添加事件机制，采用QUARTZ框架。
