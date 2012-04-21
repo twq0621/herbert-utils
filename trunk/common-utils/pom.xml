@@ -8,6 +8,7 @@
 		<!-- 主要依赖库的版本定义 -->
 		<jetty.version>7.5.4.v20111024</jetty.version>
 		<org.slf4j.version>1.6.4</org.slf4j.version>
+		<slf4j.version>1.6.4</slf4j.version>
 		<springside.version>4.0.0-SNAPSHOT</springside.version>
 		<spring.version>3.1.0.RELEASE</spring.version>
 		<hibernate.version>3.6.4.Final</hibernate.version>
