@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="GBK"?>
+<project basedir="." default="uploadscript">
+	<property file="build.properties" />
+	<target name="jargamescript">
+		<delete file="${basedir}/gamescript.jar" />
+		<delete dir="${basedir}/classes" />
+		<mkdir dir="${basedir}/classes" />
+
+		<path id="classpath">
+			<fileset dir="${basedir}/../lib" includes="*.jar" />
+		</path>
+		<javac debug="true" source="1.5" srcdir="${basedir}/../src" destdir="${basedir}/classes">
+			<compilerarg value="-Xlint:deprecation" />
+			<classpath refid="classpath" />
+		</javac>
+		<copy todir="${basedir}/classes">
+			<fileset dir="${basedir}/../src" excludes="**/*.java" />
+		</copy>
+		<jar destfile="${basedir}/gamescript.jar" basedir="${basedir}/classes" />
+		<delete dir="${basedir}/classes" />
+	</target>
+	<target name="uploadscript" depends="jargamescript">
+		<!--上传新文件yy
+		<scp verbose="yes" port="${releaseserver.port}" todir="${releaseserver.logonUser}:${releaseserver.logonPassword}@${releaseserver.address}:${releaseserver.scriptdir}" trust="true">
+			<fileset file="${basedir}/gamescript.jar" />
+		</scp>-->
+		
+		<copy todir="${basedir}/../../game_full/webappconfig/webroot/WEB-INF/script" overwrite="true">
+			<fileset file="${basedir}/gamescript.jar" />
+		</copy>
+		<sql classpath="${basedir}/../lib/mysql.jar" driver="com.mysql.jdbc.Driver" password="${db.password}" url="${db.url}" userid="${db.username}">
+			update dbcachelist set version=version+1 where appname='ajserver' and cachename='gamescript'
+		</sql>
+		<delete file="${basedir}/gamescript.jar"></delete>
+	</target>
+</project>
