@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_feast">
+	<typeAlias alias="Feast" type="net.snake.gamemodel.wedding.bean.Feast" />
+	<resultMap class="Feast" id="FeastRes">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_applyer_id" jdbcType="INTEGER" property="applyerId" />
+		<result column="f_mate_id" jdbcType="INTEGER" property="mateId" />
+		<result column="f_fasttype" jdbcType="INTEGER" property="fasttype" />
+		<result column="f_applytime" jdbcType="BIGINT" property="applytime" />
+		<result column="f_state" jdbcType="INTEGER" property="state" />
+		<result column="f_join_count" jdbcType="INTEGER" property="joinCount" />
+		<result column="f_isreceive1" jdbcType="BIT" property="isreceive1" />
+		<result column="f_isreceive2" jdbcType="BIT" property="isreceive2" />
+		<result column="f_gift_amount" jdbcType="INTEGER" property="giftAmount" />
+		<result column="f_line" jdbcType="INTEGER" property="line" />
+	</resultMap>
+
+	<select id="queryall" resultMap="FeastRes">
+		select * from t_feast
+	</select>
+
+	<delete id="deleteById" parameterClass="java.lang.Integer">
+		delete from t_feast where f_id = #id#
+	</delete>
+
+	<insert id="insert" parameterClass="Feast">
+		insert into t_feast (f_applyer_id, f_mate_id, f_fasttype, f_applytime,
+		f_state, f_join_count,
+		f_isreceive1, f_isreceive2, f_gift_amount,
+		f_line)
+		values (#applyerId:INTEGER#,
+		#mateId:INTEGER#,
+		#fasttype:INTEGER#,
+		#applytime:BIGINT#,
+		#state:INTEGER#,
+		#joinCount:INTEGER#, #isreceive1:BIT#, #isreceive2:BIT#,
+		#giftAmount:INTEGER#, #line:INTEGER#)
+		<selectKey keyProperty="id" resultClass="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+	<update id="updateByIdSelective" parameterClass="Feast">
+		update t_feast
+		set f_applyer_id = #applyerId:INTEGER#,
+		f_mate_id = #mateId:INTEGER#,
+		f_fasttype = #fasttype:INTEGER#,
+		f_applytime = #applytime:BIGINT#,
+		f_state = #state:INTEGER#,
+		f_join_count = #joinCount:INTEGER#,
+		f_isreceive1 = #isreceive1:BIT#,
+		f_isreceive2 = #isreceive2:BIT#,
+		f_gift_amount =
+		#giftAmount:INTEGER#,
+		f_line = #line:INTEGER#
+		where f_id
+		= #id:INTEGER#
+	</update>
+</sqlMap>

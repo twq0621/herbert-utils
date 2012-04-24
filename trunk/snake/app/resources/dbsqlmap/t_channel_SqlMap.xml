@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_channel">
+	<typeAlias alias="Channel" type="net.snake.gamemodel.heroext.channel.bean.Channel" />
+	<resultMap class="Channel" id="ChannelRes">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_name" jdbcType="VARCHAR" property="name" />
+		<result column="f_hp_add" jdbcType="INTEGER" property="hpAdd" />
+		<result column="f_mp_add" jdbcType="INTEGER" property="mpAdd" />
+		<result column="f_sp_add" jdbcType="INTEGER" property="spAdd" />
+		<result column="f_attack_add" jdbcType="INTEGER" property="attackAdd" />
+		<result column="f_defence_add" jdbcType="INTEGER" property="defenceAdd" />
+		<result column="f_dodge_add" jdbcType="INTEGER" property="dodgeAdd" />
+		<result column="f_crt_add" jdbcType="INTEGER" property="crtAdd" />
+		<result column="f_need_zhenqi" jdbcType="INTEGER" property="needZhenqi" />
+		<result column="f_odds" jdbcType="INTEGER" property="odds" />
+		<result column="f_name_i18n" jdbcType="VARCHAR" property="nameI18n" />
+		<result column="f_debuff_id" jdbcType="INTEGER" property="debuffId" />
+	</resultMap>
+
+	<select id="queryall" resultMap="ChannelRes">
+		select * from t_channel order by
+		f_id
+	</select>
+</sqlMap>

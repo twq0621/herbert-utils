@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_dujie_add">
+	<resultMap class="net.snake.gamemodel.dujie.bean.DujieAdd" id="DujieAdd">
+
+		<result property="id" jdbcType="INTEGER" column="f_id" />
+		<result property="add_hp" jdbcType="VARCHAR" column="f_add_hp" />
+		<result property="add_mp" jdbcType="VARCHAR" column="f_add_mp" />
+		<result property="add_attack" jdbcType="VARCHAR" column="f_add_attack" />
+		<result property="add_defence" jdbcType="VARCHAR" column="f_add_defence" />
+		<result property="add_crt" jdbcType="VARCHAR" column="f_add_crt" />
+		<result property="add_dodge" jdbcType="VARCHAR" column="f_add_dodge" />
+		<result property="add_hit" jdbcType="VARCHAR" column="f_add_hit" />
+
+	</resultMap>
+
+	<select id="queryall" resultMap="DujieAdd">
+		select * from t_dujie_add_offset
+	</select>
+</sqlMap>

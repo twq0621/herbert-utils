@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_character_friend">
+	<typeAlias alias="CharacterFriend" type="net.snake.gamemodel.friend.bean.CharacterFriend"/>
+	<resultMap class="CharacterFriend" id="CharacterFriendRes">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_character_id" jdbcType="INTEGER" property="characterId" />
+		<result column="f_friend_id" jdbcType="INTEGER" property="friendId" />
+		<result column="f_relation_type" jdbcType="TINYINT" property="relationType" />
+		<result column="f_favor" jdbcType="INTEGER" property="favor" />
+		<result column="f_add_date" jdbcType="TIMESTAMP" property="addDate" />
+		<result column="f_name" jdbcType="VARCHAR" property="name" />
+		<result column="f_hate_value" jdbcType="INTEGER" property="hateValue" />
+	</resultMap>
+	
+	<select id="selecteListByCharacterId" parameterClass="java.lang.Integer"  resultMap="CharacterFriendRes">
+		select *	from t_character_friend where  f_character_id=#characterId#
+	</select>
+	
+	<select id="selecteListByFriendId"  parameterClass="java.lang.Integer" resultMap="CharacterFriendRes">
+		select *	from t_character_friend where  f_friend_id=#friendId#
+	</select>
+	
+	<delete id="deleteById" parameterClass="java.lang.Integer">
+		delete from t_character_friend	where f_id = #id#
+	</delete>
+	
+	<delete id="deleteByCharacterId" parameterClass="java.lang.Integer">
+		delete from t_character_friend	where f_character_id=#characterId#
+	</delete>
+	
+	<delete id="deleteByFriendId" parameterClass="java.lang.Integer">
+		delete from t_character_friend	where f_friend_id=#friendId#
+	</delete>
+	
+	<insert id="insert" parameterClass="CharacterFriend">
+		insert into t_character_friend (f_character_id, f_friend_id,
+		f_relation_type, f_favor,
+		f_add_date, f_name, f_hate_value)
+		values (#characterId:INTEGER#, #friendId:INTEGER#, #relationType:TINYINT#,
+		#favor:INTEGER#,
+		#addDate:TIMESTAMP#, #name:VARCHAR#, #hateValue:INTEGER#)
+		<selectKey keyProperty="id" resultClass="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+	
+	<update id="updateById" parameterClass="CharacterFriend">
+		update t_character_friend
+		set f_character_id = #characterId:INTEGER#,
+		f_friend_id = #friendId:INTEGER#,
+		f_relation_type = #relationType:TINYINT#,
+		f_favor = #favor:INTEGER#,
+		f_add_date = #addDate:TIMESTAMP#,
+		f_name = #name:VARCHAR#,
+		f_hate_value = #hateValue:INTEGER#
+		where f_id = #id:INTEGER#
+	</update>
+</sqlMap>

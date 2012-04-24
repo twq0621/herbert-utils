@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_hidden_weapons">
+	<resultMap class="net.snake.gamemodel.skill.bean.HiddenWeapons" id="HiddenWeapons">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_name" jdbcType="VARCHAR" property="name" />
+		<result column="f_grade" jdbcType="INTEGER" property="grade" />
+		<result column="f_xiu_grade" jdbcType="INTEGER" property="xiuGrade" />
+		<result column="f_mastery" jdbcType="INTEGER" property="mastery" />
+		<result column="f_hidden_weaponscol" jdbcType="INTEGER" property="hiddenWeaponscol" />
+		<result column="f_attack_dis" jdbcType="INTEGER" property="attackDis" />
+		<result column="f_attack_targets" jdbcType="INTEGER" property="attackTargets" />
+		<result column="f_trib_lv" jdbcType="INTEGER" property="tribLv" />
+		<result column="f_trib_real_value" jdbcType="INTEGER" property="tribRealValue" />
+		<result column="f_spcial_type" jdbcType="VARCHAR" property="spcialType" />
+		<result column="f_spcial_desc" jdbcType="VARCHAR" property="spcialDesc" />
+		<result column="f_upgrade_need_copper" jdbcType="INTEGER" property="upgradeNeedCopper" />
+		<result column="f_upgrade_need_zhenqi" jdbcType="INTEGER" property="upgradeNeedZhenqi" />
+		<result column="f_upgrade_need_goods" jdbcType="VARCHAR" property="upgradeNeedGoods" />
+		<result column="f_upgrade_trib_lv" jdbcType="INTEGER" property="upgradeTribLv" />
+		<result column="f_upgrade_trib_real_lv" jdbcType="INTEGER" property="upgradeTribRealLv" />
+		<result column="f_upgrade_min_cnt" jdbcType="INTEGER" property="upgradeMinCnt" />
+		<result column="f_upgrade_max_cnt" jdbcType="INTEGER" property="upgradeMaxCnt" />
+		<result column="f_method" jdbcType="VARCHAR" property="method" />
+		<result column="f_skill_id" jdbcType="INTEGER" property="skillId" />
+		<result column="f_name_i18n" jdbcType="VARCHAR" property="nameI18n" />
+		<result column="f_spcial_desc_i18n" jdbcType="VARCHAR" property="spcialDescI18n" />
+		<result column="f_method_i18n" jdbcType="VARCHAR" property="methodI18n" />
+		<result column="f_attack_add" jdbcType="INTEGER" property="attackAdd" />
+		<result column="f_common_open_hidden_props" jdbcType="VARCHAR" property="commonOpenHiddenProps" />
+		<result column="f_activity_open_hidden_props" jdbcType="VARCHAR" property="activityOpenHiddenProps" />
+	</resultMap>
+
+	<select id="queryall" resultMap="HiddenWeapons">
+		select * from t_hidden_weapons
+	</select>
+</sqlMap>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_faction_city">
+	<typeAlias alias="FactionCity" type="net.snake.gamemodel.faction.bean.FactionCity" />
+	<resultMap class="FactionCity" id="FactionCityRes">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_faction_id" jdbcType="INTEGER" property="factionId" />
+		<result column="f_tax_rate" jdbcType="INTEGER" property="taxRate" />
+		<result column="f_yd_taxes" jdbcType="INTEGER" property="ydTaxes" />
+		<result column="f_td_taxes" jdbcType="INTEGER" property="tdTaxes" />
+		<result column="f_all_taxes" jdbcType="BIGINT" property="allTaxes" />
+		<result column="f_isget_taxes" jdbcType="INTEGER" property="isgetTaxes" />
+		<result column="f_isget_bangzhu" jdbcType="INTEGER" property="isgetBangzhu" />
+		<result column="f_isget_fubangzhu" jdbcType="INTEGER" property="isgetFubangzhu" />
+		<result column="f_isgetdazhanglao" jdbcType="INTEGER" property="isgetdazhanglao" />
+		<result column="f_isgetdashixiong" jdbcType="INTEGER" property="isgetdashixiong" />
+		<result column="f_isgetdashijie" jdbcType="INTEGER" property="isgetdashijie" />
+		<result column="f_lingqu_time" jdbcType="TIMESTAMP" property="lingquTime" />
+		<result column="f_update_time" jdbcType="TIMESTAMP" property="updateTime" />
+		<result column="f_notice" jdbcType="VARCHAR" property="notice" />
+	</resultMap>
+
+	<select id="queryall" resultMap="FactionCityRes">
+		select * from t_faction_city
+	</select>
+
+	<insert id="insert" parameterClass="FactionCity">
+		insert into t_faction_city (f_faction_id, f_tax_rate, f_yd_taxes,
+		f_td_taxes, f_all_taxes,
+		f_isget_taxes, f_isget_bangzhu, f_isget_fubangzhu, f_isgetdazhanglao,
+		f_isgetdashixiong,
+		f_isgetdashijie, f_lingqu_time, f_update_time, f_notice)
+		values (#factionId:INTEGER#, #taxRate:INTEGER#, #ydTaxes:INTEGER#,
+		#tdTaxes:INTEGER#,
+		#allTaxes:BIGINT#,
+		#isgetTaxes:INTEGER#, #isgetBangzhu:INTEGER#,
+		#isgetFubangzhu:INTEGER#,
+		#isgetdazhanglao:INTEGER#, #isgetdashixiong:INTEGER#, #isgetdashijie:INTEGER#,
+		#lingquTime:TIMESTAMP#,
+		#updateTime:TIMESTAMP#, #notice:VARCHAR#)
+		<selectKey keyProperty="id" resultClass="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+	<update id="updateById" parameterClass="FactionCity">
+		update t_faction_city
+		set f_faction_id = #factionId:INTEGER#,
+		f_tax_rate = #taxRate:INTEGER#,
+		f_yd_taxes = #ydTaxes:INTEGER#,
+		f_td_taxes
+		= #tdTaxes:INTEGER#,
+		f_all_taxes = #allTaxes:BIGINT#,
+		f_isget_taxes = #isgetTaxes:INTEGER#,
+		f_isget_bangzhu = #isgetBangzhu:INTEGER#,
+		f_isget_fubangzhu = #isgetFubangzhu:INTEGER#,
+		f_isgetdazhanglao = #isgetdazhanglao:INTEGER#,
+		f_isgetdashixiong = #isgetdashixiong:INTEGER#,
+		f_isgetdashijie = #isgetdashijie:INTEGER#,
+		f_lingqu_time = #lingquTime:TIMESTAMP#,
+		f_update_time = #updateTime:TIMESTAMP#,
+		f_notice = #notice:VARCHAR#
+		where f_id = #id:INTEGER#
+	</update>
+</sqlMap>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_character_task_shopping">
+	<typeAlias alias="TaskShoppingGoods" type="net.snake.gamemodel.shop.bean.TaskShoppingGoods" />
+	<resultMap class="TaskShoppingGoods" id="TaskShoppingGoodsRes">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_character_id" jdbcType="INTEGER" property="characterId" />
+		<result column="f_good" jdbcType="INTEGER" property="good" />
+		<result column="f_num" jdbcType="INTEGER" property="num" />
+	</resultMap>
+
+	<select id="selectByCharacterId" parameterClass="java.lang.Integer" resultMap="TaskShoppingGoodsRes">
+		select f_id, f_character_id, f_good, f_num from t_character_task_shopping where
+		f_character_id=#characterId#
+	</select>
+
+	<delete id="deleteByCharacterId" parameterClass="java.lang.Integer">
+		delete from t_character_task_shopping where f_character_id=#characterId#
+	</delete>
+
+	<insert id="insert" parameterClass="TaskShoppingGoods">
+		insert into t_character_task_shopping (f_id, f_character_id, f_good, f_num)
+		values (#id:INTEGER#, #characterId:INTEGER#, #good:INTEGER#,
+		#num:INTEGER#)
+	</insert>
+
+	<update id="updateByPrimaryKey" parameterClass="TaskShoppingGoods">
+		update t_character_task_shopping
+		set f_character_id = #characterId:INTEGER#, f_good = #good:INTEGER#,
+		f_num = #num:INTEGER#
+		where f_id = #id:INTEGER#
+	</update>
+</sqlMap>

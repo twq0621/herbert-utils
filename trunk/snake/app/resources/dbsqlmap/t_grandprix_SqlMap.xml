@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_grandprix">
+	<resultMap class="net.snake.gamemodel.gift.bean.GrandPrixData" id="GrandPrixData">
+		<result column="id" jdbcType="INTEGER" property="id" />
+		<result column="f_limit" jdbcType="VARCHAR" property="fLimit" />
+		<result column="f_icoid" jdbcType="INTEGER" property="fIcoid" />
+		<result column="f_desc" jdbcType="VARCHAR" property="fDesc" />
+		<result column="f_name" jdbcType="VARCHAR" property="fName" />
+		<result column="f_giftpackid" jdbcType="INTEGER" property="fGiftpackid" />
+		<result column="f_desc_i18n" jdbcType="VARCHAR" property="fDescI18n" />
+		<result column="f_name_i18n" jdbcType="VARCHAR" property="fNameI18n" />
+	</resultMap>
+	<select id="queryall" resultMap="GrandPrixData">
+		select * from t_grandprix
+	</select>
+</sqlMap>

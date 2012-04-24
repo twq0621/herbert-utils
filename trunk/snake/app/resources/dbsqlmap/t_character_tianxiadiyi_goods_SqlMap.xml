@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_character_tianxiadiyi_goods">
+	<typeAlias alias="CharacterTianXiaDiYiGoods" type="net.snake.gamemodel.tianxiadiyi.bean.CharacterTianXiaDiYiGoods" />
+	<resultMap class="CharacterTianXiaDiYiGoods" id="CharacterTianXiaDiYiGoodsRes">
+		<result column="f_id_type" jdbcType="INTEGER" property="idType" />
+		<result column="f_server_id" jdbcType="INTEGER" property="serverId" />
+		<result column="f_character_id" jdbcType="INTEGER" property="characterId" />
+		<result column="f_goodmodel_id" jdbcType="INTEGER" property="goodmodelId" />
+		<result column="f_in_horse_id" jdbcType="INTEGER" property="inHorseId" />
+		<result column="f_count" jdbcType="INTEGER" property="count" />
+		<result column="f_id" jdbcType="VARCHAR" property="id" />
+		<result column="f_bind" jdbcType="TINYINT" property="bind" />
+		<result column="f_position" jdbcType="SMALLINT" property="position" />
+		<result column="f_quickbarindex" jdbcType="INTEGER" property="quickbarindex" />
+		<result column="f_curr_durability" jdbcType="INTEGER" property="currDurability" />
+		<result column="f_max_durability" jdbcType="INTEGER" property="maxDurability" />
+		<result column="f_is_show" jdbcType="TINYINT" property="isShow" />
+		<result column="f_is_use" jdbcType="TINYINT" property="isUse" />
+		<result column="f_base_desc" jdbcType="VARCHAR" property="baseDesc" />
+		<result column="f_born_lv" jdbcType="INTEGER" property="bornLv" />
+		<result column="f_strengthen_desc" jdbcType="VARCHAR" property="strengthenDesc" />
+		<result column="f_addition_desc" jdbcType="VARCHAR" property="additionDesc" />
+		<result column="f_in_equip_id" jdbcType="VARCHAR" property="inEquipId" />
+		<result column="f_stall_copper" jdbcType="INTEGER" property="stallCopper" />
+		<result column="f_stall_ingot" jdbcType="INTEGER" property="stallIngot" />
+		<result column="f_chongqi_owner_id" jdbcType="INTEGER" property="chongqiOwnerId" />
+		<result column="f_chongqi_owner_name" jdbcType="VARCHAR" property="chongqiOwnerName" />
+		<result column="f_last_date" jdbcType="TIMESTAMP" property="lastDate" />
+		<result column="f_wugong_id" jdbcType="INTEGER" property="wugongId" />
+		<result column="f_shelizhi_in_equip_id" jdbcType="VARCHAR" property="shelizhiInEquipId" />
+		<result column="f_tupo_cnt" jdbcType="INTEGER" property="tupoCnt" />
+		<result column="f_totem" jdbcType="VARCHAR" property="totem" />
+		<result column="f_shelizhi_rongxue" jdbcType="BIT" property="shelizhiRongxue" />
+		<result column="f_totem_usrname" jdbcType="VARCHAR" property="totemUsrname" />
+		<result column="f_male_name" jdbcType="VARCHAR" property="maleName" />
+		<result column="f_female_name" jdbcType="VARCHAR" property="femaleName" />
+		<result column="f_couple_date" jdbcType="TIMESTAMP" property="coupleDate" />
+		<result column="f_born_strengthen_cnt" jdbcType="INTEGER" property="bornStrengthenCnt" />
+		<result column="f_strone_addproperty" jdbcType="VARCHAR" property="stroneAddproperty" />
+	</resultMap>
+
+	<select id="queryall" resultMap="CharacterTianXiaDiYiGoodsRes">
+		select * from t_character_tianxiadiyi_goods
+	</select>
+
+	<delete id="deleteAll">
+		delete from t_character_tianxiadiyi_goods
+	</delete>
+
+	<insert id="insertSelective" parameterClass="CharacterTianXiaDiYiGoods">
+		insert into t_character_tianxiadiyi_goods
+		<dynamic prepend="(">
+			<isNotNull prepend="," property="idType">
+				f_id_type
+			</isNotNull>
+			<isNotNull prepend="," property="serverId">
+				f_server_id
+			</isNotNull>
+			<isNotNull prepend="," property="characterId">
+				f_character_id
+			</isNotNull>
+			<isNotNull prepend="," property="goodmodelId">
+				f_goodmodel_id
+			</isNotNull>
+			<isNotNull prepend="," property="inHorseId">
+				f_in_horse_id
+			</isNotNull>
+			<isNotNull prepend="," property="count">
+				f_count
+			</isNotNull>
+			<isNotNull prepend="," property="id">
+				f_id
+			</isNotNull>
+			<isNotNull prepend="," property="bind">
+				f_bind
+			</isNotNull>
+			<isNotNull prepend="," property="position">
+				f_position
+			</isNotNull>
+			<isNotNull prepend="," property="quickbarindex">
+				f_quickbarindex
+			</isNotNull>
+			<isNotNull prepend="," property="currDurability">
+				f_curr_durability
+			</isNotNull>
+			<isNotNull prepend="," property="maxDurability">
+				f_max_durability
+			</isNotNull>
+			<isNotNull prepend="," property="isShow">
+				f_is_show
+			</isNotNull>
+			<isNotNull prepend="," property="isUse">
+				f_is_use
+			</isNotNull>
+			<isNotNull prepend="," property="baseDesc">
+				f_base_desc
+			</isNotNull>
+			<isNotNull prepend="," property="bornLv">
+				f_born_lv
+			</isNotNull>
+			<isNotNull prepend="," property="strengthenDesc">
+				f_strengthen_desc
+			</isNotNull>
+			<isNotNull prepend="," property="additionDesc">
+				f_addition_desc
+			</isNotNull>
+			<isNotNull prepend="," property="inEquipId">
+				f_in_equip_id
+			</isNotNull>
+			<isNotNull prepend="," property="stallCopper">
+				f_stall_copper
+			</isNotNull>
+			<isNotNull prepend="," property="stallIngot">
+				f_stall_ingot
+			</isNotNull>
+			<isNotNull prepend="," property="chongqiOwnerId">
+				f_chongqi_owner_id
+			</isNotNull>
+			<isNotNull prepend="," property="chongqiOwnerName">
+				f_chongqi_owner_name
+			</isNotNull>
+			<isNotNull prepend="," property="lastDate">
+				f_last_date
+			</isNotNull>
+			<isNotNull prepend="," property="wugongId">
+				f_wugong_id
+			</isNotNull>
+			<isNotNull prepend="," property="shelizhiInEquipId">
+				f_shelizhi_in_equip_id
+			</isNotNull>
+			<isNotNull prepend="," property="tupoCnt">
+				f_tupo_cnt
+			</isNotNull>
+			<isNotNull prepend="," property="totem">
+				f_totem
+			</isNotNull>
+			<isNotNull prepend="," property="shelizhiRongxue">
+				f_shelizhi_rongxue
+			</isNotNull>
+			<isNotNull prepend="," property="totemUsrname">
+				f_totem_usrname
+			</isNotNull>
+			<isNotNull prepend="," property="maleName">
+				f_male_name
+			</isNotNull>
+			<isNotNull prepend="," property="femaleName">
+				f_female_name
+			</isNotNull>
+			<isNotNull prepend="," property="coupleDate">
+				f_couple_date
+			</isNotNull>
+			<isNotNull prepend="," property="bornStrengthenCnt">
+				f_born_strengthen_cnt
+			</isNotNull>
+			<isNotNull prepend="," property="stroneAddproperty">
+				f_strone_addproperty
+			</isNotNull>
+			)
+		</dynamic>
+		values
+		<dynamic prepend="(">
+			<isNotNull prepend="," property="idType">
+				#idType:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="serverId">
+				#serverId:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="characterId">
+				#characterId:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="goodmodelId">
+				#goodmodelId:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="inHorseId">
+				#inHorseId:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="count">
+				#count:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="id">
+				#id:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="bind">
+				#bind:TINYINT#
+			</isNotNull>
+			<isNotNull prepend="," property="position">
+				#position:SMALLINT#
+			</isNotNull>
+			<isNotNull prepend="," property="quickbarindex">
+				#quickbarindex:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="currDurability">
+				#currDurability:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="maxDurability">
+				#maxDurability:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="isShow">
+				#isShow:TINYINT#
+			</isNotNull>
+			<isNotNull prepend="," property="isUse">
+				#isUse:TINYINT#
+			</isNotNull>
+			<isNotNull prepend="," property="baseDesc">
+				#baseDesc:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="bornLv">
+				#bornLv:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="strengthenDesc">
+				#strengthenDesc:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="additionDesc">
+				#additionDesc:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="inEquipId">
+				#inEquipId:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="stallCopper">
+				#stallCopper:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="stallIngot">
+				#stallIngot:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="chongqiOwnerId">
+				#chongqiOwnerId:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="chongqiOwnerName">
+				#chongqiOwnerName:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="lastDate">
+				#lastDate:TIMESTAMP#
+			</isNotNull>
+			<isNotNull prepend="," property="wugongId">
+				#wugongId:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="shelizhiInEquipId">
+				#shelizhiInEquipId:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="tupoCnt">
+				#tupoCnt:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="totem">
+				#totem:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="shelizhiRongxue">
+				#shelizhiRongxue:BIT#
+			</isNotNull>
+			<isNotNull prepend="," property="totemUsrname">
+				#totemUsrname:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="maleName">
+				#maleName:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="femaleName">
+				#femaleName:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="coupleDate">
+				#coupleDate:TIMESTAMP#
+			</isNotNull>
+			<isNotNull prepend="," property="bornStrengthenCnt">
+				#bornStrengthenCnt:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="stroneAddproperty">
+				#stroneAddproperty:VARCHAR#
+			</isNotNull>
+			)
+		</dynamic>
+	</insert>
+
+</sqlMap>

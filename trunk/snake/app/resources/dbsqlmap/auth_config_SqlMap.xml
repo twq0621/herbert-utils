@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="auth_config">
+	<resultMap id="AuthConfig" class="net.snake.gamemodel.auth.bean.AuthConfig">
+		<result column="fid" property="fid" jdbcType="INTEGER" />
+		<result column="md5key" property="md5key" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<select id="selectByPrimaryKey" resultMap="AuthConfig"
+		parameterClass="java.lang.Integer">
+		select fid, md5key from auth_config where fid =#fid#
+	</select>
+</sqlMap>

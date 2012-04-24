@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_gift_packs">
+	<resultMap class="net.snake.gamemodel.gift.bean.GiftPacks" id="GiftPacks">
+		<result column="id" jdbcType="INTEGER" property="id" />
+		<result column="type" jdbcType="TINYINT" property="type" />
+		<result column="grade_limit" jdbcType="INTEGER" property="gradeLimit" />
+		<result column="time_limit" jdbcType="INTEGER" property="timeLimit" />
+		<result column="invite_limit" jdbcType="INTEGER" property="inviteLimit" />
+		<result column="login_limit" jdbcType="INTEGER" property="loginLimit" />
+		<result column="online_time_limit" jdbcType="INTEGER" property="onlineTimeLimit" />
+		<result column="copper" jdbcType="INTEGER" property="copper" />
+		<result column="lijin" jdbcType="INTEGER" property="lijin" />
+		<result column="goods" jdbcType="VARCHAR" property="goods" />
+		<result column="desc_str" jdbcType="VARCHAR" property="descStr" />
+		<result column="good_id" jdbcType="INTEGER" property="goodId" />
+		<result column="f_huchi_random_good" jdbcType="VARCHAR" property="fHuchiRandomGood" />
+		<result column="f_random_good" jdbcType="VARCHAR" property="fRandomGood" />
+		<result column="desc_str_i18n" jdbcType="VARCHAR" property="descStrI18n" />
+		<result column="f_name" jdbcType="VARCHAR" property="fName" />
+	</resultMap>
+
+	<select id="queryall" resultMap="GiftPacks">
+		select * from t_gift_packs order
+		by id
+	</select>
+</sqlMap>

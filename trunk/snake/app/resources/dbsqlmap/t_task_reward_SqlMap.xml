@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_task_reward">
+	<resultMap class="net.snake.gamemodel.task.bean.TaskReward" id="taskRewards">
+		<result column="f_reward_id" jdbcType="INTEGER" property="rewardId" />
+		<result column="f_grade_min" jdbcType="INTEGER" property="gradeMin" />
+		<result column="f_grade_max" jdbcType="INTEGER" property="gradeMax" />
+		<result column="f_copper" jdbcType="INTEGER" property="copper" />
+		<result column="f_exp" jdbcType="INTEGER" property="exp" />
+		<result column="f_zhenqi" jdbcType="INTEGER" property="zhenqi" />
+		<result column="f_good_name" jdbcType="VARCHAR" property="goodName" />
+		<result column="f_good_id" jdbcType="INTEGER" property="goodId" />
+		<result column="f_good_num" jdbcType="INTEGER" property="goodNum" />
+		<result column="f_reward_grade" jdbcType="INTEGER" property="rewardGrade" />
+		<result column="f_type" jdbcType="INTEGER" property="type" />
+		<result column="f_good2_id" jdbcType="INTEGER" property="good2Id" />
+		<result column="f_good2_num" jdbcType="INTEGER" property="good2Num" />
+		<result column="f_loop_num" jdbcType="INTEGER" property="loopNum" />
+	</resultMap>
+
+	<select id="queryall" resultMap="taskRewards">
+		select * from t_task_reward
+	</select>
+</sqlMap>

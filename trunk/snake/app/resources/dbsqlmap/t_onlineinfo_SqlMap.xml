@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_onlineinfo">
+	<typeAlias alias="Onlineinfo" type="net.snake.gamemodel.gm.bean.Onlineinfo" />
+	<resultMap class="Onlineinfo" id="Onlineinfo">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_create_date" jdbcType="DATETIME" property="createDate" />
+		<result column="f_count" jdbcType="INTEGER" property="count" />
+		<result column="f_server_id" jdbcType="INTEGER" property="serverId" />
+		<result column="f_server_lineid" jdbcType="INTEGER" property="serverLineid" />
+	</resultMap>
+	<insert id="insert" parameterClass="Onlineinfo">
+		insert into t_onlineinfo
+		(f_id, f_create_date, f_count, f_server_id,
+		f_server_lineid)
+		values
+		(#id:INTEGER#, #createDate:DATETIME#,
+		#count:INTEGER#,
+		#serverId:INTEGER#,
+		#serverLineid:INTEGER#)
+	</insert>
+</sqlMap>

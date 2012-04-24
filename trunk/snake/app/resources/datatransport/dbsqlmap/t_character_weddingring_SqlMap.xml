@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_character_weddingring">
+	<resultMap class="datatransport.bean.characterweddingring.CharacterWeddingringTransportData" id="CharacterWeddingringTransportData">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_character_id" jdbcType="INTEGER" property="characterId" />
+		<result column="f_ring_id" jdbcType="INTEGER" property="ringId" />
+		<result column="f_wedding_date" jdbcType="TIMESTAMP" property="weddingDate" />
+		<result column="f_partner_id" jdbcType="INTEGER" property="partnerId" />
+	</resultMap>
+</sqlMap>

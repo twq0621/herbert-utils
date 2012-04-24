@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_couples_speak">
+	<typeAlias alias="CouplesSpeak" type="net.snake.gamemodel.wedding.bean.CouplesSpeak"/>
+	<resultMap class="CouplesSpeak" id="CouplesSpeakRes">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_male_id" jdbcType="INTEGER" property="maleId" />
+		<result column="f_speak_id" jdbcType="INTEGER" property="speakId" />
+		<result column="f_speak_date" jdbcType="TIMESTAMP" property="speakDate" />
+		<result column="f_content" jdbcType="VARCHAR" property="content" />
+		<result column="f_female_id" jdbcType="INTEGER" property="femaleId" />
+		<result column="f_is_notice" jdbcType="INTEGER" property="isNotice" />
+	</resultMap>
+
+	<select id="selectByMale" parameterClass="java.lang.Integer" resultMap="CouplesSpeakRes">
+		select f_id, f_male_id, f_speak_id, f_speak_date, f_content,
+		f_female_id, f_is_notice
+		from
+		t_couples_speak where f_make_id=#male#
+	</select>
+
+	<delete id="deleteById" parameterClass="java.lang.Integer">
+		delete from t_couples_speak where f_id = #id#
+	</delete>
+
+	<delete id="deleteByMaleId" parameterClass="java.lang.Integer">
+		delete from t_couples_speak where f_make_id=#maleId#
+	</delete>
+
+	<insert id="insert" parameterClass="CouplesSpeak">
+		insert into t_couples_speak (f_male_id, f_speak_id, f_speak_date,
+		f_content, f_female_id,f_is_notice)
+		values (#maleId:INTEGER#, #speakId:INTEGER#, #speakDate:TIMESTAMP#,
+		#content:VARCHAR#,#femaleId:INTEGER#, #isNotice:INTEGER#)
+		<selectKey keyProperty="id" resultClass="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+	<update id="updateIsNoticeBySpeakId" parameterClass="java.lang.Integer">
+		update t_couples_speak f_is_notice = 0 where f_speak_id = #speakId#
+	</update>
+
+</sqlMap>

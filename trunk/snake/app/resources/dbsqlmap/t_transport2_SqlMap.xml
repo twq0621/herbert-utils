@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_transport2">
+	<resultMap id="TransportDate" class="net.snake.gamemodel.map.bean.TransportDate">
+		<result column="f_transport_id" property="transportId" jdbcType="INTEGER" />
+		<result column="f_scene_id" property="sceneId" jdbcType="INTEGER" />
+		<result column="f_x" property="x" jdbcType="INTEGER" />
+		<result column="f_y" property="y" jdbcType="INTEGER" />
+		<result column="f_target_scene_id" property="targetSceneId" jdbcType="INTEGER" />
+		<result column="f_target_x" property="targetX" jdbcType="INTEGER" />
+		<result column="f_target_y" property="targetY" jdbcType="INTEGER" />
+	</resultMap>
+	<select id="queryall" resultMap="TransportDate">
+		select f_transport_id, f_scene_id, f_x, f_y, f_target_scene_id, f_target_x,f_target_y from t_transport2
+	</select>
+</sqlMap>

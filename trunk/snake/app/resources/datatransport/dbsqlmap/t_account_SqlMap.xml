@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_account">
+	<typeAlias alias="AccountTransportData" type="datatransport.bean.account.AccountTransportData"/>
+	<resultMap class="AccountTransportData" id="AccountTransportDataRes">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_account_initially_id" jdbcType="INTEGER" property="accountInitiallyId" />
+		<result column="f_yunying_id" jdbcType="VARCHAR" property="yunyingId" />
+		<result column="f_loginname" jdbcType="VARCHAR" property="loginname" />
+		<result column="f_password" jdbcType="VARCHAR" property="password" />
+		<result column="f_status" jdbcType="TINYINT" property="status" />
+		<result column="f_create_date" jdbcType="TIMESTAMP" property="createDate" />
+		<result column="f_create_ip" jdbcType="VARCHAR" property="createIp" />
+		<result column="f_is_limit" jdbcType="TINYINT" property="isLimit" />
+		<result column="f_lastlogin_ip" jdbcType="VARCHAR" property="lastloginIp" />
+		<result column="f_lastlogin_date" jdbcType="TIMESTAMP" property="lastloginDate" />
+		<result column="f_login_time" jdbcType="INTEGER" property="loginTime" />
+		<result column="f_server" jdbcType="VARCHAR" property="server" />
+		<result column="f_gm" jdbcType="INTEGER" property="gm" />
+		<result column="f_yuanbao" jdbcType="INTEGER" property="yuanbao" />
+		<result column="f_consume_yuanbao" jdbcType="INTEGER" property="consumeYuanbao" />
+		<result column="f_recharge_yuanbao" jdbcType="INTEGER" property="rechargeYuanbao" />
+		<result column="f_lastrechage_time" jdbcType="TIMESTAMP" property="lastrechageTime" />
+		<result column="f_gain_yuanbao" jdbcType="INTEGER" property="gainYuanbao" />
+		<result column="f_lost_yuanbao" jdbcType="INTEGER" property="lostYuanbao" />
+		<result column="f_online" jdbcType="INTEGER" property="online" />
+		<result column="f_remarks" jdbcType="VARCHAR" property="remarks" />
+	</resultMap>
+
+	<select id="selectByPrimaryKey" parameterClass="java.lang.Integer" resultMap="AccountTransportDataRes">
+		select * from t_account where f_id = #id#
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterClass="java.lang.Integer">
+		delete from t_account where f_id = #id#
+	</delete>
+
+	<insert id="insert" parameterClass="AccountTransportData">
+		insert into t_account (f_account_initially_id, f_yunying_id,
+		f_loginname, f_password, f_status,
+		f_create_date, f_create_ip,
+		f_is_limit, f_lastlogin_ip, f_lastlogin_date,
+		f_login_time,
+		f_server,
+		f_gm, f_yuanbao, f_consume_yuanbao, f_recharge_yuanbao,
+		f_lastrechage_time,
+		f_gain_yuanbao, f_lost_yuanbao, f_online,
+		f_remarks)
+		values
+		(#accountInitiallyId:INTEGER#, #yunyingId:VARCHAR#,
+		#loginname:VARCHAR#,
+		#password:VARCHAR#, #status:TINYINT#,
+		#createDate:TIMESTAMP#, #createIp:VARCHAR#,
+		#isLimit:TINYINT#,
+		#lastloginIp:VARCHAR#, #lastloginDate:TIMESTAMP#,
+		#loginTime:INTEGER#,
+		#server:VARCHAR#, #gm:INTEGER#, #yuanbao:INTEGER#,
+		#consumeYuanbao:INTEGER#,
+		#rechargeYuanbao:INTEGER#,
+		#lastrechageTime:TIMESTAMP#,
+		#gainYuanbao:INTEGER#,
+		#lostYuanbao:INTEGER#, #online:INTEGER#, #remarks:VARCHAR#)
+		<selectKey keyProperty="id" resultClass="java.lang.Integer">
+			SELECT
+			LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+</sqlMap>

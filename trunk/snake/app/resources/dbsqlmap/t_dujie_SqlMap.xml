@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_dujie">
+	<resultMap class="net.snake.gamemodel.dujie.bean.Dujie" id="Dujie">
+
+		<result property="id" jdbcType="INTEGER" column="f_id" />
+		<result property="name" jdbcType="VARCHAR" column="f_name" />
+		<result property="scene" jdbcType="INTEGER" column="f_scene" />
+		<result property="desc" jdbcType="VARCHAR" column="f_desc" />
+		<result property="add_hp" jdbcType="INTEGER" column="f_add_hp" />
+		<result property="add_mp" jdbcType="INTEGER" column="f_add_mp" />
+		<result property="add_attack" jdbcType="INTEGER" column="f_add_attack" />
+		<result property="add_defence" jdbcType="INTEGER" column="f_add_defence" />
+		<result property="add_sp" jdbcType="INTEGER" column="f_add_sp" />
+		<result property="add_as" jdbcType="INTEGER" column="f_add_as" />
+		<result property="add_ms" jdbcType="INTEGER" column="f_add_ms" />
+		<result property="add_crt" jdbcType="INTEGER" column="f_add_crt" />
+		<result property="add_dodge" jdbcType="INTEGER" column="f_add_dodge" />
+		<result property="add_hit" jdbcType="INTEGER" column="f_add_hit" />
+		<result property="max_point" jdbcType="INTEGER" column="f_max_point" />
+		<result property="lvl_limit" jdbcType="INTEGER" column="f_level_limit" />
+		<result property="add_exp" jdbcType="INTEGER" column="f_add_exp" />
+		<result property="add_copper" jdbcType="INTEGER" column="f_add_copper" />
+		<result property="goods" jdbcType="VARCHAR" column="f_goods" />
+		<result property="add_skill_1" jdbcType="VARCHAR" column="f_add_skill_1" />
+		<result property="add_skill_2" jdbcType="VARCHAR" column="f_add_skill_2" />
+		<result property="add_skill_3" jdbcType="VARCHAR" column="f_add_skill_3" />
+		<result property="add_skill_4" jdbcType="VARCHAR" column="f_add_skill_4" />
+		<result property="zhenyuan" jdbcType="INTEGER" column="f_zhenyuan" />
+		<result property="hurt" jdbcType="VARCHAR" column="f_hurt" />
+	</resultMap>
+
+	<select id="queryall" resultMap="Dujie">
+		select * from t_dujie
+	</select>
+</sqlMap>

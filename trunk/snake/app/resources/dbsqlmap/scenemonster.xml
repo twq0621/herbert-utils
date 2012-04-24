@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+
+	<!-- Use type aliases to avoid typing the full classname every time. -->
+	<typeAlias alias="SceneMonster" type="net.snake.gamemodel.monster.bean.SceneMonster" />
+
+	<resultMap id="SceneMonsterRes" class="SceneMonster">
+		<result property="id" column="f_id" />
+		<result property="model" column="f_model" />
+		<result property="x" column="f_x" />
+		<result property="y" column="f_y" />
+		<result property="scene" column="f_map_id" />
+		<result property="originalX" column="f_x" />
+		<result property="originalY" column="f_y" />
+		<result property="relive" column="f_relive" />
+		<result property="is" column="f_is" />
+	</resultMap>
+	<select id="sceneMonsterGetAll" resultMap="SceneMonsterRes">
+		select * from t_scene_monster
+	</select>
+
+	<!-- 通过地图id，得到该地图的怪物 不包含 关联游戏活动的怪物 -->
+	<select id="sceneMonstersByMapid" resultMap="SceneMonsterRes" parameterClass="java.lang.Integer">
+		select * from t_scene_monster where f_map_id=#scene# order by f_id
+	</select>
+</sqlMap>

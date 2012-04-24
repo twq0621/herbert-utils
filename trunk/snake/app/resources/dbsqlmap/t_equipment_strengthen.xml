@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+
+	<typeAlias alias="EquipmentStrengthen" type="net.snake.gamemodel.equipment.bean.EquipmentStrengthen" />
+
+	<resultMap id="EquipmentStrengthenRes" class="EquipmentStrengthen">
+		<result property="goodmodelId" column="f_goodmodel_id" />
+		<result property="goodmodelName" column="f_goodmodel_name" />
+		<result property="grade" column="f_grade" />
+		<result property="jingangshi" column="f_jingangshi" />
+		<result property="jingangshiNum" column="f_jingangshi_num" />
+		<result property="zhenqi" column="f_zhenqi" />
+		<result property="probability" column="f_probability" />
+		<result column="f_min_count" property="minCount" />
+		<result column="f_max_count" property="maxCount" />
+		<result property="attack" column="f_attack" />
+		<result property="defend" column="f_defend" />
+		<result property="crt" column="f_crt" />
+		<result property="dodge" column="f_dodge" />
+		<result property="hp" column="f_hp" />
+		<result property="mp" column="f_mp" />
+		<result property="sp" column="f_sp" />
+		<result property="hit" column="f_hit" />
+		<result property="movespeed" column="f_movespeed" />
+		<result property="attackspeed" column="f_attackspeed" />
+		<result property="copper" column="f_need_copper" />
+	</resultMap>
+
+	<select id="equipmentStrengthenGetAll" resultMap="EquipmentStrengthenRes">
+		select * from t_equipment_strengthen
+	</select>
+</sqlMap>

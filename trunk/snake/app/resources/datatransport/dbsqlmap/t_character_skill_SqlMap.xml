@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_character_skill">
+	<typeAlias alias="CharacterSkillTransportData" type="datatransport.bean.characterskilldata.CharacterSkillTransportData"/>
+	<resultMap class="CharacterSkillTransportData" id="CharacterSkillTransportDataRes">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_character_id" jdbcType="INTEGER" property="characterId" />
+		<result column="f_skill_id" jdbcType="INTEGER" property="skillId" />
+		<result column="f_grade" jdbcType="INTEGER" property="grade" />
+		<result column="f_position" jdbcType="SMALLINT" property="position" />
+		<result column="f_quickbarindex" jdbcType="INTEGER" property="quickbarindex" />
+		<result column="f_startCD" jdbcType="BIGINT" property="startcd" />
+		<result column="f_mastery" jdbcType="INTEGER" property="mastery" />
+		<result column="f_max_mastery" jdbcType="INTEGER" property="maxMastery" />
+		<result column="f_po" jdbcType="BIT" property="po" />
+		<result column="f_skilltype" jdbcType="INTEGER" property="skilltype" />
+	</resultMap>
+
+	<select id="selectByCharacterId" parameterClass="java.lang.Integer" resultMap="CharacterSkillTransportDataRes">
+		select * from t_character_skill where f_character_id = #characterId# and f_skilltype=2
+	</select>
+
+	<select id="selectByHorseId" parameterClass="java.lang.Integer" resultMap="CharacterSkillTransportDataRes">
+		select * from t_character_skill where f_character_id=#characterId# and f_skilltype=1
+	</select>
+
+	<delete id="deleteByCharacterId" parameterClass="java.lang.Integer">
+		delete from t_character_skill where f_character_id = #characterId# and f_skilltype=2
+	</delete>
+	
+	<delete id="deleteByHorseId" parameterClass="java.lang.Integer">
+		delete from t_character_skill where f_character_id=#characterId# and f_skilltype=1
+	</delete>
+
+	<insert id="insert" parameterClass="CharacterSkillTransportData">
+		insert into t_character_skill (f_character_id, f_skill_id, f_grade,
+		f_position, f_quickbarindex,
+		f_startCD, f_mastery, f_max_mastery, f_po)
+		values (#characterId:INTEGER#,
+		#skillId:INTEGER#, #grade:INTEGER#,
+		#position:SMALLINT#,
+		#quickbarindex:INTEGER#, #startcd:BIGINT#, #mastery:INTEGER#, #maxMastery:INTEGER#, #po:BIT#)
+		<selectKey keyProperty="id" resultClass="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+</sqlMap>

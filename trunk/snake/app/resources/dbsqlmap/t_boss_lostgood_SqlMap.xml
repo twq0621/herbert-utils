@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_boss_lostgood">
+	<typeAlias alias="BossLostGood" type="net.snake.gamemodel.monster.bean.BossLostGoodDate" />
+	<resultMap class="BossLostGood" id="BossLostGoodRes">
+		<result column="boss_id" jdbcType="INTEGER" property="bossId" />
+		<result column="good1" jdbcType="VARCHAR" property="good1" />
+		<result column="good2" jdbcType="VARCHAR" property="good2" />
+		<result column="good3" jdbcType="VARCHAR" property="good3" />
+		<result column="good4" jdbcType="VARCHAR" property="good4" />
+		<result column="good5" jdbcType="VARCHAR" property="good5" />
+		<result column="good6" jdbcType="VARCHAR" property="good6" />
+		<result column="good7" jdbcType="VARCHAR" property="good7" />
+		<result column="good8" jdbcType="VARCHAR" property="good8" />
+		<result column="good9" jdbcType="VARCHAR" property="good9" />
+		<result column="good10" jdbcType="VARCHAR" property="good10" />
+		<result column="good11" jdbcType="VARCHAR" property="good11" />
+		<result column="good12" jdbcType="VARCHAR" property="good12" />
+		<result column="good13" jdbcType="VARCHAR" property="good13" />
+		<result column="good14" jdbcType="VARCHAR" property="good14" />
+		<result column="good15" jdbcType="VARCHAR" property="good15" />
+		<result column="good16" jdbcType="VARCHAR" property="good16" />
+		<result column="good17" jdbcType="VARCHAR" property="good17" />
+		<result column="good18" jdbcType="VARCHAR" property="good18" />
+		<result column="good19" jdbcType="VARCHAR" property="good19" />
+		<result column="good20" jdbcType="VARCHAR" property="good20" />
+	</resultMap>
+	<select id="queryall" resultMap="BossLostGoodRes">
+		select * from t_boss_lostgood
+	</select>
+</sqlMap>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_character_newguide">
+	<typeAlias alias="CharacterNewguide" type="net.snake.gamemodel.guide.bean.CharacterNewguide" />
+	<resultMap class="CharacterNewguide" id="CharacterNewguideRes">
+		<result column="id" jdbcType="INTEGER" property="id" />
+		<result column="character_id" jdbcType="INTEGER" property="characterId" />
+		<result column="guide_num" jdbcType="SMALLINT" property="guideNum" />
+		<result column="guide_count" jdbcType="SMALLINT" property="guideCount" />
+		<result column="guide_isfinish" jdbcType="BIT" property="guideIsfinish" />
+		<result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
+		<result column="end_date" jdbcType="TIMESTAMP" property="endDate" />
+		<result column="type" jdbcType="TINYINT" property="type" />
+	</resultMap>
+
+	<select id="selectByCharacterId" resultMap="CharacterNewguideRes">
+		select * from t_character_newguide where character_id=#characterId#
+	</select>
+
+	<insert id="insert" parameterClass="CharacterNewguide">
+		insert into t_character_newguide (id, character_id, guide_num, guide_count, guide_isfinish, start_date, end_date, type) values
+		(#id:INTEGER#, #characterId:INTEGER#, #guideNum:SMALLINT#,
+		#guideCount:SMALLINT#, #guideIsfinish:BIT#, #startDate:TIMESTAMP#, #endDate:TIMESTAMP#, #type:TINYINT#)
+	</insert>
+
+	<update id="updateByPrimaryKey" parameterClass="CharacterNewguide">
+		update t_character_newguide
+		set character_id = #characterId:INTEGER#, guide_num = #guideNum:SMALLINT#, guide_count =
+		#guideCount:SMALLINT#, guide_isfinish = #guideIsfinish:BIT#, start_date = #startDate:TIMESTAMP#,
+		end_date = #endDate:TIMESTAMP#, type = #type:TINYINT# where id = #id:INTEGER#
+	</update>
+</sqlMap>

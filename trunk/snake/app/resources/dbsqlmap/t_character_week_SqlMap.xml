@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_character_week">
+	<typeAlias alias="CharacterWeekTime" type="net.snake.gamemodel.guide.bean.CharacterWeekTime" />
+	<resultMap class="CharacterWeekTime" id="CharacterWeekTimeRes">
+		<result column="f_id" jdbcType="INTEGER" property="fId" />
+		<result column="f_character_id" jdbcType="INTEGER" property="fCharacterId" />
+		<result column="f_year" jdbcType="INTEGER" property="fYear" />
+		<result column="f_week" jdbcType="INTEGER" property="fWeek" />
+		<result column="f_online_time" jdbcType="INTEGER" property="fOnlineTime" />
+	</resultMap>
+
+	<select id="selectByWeek" parameterClass="CharacterWeekTime" resultMap="CharacterWeekTimeRes">
+		select f_id, f_character_id, f_year, f_week, f_online_time from t_character_week where
+		f_character_id=#fCharacterId# and f_week=#fWeek#
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterClass="java.lang.Integer">
+		delete from t_character_week where f_id = #fId#
+	</delete>
+
+	<insert id="insert" parameterClass="CharacterWeekTime">
+		insert into t_character_week (f_character_id, f_year, f_week,
+		f_online_time)
+		values (#fCharacterId:INTEGER#, #fYear:INTEGER#, #fWeek:INTEGER#,
+		#fOnlineTime:INTEGER#)
+		<selectKey keyProperty="fId" resultClass="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+	<update id="updateByPrimaryKey" parameterClass="CharacterWeekTime">
+		update t_character_week
+		set f_character_id = #fCharacterId:INTEGER#,
+		f_year = #fYear:INTEGER#,
+		f_week = #fWeek:INTEGER#,
+		f_online_time = #fOnlineTime:INTEGER#
+		where f_id = #fId:INTEGER#
+	</update>
+</sqlMap>

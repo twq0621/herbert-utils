@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_character_hidden_weapon">
+	<typeAlias alias="HiddenWeaponDataEntry" type="net.snake.gamemodel.skill.bean.HiddenWeaponDataEntry" />
+	<resultMap class="HiddenWeaponDataEntry" id="HiddenWeaponDataEntryRes">
+		<result column="f_id" jdbcType="VARCHAR" property="id" />
+		<result column="f_character_id" jdbcType="INTEGER" property="characterId" />
+		<result column="f_grade" jdbcType="INTEGER" property="grade" />
+		<result column="f_now_mastery" jdbcType="INTEGER" property="nowMastery" />
+		<result column="f_is_use" jdbcType="BIT" property="isUse" />
+		<result column="f_xiu_grade" jdbcType="INTEGER" property="xiuGrade" />
+		<result column="f_luck_value" jdbcType="INTEGER" property="luckValue" />
+		<result column="f_tupo_cnt" jdbcType="INTEGER" property="tupoCnt" />
+		<result column="f_free_cnt" jdbcType="INTEGER" property="freeCnt" />
+		<result column="f_random_free_grade" jdbcType="INTEGER" property="randomFreeGrade" />
+		<result column="f_is_open_hidden_props" jdbcType="BIT" property="isOpenHiddenProps" />
+	</resultMap>
+
+	<select id="selectByCharacterId" parameterClass="java.lang.Integer" resultMap="HiddenWeaponDataEntryRes">
+		select * from t_character_hidden_weapon where f_character_id=#characterId#
+	</select>
+
+	<delete id="deleteByCharacterId" parameterClass="java.lang.Integer">
+		delete from t_character_hidden_weapon where f_character_id=#characterId#
+	</delete>
+
+	<insert id="insertSelective" parameterClass="HiddenWeaponDataEntry">
+		insert into t_character_hidden_weapon
+		<dynamic prepend="(">
+			<isNotNull prepend="," property="id">
+				f_id
+			</isNotNull>
+			<isNotNull prepend="," property="characterId">
+				f_character_id
+			</isNotNull>
+			<isNotNull prepend="," property="grade">
+				f_grade
+			</isNotNull>
+			<isNotNull prepend="," property="nowMastery">
+				f_now_mastery
+			</isNotNull>
+			<isNotNull prepend="," property="isUse">
+				f_is_use
+			</isNotNull>
+			<isNotNull prepend="," property="xiuGrade">
+				f_xiu_grade
+			</isNotNull>
+			<isNotNull prepend="," property="luckValue">
+				f_luck_value
+			</isNotNull>
+			<isNotNull prepend="," property="tupoCnt">
+				f_tupo_cnt
+			</isNotNull>
+			<isNotNull prepend="," property="freeCnt">
+				f_free_cnt
+			</isNotNull>
+			<isNotNull prepend="," property="randomFreeGrade">
+				f_random_free_grade
+			</isNotNull>
+			<isNotNull prepend="," property="isOpenHiddenProps">
+				f_is_open_hidden_props
+			</isNotNull>
+			)
+		</dynamic>
+		values
+		<dynamic prepend="(">
+			<isNotNull prepend="," property="id">
+				#id:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="characterId">
+				#characterId:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="grade">
+				#grade:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="nowMastery">
+				#nowMastery:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="isUse">
+				#isUse:BIT#
+			</isNotNull>
+			<isNotNull prepend="," property="xiuGrade">
+				#xiuGrade:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="luckValue">
+				#luckValue:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="tupoCnt">
+				#tupoCnt:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="freeCnt">
+				#freeCnt:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="randomFreeGrade">
+				#randomFreeGrade:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="isOpenHiddenProps">
+				#isOpenHiddenProps:BIT#
+			</isNotNull>
+			)
+		</dynamic>
+	</insert>
+
+	<update id="updateByPrimaryKeySelective" parameterClass="HiddenWeaponDataEntry">
+		update t_character_hidden_weapon
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="characterId">
+				f_character_id =
+				#characterId:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="grade">
+				f_grade = #grade:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="nowMastery">
+				f_now_mastery =
+				#nowMastery:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="isUse">
+				f_is_use = #isUse:BIT#
+			</isNotNull>
+			<isNotNull prepend="," property="xiuGrade">
+				f_xiu_grade =
+				#xiuGrade:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="luckValue">
+				f_luck_value =
+				#luckValue:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="tupoCnt">
+				f_tupo_cnt =
+				#tupoCnt:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="freeCnt">
+				f_free_cnt =
+				#freeCnt:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="randomFreeGrade">
+				f_random_free_grade =
+				#randomFreeGrade:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="isOpenHiddenProps">
+				f_is_open_hidden_props =
+				#isOpenHiddenProps:BIT#
+			</isNotNull>
+		</dynamic>
+		where f_id = #id:VARCHAR#
+	</update>
+
+	<select id="getRankinganqi" resultClass="HiddenWeaponDataEntry">
+		SELECT
+		t_character_hidden_weapon.f_id as id,
+		t_character_hidden_weapon.f_character_id as characterId,
+		t_character_hidden_weapon.f_grade as grade,
+		t_character_hidden_weapon.f_now_mastery as nowMastery,
+		t_character_hidden_weapon.f_is_use as isUse,
+		t_character_hidden_weapon.f_xiu_grade as xiuGrade,
+		t_character_hidden_weapon.f_luck_value as luckValue,
+		t_character_hidden_weapon.f_tupo_cnt as tupoCnt,
+		t_character.f_name as
+		charactername ,
+		t_character.f_grade as charactergrade
+		FROM
+		t_character
+		INNER JOIN t_character_hidden_weapon ON
+		t_character_hidden_weapon.f_character_id = t_character.f_id
+		WHERE
+		t_character_hidden_weapon.f_xiu_grade &gt; 8
+		ORDER BY
+		t_character_hidden_weapon.f_xiu_grade DESC,
+		t_character_hidden_weapon.f_character_id DESC
+		LIMIT 0,100
+	</select>
+
+	<select id="getRankingtongjianqi" parameterClass="java.lang.Integer" resultClass="HiddenWeaponDataEntry">
+		SELECT
+		t_character_hidden_weapon.f_id as id,
+		t_character_hidden_weapon.f_character_id as
+		characterId,
+		t_character_hidden_weapon.f_grade as grade,
+		t_character_hidden_weapon.f_now_mastery as nowMastery,
+		t_character_hidden_weapon.f_is_use as isUse,
+		t_character_hidden_weapon.f_xiu_grade as xiuGrade,
+		t_character_hidden_weapon.f_luck_value as luckValue,
+		t_character_hidden_weapon.f_tupo_cnt as tupoCnt,
+		t_character.f_name as
+		charactername ,
+		t_character.f_grade as charactergrade
+		FROM
+		t_character
+		INNER JOIN t_character_hidden_weapon ON
+		t_character_hidden_weapon.f_character_id = t_character.f_id
+		WHERE
+		t_character.f_grade =#grade#
+		ORDER BY
+		t_character_hidden_weapon.f_xiu_grade DESC,
+		t_character_hidden_weapon.f_character_id DESC
+		LIMIT 0,100
+	</select>
+
+</sqlMap>

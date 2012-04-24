@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_activity">
+	<typeAlias alias="ActivityData" type="net.snake.gamemodel.activities.bean.ActivityData" />
+	<resultMap class="ActivityData" id="ActivityDataRes">
+		<result column="id" jdbcType="INTEGER" property="id" />
+		<result column="f_name" jdbcType="VARCHAR" property="fName" />
+		<result column="f_dayshow" jdbcType="VARCHAR" property="fDayshow" />
+		<result column="f_activity_time" jdbcType="VARCHAR" property="fActivityTime" />
+		<result column="f_grade" jdbcType="INTEGER" property="fGrade" />
+		<result column="f_fbnpcid" jdbcType="INTEGER" property="fFbnpcid" />
+		<result column="f_maxcount" jdbcType="VARCHAR" property="fMaxcount" />
+		<result column="f_rewardleave" jdbcType="INTEGER" property="fRewardleave" />
+		<result column="f_desc" jdbcType="VARCHAR" property="fDesc" />
+		<result column="f_iscount" jdbcType="SMALLINT" property="fIscount" />
+		<result column="f_taskid" jdbcType="INTEGER" property="fTaskid" />
+		<result column="f_name_i18n" jdbcType="VARCHAR" property="fNameI18n" />
+		<result column="f_activity_time_i18n" jdbcType="VARCHAR" property="fActivityTimeI18n" />
+		<result column="f_maxcount_i18n" jdbcType="VARCHAR" property="fMaxcountI18n" />
+		<result column="f_desc_i18n" jdbcType="VARCHAR" property="fDescI18n" />
+		<result column="f_newgaid_msg" jdbcType="VARCHAR" property="fNewgaidMsg" />
+		<result column="f_newgaid_action" jdbcType="VARCHAR" property="fNewgaidAction" />
+		<result column="f_newgaid_msg_i18n" jdbcType="VARCHAR" property="fNewgaidMsgI18n" />
+	</resultMap>
+	<select id="queryall" resultMap="ActivityDataRes">
+		select * from t_activity
+	</select>
+
+</sqlMap>

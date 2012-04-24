@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="character_vip">
+	<typeAlias alias="CharacterVip" type="net.snake.gamemodel.vip.bean.CharacterVip"/>
+	<resultMap class="CharacterVip"  id="CharacterVipRes">
+		<result column="id" jdbcType="INTEGER" property="id" />
+		<result column="f_character_id" jdbcType="INTEGER" property="characterId" />
+		<result column="f_buffer_id" jdbcType="INTEGER" property="bufferId" />
+		<result column="f_start_time" jdbcType="TIMESTAMP" property="startTime" />
+		<result column="f_end_time" jdbcType="TIMESTAMP" property="endTime" />
+	</resultMap>
+
+	<select id="selectByCharacterId" parameterClass="java.lang.Integer" resultMap="CharacterVipRes">
+		select id, f_character_id, f_buffer_id, f_start_time, f_end_time
+		from character_vip where
+		f_character_id = #characterId#
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterClass="java.lang.Integer">
+		delete from character_vip where id = #id#
+	</delete>
+
+	<insert id="insert" parameterClass="CharacterVip">
+		insert into character_vip (id, f_character_id, f_buffer_id,
+		f_start_time, f_end_time)
+		values (#id:INTEGER#, #characterId:INTEGER#,
+		#bufferId:INTEGER#,
+		#startTime:TIMESTAMP#,
+		#endTime:TIMESTAMP#)
+	</insert>
+
+	<update id="updateByPrimaryKey" parameterClass="CharacterVip">
+		update character_vip
+		set f_character_id = #characterId:INTEGER#,
+		f_buffer_id = #bufferId:INTEGER#,
+		f_start_time =
+		#startTime:TIMESTAMP#,
+		f_end_time = #endTime:TIMESTAMP#
+		where id = #id:INTEGER#
+	</update>
+</sqlMap>

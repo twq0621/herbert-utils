@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_richplay_rule">
+	<resultMap class="net.snake.gamemodel.fight.bean.RichPlayRuleData" id="RichPlayRuleData">
+		<result column="id" jdbcType="INTEGER" property="id" />
+		<result column="f_name" jdbcType="VARCHAR" property="fName" />
+		<result column="f_ruledesc" jdbcType="VARCHAR" property="fRuledesc" />
+		<result column="f_grade" jdbcType="INTEGER" property="fGrade" />
+		<result column="f_name_i18n" jdbcType="VARCHAR" property="fNameI18n" />
+		<result column="f_ruledesc_i18n" jdbcType="VARCHAR" property="fRuledescI18n" />
+	</resultMap>
+	<select id="queryall" resultMap="RichPlayRuleData">
+		select id, f_name, f_ruledesc,
+		f_grade, f_name_i18n, f_ruledesc_i18n from
+		t_richplay_rule
+	</select>
+</sqlMap>

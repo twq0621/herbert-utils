@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_character_weddingring">
+	<typeAlias alias="CharacterWeddingring" type="net.snake.gamemodel.wedding.bean.CharacterWeddingring" />
+	<resultMap class="CharacterWeddingring" id="CharacterWeddingringRes">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_character_id" jdbcType="INTEGER" property="characterId" />
+		<result column="f_ring_id" jdbcType="INTEGER" property="ringId" />
+		<result column="f_wedding_date" jdbcType="TIMESTAMP" property="weddingDate" />
+		<result column="f_partner_id" jdbcType="INTEGER" property="partnerId" />
+	</resultMap>
+
+	<select id="selectByCharacterId" parameterClass="java.lang.Integer" resultMap="CharacterWeddingringRes">
+		select * from t_character_weddingring where f_character_id=#characterId#
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterClass="java.lang.Integer">
+		delete from t_character_weddingring where f_id = #id#
+	</delete>
+
+	<insert id="insert" parameterClass="CharacterWeddingring">
+		insert into t_character_weddingring (f_character_id, f_ring_id,
+		f_wedding_date, f_partner_id)
+		values (#characterId:INTEGER#,
+		#ringId:INTEGER#, #weddingDate:TIMESTAMP#,
+		#partnerId:INTEGER#)
+		<selectKey keyProperty="id" resultClass="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+	<update id="update" parameterClass="CharacterWeddingring">
+		update t_character_weddingring set f_ring_id =#ringId#,f_wedding_date =#weddingDate#,f_partner_id =#partnerId# where f_character_id
+		=#characterId#
+	</update>
+
+</sqlMap>

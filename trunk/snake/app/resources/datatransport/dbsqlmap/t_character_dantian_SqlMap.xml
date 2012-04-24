@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_character_dantian">
+	<typeAlias alias="CharacterDanTianTransportData" type="datatransport.bean.dantian.CharacterDanTianTransportData" />
+	<resultMap class="CharacterDanTianTransportData" id="CharacterDanTianTransportDataRes">
+		<result column="f_characterid" jdbcType="INTEGER" property="characterid" />
+		<result column="f_dantianid" jdbcType="INTEGER" property="dantianid" />
+		<result column="f_skillitem" jdbcType="VARCHAR" property="skillitem" />
+		<result column="f_luck" jdbcType="INTEGER" property="luck" />
+		<result column="f_faildcount" jdbcType="INTEGER" property="faildcount" />
+		<result column="f_luck_lastclear" jdbcType="TIMESTAMP" property="luckLastclear" />
+		<result column="f_before_luck" jdbcType="INTEGER" property="beforeLuck" />
+	</resultMap>
+
+	<select id="selectByPrimaryKey" parameterClass="java.lang.Integer" resultMap="CharacterDanTianTransportDataRes">
+		select * from t_character_dantian where f_characterid = #characterid#
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterClass="java.lang.Integer">
+		delete from t_character_dantian where f_characterid = #characterid#
+	</delete>
+
+	<insert id="insert" parameterClass="CharacterDanTianTransportData">
+		insert into t_character_dantian (f_characterid,
+		f_dantianid,
+		f_skillitem, f_luck, f_faildcount,
+		f_luck_lastclear,
+		f_before_luck)
+		values
+		(#characterid:INTEGER#, #dantianid:INTEGER#,
+		#skillitem:VARCHAR#,
+		#luck:INTEGER#,
+		#faildcount:INTEGER#,
+		#luckLastclear:TIMESTAMP#, #beforeLuck:INTEGER#)
+	</insert>
+</sqlMap>

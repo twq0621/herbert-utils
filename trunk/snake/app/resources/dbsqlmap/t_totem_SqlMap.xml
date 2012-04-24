@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_totem">
+	<resultMap class="net.snake.gamemodel.fight.bean.Totem" id="Totem">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_name" jdbcType="VARCHAR" property="name" />
+		<result column="f_min_probility" jdbcType="INTEGER" property="minProbility" />
+		<result column="f_max_probility" jdbcType="INTEGER" property="maxProbility" />
+		<result column="f_attack_enhance" jdbcType="VARCHAR" property="attackEnhance" />
+		<result column="f_rebound_hurt" jdbcType="VARCHAR" property="reboundHurt" />
+		<result column="f_ignore_defence" jdbcType="VARCHAR" property="ignoreDefence" />
+		<result column="f_hurt_derate" jdbcType="VARCHAR" property="hurtDerate" />
+		<result column="f_hidden_derate" jdbcType="VARCHAR" property="hiddenDerate" />
+		<result column="f_ico_id" jdbcType="INTEGER" property="icoId" />
+		<result column="f_name_i18n" jdbcType="VARCHAR" property="nameI18n" />
+	</resultMap>
+	<select id="queryall" resultMap="Totem">
+		select f_id, f_name,
+		f_min_probility, f_max_probility, f_attack_enhance,
+		f_rebound_hurt,
+		f_ignore_defence, f_hurt_derate, f_hidden_derate,
+		f_ico_id,
+		f_name_i18n
+		from t_totem
+	</select>
+</sqlMap>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_character_photo">
+	<typeAlias alias="CharacterPhoto" type="net.snake.gamemodel.hero.bean.CharacterPhoto" />
+	<resultMap class="CharacterPhoto" id="CharacterPhotoRes">
+		<result column="f_character_id" jdbcType="INTEGER" property="characterId" />
+		<result column="f_character_time" jdbcType="TIMESTAMP" property="characterTime" />
+		<result column="f_character_type" jdbcType="TINYINT" property="characterType" />
+		<result column="f_character_context" jdbcType="VARCHAR" property="characterContext" />
+		<result column="f_url" jdbcType="VARCHAR" property="url" />
+		<result column="f_url_verify" jdbcType="VARCHAR" property="urlVerify" />
+	</resultMap>
+
+	<select id="selectByPrimaryKey" parameterClass="java.lang.Integer" resultMap="CharacterPhotoRes">
+		select * from t_character_photo where f_character_id = #characterId#
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterClass="java.lang.Integer">
+		delete from t_character_photo where f_character_id = #characterId#
+	</delete>
+
+	<insert id="insertSelective" parameterClass="CharacterPhoto">
+		insert into t_character_photo
+		<dynamic prepend="(">
+			<isNotNull prepend="," property="characterId">
+				f_character_id
+			</isNotNull>
+			<isNotNull prepend="," property="characterTime">
+				f_character_time
+			</isNotNull>
+			<isNotNull prepend="," property="characterType">
+				f_character_type
+			</isNotNull>
+			<isNotNull prepend="," property="characterContext">
+				f_character_context
+			</isNotNull>
+			<isNotNull prepend="," property="url">
+				f_url
+			</isNotNull>
+			<isNotNull prepend="," property="urlVerify">
+				f_url_verify
+			</isNotNull>
+			)
+		</dynamic>
+		values
+		<dynamic prepend="(">
+			<isNotNull prepend="," property="characterId">
+				#characterId:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="characterTime">
+				#characterTime:TIMESTAMP#
+			</isNotNull>
+			<isNotNull prepend="," property="characterType">
+				#characterType:TINYINT#
+			</isNotNull>
+			<isNotNull prepend="," property="characterContext">
+				#characterContext:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="url">
+				#url:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="urlVerify">
+				#urlVerify:VARCHAR#
+			</isNotNull>
+			)
+		</dynamic>
+	</insert>
+
+	<update id="updateByPrimaryKeySelective" parameterClass="CharacterPhoto">
+		update t_character_photo
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="characterTime">
+				f_character_time =
+				#characterTime:TIMESTAMP#
+			</isNotNull>
+			<isNotNull prepend="," property="characterType">
+				f_character_type =
+				#characterType:TINYINT#
+			</isNotNull>
+			<isNotNull prepend="," property="characterContext">
+				f_character_context =
+				#characterContext:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="url">
+				f_url = #url:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="urlVerify">
+				f_url_verify =
+				#urlVerify:VARCHAR#
+			</isNotNull>
+		</dynamic>
+		where f_character_id = #characterId:INTEGER#
+	</update>
+</sqlMap>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_instance">
+	<resultMap class="net.snake.gamemodel.instance.bean.InstanceDataRef" id="InstanceDataRef">
+		<result column="instance_model_id" jdbcType="INTEGER" property="instanceModelId" />
+		<result column="instance_name" jdbcType="VARCHAR" property="instanceName" />
+		<result column="instance_type" jdbcType="TINYINT" property="instanceType" />
+		<result column="lifecycle" jdbcType="INTEGER" property="lifecycle" />
+		<result column="population_high_limit" jdbcType="INTEGER" property="populationHighLimit" />
+		<result column="population_lower_limit" jdbcType="INTEGER" property="populationLowerLimit" />
+		<result column="level_high_limit" jdbcType="INTEGER" property="levelHighLimit" />
+		<result column="level_lower_limit" jdbcType="INTEGER" property="levelLowerLimit" />
+		<result column="open_time_limite" jdbcType="VARCHAR" property="openTimeLimite" />
+		<result column="enable" jdbcType="INTEGER" property="enable" />
+		<result column="enter_count_limite" jdbcType="INTEGER" property="enterCountLimite" />
+		<result column="instanceOpenTimeDescrip" jdbcType="VARCHAR" property="instanceopentimedescrip" />
+		<result column="weekdayshow" jdbcType="VARCHAR" property="weekdayshow" />
+		<result column="groupsum" jdbcType="INTEGER" property="groupsum" />
+		<result column="maxcount" jdbcType="INTEGER" property="maxcount" />
+		<result column="descpt" jdbcType="VARCHAR" property="descpt" />
+		<result column="f_rewardgrade" jdbcType="INTEGER" property="fRewardgrade" />
+		<result column="team_limite" jdbcType="INTEGER" property="teamLimite" />
+		<result column="task_limite" jdbcType="VARCHAR" property="taskLimite" />
+		<result column="good_limite" jdbcType="VARCHAR" property="goodLimite" />
+		<result column="revive" jdbcType="INTEGER" property="revive" />
+		<result column="transNpcID" jdbcType="INTEGER" property="transnpcid" />
+		<result column="fubenling_limite" jdbcType="INTEGER" property="fubenlingLimite" />
+		<result column="f_reward_good" jdbcType="VARCHAR" property="fRewardGood" />
+		<result column="f_unit" jdbcType="VARCHAR" property="fUnit" />
+		<result column="instance_name_i18n" jdbcType="VARCHAR" property="instanceNameI18n" />
+		<result column="instanceOpenTimeDescrip_i18n" jdbcType="VARCHAR" property="instanceopentimedescripI18n" />
+		<result column="descpt_i18n" jdbcType="VARCHAR" property="descptI18n" />
+		<result column="f_unit_i18n" jdbcType="VARCHAR" property="fUnitI18n" />
+	</resultMap>
+	<select id="queryall" resultMap="InstanceDataRef">
+		select * from t_instance
+	</select>
+
+	<select id="querybyenable" parameterClass="java.lang.Integer" resultMap="InstanceDataRef">
+		select * from t_instance where enable=#enable# order by
+		instance_model_id
+	</select>
+</sqlMap>

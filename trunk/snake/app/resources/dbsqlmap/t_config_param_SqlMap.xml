@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_config_param">
+	<resultMap class="net.snake.gamemodel.config.bean.ConfigParam" id="ConfigParam">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_sp_per_jump" jdbcType="INTEGER" property="spPerJump" />
+		<result column="f_jump_cold_time" jdbcType="INTEGER" property="jumpColdTime" />
+		<result column="f_horse_follow_distance" jdbcType="INTEGER" property="horseFollowDistance" />
+		<result column="f_horse_livingness_punish1" jdbcType="INTEGER" property="horseLivingnessPunish1" />
+		<result column="f_horse_livingness_punish2" jdbcType="INTEGER" property="horseLivingnessPunish2" />
+		<result column="f_horse_ride_consume" jdbcType="INTEGER" property="horseRideConsume" />
+		<result column="f_horse_show_consume" jdbcType="INTEGER" property="horseShowConsume" />
+		<result column="f_horse_rest_resume" jdbcType="INTEGER" property="horseRestResume" />
+		<result column="f_dazuo_exp" jdbcType="SMALLINT" property="dazuoExp" />
+		<result column="f_dazuo_zhenqi" jdbcType="SMALLINT" property="dazuoZhenqi" />
+		<result column="f_baolv" jdbcType="SMALLINT" property="baolv" />
+		<result column="f_daguai_exp" jdbcType="SMALLINT" property="daguaiExp" />
+		<result column="show_server_id" jdbcType="INTEGER" property="showServerId" />
+		<result column="f_feasttime_exp" jdbcType="VARCHAR" property="feasttimeExp" />
+		<result column="f_bulletin" jdbcType="VARCHAR" property="bulletin" />
+		<result column="f_presec_lose_sp" jdbcType="INTEGER" property="presecLoseSp" />
+		<result column="f_getsp_coef1" jdbcType="FLOAT" property="getspCoef1" />
+		<result column="f_getsp_coef2" jdbcType="FLOAT" property="getspCoef2" />
+		<result column="f_getsp_coef3" jdbcType="FLOAT" property="getspCoef3" />
+		<result column="f_getsp_coef4" jdbcType="FLOAT" property="getspCoef4" />
+		<result column="f_getbesp_coef1" jdbcType="FLOAT" property="getbespCoef1" />
+		<result column="f_getbesp_coef2" jdbcType="FLOAT" property="getbespCoef2" />
+		<result column="f_getbesp_coef3" jdbcType="FLOAT" property="getbespCoef3" />
+		<result column="f_getbesp_coef4" jdbcType="FLOAT" property="getbespCoef4" />
+		<result column="f_pin1" jdbcType="INTEGER" property="pin1" />
+		<result column="f_pin2" jdbcType="INTEGER" property="pin2" />
+		<result column="f_pin3" jdbcType="INTEGER" property="pin3" />
+		<result column="f_pin4" jdbcType="INTEGER" property="pin4" />
+		<result column="f_pin5" jdbcType="INTEGER" property="pin5" />
+	</resultMap>
+
+	<select id="selectById" parameterClass="java.lang.Integer" resultMap="ConfigParam">
+		select * from t_config_param where f_id=#id#
+	</select>
+</sqlMap>

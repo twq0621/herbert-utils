@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_equipment_playconfig">
+	<resultMap class="net.snake.gamemodel.equipment.bean.EquipmentPlayconfig" id="EquipmentPlayconfig">
+		<result column="f_goodmodel_id" jdbcType="INTEGER" property="goodmodelId" />
+		<result column="f_goodmodel_name" jdbcType="VARCHAR" property="goodmodelName" />
+		<result column="f_next_goodmodel_id" jdbcType="INTEGER" property="nextGoodmodelId" />
+		<result column="f_befo_goodmodel_id" jdbcType="INTEGER" property="befoGoodmodelId" />
+		
+		<result column="f_jinglian" jdbcType="INTEGER" property="jinglian" />
+		<result column="f_jinglian_num" jdbcType="INTEGER" property="jinglianNum" />
+		
+		<result column="f_reset_add_zhenqi" jdbcType="INTEGER" property="resetAddZhenqi" />
+		<result column="f_reset_add_probability" jdbcType="INTEGER" property="resetAddProbability" />
+		<result column="f_reset_add_copper" jdbcType="INTEGER" property="resetAddCopper" />
+				
+		<result column="f_ronghe_probability" jdbcType="INTEGER" property="rongheProbability" />
+		<result column="f_ronghe_zhenqi" jdbcType="INTEGER" property="rongheZhenqi" />
+		<result column="f_ronghe_copper" jdbcType="INTEGER" property="rongheCopper" />
+		
+		<result column="f_cailiao_combine_zhenqi" jdbcType="INTEGER" property="cailiaoCombineZhenqi" />
+		<result column="f_cailiao_combine_copper" jdbcType="INTEGER" property="cailiaoCombineCopper" />
+		<result column="f_cailiao_combine_probability" jdbcType="INTEGER" property="cailiaoCombineProbability" />
+		
+		<result column="f_bachu_zhenqi" jdbcType="INTEGER" property="bachuZhenqi" />
+		<result column="f_bachu_copper" jdbcType="INTEGER" property="bachuCopper" />
+		<result column="f_bachu_probablity" jdbcType="INTEGER" property="bachuProbablity" />
+		
+		<result column="f_merge_sum" jdbcType="INTEGER" property="mergeSum" />
+		<result column="f_max_stone_num" jdbcType="INTEGER" property="maxStoneNum" />
+
+		<result column="f_born_strengthen_cailiao_modelid" jdbcType="INTEGER" property="bornStrengthenCailiaoModelid" />
+		<result column="f_born_strengthen_cailiao_num" jdbcType="INTEGER" property="bornStrengthenCailiaoNum" />
+		<result column="f_born_strengthen_copper" jdbcType="INTEGER" property="bornStrengthenCopper" />
+		<result column="f_born_strengthen_zhenqi" jdbcType="INTEGER" property="bornStrengthenZhenqi" />
+
+		<result column="f_goodmodel_name_i18n" jdbcType="VARCHAR" property="goodmodelNameI18n" />
+	</resultMap>
+	<select id="queryall" resultMap="EquipmentPlayconfig">
+		select * from t_equipment_playconfig
+	</select>
+</sqlMap>

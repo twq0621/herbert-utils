@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_character_achieve">
+	<typeAlias alias="CharacterAchieve" type="net.snake.gamemodel.fight.bean.CharacterAchieve" />
+	<resultMap class="CharacterAchieve" id="CharacterAchieveRes">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_character_id" jdbcType="INTEGER" property="characterId" />
+		<result column="f_achieve_id" jdbcType="INTEGER" property="achieveId" />
+		<result column="f_point" jdbcType="INTEGER" property="point" />
+	</resultMap>
+
+	<select id="queryall" resultMap="CharacterAchieveRes">
+		select * from
+		t_character_achieve where f_character_id=#characterId#
+	</select>
+
+	<insert id="insert" parameterClass="CharacterAchieve">
+		insert into t_character_achieve (f_character_id, f_achieve_id,f_point)
+		values (#characterId:INTEGER#, #achieveId:INTEGER#, #point:INTEGER#)
+		<selectKey keyProperty="id" resultClass="java.lang.Integer">
+			SELECT
+			LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+	<delete id="deleteById" parameterClass="java.lang.Integer">
+		delete from
+		t_character_achieve where f_id = #id#
+	</delete>
+
+	<update id="updateById" parameterClass="CharacterAchieve">
+		update
+		t_character_achieve set f_character_id =
+		#characterId:INTEGER#,f_achieve_id = #achieveId:INTEGER#,f_point =
+		#point:INTEGER# where
+		f_id = #id:INTEGER#
+	</update>
+</sqlMap>
