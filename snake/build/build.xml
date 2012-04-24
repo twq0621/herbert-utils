@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="GBK"?>
+<project basedir="." default="build">
+	<property name="src.dir" value="${basedir}/../src"/>
+	<property name="lib.dir" value="${basedir}/../../game-lib/lib"/>
+	<property name="buildclass.dir" value="${basedir}/target/classes"/>
+	<property name="jarfile" value="${basedir}/target/aj-common.jar"/>
+
+	
+	<target name="initTarget">		
+		<mkdir dir="${basedir}/target" />
+	</target>
+
+	<target name="jar" depends="initTarget">
+		<delete dir="${buildclass.dir}" />
+		<mkdir dir="${buildclass.dir}" />
+		<path id="myclasspath">
+			<fileset dir="${lib.dir}" includes="*.jar" />
+		</path>
+		<javac debug="true" source="1.5" srcdir="${src.dir}" destdir="${buildclass.dir}" encoding="gbk">
+			<compilerarg value="-Xlint:deprecation" />
+			<classpath refid="myclasspath" />
+		</javac>
+		<copy todir="${buildclass.dir}">
+			<fileset dir="${src.dir}" excludes="**/*.java" />
+		</copy>		
+		<jar destfile="${jarfile}" basedir="${buildclass.dir}" />
+		<delete dir="${buildclass.dir}" />
+	</target>
+	<target name="build" depends="jar"></target>
+</project>
