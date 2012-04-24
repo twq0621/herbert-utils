@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_scroll_bulletin">
+	<resultMap class="net.snake.gamemodel.bulletin.bean.ScrollBulletin" id="ScrollBulletin">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_content" jdbcType="VARCHAR" property="content" />
+		<result column="f_timeexp" jdbcType="VARCHAR" property="timeexp" />
+		<result column="f_state" jdbcType="SMALLINT" property="state" />
+		<result column="f_type" jdbcType="VARCHAR" property="type" />
+		<result column="f_content_i18n" jdbcType="VARCHAR" property="contentI18n" />
+	</resultMap>
+
+	<select id="queryall" resultMap="ScrollBulletin">
+		select * from t_scroll_bulletin
+	</select>
+</sqlMap>

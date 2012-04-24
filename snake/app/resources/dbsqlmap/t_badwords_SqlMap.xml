@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_badwords">
+	<typeAlias alias="BadWords" type="net.snake.gamemodel.badwords.bean.BadWords" />
+	<resultMap class="BadWords" id="BadWordsRes">
+		<result column="f_badwords" jdbcType="LONGVARCHAR" property="badwords" />
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+	</resultMap>
+	<select id="selectById" parameterClass="java.lang.Integer" resultMap="BadWordsRes">
+		select f_id, f_badwords from t_badwords where f_id = #id#
+	</select>
+	<select id="queryall" resultMap="BadWordsRes">
+		select f_id, f_badwords from t_badwords
+	</select>
+</sqlMap>

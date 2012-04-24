@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_character_dayincome_count">
+	<typeAlias alias="CharDayInComeData" type="net.snake.gamemodel.hero.bean.CharDayInComeData" />
+	<resultMap class="CharDayInComeData" id="CharDayInComeDataRes">
+		<result column="f_characterid" jdbcType="INTEGER" property="fCharacterid" />
+		<result column="f_exp" jdbcType="BIGINT" property="fExp" />
+		<result column="f_killmonster" jdbcType="INTEGER" property="fKillmonster" />
+		<result column="f_equip" jdbcType="INTEGER" property="fEquip" />
+		<result column="f_finshtask" jdbcType="INTEGER" property="fFinshtask" />
+		<result column="f_zhengqi" jdbcType="INTEGER" property="fZhengqi" />
+		<result column="f_killboss" jdbcType="INTEGER" property="fKillboss" />
+		<result column="f_gethorse" jdbcType="INTEGER" property="fGethorse" />
+		<result column="f_finshinstance" jdbcType="INTEGER" property="fFinshinstance" />
+		<result column="f_month" jdbcType="INTEGER" property="fMonth" />
+		<result column="f_day" jdbcType="INTEGER" property="fDay" />
+		<result column="f_year" jdbcType="INTEGER" property="fYear" />
+		<result column="f_feast_zhengqi" jdbcType="INTEGER" property="fFeastZhengqi" />
+		<result column="f_feast_exp" jdbcType="INTEGER" property="fFeastExp" />
+		<result column="f_shengwang" jdbcType="INTEGER" property="fShengwang" />
+		<result column="f_feast_gift" jdbcType="INTEGER" property="fFeastGift" />
+	</resultMap>
+
+	<insert id="insertInit">
+		insert into t_character_dayincome_count
+		(f_characterid,f_year,f_month,f_day) select
+		f_id,year(now()),0,0 from t_character where not
+		exists (select * from
+		t_character_dayincome_count where
+		t_character_dayincome_count.f_characterid=t_character.f_id)
+	</insert>
+
+	<select id="selectById" parameterClass="java.lang.Integer" resultMap="CharDayInComeDataRes">
+		select * from t_character_dayincome_count where f_characterid = #fCharacterid#
+	</select>
+
+	<insert id="insert" parameterClass="CharDayInComeData">
+		insert into t_character_dayincome_count (f_characterid, f_exp,
+		f_killmonster, f_equip,
+		f_finshtask, f_zhengqi, f_killboss, f_gethorse,
+		f_finshinstance, f_month, f_day,
+		f_year,
+		f_feast_zhengqi, f_feast_exp, f_shengwang, f_feast_gift)
+		values (#fCharacterid:INTEGER#, #fExp:BIGINT#, #fKillmonster:INTEGER#,
+		#fEquip:INTEGER#,
+		#fFinshtask:INTEGER#, #fZhengqi:INTEGER#, #fKillboss:INTEGER#, #fGethorse:INTEGER#,
+		#fFinshinstance:INTEGER#, #fMonth:INTEGER#, #fDay:INTEGER#,
+		#fYear:INTEGER#,
+		#fFeastZhengqi:INTEGER#, #fFeastExp:INTEGER#, #fShengwang:INTEGER#, #fFeastGift:INTEGER#)
+	</insert>
+
+	<update id="updateById" parameterClass="CharDayInComeData">
+		update t_character_dayincome_count
+		set f_exp = #fExp:BIGINT#,
+		f_killmonster = #fKillmonster:INTEGER#,
+		f_equip = #fEquip:INTEGER#,
+		f_finshtask = #fFinshtask:INTEGER#,
+		f_zhengqi = #fZhengqi:INTEGER#,
+		f_killboss = #fKillboss:INTEGER#,
+		f_gethorse = #fGethorse:INTEGER#,
+		f_finshinstance = #fFinshinstance:INTEGER#,
+		f_month = #fMonth:INTEGER#,
+		f_day = #fDay:INTEGER#,
+		f_year = #fYear:INTEGER#,
+		f_feast_zhengqi = #fFeastZhengqi:INTEGER#,
+		f_feast_exp = #fFeastExp:INTEGER#,
+		f_shengwang =
+		#fShengwang:INTEGER#,
+		f_feast_gift = #fFeastGift:INTEGER#
+		where f_characterid = #fCharacterid:INTEGER#
+	</update>
+
+</sqlMap>

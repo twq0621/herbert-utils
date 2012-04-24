@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_manageip">
+	<resultMap id="ManageIP" class="net.snake.gamemodel.gm.bean.ManageIP">
+		<result column="ip" property="ip" jdbcType="VARCHAR" />
+		<result column="fdesc" property="fdesc" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<select id="queryall" resultMap="ManageIP">
+		select ip,fdesc from t_manageip
+	</select>
+</sqlMap>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_language_server">
+	<resultMap class="net.snake.gamemodel.language.bean.LanguageServer" id="LanguageServer">
+		<result column="id" jdbcType="INTEGER" property="id" />
+		<result column="value" jdbcType="VARCHAR" property="value" />
+		<result column="value_i18n" jdbcType="VARCHAR" property="valueI18n" />
+	</resultMap>
+
+	<select id="queryall" resultMap="LanguageServer" parameterClass="java.lang.Integer">
+		 <![CDATA[select id, value, value_i18n from t_language_server where id<#id# ]]>
+	</select>
+</sqlMap>

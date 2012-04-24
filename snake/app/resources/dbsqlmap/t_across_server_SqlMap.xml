@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_across_server">
+	<typeAlias alias="AcrossServerDate" type="net.snake.gamemodel.across.bean.AcrossServerDate" />
+	<resultMap class="AcrossServerDate" id="acrossServerDateRes">
+		<result column="f_server_id" jdbcType="INTEGER" property="serverId" />
+		<result column="f_maxPermitPlayerCount" jdbcType="INTEGER" property="maxpermitplayercount" />
+		<result column="f_loginServerName" jdbcType="VARCHAR" property="loginservername" />
+		<result column="f_login_server_ip" jdbcType="VARCHAR" property="loginServerIp" />
+		<result column="f_login_server_port" jdbcType="VARCHAR" property="loginServerPort" />
+		<result column="f_chat_server_ip" jdbcType="VARCHAR" property="chatServerIp" />
+		<result column="f_chat_server_port" jdbcType="VARCHAR" property="chatServerPort" />
+		<result column="f_server_process" jdbcType="INTEGER" property="serverProcess" />
+		<result column="f_across_md5key" jdbcType="VARCHAR" property="acrossMd5key" />
+		<result column="f_enter_limit_time" jdbcType="VARCHAR" property="enterLimitTime" />
+		<result column="f_lock_time" jdbcType="INTEGER" property="lockTime" />
+		<result column="f_enable" jdbcType="TINYINT" property="enable" />
+	</resultMap>
+
+	<select id="queryall" resultMap="acrossServerDateRes">
+		select *
+		from t_across_server
+		order by f_server_id
+	</select>
+</sqlMap>

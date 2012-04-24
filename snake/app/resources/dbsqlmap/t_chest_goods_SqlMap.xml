@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_chest_goods">
+	<typeAlias alias="ChestGoods" type="net.snake.gamemodel.chest.bean.ChestGoods" />
+	<resultMap class="ChestGoods" id="ChestGoodsRes">
+		<result column="f_chest_goods_id" jdbcType="INTEGER" property="chestGoodsId" />
+		<result column="f_chest_resources_id" jdbcType="VARCHAR" property="chestResourcesId" />
+		<result column="f_goodmodel_type" jdbcType="INTEGER" property="goodmodelType" />
+		<result column="f_id" jdbcType="VARCHAR" property="id" />
+		<result column="f_character_id" jdbcType="INTEGER" property="characterId" />
+		<result column="f_goodmodel_id" jdbcType="INTEGER" property="goodmodelId" />
+		<result column="f_position" jdbcType="SMALLINT" property="position" />
+		<result column="f_in_horse_id" jdbcType="INTEGER" property="inHorseId" />
+		<result column="f_count" jdbcType="INTEGER" property="count" />
+		<result column="f_bind" jdbcType="TINYINT" property="bind" />
+		<result column="f_quickbarindex" jdbcType="INTEGER" property="quickbarindex" />
+		<result column="f_curr_durability" jdbcType="INTEGER" property="currDurability" />
+		<result column="f_max_durability" jdbcType="INTEGER" property="maxDurability" />
+		<result column="f_is_show" jdbcType="TINYINT" property="isShow" />
+		<result column="f_is_use" jdbcType="TINYINT" property="isUse" />
+		<result column="f_base_desc" jdbcType="VARCHAR" property="baseDesc" />
+		<result column="f_born_lv" jdbcType="INTEGER" property="bornLv" />
+		<result column="f_strengthen_desc" jdbcType="VARCHAR" property="strengthenDesc" />
+		<result column="f_addition_desc" jdbcType="VARCHAR" property="additionDesc" />
+		<result column="f_in_equip_id" jdbcType="VARCHAR" property="inEquipId" />
+		<result column="f_stall_copper" jdbcType="INTEGER" property="stallCopper" />
+		<result column="f_stall_ingot" jdbcType="INTEGER" property="stallIngot" />
+	</resultMap>
+
+	<select id="selectByCharacterId" parameterClass="java.lang.Integer" resultMap="ChestGoodsRes">
+		select * from t_chest_goods where f_character_id=#characterId# order by f_chest_goods_id desc
+	</select>
+
+	<delete id="deleteById" parameterClass="java.lang.Integer">
+		delete from t_chest_goods
+		where f_chest_goods_id = #chestGoodsId#
+	</delete>
+
+	<insert id="insertSelective" parameterClass="ChestGoods">
+		insert into t_chest_goods
+		<dynamic prepend="(">
+			<isNotNull prepend="," property="chestGoodsId">
+				f_chest_goods_id
+			</isNotNull>
+			<isNotNull prepend="," property="chestResourcesId">
+				f_chest_resources_id
+			</isNotNull>
+			<isNotNull prepend="," property="goodmodelType">
+				f_goodmodel_type
+			</isNotNull>
+			<isNotNull prepend="," property="id">
+				f_id
+			</isNotNull>
+			<isNotNull prepend="," property="characterId">
+				f_character_id
+			</isNotNull>
+			<isNotNull prepend="," property="goodmodelId">
+				f_goodmodel_id
+			</isNotNull>
+			<isNotNull prepend="," property="position">
+				f_position
+			</isNotNull>
+			<isNotNull prepend="," property="inHorseId">
+				f_in_horse_id
+			</isNotNull>
+			<isNotNull prepend="," property="count">
+				f_count
+			</isNotNull>
+			<isNotNull prepend="," property="bind">
+				f_bind
+			</isNotNull>
+			<isNotNull prepend="," property="quickbarindex">
+				f_quickbarindex
+			</isNotNull>
+			<isNotNull prepend="," property="currDurability">
+				f_curr_durability
+			</isNotNull>
+			<isNotNull prepend="," property="maxDurability">
+				f_max_durability
+			</isNotNull>
+			<isNotNull prepend="," property="isShow">
+				f_is_show
+			</isNotNull>
+			<isNotNull prepend="," property="isUse">
+				f_is_use
+			</isNotNull>
+			<isNotNull prepend="," property="baseDesc">
+				f_base_desc
+			</isNotNull>
+			<isNotNull prepend="," property="bornLv">
+				f_born_lv
+			</isNotNull>
+			<isNotNull prepend="," property="strengthenDesc">
+				f_strengthen_desc
+			</isNotNull>
+			<isNotNull prepend="," property="additionDesc">
+				f_addition_desc
+			</isNotNull>
+			<isNotNull prepend="," property="inEquipId">
+				f_in_equip_id
+			</isNotNull>
+			<isNotNull prepend="," property="stallCopper">
+				f_stall_copper
+			</isNotNull>
+			<isNotNull prepend="," property="stallIngot">
+				f_stall_ingot
+			</isNotNull>
+			)
+		</dynamic>
+		values
+		<dynamic prepend="(">
+			<isNotNull prepend="," property="chestGoodsId">
+				#chestGoodsId:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="chestResourcesId">
+				#chestResourcesId:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="goodmodelType">
+				#goodmodelType:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="id">
+				#id:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="characterId">
+				#characterId:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="goodmodelId">
+				#goodmodelId:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="position">
+				#position:SMALLINT#
+			</isNotNull>
+			<isNotNull prepend="," property="inHorseId">
+				#inHorseId:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="count">
+				#count:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="bind">
+				#bind:TINYINT#
+			</isNotNull>
+			<isNotNull prepend="," property="quickbarindex">
+				#quickbarindex:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="currDurability">
+				#currDurability:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="maxDurability">
+				#maxDurability:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="isShow">
+				#isShow:TINYINT#
+			</isNotNull>
+			<isNotNull prepend="," property="isUse">
+				#isUse:TINYINT#
+			</isNotNull>
+			<isNotNull prepend="," property="baseDesc">
+				#baseDesc:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="bornLv">
+				#bornLv:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="strengthenDesc">
+				#strengthenDesc:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="additionDesc">
+				#additionDesc:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="inEquipId">
+				#inEquipId:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="stallCopper">
+				#stallCopper:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="stallIngot">
+				#stallIngot:INTEGER#
+			</isNotNull>
+			)
+		</dynamic>
+	</insert>
+
+</sqlMap>

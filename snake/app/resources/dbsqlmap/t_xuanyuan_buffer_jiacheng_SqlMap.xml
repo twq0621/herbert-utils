@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_xuanyuan_buffer_jiacheng">
+	<resultMap class="net.snake.gamemodel.fight.bean.XuanyuanBufferJiacheng" id="XuanyuanBufferJiacheng">
+		<result column="f_buffer_id" jdbcType="INTEGER" property="bufferId" />
+		<result column="f_hp" jdbcType="INTEGER" property="hp" />
+		<result column="f_atk" jdbcType="INTEGER" property="atk" />
+		<result column="f_def" jdbcType="INTEGER" property="def" />
+		<result column="f_mp" jdbcType="INTEGER" property="mp" />
+		<result column="f_sp" jdbcType="INTEGER" property="sp" />
+		<result column="f_atk_speed" jdbcType="INTEGER" property="atkSpeed" />
+		<result column="f_move_speed" jdbcType="INTEGER" property="moveSpeed" />
+		<result column="f_crt" jdbcType="INTEGER" property="crt" />
+		<result column="f_dodge" jdbcType="INTEGER" property="dodge" />
+	</resultMap>
+
+	<select id="queryall" resultMap="XuanyuanBufferJiacheng">
+		select * from t_xuanyuan_buffer_jiacheng
+	</select>
+</sqlMap>

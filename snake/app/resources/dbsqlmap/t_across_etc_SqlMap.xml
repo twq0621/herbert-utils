@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_across_etc">
+<typeAlias alias="AcrossEtc" type="net.snake.gamemodel.across.bean.AcrossEtc" />
+	<resultMap class="AcrossEtc" id="AcrossEtcRes">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_ascoss_server_id" jdbcType="INTEGER" property="ascossServerId" />
+		<result column="f_character_id" jdbcType="INTEGER" property="characterId" />
+		<result column="f_old_area_id" jdbcType="INTEGER" property="oldAreaId" />
+		<result column="f_old_character_id" jdbcType="INTEGER" property="oldCharacterId" />
+		<result column="f_old_wedder_id" jdbcType="INTEGER" property="oldWedderId" />
+		<result column="f_old_wedder_name" jdbcType="VARCHAR" property="oldWedderName" />
+		<result column="f_old_gang_id" jdbcType="INTEGER" property="oldGangId" />
+		<result column="f_old_gang_name" jdbcType="VARCHAR" property="oldGangName" />
+		<result column="f_old_gang_area_id" jdbcType="INTEGER" property="oldGangAreaId" />
+		<result column="f_old_wedder_area_id" jdbcType="INTEGER" property="oldWedderAreaId" />
+		<result column="f_account_id" jdbcType="INTEGER" property="accountId" />
+		<result column="f_old_account_id" jdbcType="INTEGER" property="oldAccountId" />
+		<result column="f_is_bangzhu" jdbcType="INTEGER" property="isBangzhu" />
+		<result column="f_is_chengzhu" jdbcType="INTEGER" property="isChengzhu" />
+		<result column="f_gang_grade" jdbcType="INTEGER" property="gangGrade" />
+		<result column="f_wedder_quanpei_id" jdbcType="INTEGER" property="wedderQuanpeiId" />
+		<result column="f_wedder_time" jdbcType="TIMESTAMP" property="wedderTime" />
+		<result column="f_old_wedder_menpai" jdbcType="TINYINT" property="oldWedderMenpai" />
+		<result column="f_old_wedder_dantian" jdbcType="TINYINT" property="oldWedderDantian" />
+		<result column="f_old_character_initially_id" jdbcType="INTEGER" property="oldCharacterInitiallyId" />
+		<result column="f_old_account_initially_id" jdbcType="INTEGER" property="oldAccountInitiallyId" />
+		<result column="f_guoshi_flag" jdbcType="TINYINT" property="guoshiFlag" />
+	</resultMap>
+
+	<select id="queryall" resultMap="AcrossEtcRes">
+		select * from t_across_etc
+	</select>
+
+	<insert id="insert" parameterClass="AcrossEtc">
+		insert into t_across_etc (f_ascoss_server_id, f_character_id,
+		f_old_area_id, f_old_character_id,
+		f_old_wedder_id, f_old_wedder_name, f_old_gang_id, f_old_gang_name,
+		f_old_gang_area_id,
+		f_old_wedder_area_id, f_account_id, f_old_account_id, f_is_bangzhu, f_is_chengzhu,
+		f_gang_grade, f_wedder_quanpei_id, f_wedder_time, f_old_wedder_menpai,
+		f_old_wedder_dantian,
+		f_old_character_initially_id, f_old_account_initially_id, f_guoshi_flag)
+		values (#ascossServerId:INTEGER#, #characterId:INTEGER#,
+		#oldAreaId:INTEGER#,
+		#oldCharacterId:INTEGER#, #oldWedderId:INTEGER#, #oldWedderName:VARCHAR#, #oldGangId:INTEGER#,
+		#oldGangName:VARCHAR#, #oldGangAreaId:INTEGER#,
+		#oldWedderAreaId:INTEGER#,
+		#accountId:INTEGER#, #oldAccountId:INTEGER#, #isBangzhu:INTEGER#, #isChengzhu:INTEGER#,
+		#gangGrade:INTEGER#, #wedderQuanpeiId:INTEGER#,
+		#wedderTime:TIMESTAMP#,
+		#oldWedderMenpai:TINYINT#, #oldWedderDantian:TINYINT#, #oldCharacterInitiallyId:INTEGER#,
+		#oldAccountInitiallyId:INTEGER#, #guoshiFlag:TINYINT#)
+		<selectKey keyProperty="id" resultClass="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+	<delete id="deleteById" parameterClass="java.lang.Integer">
+		delete from t_across_etc where f_id = #id#
+	</delete>
+
+	<update id="updateById" parameterClass="AcrossEtc">
+		update t_across_etc
+		set f_ascoss_server_id = #ascossServerId:INTEGER#,
+		f_character_id = #characterId:INTEGER#,
+		f_old_area_id =
+		#oldAreaId:INTEGER#,
+		f_old_character_id = #oldCharacterId:INTEGER#,
+		f_old_wedder_id = #oldWedderId:INTEGER#,
+		f_old_wedder_name = #oldWedderName:VARCHAR#,
+		f_old_gang_id =
+		#oldGangId:INTEGER#,
+		f_old_gang_name = #oldGangName:VARCHAR#,
+		f_old_gang_area_id = #oldGangAreaId:INTEGER#,
+		f_old_wedder_area_id = #oldWedderAreaId:INTEGER#,
+		f_account_id =
+		#accountId:INTEGER#,
+		f_old_account_id = #oldAccountId:INTEGER#,
+		f_is_bangzhu = #isBangzhu:INTEGER#,
+		f_is_chengzhu = #isChengzhu:INTEGER#,
+		f_gang_grade = #gangGrade:INTEGER#,
+		f_wedder_quanpei_id = #wedderQuanpeiId:INTEGER#,
+		f_wedder_time = #wedderTime:TIMESTAMP#,
+		f_old_wedder_menpai = #oldWedderMenpai:TINYINT#,
+		f_old_wedder_dantian =
+		#oldWedderDantian:TINYINT#,
+		f_old_character_initially_id = #oldCharacterInitiallyId:INTEGER#,
+		f_old_account_initially_id = #oldAccountInitiallyId:INTEGER#,
+		f_guoshi_flag =
+		#guoshiFlag:TINYINT#
+		where f_id = #id:INTEGER#
+	</update>
+</sqlMap>

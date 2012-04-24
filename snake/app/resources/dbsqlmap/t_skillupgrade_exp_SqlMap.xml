@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_skillupgrade_exp">
+
+	<resultMap class="net.snake.gamemodel.skill.bean.SkillUpgradeExp" id="skillupgrade_exps">
+		<result column="Id" jdbcType="INTEGER" property="id" />
+		<result column="f_skill_id" jdbcType="INTEGER" property="skillId" />
+		<result column="f_skill_grade" jdbcType="INTEGER" property="skillGrade" />
+		<result column="f_exp_cash" jdbcType="INTEGER" property="expCash" />
+		<result column="f_exp_zhengqi" jdbcType="INTEGER" property="expZhengqi" />
+		<result column="f_pinjin" jdbcType="INTEGER" property="pinjin" />
+		<result column="f_target_goods" jdbcType="VARCHAR" property="targetGoods" />
+		<result column="f_po_need_zhenqi" jdbcType="INTEGER" property="poNeedZhenqi" />
+		<result column="f_po_need_copper" jdbcType="INTEGER" property="poNeedCopper" />
+		<result column="f_po_need_lv" jdbcType="INTEGER" property="poNeedLv" />
+		<result column="f_po_cooltime" jdbcType="INTEGER" property="poCooltime" />
+		<result column="f_limit_grade" jdbcType="INTEGER" property="limitGrade" />
+	</resultMap>
+
+	<select id="queryall" resultMap="skillupgrade_exps">
+		select * from t_skillupgrade_exp
+	</select>
+
+</sqlMap>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_character_lianti">
+	<typeAlias alias="CharacterLiantiTransportData" type="datatransport.bean.characterlianti.CharacterLiantiTransportData" />
+
+	<resultMap class="CharacterLiantiTransportData" id="CharacterLiantiTransportDataRes">
+		<result column="f_character_id" jdbcType="INTEGER" property="characterId" />
+		<result column="f_lianti_jingjie_id" jdbcType="INTEGER" property="liantiJingjieId" />
+		<result column="f_hp" jdbcType="INTEGER" property="hp" />
+		<result column="f_atk" jdbcType="INTEGER" property="atk" />
+		<result column="f_mp" jdbcType="INTEGER" property="mp" />
+		<result column="f_sp" jdbcType="INTEGER" property="sp" />
+		<result column="f_def" jdbcType="INTEGER" property="def" />
+		<result column="f_atk_speed" jdbcType="INTEGER" property="atkSpeed" />
+		<result column="f_move_speed" jdbcType="INTEGER" property="moveSpeed" />
+		<result column="f_aq_jv" jdbcType="INTEGER" property="aqJv" />
+		<result column="f_fjsh" jdbcType="INTEGER" property="fjsh" />
+		<result column="f_shjm" jdbcType="INTEGER" property="shjm" />
+		<result column="f_tupo_count" jdbcType="INTEGER" property="tupoCount" />
+		<result column="f_zhufu" jdbcType="INTEGER" property="zhufu" />
+		<result column="f_zhufu_starttime" jdbcType="TIMESTAMP" property="zhufuStarttime" />
+		<result column="f_usegood_count" jdbcType="INTEGER" property="usegoodCount" />
+	</resultMap>
+
+	<select id="selectByPrimaryKey" parameterClass="java.lang.Integer" resultMap="CharacterLiantiTransportDataRes">
+		select * from t_character_lianti where f_character_id = #characterId#
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterClass="java.lang.Integer">
+		delete from t_character_lianti where f_character_id = #characterId#
+	</delete>
+
+	<insert id="insert" parameterClass="CharacterLiantiTransportData">
+		insert into t_character_lianti (f_character_id, f_lianti_jingjie_id,
+		f_hp, f_atk, f_mp, f_sp,
+		f_def, f_atk_speed, f_move_speed, f_aq_jv,
+		f_fjsh, f_shjm, f_tupo_count,
+		f_zhufu,
+		f_zhufu_starttime, f_usegood_count)
+		values (#characterId:INTEGER#, #liantiJingjieId:INTEGER#, #hp:INTEGER#,
+		#atk:INTEGER#,
+		#mp:INTEGER#,
+		#sp:INTEGER#, #def:INTEGER#, #atkSpeed:INTEGER#, #moveSpeed:INTEGER#,
+		#aqJv:INTEGER#, #fjsh:INTEGER#, #shjm:INTEGER#, #tupoCount:INTEGER#,
+		#zhufu:INTEGER#,
+		#zhufuStarttime:TIMESTAMP#, #usegoodCount:INTEGER#)
+	</insert>
+</sqlMap>

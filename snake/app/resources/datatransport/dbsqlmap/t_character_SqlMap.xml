@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_character">
+	<typeAlias alias="CharacterTransportData" type="datatransport.bean.character.CharacterTransportData"/>
+	<resultMap class="CharacterTransportData" id="CharacterTransportDataRes">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_character_initially_id" jdbcType="INTEGER" property="characterInitiallyId" />
+		<result column="f_original_sid" jdbcType="INTEGER" property="originalSid" />
+		<result column="f_account_id" jdbcType="INTEGER" property="accountId" />
+		<result column="f_account_initially_id" jdbcType="INTEGER" property="accountInitiallyId" />
+		<result column="f_popsinger" jdbcType="INTEGER" property="popsinger" />
+		<result column="f_sex" jdbcType="TINYINT" property="sex" />
+		<result column="f_headimg" jdbcType="TINYINT" property="headimg" />
+		<result column="f_name" jdbcType="VARCHAR" property="name" />
+		<result column="f_desc" jdbcType="VARCHAR" property="desc" />
+		<result column="f_grade" jdbcType="SMALLINT" property="grade" />
+		<result column="f_now_hp" jdbcType="INTEGER" property="nowHp" />
+		<result column="f_max_hp" jdbcType="INTEGER" property="maxHp" />
+		<result column="f_now_mp" jdbcType="INTEGER" property="nowMp" />
+		<result column="f_max_mp" jdbcType="INTEGER" property="maxMp" />
+		<result column="f_now_sp" jdbcType="INTEGER" property="nowSp" />
+		<result column="f_max_sp" jdbcType="INTEGER" property="maxSp" />
+		<result column="f_now_experience" jdbcType="BIGINT" property="nowExperience" />
+		<result column="f_next_experience" jdbcType="BIGINT" property="nextExperience" />
+		<result column="f_attack" jdbcType="INTEGER" property="attack" />
+		<result column="f_defence" jdbcType="INTEGER" property="defence" />
+		<result column="f_hit" jdbcType="INTEGER" property="hit" />
+		<result column="f_crt" jdbcType="INTEGER" property="crt" />
+		<result column="f_dodge" jdbcType="INTEGER" property="dodge" />
+		<result column="f_atk_coldtime" jdbcType="INTEGER" property="atkColdtime" />
+		<result column="f_move_speed" jdbcType="SMALLINT" property="moveSpeed" />
+		<result column="f_zhenqi" jdbcType="INTEGER" property="zhenqi" />
+		<result column="f_attack_addpoint" jdbcType="SMALLINT" property="attackAddpoint" />
+		<result column="f_defence_addpoint" jdbcType="SMALLINT" property="defenceAddpoint" />
+		<result column="f_light_addpoint" jdbcType="SMALLINT" property="lightAddpoint" />
+		<result column="f_strong_addpoint" jdbcType="SMALLINT" property="strongAddpoint" />
+		<result column="f_useablepoint" jdbcType="SMALLINT" property="useablepoint" />
+		<result column="f_potential" jdbcType="SMALLINT" property="potential" />
+		<result column="f_copper" jdbcType="INTEGER" property="copper" />
+		<result column="f_jiaozi" jdbcType="INTEGER" property="jiaozi" />
+		<result column="f_ingot" jdbcType="INTEGER" property="ingot" />
+		<result column="f_integral" jdbcType="INTEGER" property="integral" />
+		<result column="f_prestige" jdbcType="INTEGER" property="prestige" />
+		<result column="f_now_appellationid" jdbcType="INTEGER" property="nowAppellationid" />
+		<result column="f_consort_id" jdbcType="INTEGER" property="consortId" />
+		<result column="f_consort_name" jdbcType="VARCHAR" property="consortName" />
+		<result column="f_scene" jdbcType="SMALLINT" property="scene" />
+		<result column="f_x" jdbcType="SMALLINT" property="x" />
+		<result column="f_y" jdbcType="SMALLINT" property="y" />
+		<result column="f_pk_model" jdbcType="INTEGER" property="pkModel" />
+		<result column="f_isallow_chat" jdbcType="TINYINT" property="isallowChat" />
+		<result column="f_allowchat_starttime" jdbcType="TIMESTAMP" property="allowchatStarttime" />
+		<result column="f_createtime" jdbcType="TIMESTAMP" property="createtime" />
+		<result column="f_createip" jdbcType="VARCHAR" property="createip" />
+		<result column="f_last_logindate" jdbcType="TIMESTAMP" property="lastLogindate" />
+		<result column="f_lastdate" jdbcType="TIMESTAMP" property="lastdate" />
+		<result column="f_lastip" jdbcType="VARCHAR" property="lastip" />
+		<result column="f_onlinedate" jdbcType="BIGINT" property="onlinedate" />
+		<result column="f_esoterica_exp" jdbcType="INTEGER" property="esotericaExp" />
+		<result column="f_skillid" jdbcType="INTEGER" property="skillid" />
+		<result column="f_instance_id" jdbcType="VARCHAR" property="instanceId" />
+		<result column="f_line_id" jdbcType="INTEGER" property="lineId" />
+		<result column="f_newcomeleader_str" jdbcType="VARCHAR" property="newcomeleaderStr" />
+		<result column="f_isclose_character" jdbcType="TINYINT" property="iscloseCharacter" />
+		<result column="f_isonline" jdbcType="TINYINT" property="isonline" />
+		<result column="f_double_exp" jdbcType="INTEGER" property="doubleExp" />
+		<result column="f_prize_cishu" jdbcType="INTEGER" property="prizeCishu" />
+		<result column="f_max_horse_amount" jdbcType="INTEGER" property="maxHorseAmount" />
+		<result column="f_max_storage_horse_amount" jdbcType="INTEGER" property="maxStorageHorseAmount" />
+		<result column="f_channel_xuewei" jdbcType="INTEGER" property="channelXuewei" />
+		<result column="f_channel_jingmai" jdbcType="VARCHAR" property="channelJingmai" />
+		<result column="f_channel_realdragon" jdbcType="VARCHAR" property="channelRealdragon" />
+		<result column="f_channel_beidong_exp" jdbcType="INTEGER" property="channelBeidongExp" />
+		<result column="f_max_bag_amount" jdbcType="SMALLINT" property="maxBagAmount" />
+		<result column="f_max_storage_amount" jdbcType="SMALLINT" property="maxStorageAmount" />
+		<result column="f_storage_copper" jdbcType="INTEGER" property="storageCopper" />
+		<result column="f_contempt_count" jdbcType="INTEGER" property="contemptCount" />
+		<result column="f_worship_count" jdbcType="INTEGER" property="worshipCount" />
+		<result column="f_max_continue_killcount" jdbcType="INTEGER" property="maxContinueKillcount" />
+		<result column="f_stall_name" jdbcType="VARCHAR" property="stallName" />
+		<result column="f_wuxue_jingjie" jdbcType="INTEGER" property="wuxueJingjie" />
+		<result column="f_boss_kill" jdbcType="INTEGER" property="bossKill" />
+		<result column="f_now_xingqing" jdbcType="VARCHAR" property="nowXingqing" />
+		<result column="f_now_biaoqing" jdbcType="VARCHAR" property="nowBiaoqing" />
+		<result column="f_flower_count" jdbcType="INTEGER" property="flowerCount" />
+		<result column="f_state" jdbcType="TINYINT" property="state" />
+		<result column="f_biguan_date" jdbcType="TIMESTAMP" property="biguanDate" />
+		<result column="f_stall_status" jdbcType="INTEGER" property="stallStatus" />
+		<result column="f_last_ridehorse" jdbcType="INTEGER" property="lastRidehorse" />
+		<result column="f_week_login_count" jdbcType="INTEGER" property="weekLoginCount" />
+		<result column="f_drop_good" jdbcType="INTEGER" property="dropGood" />
+		<result column="f_max_jump_count" jdbcType="INTEGER" property="maxJumpCount" />
+		<result column="f_day_online" jdbcType="INTEGER" property="dayOnline" />
+		<result column="f_hp_percent" jdbcType="INTEGER" property="hpPercent" />
+		<result column="f_mp_percent" jdbcType="INTEGER" property="mpPercent" />
+		<result column="f_sp_percent" jdbcType="INTEGER" property="spPercent" />
+		<result column="f_dazuo_skill" jdbcType="INTEGER" property="dazuoSkill" />
+		<result column="f_chongqi_record" jdbcType="INTEGER" property="chongqiRecord" />
+		<result column="f_delete_mark" jdbcType="INTEGER" property="deleteMark" />
+		<result column="f_chengjiu_point" jdbcType="INTEGER" property="chengjiuPoint" />
+		<result column="f_contribution" jdbcType="INTEGER" property="contribution" />
+		<result column="f_skill_po_begin_time" jdbcType="TIMESTAMP" property="skillPoBeginTime" />
+		<result column="f_skill_po_time" jdbcType="INTEGER" property="skillPoTime" />
+		<result column="f_skip_novice_navigation" jdbcType="VARCHAR" property="skipNoviceNavigation" />
+		<result column="f_devilcnt" jdbcType="INTEGER" property="devilcnt" />
+		<result column="f_leiji_gain_lijin" jdbcType="INTEGER" property="leijiGainLijin" />
+		<result column="f_limit_online_time" jdbcType="INTEGER" property="limitOnlineTime" />
+		<result column="f_chengzhan_shengwang" jdbcType="INTEGER" property="chengzhanShengwang" />
+		<result column="f_lunjian_shengwang" jdbcType="INTEGER" property="lunjianShengwang" />
+		<result column="f_today_chengzhan_shengwang" jdbcType="INTEGER" property="todayChengzhanShengwang" />
+		<result column="t_dantian_grade" jdbcType="INTEGER" property="tDantianGrade" />
+	</resultMap>
+
+	<select id="selectByPrimaryKey" parameterClass="java.lang.Integer" resultMap="CharacterTransportDataRes">
+		select * from t_character where f_id = #id#
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterClass="java.lang.Integer">
+		delete from t_character where f_id = #id#
+	</delete>
+
+	<insert id="insert" parameterClass="CharacterTransportData">
+		insert into t_character (f_character_initially_id, f_original_sid,
+		f_account_id,
+		f_account_initially_id, f_popsinger, f_sex, f_headimg, f_name, f_desc, f_grade, f_now_hp,
+		f_max_hp,
+		f_now_mp, f_max_mp, f_now_sp, f_max_sp, f_now_experience,
+		f_next_experience,
+		f_attack, f_defence, f_hit, f_crt, f_dodge, f_atk_coldtime, f_move_speed,
+		f_zhenqi,
+		f_attack_addpoint,
+		f_defence_addpoint, f_light_addpoint, f_strong_addpoint,
+		f_useablepoint,
+		f_potential, f_copper, f_jiaozi, f_ingot, f_integral, f_prestige,
+		f_now_appellationid,
+		f_consort_id,
+		f_consort_name, f_scene, f_x, f_y, f_pk_model, f_isallow_chat,
+		f_allowchat_starttime, f_createtime, f_createip, f_last_logindate,
+		f_lastdate, f_lastip,
+		f_onlinedate,
+		f_esoterica_exp, f_skillid, f_instance_id, f_line_id,
+		f_newcomeleader_str,
+		f_isclose_character, f_isonline, f_double_exp, f_prize_cishu, f_max_horse_amount,
+		f_max_storage_horse_amount, f_channel_xuewei, f_channel_jingmai,
+		f_channel_realdragon,
+		f_channel_beidong_exp, f_max_bag_amount, f_max_storage_amount, f_storage_copper,
+		f_contempt_count, f_worship_count, f_max_continue_killcount,
+		f_stall_name, f_wuxue_jingjie,
+		f_boss_kill, f_now_xingqing, f_now_biaoqing, f_flower_count, f_state,
+		f_biguan_date,
+		f_stall_status, f_last_ridehorse, f_week_login_count, f_drop_good, f_max_jump_count,
+		f_day_online, f_hp_percent, f_mp_percent, f_sp_percent, f_dazuo_skill,
+		f_chongqi_record,
+		f_delete_mark, f_chengjiu_point, f_contribution, f_skill_po_begin_time,
+		f_skill_po_time,
+		f_skip_novice_navigation, f_devilcnt, f_leiji_gain_lijin, f_limit_online_time,
+		f_chengzhan_shengwang, f_lunjian_shengwang,
+		f_today_chengzhan_shengwang, t_dantian_grade)
+		values (#characterInitiallyId:INTEGER#, #originalSid:INTEGER#,
+		#accountId:INTEGER#,
+		#accountInitiallyId:INTEGER#, #popsinger:INTEGER#, #sex:TINYINT#, #headimg:TINYINT#,
+		#name:VARCHAR#, #desc:VARCHAR#, #grade:SMALLINT#, #nowHp:INTEGER#,
+		#maxHp:INTEGER#,
+		#nowMp:INTEGER#, #maxMp:INTEGER#, #nowSp:INTEGER#, #maxSp:INTEGER#,
+		#nowExperience:BIGINT#,
+		#nextExperience:BIGINT#, #attack:INTEGER#, #defence:INTEGER#, #hit:INTEGER#,
+		#crt:INTEGER#,
+		#dodge:INTEGER#, #atkColdtime:INTEGER#, #moveSpeed:SMALLINT#,
+		#zhenqi:INTEGER#,
+		#attackAddpoint:SMALLINT#, #defenceAddpoint:SMALLINT#, #lightAddpoint:SMALLINT#,
+		#strongAddpoint:SMALLINT#, #useablepoint:SMALLINT#,
+		#potential:SMALLINT#, #copper:INTEGER#,
+		#jiaozi:INTEGER#, #ingot:INTEGER#, #integral:INTEGER#, #prestige:INTEGER#,
+		#nowAppellationid:INTEGER#, #consortId:INTEGER#,
+		#consortName:VARCHAR#, #scene:SMALLINT#,
+		#x:SMALLINT#, #y:SMALLINT#, #pkModel:INTEGER#, #isallowChat:TINYINT#,
+		#allowchatStarttime:TIMESTAMP#, #createtime:TIMESTAMP#,
+		#createip:VARCHAR#,
+		#lastLogindate:TIMESTAMP#, #lastdate:TIMESTAMP#, #lastip:VARCHAR#, #onlinedate:BIGINT#,
+		#esotericaExp:INTEGER#, #skillid:INTEGER#, #instanceId:VARCHAR#,
+		#lineId:INTEGER#,
+		#newcomeleaderStr:VARCHAR#, #iscloseCharacter:TINYINT#, #isonline:TINYINT#,
+		#doubleExp:INTEGER#,
+		#prizeCishu:INTEGER#, #maxHorseAmount:INTEGER#,
+		#maxStorageHorseAmount:INTEGER#, #channelXuewei:INTEGER#,
+		#channelJingmai:VARCHAR#,
+		#channelRealdragon:VARCHAR#,
+		#channelBeidongExp:INTEGER#, #maxBagAmount:SMALLINT#,
+		#maxStorageAmount:SMALLINT#, #storageCopper:INTEGER#,
+		#contemptCount:INTEGER#,
+		#worshipCount:INTEGER#,
+		#maxContinueKillcount:INTEGER#, #stallName:VARCHAR#,
+		#wuxueJingjie:INTEGER#, #bossKill:INTEGER#, #nowXingqing:VARCHAR#,
+		#nowBiaoqing:VARCHAR#,
+		#flowerCount:INTEGER#,
+		#state:TINYINT#, #biguanDate:TIMESTAMP#, #stallStatus:INTEGER#,
+		#lastRidehorse:INTEGER#, #weekLoginCount:INTEGER#, #dropGood:INTEGER#,
+		#maxJumpCount:INTEGER#,
+		#dayOnline:INTEGER#,
+		#hpPercent:INTEGER#, #mpPercent:INTEGER#, #spPercent:INTEGER#,
+		#dazuoSkill:INTEGER#, #chongqiRecord:INTEGER#, #deleteMark:INTEGER#,
+		#chengjiuPoint:INTEGER#,
+		#contribution:INTEGER#,
+		#skillPoBeginTime:TIMESTAMP#, #skillPoTime:INTEGER#,
+		#skipNoviceNavigation:VARCHAR#, #devilcnt:INTEGER#,
+		#leijiGainLijin:INTEGER#,
+		#limitOnlineTime:INTEGER#,
+		#chengzhanShengwang:INTEGER#, #lunjianShengwang:INTEGER#,
+		#todayChengzhanShengwang:INTEGER#, #tDantianGrade:INTEGER#)
+		<selectKey keyProperty="id" resultClass="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+</sqlMap>

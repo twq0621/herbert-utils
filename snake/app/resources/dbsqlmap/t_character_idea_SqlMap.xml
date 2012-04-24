@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_character_idea">
+	<typeAlias alias="CharacterIdea" type="net.snake.gamemodel.guide.bean.CharacterIdea" />
+
+	<resultMap class="CharacterIdea" id="CharacterIdea">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_character_id" jdbcType="INTEGER" property="characterId" />
+		<result column="t_type" jdbcType="INTEGER" property="tType" />
+		<result column="f_title" jdbcType="VARCHAR" property="title" />
+		<result column="f_content" jdbcType="VARCHAR" property="content" />
+	</resultMap>
+
+	<insert id="insert" parameterClass="CharacterIdea">
+		insert into t_character_idea (f_character_id, t_type, f_title, f_content) values (#characterId:INTEGER#, #tType:INTEGER#, #title:VARCHAR#,#content:VARCHAR#)
+		<selectKey keyProperty="id" resultClass="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+</sqlMap>

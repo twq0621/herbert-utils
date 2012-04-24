@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_lineserver">
+	<resultMap class="net.snake.gamemodel.line.bean.LineServerEntry" id="LineServerEntry">
+		<result column="loginServerId" jdbcType="INTEGER" property="loginserverid" />
+		<result column="num" jdbcType="TINYINT" property="num" />
+		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="enable" jdbcType="INTEGER" property="enable" />
+	</resultMap>
+	<select id="selectByServerId" parameterClass="java.lang.Integer" resultMap="LineServerEntry">
+		select loginServerId, num, name,enable from t_lineserver where loginServerId =
+		#loginserverid:INTEGER# and enable=1
+	</select>
+</sqlMap>

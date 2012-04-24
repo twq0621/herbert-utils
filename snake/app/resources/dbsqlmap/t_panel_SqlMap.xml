@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_panel">
+	<resultMap class="net.snake.gamemodel.panel.bean.PanelDate" id="PanelDate">
+		<result column="f_id" jdbcType="INTEGER" property="fId" />
+		<result column="f_panel_id" jdbcType="INTEGER" property="fPanelId" />
+		<result column="f_is_open" jdbcType="BIT" property="fIsOpen" />
+		<result column="f_start_time" jdbcType="TIMESTAMP" property="fStartTime" />
+		<result column="f_stop_time" jdbcType="TIMESTAMP" property="fStopTime" />
+		<result column="f_name" jdbcType="VARCHAR" property="fName" />
+	</resultMap>
+
+	<select id="queryall" resultMap="PanelDate">
+		select f_id, f_panel_id,
+		f_is_open, f_start_time, f_stop_time, f_name
+		from t_panel
+	</select>
+</sqlMap>

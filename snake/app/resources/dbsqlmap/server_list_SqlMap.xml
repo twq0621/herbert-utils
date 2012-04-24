@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="server_list">
+	<resultMap class="net.snake.gamemodel.line.bean.ServerEntry"	id="ServerEntry">
+		<result column="loginServerId" jdbcType="INTEGER" property="loginserverid" />
+		<result column="maxPermitPlayerCount" jdbcType="INTEGER"	property="maxpermitplayercount" />
+		<result column="loginServerName" jdbcType="VARCHAR" property="loginservername" />
+		<result column="loginServerIp" jdbcType="VARCHAR" property="loginserverip" />
+		<result column="loginServerPort" jdbcType="VARCHAR" property="loginserverport" />
+		<result column="chatServerIp" jdbcType="VARCHAR" property="chatserverip" />
+		<result column="chatServerPort" jdbcType="VARCHAR" property="chatserverport" />
+		<result column="httpResURL" jdbcType="VARCHAR" property="httpresurl" />
+		<result column="recharge" jdbcType="VARCHAR" property="recharge" />
+		<result column="flashver" jdbcType="VARCHAR" property="flashver" />
+		<result column="homepage" jdbcType="VARCHAR" property="homepage" />
+		<result column="idcardurl" jdbcType="VARCHAR" property="idcardurl" />
+	</resultMap>
+
+	<select id="queryall" resultMap="ServerEntry">
+		select *	from server_list
+	</select>
+</sqlMap>

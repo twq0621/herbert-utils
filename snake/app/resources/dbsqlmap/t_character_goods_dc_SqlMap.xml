@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_character_goods_dc">
+	<typeAlias alias="CharacterGoodsDC" type="net.snake.gamemodel.goods.bean.CharacterGoodsDC" />
+	<resultMap class="CharacterGoodsDC" id="CharacterGoodsDCRes">
+		<result column="f_character_id" jdbcType="INTEGER" property="characterId" />
+		<result column="f_goods_dc" jdbcType="VARCHAR" property="goodsDc" />
+	</resultMap>
+
+	<select id="selectByCharacterId" parameterClass="java.lang.Integer" resultMap="CharacterGoodsDCRes">
+		select f_character_id, f_goods_dc from t_character_goods_dc where f_character_id=#characterId#
+	</select>
+
+	<insert id="insert" parameterClass="CharacterGoodsDC">
+		insert into t_character_goods_dc (f_character_id, f_goods_dc) values (#characterId:INTEGER#, #goodsDc:VARCHAR#)
+	</insert>
+
+	<update id="updateByPrimaryKey" parameterClass="CharacterGoodsDC">
+		update t_character_goods_dc set f_goods_dc = #goodsDc:VARCHAR# where f_character_id = #characterId:INTEGER#
+	</update>
+</sqlMap>

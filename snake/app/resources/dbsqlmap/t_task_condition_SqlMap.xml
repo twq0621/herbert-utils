@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_task_condition">
+	<resultMap class="net.snake.gamemodel.task.bean.TaskCondition" id="taskConditions">
+		<result column="f_condition_id" jdbcType="INTEGER" property="conditionId" />
+		<result column="f_functionType" jdbcType="TINYINT" property="functiontype" />
+		<result column="f_grade_min" jdbcType="INTEGER" property="gradeMin" />
+		<result column="f_grade_max" jdbcType="INTEGER" property="gradeMax" />
+		<result column="f_monster_name" jdbcType="VARCHAR" property="monsterName" />
+		<result column="f_monster_model_id" jdbcType="INTEGER" property="monsterModelId" />
+		<result column="f_monster_num" jdbcType="INTEGER" property="monsterNum" />
+		<result column="f_good_name" jdbcType="VARCHAR" property="goodName" />
+		<result column="f_good_id" jdbcType="INTEGER" property="goodId" />
+		<result column="f_good_num" jdbcType="INTEGER" property="goodNum" />
+		<result column="f_npc_name" jdbcType="VARCHAR" property="npcName" />
+		<result column="f_npc_id" jdbcType="INTEGER" property="npcId" />
+		<result column="f_horse_name" jdbcType="VARCHAR" property="horseName" />
+		<result column="f_horse_id" jdbcType="INTEGER" property="horseId" />
+		<result column="f_difficulty_degree" jdbcType="INTEGER" property="difficultyDegree" />
+		<result column="f_monster_zuobiao" jdbcType="VARCHAR" property="monsterZuobiao" />
+		<result column="f_monster_juli" jdbcType="INTEGER" property="monsterJuli" />
+		<result column="f_good_zuobiao" jdbcType="VARCHAR" property="goodZuobiao" />
+		<result column="f_good_juli" jdbcType="INTEGER" property="goodJuli" />
+		<result column="f_horse_zuobiao" jdbcType="VARCHAR" property="horseZuobiao" />
+		<result column="f_horse_juli" jdbcType="INTEGER" property="horseJuli" />
+		<result column="f_monster_scene" jdbcType="INTEGER" property="monsterScene" />
+		<result column="f_good_scene" jdbcType="INTEGER" property="goodScene" />
+		<result column="f_horse_scene" jdbcType="INTEGER" property="horseScene" />
+		<result column="f_type" jdbcType="TINYINT" property="type" />
+	</resultMap>
+
+	<select id="queryall" resultMap="taskConditions">
+		select * from t_task_condition
+	</select>
+</sqlMap>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_goods_dc">
+	<resultMap class="net.snake.gamemodel.goods.bean.GoodsDC" id="GoodsDC">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_grade" jdbcType="INTEGER" property="grade" />
+		<result column="f_name" jdbcType="VARCHAR" property="name" />
+		<result column="f_targetGoods" jdbcType="VARCHAR" property="targetgoods" />
+		<result column="f_rewardDesc" jdbcType="VARCHAR" property="rewarddesc" />
+		<result column="f_pointCnt" jdbcType="INTEGER" property="pointcnt" />
+		<result column="f_name_i18n" jdbcType="VARCHAR" property="nameI18n" />
+		<result column="f_rewardDesc_i18n" jdbcType="VARCHAR" property="rewarddescI18n" />
+	</resultMap>
+
+	<select id="queryall" resultMap="GoodsDC">
+		select * from t_goods_dc
+	</select>
+</sqlMap>

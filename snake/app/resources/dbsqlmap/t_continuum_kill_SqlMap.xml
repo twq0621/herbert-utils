@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_continuum_kill">
+	<resultMap class="net.snake.gamemodel.skill.bean.ContinuumKillDataEntry" id="ContinuumKillDataEntry">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_kill_count_from" jdbcType="INTEGER" property="killCountFrom" />
+		<result column="f_kill_count_to" jdbcType="INTEGER" property="killCountTo" />
+		<result column="f_buf_id" jdbcType="INTEGER" property="bufId" />
+		<result column="f_appellation_id" jdbcType="INTEGER" property="appellationId" />
+		<result column="f_count_down" jdbcType="INTEGER" property="countDown" />
+	</resultMap>
+	<select id="queryall" resultMap="ContinuumKillDataEntry">
+		select * from t_continuum_kill
+	</select>
+</sqlMap>

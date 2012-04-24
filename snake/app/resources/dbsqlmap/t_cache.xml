@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias type="net.snake.gamemodel.cache.bean.CacheEntry" alias="CacheEntry" />
+	<resultMap id="CacheEntryResultMap" class="CacheEntry">
+		<result property="appname" column="appname" />
+		<result property="cachename" column="cachename" />
+		<result property="version" column="version" />
+	</resultMap>
+	<select id="getCacheEntry" resultMap="CacheEntryResultMap" parameterClass="CacheEntry">
+		select appname,cachename,version from dbcachelist where appname=#appname# and
+		cachename=#cachename#
+	</select>
+	<select id="getCacheEntryList" resultMap="CacheEntryResultMap" parameterClass="String">
+		select appname,cachename,version from dbcachelist where appname=#appname#
+	</select>
+</sqlMap>

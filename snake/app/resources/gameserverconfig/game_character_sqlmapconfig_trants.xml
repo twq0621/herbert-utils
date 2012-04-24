@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+	<settings cacheModelsEnabled="true" useStatementNamespaces="true" />
+	<transactionManager type="JDBC">
+		<dataSource type="JNDI">
+			<property name="DataSource" value="java:comp/env/jdbc/character" />
+		</dataSource>
+	</transactionManager>
+	<!-- <typeAlias alias="C3P0" type="com.ibatis.sqlmap.engine.datasource.C3p0DataSourceFactory" 
+		/> <transactionManager type="JDBC"> <dataSource type="C3P0"> <property name="JDBC.Driver" 
+		value="${driverClassName}" /> <property name="JDBC.ConnectionURL" value="${url}" 
+		/> <property name="JDBC.Username" value="${username}" /> <property name="JDBC.Password" 
+		value="${password}" /> <property name="Pool.acquireIncrement" value="${acquireIncrement}" 
+		/> <property name="Pool.acquireRetryAttempts" value="${acquireRetryAttempts}" 
+		/> <property name="Pool.acquireRetryDelay" value="${acquireRetryDelay}" /> 
+		<property name="Pool.initialPoolSize" value="${initialPoolSize}" /> <property 
+		name="Pool.maxPoolSize" value="${maxPoolSize}" /> <property name="Pool.idleConnectionTestPeriod" 
+		value="${idleConnectionTestPeriod}" /> <property name="Pool.minPoolSize" 
+		value="${minPoolSize}" /> <property name="Pool.maxIdleTime" value="${maxIdleTime}" 
+		/> </dataSource> </transactionManager> -->
+	<sqlMap resource="datatransport/dbsqlmap/t_character_bow_SqlMap.xml" />
+	<sqlMap resource="datatransport/dbsqlmap/t_character_buff_SqlMap.xml" />
+	<sqlMap resource="datatransport/dbsqlmap/t_character_goods_SqlMap.xml" />
+	<sqlMap resource="datatransport/dbsqlmap/t_character_hidden_weapon_SqlMap.xml" />
+	<sqlMap resource="datatransport/dbsqlmap/t_character_horse_SqlMap.xml" />
+	<sqlMap resource="datatransport/dbsqlmap/t_character_lianti_SqlMap.xml" />
+	<sqlMap resource="datatransport/dbsqlmap/t_character_SqlMap.xml" />
+	<sqlMap resource="datatransport/dbsqlmap/t_character_skill_SqlMap.xml" />
+	<sqlMap resource="datatransport/dbsqlmap/t_character_onhoor_config_SqlMap.xml" />
+	<sqlMap resource="datatransport/dbsqlmap/t_character_teamfighting_SqlMap.xml" />
+	<sqlMap resource="datatransport/dbsqlmap/t_character_weddingring_SqlMap.xml" />
+	<sqlMap resource="datatransport/dbsqlmap/t_channel_zhenlong_SqlMap.xml" />
+	<sqlMap resource="datatransport/dbsqlmap/t_across_income_SqlMap.xml" />
+	<sqlMap resource="datatransport/dbsqlmap/t_character_dantian_SqlMap.xml" />
+	<sqlMap resource="datatransport/dbsqlmap/t_character_dgwd_SqlMap.xml" />
+</sqlMapConfig>

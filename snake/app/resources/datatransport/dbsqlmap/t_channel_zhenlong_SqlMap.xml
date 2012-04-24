@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_channel_zhenlong">
+	<typeAlias alias="ChannelZhenlongTransportData" type="datatransport.bean.channel.channelzhenlong.ChannelZhenlongTransportData" />
+	<resultMap class="ChannelZhenlongTransportData" id="ChannelZhenlongTransportDataRes">
+		<result column="f_character_id" jdbcType="INTEGER" property="characterId" />
+		<result column="f_character_channel_count" jdbcType="INTEGER" property="characterChannelCount" />
+		<result column="f_channel_exp" jdbcType="INTEGER" property="channelExp" />
+		<result column="f_channel_congxue_time" jdbcType="INTEGER" property="channelCongxueTime" />
+	</resultMap>
+
+	<select id="selectByPrimaryKey" parameterClass="java.lang.Integer" resultMap="ChannelZhenlongTransportDataRes">
+		select * from t_channel_zhenlong where f_character_id = #characterId#
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterClass="java.lang.Integer">
+		delete from t_channel_zhenlong where f_character_id = #characterId#
+	</delete>
+
+	<insert id="insert" parameterClass="ChannelZhenlongTransportData">
+		insert into t_channel_zhenlong (f_character_id,f_character_channel_count, f_channel_exp,f_channel_congxue_time)
+		values (#characterId:INTEGER#, #characterChannelCount:INTEGER#,	#channelExp:INTEGER#,#channelCongxueTime:INTEGER#)
+	</insert>
+
+	<update id="updateByPrimaryKey" parameterClass="ChannelZhenlongTransportData">
+		update t_channel_zhenlong
+		set f_character_channel_count
+		= #characterChannelCount:INTEGER#,
+		f_channel_exp =
+		#channelExp:INTEGER#,
+		f_channel_congxue_time =
+		#channelCongxueTime:INTEGER#
+		where f_character_id =
+		#characterId:INTEGER#
+	</update>
+</sqlMap>

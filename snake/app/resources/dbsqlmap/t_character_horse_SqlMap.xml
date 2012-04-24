@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_character_horse">
+	<typeAlias alias="CharacterHorse" type="net.snake.gamemodel.pet.bean.CharacterHorse" />
+	<resultMap class="CharacterHorse" id="CharacterHorseRes">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_character_id" jdbcType="INTEGER" property="characterId" />
+		<result column="f_horse_model_id" jdbcType="INTEGER" property="horseModelId" />
+		<result column="f_livingness" jdbcType="INTEGER" property="livingness" />
+		<result column="f_attack" jdbcType="INTEGER" property="attack" />
+		<result column="f_defence" jdbcType="INTEGER" property="defence" />
+		<result column="f_dodge" jdbcType="INTEGER" property="dodge" />
+		<result column="f_crt" jdbcType="INTEGER" property="crt" />
+		<result column="f_hit" jdbcType="INTEGER" property="hit" />
+		<result column="f_mp" jdbcType="INTEGER" property="mp" />
+		<result column="f_hp" jdbcType="INTEGER" property="hp" />
+		<result column="f_grade" jdbcType="INTEGER" property="grade" />
+		<result column="f_status" jdbcType="INTEGER" property="status" />
+		<result column="f_location" jdbcType="INTEGER" property="location" />
+		<result column="f_jinjie_count" jdbcType="INTEGER" property="jinjieCount" />
+		<result column="f_livingness_max" jdbcType="INTEGER" property="livingnessMax" />
+		<result column="f_experience" jdbcType="INTEGER" property="experience" />
+		<result column="f_stall_copper" jdbcType="INTEGER" property="stallCopper" />
+		<result column="f_stall_ingot" jdbcType="INTEGER" property="stallIngot" />
+		<result column="f_create_date" jdbcType="TIMESTAMP" property="createDate" />
+		<result column="f_horse_price" jdbcType="INTEGER" property="horsePrice" />
+		<result column="f_default_skill_id" jdbcType="INTEGER" property="defaultSkillId" />
+		<result column="f_extra_attack" jdbcType="INTEGER" property="extraAttack" />
+		<result column="f_extra_defence" jdbcType="INTEGER" property="extraDefence" />
+		<result column="f_extra_dodge" jdbcType="INTEGER" property="extraDodge" />
+		<result column="f_extra_crt" jdbcType="INTEGER" property="extraCrt" />
+		<result column="f_extra_hit" jdbcType="INTEGER" property="extraHit" />
+		<result column="f_extra_hp" jdbcType="INTEGER" property="extraHp" />
+		<result column="f_extra_mp" jdbcType="INTEGER" property="extraMp" />
+		<result column="f_name" jdbcType="VARCHAR" property="name" />
+		<result column="f_neidan_cdtime" property="neidanCdtime" />
+		<result column="f_neidan_starttime" property="neidanStarttime" />
+		<result column="f_neidan_usetime" property="neidanUsetime" />
+		<result column="f_pin" property="pin" />
+	</resultMap>
+
+	<select id="selectByCharacterId" parameterClass="java.lang.Integer" resultMap="CharacterHorseRes">
+		select * from t_character_horse where f_character_id=#characterId#
+	</select>
+
+	<select id="selectByStatus" parameterClass="java.lang.Integer" resultMap="CharacterHorseRes">
+		select * from t_character_horse where f_character_id=#characterId# and f_status=1
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterClass="java.lang.Integer">
+		delete from
+		t_character_horse where f_id = #id#
+	</delete>
+	
+	<update id="updateXingfu">
+		update t_character_horse set f_jinjie_count = 0
+	</update>
+	
+	<insert id="insert" parameterClass="CharacterHorse">
+		insert into t_character_horse (f_character_id, f_horse_model_id,
+		f_livingness,
+		f_attack, f_defence,
+		f_dodge, f_crt,f_hit,f_hp,f_mp,
+		f_grade,
+		f_status, f_location, f_jinjie_count,
+		f_livingness_max,
+		f_experience,
+		f_stall_copper, f_stall_ingot, f_create_date,
+		f_horse_price,
+		f_default_skill_id,
+		f_extra_attack,
+		f_extra_defence,
+		f_extra_dodge,
+		f_extra_crt,f_extra_hit,f_extra_hp,f_extra_mp,f_name,f_pin)
+		values
+		(#characterId:INTEGER#, #horseModelId:INTEGER#,
+		#livingness:INTEGER#,
+		#attack:INTEGER#,
+		#defence:INTEGER#,
+		#dodge#,#crt#,#hit#,#hp#,#mp#,
+		#grade:INTEGER#,
+		#status:INTEGER#,
+		#location:INTEGER#,
+		#jinjieCount:INTEGER#, #livingnessMax:INTEGER#,
+		#experience:INTEGER#,
+		#stallCopper:INTEGER#,
+		#stallIngot:INTEGER#,
+		#createDate:TIMESTAMP#,
+		#horsePrice:INTEGER#,#defaultSkillId:INTEGER#,
+		#extraAttack:INTEGER#,
+		#extraDefence:INTEGER#, #extraDodge:INTEGER#,
+		#extraCrt:INTEGER#,#extraHit:INTEGER#,#extraHp#,#extraMp#,#name#,#pin#
+		)
+		<selectKey keyProperty="id" resultClass="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+	<update id="update" parameterClass="CharacterHorse">
+		update t_character_horse set f_character_id =#characterId:INTEGER#,
+		f_horse_model_id =#horseModelId:INTEGER#,
+		f_livingness
+		=#livingness:INTEGER#,
+		f_attack = #attack:INTEGER#,f_defence = #defence:INTEGER#,
+		f_dodge =#dodge#, f_hp = #hp#,f_mp =#mp#,f_crt =#crt#,f_hit= #hit#,
+		f_grade = #grade:INTEGER#,
+		f_status = #status:INTEGER#,f_location = #location:INTEGER#,
+		f_jinjie_count = #jinjieCount:INTEGER#, f_livingness_max =#livingnessMax:INTEGER#,
+		f_experience = #experience:INTEGER#,
+		f_stall_copper =#stallCopper:INTEGER#,
+		f_stall_ingot = #stallIngot:INTEGER#,f_create_date =#createDate:TIMESTAMP#,
+		f_horse_price = #horsePrice:INTEGER#, f_default_skill_id
+		=#defaultSkillId:INTEGER#,
+		f_extra_attack =#extraAttack:INTEGER#, f_extra_defence = #extraDefence:INTEGER#,
+		f_extra_dodge =#extraDodge:INTEGER#, f_extra_crt = #extraCrt:INTEGER#,
+		f_extra_hit = #extraHit:INTEGER#, f_extra_hp= #extraHp:INTEGER#,
+		f_extra_mp = #extraMp:INTEGER#, f_name = #name#,
+		f_neidan_cdtime =#neidanCdtime#, f_neidan_starttime =
+		#neidanStarttime#,
+		f_neidan_usetime =#neidanUsetime#,f_pin=#pin# where f_id = #id:INTEGER#
+	</update>
+</sqlMap>

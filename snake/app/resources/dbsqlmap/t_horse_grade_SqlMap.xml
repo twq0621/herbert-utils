@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_horse_grade">
+	<resultMap id="HorseGrade" class="net.snake.gamemodel.pet.bean.HorseGrade">
+		<result column="f_level_id" property="levelId" jdbcType="INTEGER" />
+		<result column="f_level_experience" property="levelExperience" jdbcType="INTEGER" />
+	</resultMap>
+	<select id="queryall" resultMap="HorseGrade">
+		select
+		f_level_id,f_level_experience from t_horse_grade
+	</select>
+</sqlMap>

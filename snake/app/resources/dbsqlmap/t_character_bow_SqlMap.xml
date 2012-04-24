@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_character_bow">
+	<typeAlias alias="BowDataEntry" type="net.snake.gamemodel.skill.bow.bean.BowDataEntry" />
+	<resultMap class="BowDataEntry" id="BowDataEntryRes">
+		<result column="f_characterid" jdbcType="INTEGER" property="characterid" />
+		<result column="f_bowmodelid" jdbcType="INTEGER" property="bowmodelid" />
+		<result column="f_bag1type" jdbcType="INTEGER" property="bag1type" />
+		<result column="f_bag1count" jdbcType="INTEGER" property="bag1count" />
+		<result column="f_bag2type" jdbcType="INTEGER" property="bag2type" />
+		<result column="f_bag2count" jdbcType="INTEGER" property="bag2count" />
+		<result column="f_skillitems" jdbcType="VARCHAR" property="skillitems" />
+		<result column="f_faildcount" jdbcType="INTEGER" property="faildcount" />
+		<result column="f_bag1bind" jdbcType="INTEGER" property="bag1bind" />
+		<result column="f_bag2bind" jdbcType="INTEGER" property="bag2bind" />
+		<result column="f_enable" jdbcType="BIT" property="enable" />
+		<result column="f_luck" jdbcType="INTEGER" property="luck" />
+	</resultMap>
+
+	<select id="selectByPrimaryKey" parameterClass="java.lang.Integer" resultMap="BowDataEntryRes">
+		select * from t_character_bow where f_characterid = #characterid#
+	</select>
+
+	<insert id="insertSelective" parameterClass="BowDataEntry">
+		insert into t_character_bow
+		<dynamic prepend="(">
+			<isNotNull prepend="," property="characterid">
+				f_characterid
+			</isNotNull>
+			<isNotNull prepend="," property="bowmodelid">
+				f_bowmodelid
+			</isNotNull>
+			<isNotNull prepend="," property="bag1type">
+				f_bag1type
+			</isNotNull>
+			<isNotNull prepend="," property="bag1count">
+				f_bag1count
+			</isNotNull>
+			<isNotNull prepend="," property="bag2type">
+				f_bag2type
+			</isNotNull>
+			<isNotNull prepend="," property="bag2count">
+				f_bag2count
+			</isNotNull>
+			<isNotNull prepend="," property="skillitems">
+				f_skillitems
+			</isNotNull>
+			<isNotNull prepend="," property="faildcount">
+				f_faildcount
+			</isNotNull>
+			<isNotNull prepend="," property="bag1bind">
+				f_bag1bind
+			</isNotNull>
+			<isNotNull prepend="," property="bag2bind">
+				f_bag2bind
+			</isNotNull>
+			<isNotNull prepend="," property="enable">
+				f_enable
+			</isNotNull>
+			<isNotNull prepend="," property="luck">
+				f_luck
+			</isNotNull>
+			)
+		</dynamic>
+		values
+		<dynamic prepend="(">
+			<isNotNull prepend="," property="characterid">
+				#characterid:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="bowmodelid">
+				#bowmodelid:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="bag1type">
+				#bag1type:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="bag1count">
+				#bag1count:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="bag2type">
+				#bag2type:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="bag2count">
+				#bag2count:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="skillitems">
+				#skillitems:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="faildcount">
+				#faildcount:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="bag1bind">
+				#bag1bind:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="bag2bind">
+				#bag2bind:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="enable">
+				#enable:BIT#
+			</isNotNull>
+			<isNotNull prepend="," property="luck">
+				#luck:INTEGER#
+			</isNotNull>
+			)
+		</dynamic>
+	</insert>
+
+	<update id="updateByPrimaryKeySelective" parameterClass="BowDataEntry">
+		update t_character_bow
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="bowmodelid">
+				f_bowmodelid = #bowmodelid:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="bag1type">
+				f_bag1type = #bag1type:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="bag1count">
+				f_bag1count = #bag1count:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="bag2type">
+				f_bag2type = #bag2type:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="bag2count">
+				f_bag2count = #bag2count:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="skillitems">
+				f_skillitems = #skillitems:VARCHAR#
+			</isNotNull>
+			<isNotNull prepend="," property="faildcount">
+				f_faildcount = #faildcount:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="bag1bind">
+				f_bag1bind = #bag1bind:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="bag2bind">
+				f_bag2bind = #bag2bind:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="enable">
+				f_enable = #enable:BIT#
+			</isNotNull>
+			<isNotNull prepend="," property="luck">
+				f_luck = #luck:INTEGER#
+			</isNotNull>
+		</dynamic>
+		where f_characterid = #characterid:INTEGER#
+	</update>
+</sqlMap>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_gm_info">
+	<resultMap class="net.snake.gamemodel.gm.bean.GmInfo" id="GmInfo">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_yunying_id" jdbcType="VARCHAR" property="yunyingId" />
+		<result column="f_state" jdbcType="INTEGER" property="state" />
+	</resultMap>
+	<select id="queryall" parameterClass="java.lang.Integer" resultMap="GmInfo">
+		select f_id, f_yunying_id, f_state from t_gm_info where
+		f_state=#state#
+	</select>
+</sqlMap>

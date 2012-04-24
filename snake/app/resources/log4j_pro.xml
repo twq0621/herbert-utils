@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<param name="Threshold" value="ALL" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d][%p,%c{1}] %m%n" />
+		</layout>
+	</appender>
+	<appender name="FileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/data/log/logs/gameserver.log" />
+		<param name="Threshold" value="ALL" />
+		<param name="DatePattern" value="'.'yyyyMMdd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{HH:mm:ss} %p][%c]%m%n" />
+		</layout>
+	</appender>
+	<appender name="AsyncFileAppender" class="org.apache.log4j.AsyncAppender">
+		<param name="BufferSize" value="2048" />
+		<appender-ref ref="FileAppender" />
+	</appender>
+
+	<appender name="UDPLogFileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/data/log/udplog/udplog.log" />
+		<param name="DatePattern" value="'.'yyyyMMdd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{HH:mm:ss}]%m%n" />
+		</layout>
+	</appender>
+
+	<appender name="SQLFileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/data/log/sql/sql.log" />
+		<param name="DatePattern" value="'.'yyyyMMdd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{HH:mm:ss}]%m%n" />
+		</layout>
+	</appender>
+
+	<logger name="UDPLog" additivity="false">
+		<level value="info" />
+		<appender-ref ref="UDPLogFileAppender" />
+	</logger>
+
+	<logger name="SQLLog" additivity="false">
+		<level value="info" />
+		<appender-ref ref="SQLFileAppender" />
+	</logger>
+	<logger name="java.sql.Connection">
+		<level value="debug" />
+		<appender-ref ref="SQLFileAppender" />
+	</logger>
+	<logger name="java.sql.PreparedStatement">
+		<level value="debug" />
+		<appender-ref ref="SQLFileAppender" />
+	</logger>
+
+	<root>
+		<level value="ERROR" />
+		<appender-ref ref="FileAppender" />
+	</root>
+</log4j:configuration>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_chest_group">
+	<typeAlias alias="ChestGroup" type="net.snake.gamemodel.chest.bean.ChestGroup" />
+	<resultMap class="ChestGroup" id="ChestGroupRes">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_Probability" jdbcType="INTEGER" property="probability" />
+		<result column="f_count" jdbcType="TINYINT" property="count" />
+		<result column="f_type_id" jdbcType="INTEGER" property="typeId" />
+		<result column="f_name" jdbcType="VARCHAR" property="name" />
+	</resultMap>
+
+	<select id="queryall" resultMap="ChestGroupRes">
+		select * from t_chest_group order by f_type_id ,f_id
+	</select>
+</sqlMap>

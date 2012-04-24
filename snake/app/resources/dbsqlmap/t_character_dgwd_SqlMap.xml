@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_character_dgwd">
+	<typeAlias alias="CharacterDGWD" type="net.snake.gamemodel.heroext.wudao.bean.CharacterDGWD" />
+	<resultMap id="CharacterDGWDRes" class="CharacterDGWD">
+		<result column="f_characterid" property="characterid" jdbcType="INTEGER" />
+		<result column="f_nowwd" property="nowwd" jdbcType="INTEGER" />
+		<result column="f_luck" property="luck" jdbcType="INTEGER" />
+		<result column="f_faildcount" property="faildcount" jdbcType="INTEGER" />
+		<result column="f_luck_lastclear" property="luckLastclear" jdbcType="TIMESTAMP" />
+		<result column="f_before_luck" property="beforeLuck" jdbcType="INTEGER" />
+	</resultMap>
+
+	<select id="selectByPrimaryKey" resultMap="CharacterDGWDRes" parameterClass="java.lang.Integer">
+		select * from t_character_dgwd where f_characterid = #characterid#
+	</select>
+
+	<insert id="insert" parameterClass="CharacterDGWD">
+		insert into t_character_dgwd (f_characterid, f_nowwd, f_luck,
+		f_faildcount, f_luck_lastclear,
+		f_before_luck)
+		values (#characterid:INTEGER#,
+		#nowwd:INTEGER#, #luck:INTEGER#,
+		#faildcount:INTEGER#,
+		#luckLastclear:TIMESTAMP#, #beforeLuck:INTEGER#)
+	</insert>
+
+	<update id="updateById" parameterClass="CharacterDGWD">
+		update t_character_dgwd
+		set f_nowwd = #nowwd:INTEGER#,
+		f_luck = #luck:INTEGER#,
+		f_faildcount = #faildcount:INTEGER#,
+		f_luck_lastclear =
+		#luckLastclear:TIMESTAMP#,
+		f_before_luck = #beforeLuck:INTEGER#
+		where f_characterid = #characterid:INTEGER#
+	</update>
+
+	<update id="updateByPrimaryKeySelective" parameterClass="CharacterDGWD">
+		update t_character_dgwd
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="nowwd">
+				f_nowwd = #nowwd:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="luck">
+				f_luck = #luck:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="faildcount">
+				f_faildcount = #faildcount:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="luckLastclear">
+				f_luck_lastclear = #luckLastclear:TIMESTAMP#
+			</isNotNull>
+			<isNotNull prepend="," property="beforeLuck">
+				f_before_luck = #beforeLuck:INTEGER#
+			</isNotNull>
+		</dynamic>
+		where f_characterid = #characterid:INTEGER#
+	</update>
+
+</sqlMap>

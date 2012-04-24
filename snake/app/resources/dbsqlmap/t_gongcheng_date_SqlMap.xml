@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_gongcheng_date">
+	<typeAlias alias="GongchengDate" type="net.snake.gamemodel.fight.bean.GongchengDate" />
+	<resultMap id="GongchengDateRes" class="GongchengDate">
+		<result column="f_id" property="id" jdbcType="INTEGER" />
+		<result column="f_faction_id" property="factionId" jdbcType="INTEGER" />
+		<result column="f_gongcheng_date" property="gongchengDate" jdbcType="TIMESTAMP" />
+		<result column="f_apply_date" property="applyDate" jdbcType="TIMESTAMP" />
+	</resultMap>
+
+	<select id="queryall" resultMap="GongchengDateRes">
+		select f_id, f_faction_id, f_gongcheng_date, f_apply_date from t_gongcheng_date
+	</select>
+
+	<delete id="deleteById" parameterClass="java.lang.Integer">
+		delete from t_gongcheng_date where f_id = #id#
+	</delete>
+
+	<delete id="deleteByDate" parameterClass="java.lang.Integer">
+		delete from t_gongcheng_date where f_gongcheng_date &lt;= #date#
+	</delete>
+
+	<insert id="insert" parameterClass="GongchengDate">
+		insert into t_gongcheng_date (f_faction_id, f_gongcheng_date,
+		f_apply_date)
+		values (#factionId:INTEGER#, #gongchengDate:TIMESTAMP#,
+		#applyDate:TIMESTAMP#)
+		<selectKey resultClass="java.lang.Integer" keyProperty="id">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+</sqlMap>

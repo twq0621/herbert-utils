@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_horse_model">
+	<resultMap class="net.snake.gamemodel.pet.bean.HorseModel" id="HorseModel">
+		<result column="f_id" property="id" />
+		<result column="f_name" jdbcType="VARCHAR" property="name" />
+		<result column="f_headicon_id" property="headiconId" />
+		<result column="f_avatar_id" property="avatarId" />
+		<result column="f_quality" property="quality" />
+		<result column="f_jinjie" property="jinjie" />
+		<result column="f_jinjie_goods_id" property="jinjieGoodsId" />
+		<result column="f_jinjie_goods_count" property="jinjieGoodsCount" />
+		<result column="f_jinjie_copper" property="jinjieCopper" />
+		<result column="f_jinjie_success_probability" property="jinjieSuccessProbability" />
+		<result column="f_jinjie_min_count" property="jinjieMinCount" />
+		<result column="f_jinjie_max_count" property="jinjieMaxCount" />
+		<result column="f_jinjie_zhenqi" property="jinjieZhenqi" />
+		<result column="f_max_level" property="maxLevel" />
+		<result column="f_add_owner_hp" property="addOwnerHp" />
+		<result column="f_add_owner_mp" property="addOwnerMp" />
+		<result column="f_add_owner_sp" property="addOwnerSp" />
+		<result column="f_add_owner_hit" property="addOwnerHit" />
+		<result column="f_add_owner_attack" property="addOwnerAttack" />
+		<result column="f_add_owner_defence" property="addOwnerDefence" />
+		<result column="f_add_owner_crt" property="addOwnerCrt" />
+		<result column="f_add_owner_dodge" property="addOwnerDodge" />
+		<result column="f_add_owner_atkspeed" property="addOwnerAtkspeed" />
+		<result column="f_add_owner_movespeed" property="addOwnerMovespeed" />
+		<result column="f_init_level" property="initLevel" />
+		<result column="f_livingness_min" property="livingnessMin" />
+		<result column="f_livingness_max" property="livingnessMax" />
+		<result column="f_foot_effect_id" property="footEffectId" />
+		<result column="f_attack_speed" property="attackSpeed" />
+		<result column="f_horse_movespeed" property="horseMovespeed" />
+		<result column="f_catch_me_grade_limit" property="catchMeGradeLimit" />
+		<result column="f_use_me_grade_limit" property="useMeGradeLimit" />
+		<result column="f_attack_audio" property="attackAudio" />
+		<result column="f_hurt_audio" property="hurtAudio" />
+		<result column="f_die_audio" property="dieAudio" />
+		<result column="f_bind" property="bind" />
+		<result column="f_kind" property="kind" />
+		<result column="f_name_i18n" jdbcType="VARCHAR" property="nameI18n" />
+		<result column="f_neidan_cdtime" property="neidanCdtime" />
+		<result column="f_change_model_id" property="changeModelId" />
+		<result column="f_is_use_shenji" property="isUseShenji" />
+		<result column="f_hp_qzxs" property="hpQzxs" />
+		<result column="f_mp_qzxs" property="mpQzxs" />
+		<result column="f_hit_qzxs" property="hitQzxs" />
+		<result column="f_attack_qzxs" property="attackQzxs" />
+		<result column="f_defence_qzxs" property="defenceQzxs" />
+		<result column="f_crt_qzxs" property="crtQzxs" />
+		<result column="f_dodge_qzxs" property="dodgeQzxs" />
+		<result column="f_reset_skill_copper" property="resetSkillCopper" />
+		<result column="f_reset_skill_zhenqi" property="resetSkillZhenqi" />
+		<result column="f_base_id" property="baseId" />
+	</resultMap>
+
+	<select id="queryall" resultMap="HorseModel">
+		select * from t_horse_model order by f_id
+	</select>
+</sqlMap>

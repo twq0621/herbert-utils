@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_channel_zhenlong">
+	<typeAlias alias="ChannelZhenlong" type="net.snake.gamemodel.heroext.channel.bean.ChannelZhenlong" />
+	<resultMap class="ChannelZhenlong" id="ChannelZhenlongRes">
+		<result column="f_character_id" jdbcType="INTEGER" property="characterId" />
+		<result column="f_character_channel_count" jdbcType="INTEGER" property="characterChannelCount" />
+		<result column="f_channel_exp" jdbcType="INTEGER" property="channelExp" />
+		<result column="f_channel_congxue_time" jdbcType="INTEGER" property="channelCongxueTime" />
+	</resultMap>
+
+	<select id="selectByPrimaryKey" parameterClass="java.lang.Integer" resultMap="ChannelZhenlongRes">
+		select * from t_channel_zhenlong where f_character_id =
+		#characterId#
+	</select>
+
+	<insert id="insertSelective" parameterClass="ChannelZhenlong">
+		insert into t_channel_zhenlong
+		<dynamic prepend="(">
+			<isNotNull prepend="," property="characterId">
+				f_character_id
+			</isNotNull>
+			<isNotNull prepend="," property="characterChannelCount">
+				f_character_channel_count
+			</isNotNull>
+			<isNotNull prepend="," property="channelExp">
+				f_channel_exp
+			</isNotNull>
+			<isNotNull prepend="," property="channelCongxueTime">
+				f_channel_congxue_time
+			</isNotNull>
+			)
+		</dynamic>
+		values
+		<dynamic prepend="(">
+			<isNotNull prepend="," property="characterId">
+				#characterId:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="characterChannelCount">
+				#characterChannelCount:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="channelExp">
+				#channelExp:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="channelCongxueTime">
+				#channelCongxueTime:INTEGER#
+			</isNotNull>
+			)
+		</dynamic>
+	</insert>
+
+	<update id="updateByPrimaryKeySelective" parameterClass="ChannelZhenlong">
+		update t_channel_zhenlong
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="characterChannelCount">
+				f_character_channel_count =
+				#characterChannelCount:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="channelExp">
+				f_channel_exp =
+				#channelExp:INTEGER#
+			</isNotNull>
+			<isNotNull prepend="," property="channelCongxueTime">
+				f_channel_congxue_time =
+				#channelCongxueTime:INTEGER#
+			</isNotNull>
+		</dynamic>
+		where f_character_id = #characterId:INTEGER#
+	</update>
+
+</sqlMap>

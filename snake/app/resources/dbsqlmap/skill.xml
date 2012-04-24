@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="Skill" type="net.snake.gamemodel.skill.bean.Skill" />
+	<resultMap id="Skills" class="Skill">
+		<result property="id" column="f_id" />
+		<result property="name" column="f_name" />
+		<result property="nameI18n" column="f_name_i18n" />
+		<result property="image" column="f_image" />
+		<result property="coolingtime" column="f_coolingtime" />
+		<result property="iscommonCd" column="f_iscommon_cd" />
+		<result property="depletionParameter" column="f_depletion_parameter" />
+		<result property="depletionValue" column="f_depletion_value" />
+		<result property="distance" column="f_distance" />
+		<result property="useway" column="f_useway" />
+		<result property="target" column="f_target" />
+		<result property="effectIds" column="f_effect_ids" />
+		<result property="isgeneral" column="f_isgeneral" />
+		<result property="charLevel" column="f_char_level" />
+		<result property="popsinger" column="f_popsinger" />
+		<result property="learningBook" column="f_learning_book" />
+		<result property="desc" column="f_desc" />
+		<result property="descI18n" column="f_desc_i18n" />
+		<result property="revise" column="f_revise" />
+		<result property="gradeLimit" column="f_grade_limit" />
+		<result property="hurtRevise" column="f_hurt_revise" />
+		<result property="skilltype" column="f_skilltype" />
+		<result property="showOrder" column="f_show_order" />
+		<result property="triggerProbability" column="f_trigger_probability" />
+		<result property="effectResId0" column="f_effect_res_id0" />
+		<result property="effectResId1" column="f_effect_res_id1" />
+		<result property="effectResId2" column="f_effect_res_id2" />
+		<result property="showOrder" column="f_show_order" />
+		<result property="skillRelevance" column="f_skill_relevance" />
+		<result property="playDelay" column="f_play_delay" />
+		<result property="flySpeed" column="f_fly_speed" />
+		<result property="createLearn" column="f_create_learn" />
+		<result property="commonCoolType" column="f_common_cool_type" />
+		<result property="commonCoolTime" column="f_common_cool_time" />
+		<result property="enmityValue" column="f_enmity_value" />
+		<result property="type" column="f_type" />
+		<result property="hurtedTrib" column="f_hurted_trib" />
+		<result property="wugongType" column="f_wugong_type" />
+		<result property="kanxingSkill" column="f_kanxing_skill" />
+		<result property="beidongBaseValue" column="f_beidong_base_value" />
+		<result property="isZuhe" column="f_is_zuhe" />
+		<result property="bangGong" column="f_bang_gong" />
+		<result property="arrow_way" column="f_arrow_way" />
+		<result property="angle" column="f_angle" />
+		<result property="arrow_num" column="f_arrow_num" />
+		<result property="arrow_point_radius" column="f_arrow_point_radius" />
+		<result property="arrow_point_radius_decay_coefficient" column="f_arrow_point_radius_decay_coefficient" />
+		<result property="dantian_grade" column="f_dantian_limit_grade" />
+	</resultMap>
+	<select id="skillGetAll" resultMap="Skills">
+		select * from t_skill
+	</select>
+</sqlMap>

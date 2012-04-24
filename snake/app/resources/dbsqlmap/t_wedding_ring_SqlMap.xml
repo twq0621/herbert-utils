@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_wedding_ring">
+	<resultMap class="net.snake.gamemodel.wedding.bean.WeddingRing" id="WeddingRing">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_ring_id" jdbcType="INTEGER" property="ringId" />
+		<result column="f_grade" jdbcType="INTEGER" property="grade" />
+		<result column="f_skill_a" jdbcType="INTEGER" property="skillA" />
+		<result column="f_skill_b" jdbcType="INTEGER" property="skillB" />
+		<result column="f_male_good" jdbcType="INTEGER" property="maleGood" />
+		<result column="f_female_good" jdbcType="INTEGER" property="femaleGood" />
+		<result column="f_sale_copper" jdbcType="INTEGER" property="saleCopper" />
+	</resultMap>
+	<select id="queryall" resultMap="WeddingRing">
+		select f_id, f_ring_id, f_grade,
+		f_skill_a, f_skill_b, f_male_good,
+		f_female_good, f_sale_copper
+		from
+		t_wedding_ring
+	</select>
+</sqlMap>

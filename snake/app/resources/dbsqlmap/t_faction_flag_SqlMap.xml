@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_faction_flag">
+	<resultMap class="net.snake.gamemodel.faction.bean.FactionFlag" id="FactionFlag">
+		<result column="id" jdbcType="INTEGER" property="id" />
+		<result column="f_grade" jdbcType="INTEGER" property="fGrade" />
+		<result column="f_copper_limite" jdbcType="INTEGER" property="fCopperLimite" />
+		<result column="f_qinglong_count" jdbcType="INTEGER" property="fQinglongCount" />
+		<result column="f_baihu_count" jdbcType="INTEGER" property="fBaihuCount" />
+		<result column="f_zhuqu_count" jdbcType="INTEGER" property="fZhuquCount" />
+		<result column="f_xuanwu_count" jdbcType="INTEGER" property="fXuanwuCount" />
+		<result column="f_bangqi_maxhp" jdbcType="INTEGER" property="fBangqiMaxhp" />
+		<result column="attack" jdbcType="INTEGER" property="attack" />
+		<result column="defence" jdbcType="INTEGER" property="defence" />
+		<result column="crt" jdbcType="INTEGER" property="crt" />
+		<result column="dodge" jdbcType="INTEGER" property="dodge" />
+		<result column="max_hp_limite" jdbcType="INTEGER" property="maxHpLimite" />
+		<result column="max_sp_limite" jdbcType="INTEGER" property="maxSpLimite" />
+		<result column="max_mp_limite" jdbcType="INTEGER" property="maxMpLimite" />
+		<result column="attackspeed" jdbcType="INTEGER" property="attackspeed" />
+		<result column="movespeed" jdbcType="INTEGER" property="movespeed" />
+		<result column="buffer_id" jdbcType="INTEGER" property="bufferId" />
+		<result column="f_jiacheng_exp" jdbcType="INTEGER" property="fJiachengExp" />
+		<result column="f_jiacheng_zheqi" jdbcType="INTEGER" property="fJiachengZheqi" />
+		<result column="max_attack_limite" jdbcType="INTEGER" property="maxAttackLimite" />
+		<result column="max_defence_limite" jdbcType="INTEGER" property="maxDefenceLimite" />
+		<result column="max_crt_limite" jdbcType="INTEGER" property="maxCrtLimite" />
+		<result column="max_dodge_limite" jdbcType="INTEGER" property="maxDodgeLimite" />
+		<result column="hp" jdbcType="INTEGER" property="hp" />
+		<result column="sp" jdbcType="INTEGER" property="sp" />
+		<result column="mp" jdbcType="INTEGER" property="mp" />
+		<result column="max_attackspeed_limite" jdbcType="INTEGER" property="maxAttackspeedLimite" />
+		<result column="max_movespeed_limite" jdbcType="INTEGER" property="maxMovespeedLimite" />
+		<result column="exp_buffer_id" jdbcType="INTEGER" property="expBufferId" />
+		<result column="renew_hp" jdbcType="INTEGER" property="renewHp" />
+	</resultMap>
+
+	<select id="queryall" resultMap="FactionFlag">
+		select * from t_faction_flag
+	</select>
+</sqlMap>

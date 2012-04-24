@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_monster_friend">
+	<typeAlias alias="MonsterFriendData" type="net.snake.gamemodel.monster.bean.MonsterFriendData"/>
+	<resultMap class="MonsterFriendData" id="MonsterFriendDataRes">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_character_id" jdbcType="INTEGER" property="characterId" />
+		<result column="f_monster_id" jdbcType="INTEGER" property="monsterId" />
+		<result column="f_favar" jdbcType="INTEGER" property="favar" />
+		<result column="f_add_date" jdbcType="TIMESTAMP" property="addDate" />
+		<result column="f_state" jdbcType="INTEGER" property="state" />
+		<result column="f_now_hp" jdbcType="INTEGER" property="nowHp" />
+	</resultMap>
+
+	<select id="selectByCharacterId" parameterClass="java.lang.Integer" resultMap="MonsterFriendDataRes">
+		select f_id, f_character_id, f_monster_id, f_favar, f_add_date,
+		f_state, f_now_hp
+		from
+		t_monster_friend where f_character_id=#characterId#
+	</select>
+
+	<delete id="deleteById" parameterClass="java.lang.Integer">
+		delete from t_monster_friendwhere f_id = #id#
+	</delete>
+
+	<insert id="insert" parameterClass="MonsterFriendData">
+		insert into t_monster_friend (f_character_id, f_monster_id, f_favar,
+		f_add_date, f_state,
+		f_now_hp)
+		values (#characterId:INTEGER#, #monsterId:INTEGER#, #favar:INTEGER#,
+		#addDate:TIMESTAMP#,
+		#state:INTEGER#, #nowHp:INTEGER#)
+		<selectKey keyProperty="id" resultClass="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+	<update id="updateStateById" parameterClass="MonsterFriendData">
+		update t_monster_friend set f_state = #state:INTEGER#,f_now_hp = #nowHp:INTEGER# where f_id = #id#
+	</update>
+</sqlMap>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_breakthrough">
+	<typeAlias alias="Breakthrough" type="net.snake.gamemodel.hero.bean.Breakthrough" />
+	<resultMap class="Breakthrough" id="BreakthroughRes">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_name" jdbcType="VARCHAR" property="name" />
+		<result column="f_type" jdbcType="INTEGER" property="type" />
+		<result column="f_goomode_id_count" jdbcType="VARCHAR" property="goomodeIdCount" />
+		<result column="f_need_zhenqi" jdbcType="INTEGER" property="needZhenqi" />
+		<result column="f_odds" jdbcType="INTEGER" property="odds" />
+		<result column="f_copper" jdbcType="INTEGER" property="copper" />
+	</resultMap>
+	<select id="queryall" resultMap="BreakthroughRes">
+		select * from t_breakthrough order by f_id
+	</select>
+</sqlMap>

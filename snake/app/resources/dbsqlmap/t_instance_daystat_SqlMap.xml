@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_instance_daystat">
+	<typeAlias alias="InstanceDayStat" type="net.snake.gamemodel.instance.bean.InstanceDayStat" />
+	<resultMap class="InstanceDayStat" id="InstanceDayStatRes">
+		<result column="characterId" jdbcType="INTEGER" property="characterid" />
+		<result column="instanceModelId" jdbcType="INTEGER" property="instancemodelid" />
+		<result column="statdate" jdbcType="DATE" property="statdate" />
+		<result column="resetInstanceCount" jdbcType="SMALLINT" property="resetinstancecount" />
+		<result column="fubenling_count" jdbcType="INTEGER" property="fubenlingCount" />
+	</resultMap>
+
+	<select id="queryByCharacteridAndStatdate" parameterClass="InstanceDayStat" resultMap="InstanceDayStatRes">
+		select characterId, instanceModelId, statdate,
+		resetInstanceCount,
+		fubenling_count
+		from
+		t_instance_daystat where
+		characterId =#characterid# and
+		statdate=#statdate#
+	</select>
+
+	<delete id="deleteByStatdate" parameterClass="InstanceDayStat">
+	<![CDATA[delete from t_instance_daystat where characterId =#characterid# and	statdate<#statdate# ]]>
+	</delete>
+
+	<insert id="insert" parameterClass="InstanceDayStat">
+		insert into
+		t_instance_daystat (characterId, instanceModelId, statdate,
+		resetInstanceCount,
+		fubenling_count)
+		values (#characterid:INTEGER#,
+		#instancemodelid:INTEGER#, #statdate:DATE#,
+		#resetinstancecount:SMALLINT#, #fubenlingCount:INTEGER#)
+	</insert>
+
+	<update id="updateByPrimaryKey" parameterClass="InstanceDayStat">
+		update
+		t_instance_daystat
+		set resetInstanceCount =
+		#resetinstancecount:SMALLINT#,
+		fubenling_count =
+		#fubenlingCount:INTEGER#
+		where
+		characterId = #characterid:INTEGER#
+		and
+		instanceModelId = #instancemodelid:INTEGER#
+		and statdate =
+		#statdate:DATE#
+	</update>
+</sqlMap>

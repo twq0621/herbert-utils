@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_character_giftpacks">
+	<typeAlias alias="CharacterGiftpacks" type="net.snake.gamemodel.gift.bean.CharacterGiftpacks" />
+	<resultMap class="CharacterGiftpacks" id="CharacterGiftpacksRes">
+		<result column="id" jdbcType="INTEGER" property="id" />
+		<result column="character_id" jdbcType="INTEGER" property="characterId" />
+		<result column="gift_packs_id" jdbcType="INTEGER" property="giftPacksId" />
+		<result column="time" jdbcType="BIGINT" property="time" />
+		<result column="is_owner" jdbcType="BIT" property="isOwner" />
+		<result column="is_get" jdbcType="BIT" property="isGet" />
+		<result column="year" jdbcType="INTEGER" property="year" />
+		<result column="week" jdbcType="INTEGER" property="week" />
+		<result column="month" jdbcType="INTEGER" property="month" />
+		<result column="qiandao_date" jdbcType="TIMESTAMP" property="qiandaoDate" />
+	</resultMap>
+
+	<select id="selectByCharacterId" parameterClass="java.lang.Integer" resultMap="CharacterGiftpacksRes">
+		select * from t_character_giftpacks where character_id=#characterId#
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterClass="java.lang.Integer"> delete from t_character_giftpacks where id = #id#
+	</delete>
+
+	<insert id="insert" parameterClass="CharacterGiftpacks">
+		insert into t_character_giftpacks (character_id, gift_packs_id, time,
+		is_owner, is_get, year,
+		week, month, qiandao_date)
+		values
+		(#characterId:INTEGER#, #giftPacksId:INTEGER#,
+		#time:BIGINT#,
+		#isOwner:BIT#, #isGet:BIT#,
+		#year:INTEGER#, #week:INTEGER#,
+		#month:INTEGER#, #qiandaoDate:TIMESTAMP#)
+		<selectKey keyProperty="id" resultClass="java.lang.Integer">
+			SELECT
+			LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+	<update id="updateByPrimaryKey" parameterClass="CharacterGiftpacks">
+		update t_character_giftpacks
+		set character_id = #characterId:INTEGER#,
+		gift_packs_id = #giftPacksId:INTEGER#,
+		time =
+		#time:BIGINT#,
+		is_owner =
+		#isOwner:BIT#,
+		is_get = #isGet:BIT#,
+		year = #year:INTEGER#,
+		week =
+		#week:INTEGER#,
+		month = #month:INTEGER#,
+		qiandao_date =
+		#qiandaoDate:TIMESTAMP#
+		where id =
+		#id:INTEGER#
+	</update>
+</sqlMap>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_gongcheng_vehicle">
+	<resultMap class="net.snake.gamemodel.fight.bean.GongchengVehicle" id="GongchengVehicle">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_hurt_value" jdbcType="INTEGER" property="hurtValue" />
+		<result column="f_wucha_scope" jdbcType="INTEGER" property="wuchaScope" />
+		<result column="f_copper" jdbcType="INTEGER" property="copper" />
+		<result column="f_hurt_scope" jdbcType="INTEGER" property="hurtScope" />
+	</resultMap>
+
+	<select id="queryall" resultMap="GongchengVehicle">
+		select f_id, f_hurt_value,
+		f_wucha_scope, f_copper, f_hurt_scope from t_gongcheng_vehicle
+	</select>
+
+</sqlMap>
