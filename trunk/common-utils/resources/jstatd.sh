@@ -1,0 +1,1 @@
+ /opt/jdk1.6.0_32/bin/jstatd -J-Djava.security.policy=/opt/jstatd.java.policy -J-Djava.rmi.server.logCalls=true
