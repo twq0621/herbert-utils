@@ -18,6 +18,12 @@ tar -zcvf WEB-INF.tar.gz WEB-INF/
 cp WEB-INF.tar.gz /shiyue/app/server/baishe
 echo "stopping resin server......"
 sh /opt/resin-3.1.12/bin/httpd.sh stop
+while [ $? -eq  0 ]
+do
+    echo "checking server stop...."
+    sleep 3
+    nc -vv -z -w 2 192.168.1.110 8002 2> /dev/null
+done
 cd /shiyue/app/server/baishe
 rm -rf WEB-INF/
 tar -zxvf WEB-INF.tar.gz
