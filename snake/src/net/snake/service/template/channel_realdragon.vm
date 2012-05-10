@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RECORDS>
+#foreach($entry in $list)
+<RECORD>
+<f_id><![CDATA[$!{entry.id}]]></f_id>
+<f_name><![CDATA[$!{entry.name}]]></f_name>
+<f_name_i18n><![CDATA[$!{entry.nameI18n}]]></f_name_i18n>
+<f_hp_add><![CDATA[$!{entry.hpAdd}]]></f_hp_add>
+<f_mp_add><![CDATA[$!{entry.mpAdd}]]></f_mp_add>
+<f_sp_add><![CDATA[$!{entry.spAdd}]]></f_sp_add>
+<f_attack_add><![CDATA[$!{entry.attackAdd}]]></f_attack_add>
+<f_defence_add><![CDATA[$!{entry.defenceAdd}]]></f_defence_add>
+<f_dodge_add><![CDATA[$!{entry.dodgeAdd}]]></f_dodge_add>
+<f_crt_add><![CDATA[$!{entry.crtAdd}]]></f_crt_add>
+<f_need_zhenqi><![CDATA[$!{entry.needZhenqi}]]></f_need_zhenqi>
+<f_odds><![CDATA[$!{entry.odds}]]></f_odds>
+<f_skill_id><![CDATA[$!{entry.skillId}]]></f_skill_id>
+<f_skill_addcount><![CDATA[$!{entry.skillAddcount}]]></f_skill_addcount>
+<f_zhenlong_min><![CDATA[$!{entry.zhenlongMin}]]></f_zhenlong_min>
+<f_zhenlong_max><![CDATA[$!{entry.zhenlongMax}]]></f_zhenlong_max>
+<f_goodmodel_id><![CDATA[$!{entry.goodmodelId}]]></f_goodmodel_id>
+<f_goodmodel_count><![CDATA[$!{entry.goodmodelCount}]]></f_goodmodel_count>
+<f_debuff_id><![CDATA[$!{entry.debuffId}]]></f_debuff_id>
+</RECORD>
+#end
+</RECORDS>

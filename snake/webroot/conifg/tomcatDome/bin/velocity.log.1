@@ -1,0 +1,1313 @@
+2011-02-21 15:01:33,515 - Velocimacro : Default library not found.
+2011-02-21 15:01:33,515 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-02-21 15:01:33,515 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-02-21 15:01:33,515 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-02-21 15:01:33,515 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-02-21 15:01:33,515 - ResourceManager : found net/snake/service/template/avatar.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-21 15:01:33,515 - Null reference [template 'net/snake/service/template/avatar.vm', line 5, column 31] : ${basedir} cannot be resolved.
+2011-02-21 15:01:33,515 - Null reference [template 'net/snake/service/template/avatar.vm', line 6, column 31] : ${basedir} cannot be resolved.
+2011-02-21 15:01:33,515 - Null reference [template 'net/snake/service/template/avatar.vm', line 12, column 40] : ${basedir} cannot be resolved.
+2011-02-21 15:01:33,515 - Null reference [template 'net/snake/service/template/avatar.vm', line 19, column 32] : ${flash.exe} cannot be resolved.
+2011-02-21 15:01:33,515 - Null reference [template 'net/snake/service/template/avatar.vm', line 19, column 45] : ${basedir} cannot be resolved.
+2011-02-21 15:01:33,515 - Null reference [template 'net/snake/service/template/avatar.vm', line 21, column 44] : ${basedir} cannot be resolved.
+2011-02-21 15:20:51,937 - Log4JLogChute initialized using file 'velocity.log'
+2011-02-21 15:20:51,937 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-02-21 15:20:51,937 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-02-21 15:20:51,937 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-02-21 15:20:51,937 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-02-21 15:20:51,937 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-21 15:20:51,937 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-21 15:20:51,937 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-21 15:20:51,937 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-02-21 15:20:51,937 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-02-21 15:20:51,937 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-02-21 15:20:51,937 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-02-21 15:20:51,937 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-02-21 15:20:51,937 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-02-21 15:20:51,937 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-02-21 15:20:51,937 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-02-21 15:20:51,937 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-02-21 15:20:51,937 - Created '20' parsers.
+2011-02-21 15:20:51,937 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-02-21 15:20:51,937 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:217)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:91)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-02-21 15:20:51,937 - Velocimacro : Default library not found.
+2011-02-21 15:20:51,937 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-02-21 15:20:51,937 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-02-21 15:20:51,937 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-02-21 15:20:51,937 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-02-21 15:20:51,937 - ResourceManager : found net/snake/service/template/avatar.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-21 15:20:51,937 - Null reference [template 'net/snake/service/template/avatar.vm', line 5, column 31] : ${basedir} cannot be resolved.
+2011-02-21 15:20:51,937 - Null reference [template 'net/snake/service/template/avatar.vm', line 6, column 31] : ${basedir} cannot be resolved.
+2011-02-21 15:20:51,937 - Null reference [template 'net/snake/service/template/avatar.vm', line 12, column 40] : ${basedir} cannot be resolved.
+2011-02-21 15:20:51,937 - Null reference [template 'net/snake/service/template/avatar.vm', line 19, column 32] : ${flash.exe} cannot be resolved.
+2011-02-21 15:20:51,937 - Null reference [template 'net/snake/service/template/avatar.vm', line 19, column 45] : ${basedir} cannot be resolved.
+2011-02-21 15:20:51,937 - Null reference [template 'net/snake/service/template/avatar.vm', line 21, column 44] : ${basedir} cannot be resolved.
+2011-02-21 17:22:50,562 - Log4JLogChute initialized using file 'velocity.log'
+2011-02-21 17:22:50,578 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-02-21 17:22:50,578 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-02-21 17:22:50,578 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-02-21 17:22:50,578 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-02-21 17:22:50,578 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-21 17:22:50,578 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-21 17:22:50,578 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-21 17:22:50,578 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-02-21 17:22:50,578 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-02-21 17:22:50,578 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-02-21 17:22:50,578 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-02-21 17:22:50,578 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-02-21 17:22:50,578 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-02-21 17:22:50,578 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-02-21 17:22:50,578 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-02-21 17:22:50,578 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-02-21 17:22:50,578 - Created '20' parsers.
+2011-02-21 17:22:50,578 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-02-21 17:22:50,578 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:217)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:122)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-02-21 17:22:50,578 - Velocimacro : Default library not found.
+2011-02-21 17:22:50,578 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-02-21 17:22:50,578 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-02-21 17:22:50,578 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-02-21 17:22:50,578 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-02-21 17:22:50,578 - ResourceManager : found net/snake/service/template/map2.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-21 17:22:50,578 - Null reference [template 'net/snake/service/template/map2.vm', line 5, column 31] : ${basedir} cannot be resolved.
+2011-02-21 17:22:50,578 - Null reference [template 'net/snake/service/template/map2.vm', line 6, column 31] : ${basedir} cannot be resolved.
+2011-02-21 17:22:50,578 - Null reference [template 'net/snake/service/template/map2.vm', line 12, column 58] : ${basedir} cannot be resolved.
+2011-02-21 17:22:50,578 - Null reference [template 'net/snake/service/template/map2.vm', line 18, column 34] : ${dir} cannot be resolved.
+2011-02-21 17:22:50,578 - Null reference [template 'net/snake/service/template/map2.vm', line 19, column 50] : ${basedir} cannot be resolved.
+2011-02-21 17:22:50,578 - Null reference [template 'net/snake/service/template/map2.vm', line 23, column 53] : ${basedir} cannot be resolved.
+2011-02-21 20:45:40,546 - Log4JLogChute initialized using file 'velocity.log'
+2011-02-21 20:45:40,546 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-02-21 20:45:40,546 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-02-21 20:45:40,546 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-02-21 20:45:40,546 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-02-21 20:45:40,546 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-21 20:45:40,546 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-21 20:45:40,546 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-21 20:45:40,546 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-02-21 20:45:40,546 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-02-21 20:45:40,546 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-02-21 20:45:40,546 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-02-21 20:45:40,546 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-02-21 20:45:40,546 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-02-21 20:45:40,546 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-02-21 20:45:40,546 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-02-21 20:45:40,546 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-02-21 20:45:40,546 - Created '20' parsers.
+2011-02-21 20:45:40,546 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-02-21 20:45:40,546 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:217)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:122)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-02-21 20:45:40,546 - Velocimacro : Default library not found.
+2011-02-21 20:45:40,546 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-02-21 20:45:40,546 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-02-21 20:45:40,546 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-02-21 20:45:40,546 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-02-21 20:45:40,546 - ResourceManager : found net/snake/service/template/map2.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-21 20:45:40,546 - Null reference [template 'net/snake/service/template/map2.vm', line 5, column 31] : ${basedir} cannot be resolved.
+2011-02-21 20:45:40,546 - Null reference [template 'net/snake/service/template/map2.vm', line 6, column 31] : ${basedir} cannot be resolved.
+2011-02-21 20:45:40,546 - Null reference [template 'net/snake/service/template/map2.vm', line 12, column 58] : ${basedir} cannot be resolved.
+2011-02-21 20:45:40,546 - Null reference [template 'net/snake/service/template/map2.vm', line 18, column 34] : ${dir} cannot be resolved.
+2011-02-21 20:45:40,546 - Null reference [template 'net/snake/service/template/map2.vm', line 19, column 50] : ${basedir} cannot be resolved.
+2011-02-21 20:45:40,546 - Null reference [template 'net/snake/service/template/map2.vm', line 23, column 53] : ${basedir} cannot be resolved.
+2011-02-22 13:48:37,546 - Log4JLogChute initialized using file 'velocity.log'
+2011-02-22 13:48:37,546 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-02-22 13:48:37,546 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-02-22 13:48:37,546 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-02-22 13:48:37,546 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-02-22 13:48:37,546 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-22 13:48:37,546 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-22 13:48:37,546 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-22 13:48:37,546 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-02-22 13:48:37,546 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-02-22 13:48:37,546 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-02-22 13:48:37,546 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-02-22 13:48:37,546 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-02-22 13:48:37,546 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-02-22 13:48:37,546 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-02-22 13:48:37,546 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-02-22 13:48:37,546 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-02-22 13:48:37,546 - Created '20' parsers.
+2011-02-22 13:48:37,546 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-02-22 13:48:37,546 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:217)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:122)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-02-22 13:48:37,546 - Velocimacro : Default library not found.
+2011-02-22 13:48:37,546 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-02-22 13:48:37,546 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-02-22 13:48:37,546 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-02-22 13:48:37,546 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-02-22 13:48:37,546 - ResourceManager : found net/snake/service/template/map2.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-22 13:48:37,546 - Null reference [template 'net/snake/service/template/map2.vm', line 5, column 31] : ${basedir} cannot be resolved.
+2011-02-22 13:48:37,546 - Null reference [template 'net/snake/service/template/map2.vm', line 6, column 31] : ${basedir} cannot be resolved.
+2011-02-22 13:48:37,546 - Null reference [template 'net/snake/service/template/map2.vm', line 12, column 58] : ${basedir} cannot be resolved.
+2011-02-22 13:48:37,546 - Null reference [template 'net/snake/service/template/map2.vm', line 18, column 34] : ${dir} cannot be resolved.
+2011-02-22 13:48:37,546 - Null reference [template 'net/snake/service/template/map2.vm', line 19, column 50] : ${basedir} cannot be resolved.
+2011-02-22 13:48:37,546 - Null reference [template 'net/snake/service/template/map2.vm', line 23, column 53] : ${basedir} cannot be resolved.
+2011-02-23 14:16:37,984 - Log4JLogChute initialized using file 'velocity.log'
+2011-02-23 14:16:38,000 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-02-23 14:16:38,000 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-02-23 14:16:38,000 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-02-23 14:16:38,000 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-02-23 14:16:38,000 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-23 14:16:38,000 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-23 14:16:38,000 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-23 14:16:38,000 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-02-23 14:16:38,000 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-02-23 14:16:38,000 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-02-23 14:16:38,000 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-02-23 14:16:38,000 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-02-23 14:16:38,000 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-02-23 14:16:38,000 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-02-23 14:16:38,000 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-02-23 14:16:38,000 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-02-23 14:16:38,000 - Created '20' parsers.
+2011-02-23 14:16:38,000 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-02-23 14:16:38,000 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:217)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:122)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-02-23 14:16:38,000 - Velocimacro : Default library not found.
+2011-02-23 14:16:38,000 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-02-23 14:16:38,000 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-02-23 14:16:38,000 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-02-23 14:16:38,000 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-02-23 14:16:38,015 - ResourceManager : found net/snake/service/template/map2.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-23 14:16:38,015 - Null reference [template 'net/snake/service/template/map2.vm', line 5, column 31] : ${basedir} cannot be resolved.
+2011-02-23 14:16:38,015 - Null reference [template 'net/snake/service/template/map2.vm', line 6, column 31] : ${basedir} cannot be resolved.
+2011-02-23 14:16:38,015 - Null reference [template 'net/snake/service/template/map2.vm', line 12, column 58] : ${basedir} cannot be resolved.
+2011-02-23 14:16:38,015 - Null reference [template 'net/snake/service/template/map2.vm', line 18, column 34] : ${dir} cannot be resolved.
+2011-02-23 14:16:38,015 - Null reference [template 'net/snake/service/template/map2.vm', line 19, column 50] : ${basedir} cannot be resolved.
+2011-02-23 14:16:38,015 - Null reference [template 'net/snake/service/template/map2.vm', line 23, column 53] : ${basedir} cannot be resolved.
+2011-02-23 17:23:18,218 - Log4JLogChute initialized using file 'velocity.log'
+2011-02-23 17:23:18,234 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-02-23 17:23:18,234 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-02-23 17:23:18,234 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-02-23 17:23:18,234 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-02-23 17:23:18,234 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-23 17:23:18,234 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-23 17:23:18,234 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-23 17:23:18,281 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-02-23 17:23:18,281 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-02-23 17:23:18,281 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-02-23 17:23:18,281 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-02-23 17:23:18,281 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-02-23 17:23:18,281 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-02-23 17:23:18,281 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-02-23 17:23:18,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-02-23 17:23:18,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-02-23 17:23:18,343 - Created '20' parsers.
+2011-02-23 17:23:18,343 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-02-23 17:23:18,343 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:217)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:122)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-02-23 17:23:18,359 - Velocimacro : Default library not found.
+2011-02-23 17:23:18,359 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-02-23 17:23:18,359 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-02-23 17:23:18,359 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-02-23 17:23:18,359 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-02-23 17:23:18,375 - ResourceManager : found net/snake/service/template/map2.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-23 17:23:18,375 - Null reference [template 'net/snake/service/template/map2.vm', line 5, column 31] : ${basedir} cannot be resolved.
+2011-02-23 17:23:18,375 - Null reference [template 'net/snake/service/template/map2.vm', line 6, column 31] : ${basedir} cannot be resolved.
+2011-02-23 17:23:18,375 - Null reference [template 'net/snake/service/template/map2.vm', line 12, column 58] : ${basedir} cannot be resolved.
+2011-02-23 17:23:18,375 - Null reference [template 'net/snake/service/template/map2.vm', line 18, column 34] : ${dir} cannot be resolved.
+2011-02-23 17:23:18,375 - Null reference [template 'net/snake/service/template/map2.vm', line 19, column 50] : ${basedir} cannot be resolved.
+2011-02-23 17:23:18,375 - Null reference [template 'net/snake/service/template/map2.vm', line 23, column 53] : ${basedir} cannot be resolved.
+2011-02-24 18:52:54,218 - Log4JLogChute initialized using file 'velocity.log'
+2011-02-24 18:52:54,234 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-02-24 18:52:54,234 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-02-24 18:52:54,234 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-02-24 18:52:54,234 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-02-24 18:52:54,234 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-24 18:52:54,234 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-24 18:52:54,234 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-24 18:52:54,234 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-02-24 18:52:54,234 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-02-24 18:52:54,234 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-02-24 18:52:54,234 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-02-24 18:52:54,234 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-02-24 18:52:54,234 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-02-24 18:52:54,234 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-02-24 18:52:54,234 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-02-24 18:52:54,234 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-02-24 18:52:54,234 - Created '20' parsers.
+2011-02-24 18:52:54,234 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-02-24 18:52:54,234 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:217)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:122)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-02-24 18:52:54,234 - Velocimacro : Default library not found.
+2011-02-24 18:52:54,234 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-02-24 18:52:54,234 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-02-24 18:52:54,234 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-02-24 18:52:54,234 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-02-24 18:52:54,234 - ResourceManager : found net/snake/service/template/map2.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-24 18:52:54,234 - Null reference [template 'net/snake/service/template/map2.vm', line 5, column 31] : ${basedir} cannot be resolved.
+2011-02-24 18:52:54,234 - Null reference [template 'net/snake/service/template/map2.vm', line 6, column 31] : ${basedir} cannot be resolved.
+2011-02-24 18:52:54,234 - Null reference [template 'net/snake/service/template/map2.vm', line 12, column 58] : ${basedir} cannot be resolved.
+2011-02-24 18:52:54,234 - Null reference [template 'net/snake/service/template/map2.vm', line 18, column 34] : ${dir} cannot be resolved.
+2011-02-24 18:52:54,234 - Null reference [template 'net/snake/service/template/map2.vm', line 19, column 50] : ${basedir} cannot be resolved.
+2011-02-24 18:52:54,234 - Null reference [template 'net/snake/service/template/map2.vm', line 23, column 53] : ${basedir} cannot be resolved.
+2011-02-24 19:07:00,015 - Log4JLogChute initialized using file 'velocity.log'
+2011-02-24 19:07:00,015 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-02-24 19:07:00,015 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-02-24 19:07:00,015 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-02-24 19:07:00,015 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-02-24 19:07:00,015 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-24 19:07:00,015 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-24 19:07:00,015 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-24 19:07:00,015 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-02-24 19:07:00,015 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-02-24 19:07:00,015 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-02-24 19:07:00,015 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-02-24 19:07:00,015 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-02-24 19:07:00,015 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-02-24 19:07:00,015 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-02-24 19:07:00,015 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-02-24 19:07:00,015 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-02-24 19:07:00,015 - Created '20' parsers.
+2011-02-24 19:07:00,015 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-02-24 19:07:00,015 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:217)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:122)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-02-24 19:07:00,015 - Velocimacro : Default library not found.
+2011-02-24 19:07:00,015 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-02-24 19:07:00,015 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-02-24 19:07:00,015 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-02-24 19:07:00,015 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-02-24 19:07:00,015 - ResourceManager : found net/snake/service/template/map2.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-24 19:07:00,015 - Null reference [template 'net/snake/service/template/map2.vm', line 5, column 31] : ${basedir} cannot be resolved.
+2011-02-24 19:07:00,015 - Null reference [template 'net/snake/service/template/map2.vm', line 6, column 31] : ${basedir} cannot be resolved.
+2011-02-24 19:07:00,015 - Null reference [template 'net/snake/service/template/map2.vm', line 12, column 58] : ${basedir} cannot be resolved.
+2011-02-24 19:07:00,015 - Null reference [template 'net/snake/service/template/map2.vm', line 18, column 34] : ${dir} cannot be resolved.
+2011-02-24 19:07:00,015 - Null reference [template 'net/snake/service/template/map2.vm', line 19, column 50] : ${basedir} cannot be resolved.
+2011-02-24 19:07:00,015 - Null reference [template 'net/snake/service/template/map2.vm', line 23, column 53] : ${basedir} cannot be resolved.
+2011-02-24 20:42:49,390 - Log4JLogChute initialized using file 'velocity.log'
+2011-02-24 20:42:49,390 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-02-24 20:42:49,390 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-02-24 20:42:49,390 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-02-24 20:42:49,390 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-02-24 20:42:49,390 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-24 20:42:49,390 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-24 20:42:49,390 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-24 20:42:49,390 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-02-24 20:42:49,390 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-02-24 20:42:49,390 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-02-24 20:42:49,390 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-02-24 20:42:49,390 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-02-24 20:42:49,390 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-02-24 20:42:49,390 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-02-24 20:42:49,390 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-02-24 20:42:49,390 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-02-24 20:42:49,390 - Created '20' parsers.
+2011-02-24 20:42:49,390 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-02-24 20:42:49,390 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:217)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:122)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-02-24 20:42:49,390 - Velocimacro : Default library not found.
+2011-02-24 20:42:49,390 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-02-24 20:42:49,390 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-02-24 20:42:49,390 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-02-24 20:42:49,390 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-02-24 20:42:49,390 - ResourceManager : found net/snake/service/template/map2.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-24 20:42:49,390 - Null reference [template 'net/snake/service/template/map2.vm', line 5, column 31] : ${basedir} cannot be resolved.
+2011-02-24 20:42:49,390 - Null reference [template 'net/snake/service/template/map2.vm', line 6, column 31] : ${basedir} cannot be resolved.
+2011-02-24 20:42:49,390 - Null reference [template 'net/snake/service/template/map2.vm', line 12, column 58] : ${basedir} cannot be resolved.
+2011-02-24 20:42:49,390 - Null reference [template 'net/snake/service/template/map2.vm', line 18, column 34] : ${dir} cannot be resolved.
+2011-02-24 20:42:49,390 - Null reference [template 'net/snake/service/template/map2.vm', line 19, column 50] : ${basedir} cannot be resolved.
+2011-02-24 20:42:49,390 - Null reference [template 'net/snake/service/template/map2.vm', line 23, column 53] : ${basedir} cannot be resolved.
+2011-02-24 20:54:46,859 - Log4JLogChute initialized using file 'velocity.log'
+2011-02-24 20:54:46,859 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-02-24 20:54:46,859 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-02-24 20:54:46,859 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-02-24 20:54:46,859 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-02-24 20:54:46,859 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-24 20:54:46,859 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-24 20:54:46,859 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-24 20:54:46,859 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-02-24 20:54:46,859 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-02-24 20:54:46,859 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-02-24 20:54:46,859 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-02-24 20:54:46,859 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-02-24 20:54:46,859 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-02-24 20:54:46,859 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-02-24 20:54:46,859 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-02-24 20:54:46,859 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-02-24 20:54:46,859 - Created '20' parsers.
+2011-02-24 20:54:46,859 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-02-24 20:54:46,859 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:217)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:122)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-02-24 20:54:46,859 - Velocimacro : Default library not found.
+2011-02-24 20:54:46,859 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-02-24 20:54:46,859 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-02-24 20:54:46,859 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-02-24 20:54:46,859 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-02-24 20:54:46,859 - ResourceManager : found net/snake/service/template/map2.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-24 20:54:46,859 - Null reference [template 'net/snake/service/template/map2.vm', line 5, column 31] : ${basedir} cannot be resolved.
+2011-02-24 20:54:46,859 - Null reference [template 'net/snake/service/template/map2.vm', line 6, column 31] : ${basedir} cannot be resolved.
+2011-02-24 20:54:46,859 - Null reference [template 'net/snake/service/template/map2.vm', line 12, column 58] : ${basedir} cannot be resolved.
+2011-02-24 20:54:46,859 - Null reference [template 'net/snake/service/template/map2.vm', line 18, column 34] : ${dir} cannot be resolved.
+2011-02-24 20:54:46,859 - Null reference [template 'net/snake/service/template/map2.vm', line 19, column 50] : ${basedir} cannot be resolved.
+2011-02-24 20:54:46,859 - Null reference [template 'net/snake/service/template/map2.vm', line 23, column 53] : ${basedir} cannot be resolved.
+2011-02-24 20:54:46,906 - Log4JLogChute initialized using file 'velocity.log'
+2011-02-24 20:54:46,906 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-02-24 20:54:46,906 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-02-24 20:54:46,906 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-02-24 20:54:46,906 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-02-24 20:54:46,906 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-24 20:54:46,906 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-24 20:54:46,906 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-24 20:54:46,906 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-02-24 20:54:46,906 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-02-24 20:54:46,906 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-02-24 20:54:46,906 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-02-24 20:54:46,906 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-02-24 20:54:46,906 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-02-24 20:54:46,906 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-02-24 20:54:46,906 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-02-24 20:54:46,906 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-02-24 20:54:46,906 - Created '20' parsers.
+2011-02-24 20:54:46,906 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-02-24 20:54:46,906 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:217)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:122)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-02-24 20:54:46,906 - Velocimacro : Default library not found.
+2011-02-24 20:54:46,906 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-02-24 20:54:46,906 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-02-24 20:54:46,906 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-02-24 20:54:46,906 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-02-24 20:54:46,906 - ResourceManager : found net/snake/service/template/map2.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-24 20:54:46,906 - Null reference [template 'net/snake/service/template/map2.vm', line 5, column 31] : ${basedir} cannot be resolved.
+2011-02-24 20:54:46,906 - Null reference [template 'net/snake/service/template/map2.vm', line 6, column 31] : ${basedir} cannot be resolved.
+2011-02-24 20:54:46,906 - Null reference [template 'net/snake/service/template/map2.vm', line 12, column 58] : ${basedir} cannot be resolved.
+2011-02-24 20:54:46,906 - Null reference [template 'net/snake/service/template/map2.vm', line 18, column 34] : ${dir} cannot be resolved.
+2011-02-24 20:54:46,906 - Null reference [template 'net/snake/service/template/map2.vm', line 19, column 50] : ${basedir} cannot be resolved.
+2011-02-24 20:54:46,906 - Null reference [template 'net/snake/service/template/map2.vm', line 23, column 53] : ${basedir} cannot be resolved.
+2011-02-25 20:34:03,203 - Log4JLogChute initialized using file 'velocity.log'
+2011-02-25 20:34:03,203 - Log4JLogChute initialized using file 'velocity.log'
+2011-02-25 20:34:03,203 - Log4JLogChute initialized using file 'velocity.log'
+2011-02-25 20:34:03,203 - Log4JLogChute initialized using file 'velocity.log'
+2011-02-25 20:34:03,218 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-02-25 20:34:03,218 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-02-25 20:34:03,218 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-02-25 20:34:03,218 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-02-25 20:34:03,218 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-02-25 20:34:03,218 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-02-25 20:34:03,218 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-02-25 20:34:03,218 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-02-25 20:34:03,218 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-02-25 20:34:03,218 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-02-25 20:34:03,218 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-02-25 20:34:03,218 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-02-25 20:34:03,218 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-02-25 20:34:03,218 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-02-25 20:34:03,218 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-02-25 20:34:03,218 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-02-25 20:34:03,218 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-25 20:34:03,218 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-25 20:34:03,218 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-25 20:34:03,218 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-25 20:34:03,218 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-25 20:34:03,218 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-25 20:34:03,218 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-25 20:34:03,218 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-02-25 20:34:03,218 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-25 20:34:03,218 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-25 20:34:03,218 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-25 20:34:03,218 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-25 20:34:03,265 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-02-25 20:34:03,265 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-02-25 20:34:03,265 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-02-25 20:34:03,265 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-02-25 20:34:03,265 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-02-25 20:34:03,312 - Created '20' parsers.
+2011-02-25 20:34:03,312 - Created '20' parsers.
+2011-02-25 20:34:03,312 - Created '20' parsers.
+2011-02-25 20:34:03,312 - Created '20' parsers.
+2011-02-25 20:34:03,312 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-02-25 20:34:03,312 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-02-25 20:34:03,312 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-02-25 20:34:03,312 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-02-25 20:34:03,312 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:213)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:118)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-02-25 20:34:03,312 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:213)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:118)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-02-25 20:34:03,312 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:213)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:118)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-02-25 20:34:03,312 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:213)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:118)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-02-25 20:34:03,328 - Velocimacro : Default library not found.
+2011-02-25 20:34:03,328 - Velocimacro : Default library not found.
+2011-02-25 20:34:03,328 - Velocimacro : Default library not found.
+2011-02-25 20:34:03,328 - Velocimacro : Default library not found.
+2011-02-25 20:34:03,328 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-02-25 20:34:03,328 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-02-25 20:34:03,328 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-02-25 20:34:03,328 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-02-25 20:34:03,328 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-02-25 20:34:03,328 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-02-25 20:34:03,328 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-02-25 20:34:03,328 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-02-25 20:34:03,328 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-02-25 20:34:03,328 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-02-25 20:34:03,328 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-02-25 20:34:03,328 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-02-25 20:34:03,328 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-02-25 20:34:03,328 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-02-25 20:34:03,328 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-02-25 20:34:03,328 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-02-25 20:34:03,343 - ResourceManager : found net/snake/service/template/map2.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-25 20:34:03,343 - ResourceManager : found net/snake/service/template/map2.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-25 20:34:03,343 - ResourceManager : found net/snake/service/template/map2.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-25 20:34:03,343 - ResourceManager : found net/snake/service/template/map2.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 5, column 31] : ${basedir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 5, column 31] : ${basedir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 5, column 31] : ${basedir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 5, column 31] : ${basedir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 6, column 31] : ${basedir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 6, column 31] : ${basedir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 6, column 31] : ${basedir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 6, column 31] : ${basedir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 12, column 58] : ${basedir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 12, column 58] : ${basedir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 12, column 58] : ${basedir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 12, column 58] : ${basedir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 18, column 34] : ${dir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 18, column 34] : ${dir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 18, column 34] : ${dir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 18, column 34] : ${dir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 19, column 50] : ${basedir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 19, column 50] : ${basedir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 19, column 50] : ${basedir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 19, column 50] : ${basedir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 23, column 53] : ${basedir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 23, column 53] : ${basedir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 23, column 53] : ${basedir} cannot be resolved.
+2011-02-25 20:34:03,343 - Null reference [template 'net/snake/service/template/map2.vm', line 23, column 53] : ${basedir} cannot be resolved.
+2011-03-01 20:27:34,265 - Log4JLogChute initialized using file 'velocity.log'
+2011-03-01 20:27:34,265 - Log4JLogChute initialized using file 'velocity.log'
+2011-03-01 20:27:34,265 - Log4JLogChute initialized using file 'velocity.log'
+2011-03-01 20:27:34,265 - Log4JLogChute initialized using file 'velocity.log'
+2011-03-01 20:27:34,265 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-03-01 20:27:34,265 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-03-01 20:27:34,265 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-03-01 20:27:34,265 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-03-01 20:27:34,265 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-03-01 20:27:34,265 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-03-01 20:27:34,265 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-03-01 20:27:34,265 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-03-01 20:27:34,265 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-03-01 20:27:34,265 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-03-01 20:27:34,265 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-03-01 20:27:34,265 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-03-01 20:27:34,265 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-03-01 20:27:34,265 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-03-01 20:27:34,265 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-03-01 20:27:34,265 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-03-01 20:27:34,265 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-03-01 20:27:34,265 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-03-01 20:27:34,281 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-03-01 20:27:34,281 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-03-01 20:27:34,281 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-03-01 20:27:34,281 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-03-01 20:27:34,281 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-03-01 20:27:34,281 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-03-01 20:27:34,281 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-03-01 20:27:34,281 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-03-01 20:27:34,281 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-03-01 20:27:34,281 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-03-01 20:27:34,296 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-03-01 20:27:34,296 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-03-01 20:27:34,296 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-03-01 20:27:34,296 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-03-01 20:27:34,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-03-01 20:27:34,343 - Created '20' parsers.
+2011-03-01 20:27:34,343 - Created '20' parsers.
+2011-03-01 20:27:34,343 - Created '20' parsers.
+2011-03-01 20:27:34,343 - Created '20' parsers.
+2011-03-01 20:27:34,343 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-03-01 20:27:34,343 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-03-01 20:27:34,343 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-03-01 20:27:34,343 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-03-01 20:27:34,343 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:223)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:129)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-03-01 20:27:34,343 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:223)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:129)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-03-01 20:27:34,343 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:223)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:129)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-03-01 20:27:34,343 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:223)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:129)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-03-01 20:27:34,343 - Velocimacro : Default library not found.
+2011-03-01 20:27:34,343 - Velocimacro : Default library not found.
+2011-03-01 20:27:34,343 - Velocimacro : Default library not found.
+2011-03-01 20:27:34,343 - Velocimacro : Default library not found.
+2011-03-01 20:27:34,343 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-03-01 20:27:34,343 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-03-01 20:27:34,343 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-03-01 20:27:34,343 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-03-01 20:27:34,343 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-03-01 20:27:34,343 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-03-01 20:27:34,343 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-03-01 20:27:34,343 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-03-01 20:27:34,343 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-03-01 20:27:34,343 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-03-01 20:27:34,343 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-03-01 20:27:34,343 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-03-01 20:27:34,343 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-03-01 20:27:34,343 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-03-01 20:27:34,343 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-03-01 20:27:34,343 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-03-01 20:27:34,375 - ResourceManager : found net/snake/service/template/language.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-03-01 20:27:34,375 - ResourceManager : found net/snake/service/template/language.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-03-01 20:27:34,375 - ResourceManager : found net/snake/service/template/language.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-03-01 20:27:34,375 - ResourceManager : found net/snake/service/template/language.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-03-01 21:11:31,250 - Log4JLogChute initialized using file 'velocity.log'
+2011-03-01 21:11:31,250 - Log4JLogChute initialized using file 'velocity.log'
+2011-03-01 21:11:31,250 - Log4JLogChute initialized using file 'velocity.log'
+2011-03-01 21:11:31,250 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-03-01 21:11:31,250 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-03-01 21:11:31,250 - Starting Apache Velocity v1.6.2 (compiled: 2009-02-19 16:29:46)
+2011-03-01 21:11:31,250 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-03-01 21:11:31,250 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-03-01 21:11:31,250 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2011-03-01 21:11:31,250 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-03-01 21:11:31,250 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-03-01 21:11:31,250 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2011-03-01 21:11:31,250 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-03-01 21:11:31,250 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-03-01 21:11:31,250 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2011-03-01 21:11:31,250 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-03-01 21:11:31,250 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-03-01 21:11:31,250 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-03-01 21:11:31,250 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-03-01 21:11:31,250 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-03-01 21:11:31,250 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2011-03-01 21:11:31,250 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-03-01 21:11:31,250 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-03-01 21:11:31,250 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-03-01 21:11:31,250 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-03-01 21:11:31,250 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-03-01 21:11:31,250 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-03-01 21:11:31,250 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2011-03-01 21:11:31,265 - Created '20' parsers.
+2011-03-01 21:11:31,265 - Created '20' parsers.
+2011-03-01 21:11:31,265 - Created '20' parsers.
+2011-03-01 21:11:31,265 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-03-01 21:11:31,265 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-03-01 21:11:31,265 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2011-03-01 21:11:31,265 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:223)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:129)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-03-01 21:11:31,265 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:223)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:129)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-03-01 21:11:31,265 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: 
+org.apache.velocity.exception.ResourceNotFoundException: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+	at org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader.getResourceStream(ClasspathResourceLoader.java:131)
+	at org.apache.velocity.runtime.resource.loader.ResourceLoader.resourceExists(ResourceLoader.java:224)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderForResource(ResourceManagerImpl.java:641)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getLoaderNameForResource(ResourceManagerImpl.java:624)
+	at org.apache.velocity.runtime.RuntimeInstance.getLoaderNameForResource(RuntimeInstance.java:1464)
+	at org.apache.velocity.runtime.VelocimacroFactory.initVelocimacro(VelocimacroFactory.java:159)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:261)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:589)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:135)
+	at net.snake.ant.RunAntServlet.velocityFileWriter2(RunAntServlet.java:223)
+	at net.snake.ant.RunAntServlet.doGet(RunAntServlet.java:129)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at vgame.net.UnCacheFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:128)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:849)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:454)
+	at java.lang.Thread.run(Thread.java:619)
+2011-03-01 21:11:31,265 - Velocimacro : Default library not found.
+2011-03-01 21:11:31,265 - Velocimacro : Default library not found.
+2011-03-01 21:11:31,265 - Velocimacro : Default library not found.
+2011-03-01 21:11:31,265 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-03-01 21:11:31,265 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-03-01 21:11:31,265 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2011-03-01 21:11:31,265 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-03-01 21:11:31,265 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-03-01 21:11:31,265 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2011-03-01 21:11:31,265 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-03-01 21:11:31,265 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-03-01 21:11:31,265 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2011-03-01 21:11:31,265 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-03-01 21:11:31,265 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-03-01 21:11:31,265 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2011-03-01 21:11:31,265 - ResourceManager : found net/snake/service/template/language.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-03-01 21:11:31,265 - ResourceManager : found net/snake/service/template/language.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-03-01 21:11:31,265 - ResourceManager : found net/snake/service/template/language.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2011-03-02 12:20:05,203 - Log4JLogChute initialized using file 'velocity.log'

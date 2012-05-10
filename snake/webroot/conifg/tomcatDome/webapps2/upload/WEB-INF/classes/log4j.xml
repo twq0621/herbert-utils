@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
+	debug="false">
+
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<param name="Threshold" value="ALL" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d][%p,%c{5}] %m%n" />
+		</layout>
+	</appender>
+	
+	<logger name="org.springframework">
+		<level value="error" />
+	</logger>
+	<logger name="org.apache">
+		<level value="error" />
+	</logger>
+	<logger name="java.sql">
+		<level value="error" />
+	</logger>
+	<logger name="henry.dbcache">
+		<level value="error" />
+	</logger>
+	<logger name="org.quartz">
+		<level value="error" />
+	</logger>
+	<logger name="com.mchange.v2">
+		<level value="error" />
+	</logger>
+	<logger name="com.ibatis">
+		<level value="error" />
+	</logger>
+	<root>
+		<level value="DEBUG" />
+		<!-- 注:部署时,只用 FileAppender 开发时只用Console-->
+		<appender-ref ref="CONSOLE" />
+		<!--<appender-ref ref="FileAppender" /> -->
+	</root>
+</log4j:configuration>
+

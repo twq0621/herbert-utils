@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<root>
+<words>
+#foreach($entry in $list)
+<w k="$!{entry.id}" >
+<![CDATA[$!{entry.valueI18n}]]>
+</w>	
+#end
+</words>
+</root>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<root>
+<lts>
+#foreach($entry in $list)
+<lt  
+f_id="$!{entry.id}"
+f_name="$!{entry.name}"
+f_desc="$!{entry.desc}"
+f_desc_tupo="$!{entry.descTupo}"
+f_hp="$!{entry.hp}"
+f_atk="$!{entry.atk}"
+f_def="$!{entry.def}"
+f_mp="$!{entry.mp}"
+f_sp="$!{entry.sp}"
+f_atk_speed="$!{entry.atkSpeed}"
+f_move_speed="$!{entry.moveSpeed}"
+f_aq_jv="$!{entry.aqJv}"
+f_fjsh="$!{entry.fjsh}"
+f_shjm="$!{entry.shjm}"
+f_tupo_need_goodsmodel="$!{entry.tupoNeedGoodsmodel}"
+f_tupo_need_goodscount="$!{entry.tupoNeedGoodscount}"
+f_tupo_show_probability="$!{entry.tupoShowProbability}"
+f_zhufu_max="$!{entry.zhufuMax}"
+f_food_goodsid="$!{entry.foodGoodsid}"
+f_food_map="$!{entry.foodMap}"
+f_food_monstername="$!{entry.foodMonstername}"
+f_location="$!{entry.location}"
+/>
+#end
+</lts>
+</root>

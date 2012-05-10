@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<root>
+<totems>
+#foreach($entry in $list)
+<totem id="$!{entry.id}"
+name="$!{entry.name}"
+min_probility="$!{entry.minProbility}"
+max_probility="$!{entry.maxProbility}"
+attack_enhance="$!{entry.attackEnhance}"
+rebound_hurt="$!{entry.reboundHurt}"
+ignore_defence="$!{entry.ignoreDefence}"
+hurt_derate="$!{entry.hurtDerate}"
+hidden_derate="$!{entry.hiddenDerate}"
+/>
+#end
+</totems>
+</root>

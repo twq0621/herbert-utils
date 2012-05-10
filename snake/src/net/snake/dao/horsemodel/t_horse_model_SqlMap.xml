@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="t_horse_model">
+<resultMap class="net.snake.dao.horsemodel.HorseModel" id="HorseModel">
+		<result column="f_id" jdbcType="INTEGER" property="id" />
+		<result column="f_name" jdbcType="VARCHAR" property="name" />
+		<result column="f_headicon_id" jdbcType="INTEGER" property="headiconId" />
+		<result column="f_avatar_id" jdbcType="INTEGER" property="avatarId" />
+		<result column="f_jinjie" jdbcType="INTEGER" property="jinjie" />
+		<result column="f_jinjie_goods_id" jdbcType="INTEGER" property="jinjieGoodsId" />
+		<result column="f_jinjie_goods_count" jdbcType="INTEGER"
+			property="jinjieGoodsCount" />
+		<result column="f_jinjie_copper" jdbcType="INTEGER" property="jinjieCopper" />
+		<result column="f_jinjie_success_probability" jdbcType="INTEGER"
+			property="jinjieSuccessProbability" />
+		<result column="f_jinjie_min_count" jdbcType="INTEGER"	property="jinjieMinCount" />
+		<result column="f_jinjie_max_count" jdbcType="INTEGER"	property="jinjieMaxCount" />
+		<result column="f_jinjie_zhenqi" jdbcType="INTEGER"		property="jinjieZhenqi" />
+		
+		<result column="f_max_level" jdbcType="INTEGER" property="maxLevel" />
+		<result column="f_add_owner_hp" jdbcType="INTEGER" property="addOwnerHp" />
+		<result column="f_add_owner_mp" jdbcType="INTEGER" property="addOwnerMp" />
+		<result column="f_add_owner_sp" jdbcType="INTEGER" property="addOwnerSp" />
+		<result column="f_add_owner_attack" jdbcType="INTEGER"
+			property="addOwnerAttack" />
+		<result column="f_add_owner_defence" jdbcType="INTEGER"
+			property="addOwnerDefence" />
+		<result column="f_add_owner_crt" jdbcType="INTEGER" property="addOwnerCrt" />
+		<result column="f_add_owner_dodge" jdbcType="INTEGER" property="addOwnerDodge" />
+		<result column="f_add_owner_atkspeed" jdbcType="INTEGER"
+			property="addOwnerAtkspeed" />
+		<result column="f_add_owner_movespeed" jdbcType="INTEGER"
+			property="addOwnerMovespeed" />
+		<result column="f_init_level" jdbcType="INTEGER" property="initLevel" />
+
+		<result column="f_livingness_min" jdbcType="INTEGER" property="livingnessMin" />
+		<result column="f_livingness_max" jdbcType="INTEGER" property="livingnessMax" />
+
+		<result column="f_foot_effect_id" jdbcType="INTEGER" property="footEffectId" />
+		<result column="f_attack_speed" jdbcType="INTEGER" property="attackSpeed" />
+		<result column="f_horse_movespeed" jdbcType="INTEGER" property="horseMovespeed" />
+		<result column="f_catch_me_grade_limit" jdbcType="INTEGER"
+			property="catchMeGradeLimit" />
+		<result column="f_use_me_grade_limit" jdbcType="INTEGER"
+			property="useMeGradeLimit" />
+		<result column="f_attack_audio" jdbcType="INTEGER" property="attackAudio" />
+		<result column="f_hurt_audio" jdbcType="INTEGER" property="hurtAudio" />
+		<result column="f_die_audio" jdbcType="INTEGER" property="dieAudio" />
+		<result column="f_bind" jdbcType="INTEGER" property="bind" />
+
+		<result column="f_kind" jdbcType="INTEGER" property="kind" />
+		<result column="f_name_i18n" jdbcType="VARCHAR" property="nameI18n" />
+		<result column="f_neidan_cdtime" property="neidanCdtime" />
+		<result column="f_change_model_id" jdbcType="INTEGER" property="changeModelId" />
+		<result column="f_is_use_shenji" property="isUseShenji" />
+		<result column="f_pet_action" jdbcType="TINYINT" property="petAction" />
+		<result column="f_quality" jdbcType="INTEGER" property="quality" />
+	</resultMap>
+
+	<select id="queryall" resultMap="HorseModel">
+		select * from t_horse_model	order by f_id
+	</select>
+</sqlMap>

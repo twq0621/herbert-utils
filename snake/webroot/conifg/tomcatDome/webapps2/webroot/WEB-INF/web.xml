@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<servlet>
+		<servlet-name>RunAntServlet</servlet-name>
+		<servlet-class>net.snake.ant.RunAntServlet</servlet-class>		
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RunAntServlet</servlet-name>
+		<url-pattern>/ant</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>RunAntServletType</servlet-name>
+		<servlet-class>net.snake.ant.RunAntServletType</servlet-class>		
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RunAntServletType</servlet-name>
+		<url-pattern>/anttype</url-pattern>
+	</servlet-mapping>
+	
+	 
+	<listener>
+	    <listener-class>
+	        net.snake.common.LoaderListener
+	    </listener-class>
+    </listener>
+</web-app>

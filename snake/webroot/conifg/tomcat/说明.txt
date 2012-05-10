@@ -1,0 +1,3 @@
+2个jsp是webroot下边的
+vm和config是antdir/appPngToSwf下边
+build是antdir下边的

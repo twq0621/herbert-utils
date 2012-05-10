@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<root>
+#foreach($entry in $list)
+<goodmodel id="$!{entry.id}"
+#if(!($entry.popsinger) || $entry.popsinger==0)
+#else
+popsinger="$!{entry.popsinger}"
+#end
+kind="$!{entry.kind}"
+#if(!($entry.binding) || $entry.binding==0)
+#else
+binding="$!{entry.binding}"
+#end
+discard="$!{entry.discard}"
+repeat="$!{entry.repeat}"
+#if(!($entry.ico) || $entry.ico==0)
+#else
+ico="$!{entry.ico}"
+#end
+#if(!($entry.avatarId) || $entry.avatarId==0)
+#else
+avatarId="$!{entry.avatarId}"
+#end
+log="$!{entry.log}"
+sendAnnouncement="$!{entry.sendAnnouncement}"
+#if(!($entry.sound) || $entry.sound==0)
+#else
+sound="$!{entry.sound}"
+#end
+#if(!($entry.useSound) || $entry.useSound==0)
+#else
+use_sound="$!{entry.useSound}"
+#end
+#if(!($entry.useImage) || $entry.useImage==0)
+#else
+useImage="$!{entry.useImage}"
+#end
+#if(!($entry.buyPrice) || $entry.buyPrice==0)
+#else
+buyPrice="$!{entry.buyPrice}"
+#end
+#if(!($entry.salePrice) || $entry.salePrice==0)
+#else
+salePrice="$!{entry.salePrice}"
+#end
+#if(!($entry.attack) || $entry.attack==0)
+#else
+attack="$!{entry.attack}"
+#end
+#if(!($entry.crt) || $entry.crt==0)
+#else
+crt="$!{entry.crt}"
+#end
+#if(!($entry.dodge) || $entry.dodge==0)
+#else
+dodge="$!{entry.dodge}"
+#end
+#if(!($entry.atkColdtime) || $entry.atkColdtime==0)
+#else
+atkColdtime="$!{entry.atkColdtime}"
+#end
+#if(!($entry.moveSpeed) || $entry.moveSpeed==0)
+#else
+moveSpeed="$!{entry.moveSpeed}"
+#end
+#if(!($entry.hp) || $entry.hp==0)
+#else
+hp="$!{entry.hp}"
+#end
+#if(!($entry.mp) || $entry.mp==0)
+#else
+mp="$!{entry.mp}"
+#end
+#if(!($entry.sp) || $entry.sp==0)
+#else
+sp="$!{entry.sp}"
+#end
+#if(!($entry.grade) || $entry.grade==0)
+#else
+grade="$!{entry.grade}"
+#end
+
+#if(!($entry.position) || $entry.position==0)
+#else
+position="$!{entry.position}"
+#end
+#if(!($entry.durability) || $entry.durability==0)
+#else
+durability="$!{entry.durability}"
+#end
+#if(!($entry.repairMoney) || $entry.repairMoney==0)
+#else
+repairMoney="$!{entry.repairMoney}"
+#end
+#if(!($entry.limitGrade) || $entry.limitGrade==0)
+#else
+limitGrade="$!{entry.limitGrade}"
+#end
+#if(!($entry.attackAddpoint) || $entry.attackAddpoint==0)
+#else
+attackAddpoint="$!{entry.attackAddpoint}"
+#end
+#if(!($entry.defenceAddpoint) || $entry.defenceAddpoint==0)
+#else
+ding="$!{entry.defenceAddpoint}"
+#end
+#if(!($entry.lightAddpoint) || $entry.lightAddpoint==0)
+#else
+lightAddpoint="$!{entry.lightAddpoint}"
+#end
+#if(!($entry.strongAddpoint) || $entry.strongAddpoint==0)
+#else
+strongAddpoint="$!{entry.strongAddpoint}"
+#end
+#if(!($entry.gemsType) || $entry.gemsType==0)
+#else
+gemeType="$!{entry.gemsType}"
+#end
+#if(!($entry.gemsValue) || $entry.gemsValue==0)
+#else
+gemsValue="$!{entry.gemsValue}"
+#end
+#if(!($entry.skill) || $entry.skill==0)
+#else
+skill="$!{entry.skill}"
+#end
+#if(!($entry.task) || $entry.task==0)
+#else
+task="$!{entry.task}"
+#end
+#if(!($entry.scriptclass) || $entry.scriptclass==0)
+#else
+scriptclass="$!{entry.scriptclass}"
+#end
+#if(!($entry.scriptclassparam) || $entry.scriptclassparam==0)
+#else
+scriptclassparam="$!{entry.scriptclassparam}"
+#end
+#if(!($entry.drugBuffId) || $entry.drugBuffId==0)
+#else
+drugBuffId="$!{entry.drugBuffId}"
+#end
+#if(!($entry.strengthenGrade) || $entry.strengthenGrade==0)
+#else
+strengthenGrade="$!{entry.strengthenGrade}"
+#end
+#if(!($entry.coolingtime) || $entry.coolingtime==0)
+#else
+coolingtime="$!{entry.coolingtime}"
+#end
+#if(!($entry.horsespirit) || $entry.horsespirit==0)
+#else
+horsespirit="$!{entry.horsespirit}"
+#end
+#if(!($entry.strengthengrade) || $entry.strengthengrade==0)
+#else
+strengthengrade="$!{entry.strengthengrade}"
+#end
+#if(!($entry.strengthendesc) || $entry.strengthendesc==0)
+#else
+strengthendesc="$!{entry.strengthendesc}"
+#end
+#if(!($entry.additiondesc) || $entry.additiondesc==0)
+#else
+additiondesc="$!{entry.additiondesc}"
+#end
+#if(!($entry.inlaygemsdesc) || $entry.inlaygemsdesc==0)
+#else
+inlaygemsdesc="$!{entry.inlaygemsdesc}"
+#end
+#if(!($entry.bigIco) || $entry.bigIco==0)
+#else
+big_ico="$!{entry.bigIco}"
+#end
+#if(!($entry.drugValue) || $entry.drugValue==0)
+#else
+drug_value="$!{entry.drugValue}"
+#end
+#if(!($entry.drugType) || $entry.drugType==0)
+#else
+drugType="$!{entry.drugType}"
+#end
+#if(!($entry.dropEffectId) || $entry.dropEffectId==0)
+#else
+drop_effect_id="$!{entry.dropEffectId}"
+#end
+#if(!($entry.commonCoolTime) || $entry.commonCoolTime==0)
+#else
+common_cool_time="$!{entry.commonCoolTime}"
+#end
+#if(!($entry.commonCoolType) || $entry.commonCoolType==0)
+#else
+common_cool_type="$!{entry.commonCoolType}"
+#end
+#if(!($entry.prestigeLimit) || $entry.prestigeLimit==0)
+#else
+prestige_limit="$!{entry.prestigeLimit}"
+#end
+born_ico="$!{entry.bornIco}"
+born_color_grade="$!{entry.bornColorGrade}"
+is_sale="$!{entry.isSale}"
+sale_is_ui="$!{entry.saleIsUi}"
+discard_is_ui="$!{entry.discardIsUi}"
+changeModelId="$!{entry.changeModelId}"
+>
+<name><![CDATA[$!{entry.nameI18n}]]></name>
+<desc><![CDATA[$!{entry.descI18n}]]></desc>
+<use_desc><![CDATA[$!{entry.useDescI18n}]]></use_desc>
+</goodmodel>
+#end
+</root>

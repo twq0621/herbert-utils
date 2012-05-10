@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="GBK"?>
+<project basedir="." default="build">
+	<property file="build.properties" />
+	<path id="appClassPath">
+		<fileset dir="${basedir}/../WEB-INF/lib" includes="*.jar" />
+		<fileset dir="${basedir}/applib" includes="*.jar" />
+		
+		
+	</path>
+	<!--建立目录结构-->
+	<target name="build">
+		<sql driver="com.mysql.jdbc.Driver" password="helloworld" userid="sysadmin"    
+		    url="jdbc:mysql://192.168.1.120/aojian_gamedata_v2" autocommit="true"    
+		    encoding="gbk" onerror="continue" classpathref="appClassPath" keepformat="false"  >  
+			<!--  <classpath>  
+		        <pathelement path="./lib/jtds-1.2.jar"/>     
+		    </classpath>  -->
+		    <transaction src="lan.sql"/>  
+		</sql>  
+	</target>
+</project>

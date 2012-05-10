@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="GBK"?>
+<project basedir="." default="build">
+	<property file="build.properties" />
+	<path id="appClassPath">
+		<fileset dir="${basedir}/../WEB-INF/lib" includes="*.jar" />
+		<fileset dir="${basedir}/applib" includes="*.jar" />
+	</path>
+	<!--建立目录结构-->
+	<target name="build">
+		<ant target="build" antfile="${basedir}/achieve.xml"></ant>
+		<ant target="build" antfile="${basedir}/effect.xml"></ant>
+		<ant target="build" antfile="${basedir}/goodmodel.xml"></ant>
+		<ant target="build" antfile="${basedir}/goodsdc.xml"></ant>
+		<ant target="build" antfile="${basedir}/monstermodel.xml"></ant>
+		<ant target="build" antfile="${basedir}/horsemodel.xml"></ant>
+		<ant target="build" antfile="${basedir}/iconToSwf.xml"></ant>
+		<ant target="build" antfile="${basedir}/map.xml"></ant>
+		<ant target="build" antfile="${basedir}/map2.xml"></ant>
+		<ant target="build" antfile="${basedir}/npc.xml"></ant>
+		<ant target="build" antfile="${basedir}/sceneMonster.xml"></ant>
+		<ant target="build" antfile="${basedir}/skill.xml"></ant>
+		<ant target="build" antfile="${basedir}/task.xml"></ant>
+		
+		<ant target="build" antfile="${basedir}/taskdialog.xml"></ant>
+		<ant target="build" antfile="${basedir}/language.xml"></ant>
+		<ant target="build" antfile="${basedir}/hiddenweapons.xml"></ant>
+		<ant target="build" antfile="${basedir}/equipmentplayconfig.xml"></ant>
+		<ant target="build" antfile="${basedir}/instance.xml"></ant>
+		
+	</target>
+</project>

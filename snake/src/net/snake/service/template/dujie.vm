@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<root>
+<dujies>
+#foreach($entry in $list)
+<dujie  
+f_id="$!{entry.id}"
+f_name="$!{entry.name}"
+f_scene="$!{entry.scene}"
+f_desc="$!{entry.desc}"
+f_add_hp="$!{entry.add_hp}"
+f_add_mp="$!{entry.add_mp}"
+f_add_attack="$!{entry.add_attack}"
+f_add_defence="$!{entry.add_defence}"
+f_add_sp="$!{entry.add_sp}"
+f_add_as="$!{entry.add_as}"
+f_add_ms="$!{entry.add_ms}"
+f_add_crt="$!{entry.add_crt}"
+f_add_dodge="$!{entry.add_dodge}"
+f_add_hit="$!{entry.add_hit}"
+f_max_point="$!{entry.max_point}"
+f_level_limit="$!{entry.lvl_limit}"
+f_add_exp="$!{entry.add_exp}"
+f_add_copper="$!{entry.add_copper}" 
+f_goods="$!{entry.goods}" 
+f_add_skill_1="$!{entry.add_skill_1}" 
+f_add_skill_2="$!{entry.add_skill_2}" 
+f_add_skill_3="$!{entry.add_skill_3}" 
+f_add_skill_4="$!{entry.add_skill_4}" 
+f_zhenyuan="$!{entry.zhenyuan}"
+/>
+#end
+</dujies>
+</root>

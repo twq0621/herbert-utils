@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="GBK"?>
+<project basedir="." default="build">
+	<property file="build.properties" />
+	<path id="appClassPath">
+		<fileset dir="${basedir}/../WEB-INF/lib" includes="*.jar" />
+		<fileset dir="${basedir}/applib" includes="*.jar" />
+		
+		
+	</path>
+	<!--建立目录结构-->
+	<target name="build">
+	<!--
+		<copy todir="${dir}map/maps"  overwrite="true">
+		
+		   <fileset dir="${basedir}/appPngToSwf/">  
+		   <include name="**"/>  
+		    </fileset>  
+		 </copy>
+-->
+		 	<ant target="build" antfile="${basedir}/monstermodel.xml"></ant>
+		<ant target="build" antfile="${basedir}/npc.xml"></ant>
+		<ant target="build" antfile="${basedir}/sceneMonster.xml"></ant>
+		<ant target="build" antfile="${basedir}/skill.xml"></ant>
+		<ant target="build" antfile="${basedir}/task.xml"></ant>
+		<ant target="build" antfile="${basedir}/taskdialog.xml"></ant>
+		
+	</target>
+</project>

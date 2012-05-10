@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<root>
+<activities>
+#foreach($entry in $list)
+<activity 
+id="$!{entry.id}" 
+grade="$!{entry.grade}"
+dayshow="$!{entry.dayshow}"
+reward_val="$!{entry.reward_val}"
+type="$!{entry.type}"
+count="$!{entry.count}"
+pre_num="$!{entry.pre_num}"
+isuse="$!{entry.isuse}"
+>
+	<activity_time><![CDATA[$!{entry.activity_time_i18n}]]></activity_time>
+	<maxcount><![CDATA[$!{entry.maxcount_i18n}]]></maxcount>
+	<name><![CDATA[$!{entry.name_i18n}]]></name>
+	<desc><![CDATA[$!{entry.desc_i18n}]]></desc>
+	<newgaid_msg><![CDATA[$!{entry.newgaid_msg_i18n}]]></newgaid_msg>
+</activity>
+#end
+</activities>
+</root>
+
+

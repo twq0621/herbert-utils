@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="GBK"?>
+<project basedir="." default="build">
+	<property file="build.properties" />
+	<path id="appClassPath">
+		<fileset dir="${basedir}/../WEB-INF/lib" includes="*.jar" />
+		<fileset dir="${basedir}/applib" includes="*.jar" />
+		
+		
+	</path>
+	<!--建立目录结构-->
+	<target name="build">
+	<!--
+		<copy todir="${dir}map/maps"  overwrite="true">
+		
+		   <fileset dir="${basedir}/appPngToSwf/">  
+		   <include name="**"/>  
+		    </fileset>  
+		 </copy>	<include name ="updateFlash.xml"/>
+-->
+		<ant target="addmap1" antfile="${basedir}/updateFlash.xml"></ant>
+		
+	</target>
+</project>

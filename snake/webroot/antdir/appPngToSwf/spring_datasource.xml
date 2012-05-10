@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- #初始化链接个数 initialSize=5 #最小空闲连接 minIdle=5 #最大空闲连接 maxIdle=10 #最大连接数 
+		maxActive=100 #超时等待时间以毫秒为单位 maxWait=1000 # 是否自动回收超时连接 removeAbandoned=true 
+		# 超时时间(以秒数为单位) removeAbandonedTimeout=180 testOnReturn=true testWhileIdle=true 
+		testOnBorrow=true #进行校验时 validationQuery=SELECT 1 FROM DUAL #是否在自动回收超时连接的时候打印连接的超时错误 
+		logAbandoned=true # false : 空闲时是否验证, 若不通过断掉连接, 前提是空闲对象回收器开启状态 testWhileIdle 
+		= true # -1 : 以毫秒表示空闲对象回收器由运行间隔。值为负数时表示不运行空闲对象回收器 # 若需要回收, 该值最好小于 minEvictableIdleTimeMillis 
+		值 timeBetweenEvictionRunsMillis = 300000 # 1000*60*30 : 被空闲对象回收器回收前在池中保持空闲状态的最小时间, 
+		毫秒表示 # 若需要回收, 该值最好小于DB中的 wait_timeout 值 minEvictableIdleTimeMillis = 320000 -->
+
+
+	<bean id="GameDataDBDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${gamedatadb.driverClass}" />
+		<property name="url" value="${gamedatadb.connectionURL}" />
+		<property name="username" value="${gamedatadb.userId}" />
+		<property name="password" value="${gamedatadb.password}" />
+		<property name="removeAbandoned" value="true" />
+		<property name="removeAbandonedTimeout" value="120" />
+		<property name="initialSize" value="5" />
+		<property name="maxActive" value="50" />
+		<property name="maxIdle" value="3" />
+		<property name="testWhileIdle" value="true" />
+		<property name="minEvictableIdleTimeMillis" value="10000" />
+		<property name="timeBetweenEvictionRunsMillis" value="10000" />
+	</bean>
+
+	<bean id="GameDataDBSqlmapclient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="dataSource">
+			<ref bean="GameDataDBDataSource" />
+		</property>
+		<property name="configLocation">
+			<value>gamedatadb-SqlMapClient.xml</value>
+		</property>
+	</bean>
+
+</beans>
