@@ -1,0 +1,27 @@
+UPDATE t_achieve set f_title_i18n=f_title , f_desc_i18n=f_desc,  f_beizhu_i18n= f_beizhu,  f_name_i18n = f_name;
+UPDATE t_goodmodel set  f_name_i18n = f_name ,f_desc_i18n = f_desc;
+UPDATE t_goods_dc set  f_name_i18n = f_name ,f_rewardDesc_i18n = f_rewardDesc;
+UPDATE t_monster_model set  f_name_i18n = f_name ,f_speaks_i18n = f_speaks,f_desc_i18n=f_desc,f_skill_desc_i18n=f_skill_desc;
+UPDATE t_map set  f_map_name_i18n = f_map_name ,f_monster_desc_i18n = f_monster_desc,f_exercise_desc_i18n=f_exercise_desc,f_boss_desc_i18n=f_boss_desc,f_boss_drop_goods_i18n=f_boss_drop_goods;
+UPDATE t_npc set  f_name_i18n = f_name ,f_nickname_i18n = f_nickname,f_simpleTalk_i18n=f_simpleTalk;
+UPDATE t_skill set  f_name_i18n = f_name ,f_desc_i18n = f_desc,f_source_i18n=f_source;
+UPDATE t_task set  f_name_i18n = f_name ,f_unEndDes_i18n = f_unEndDes,f_endDes_i18n=f_endDes,f_publishDes_i18n=f_publishDes,f_taskTargetDes_i18n=f_taskTargetDes;
+UPDATE t_horse_model set  f_name_i18n = f_name ;
+UPDATE `t_task_dialog` SET `f_talk_content_i18n` = `f_talk_content` ;
+UPDATE `t_language` SET `value_i18n` = `value` ;
+UPDATE `t_hidden_weapons` SET `f_name_i18n` = `f_name`, `f_spcial_desc_i18n` = `f_spcial_desc`, `f_method_i18n` = `f_method` ;
+UPDATE `t_instance` SET `instance_name_i18n` = `instance_name`, `instanceOpenTimeDescrip_i18n` = `instanceOpenTimeDescrip`, `descpt_i18n` = `descpt`, `f_unit_i18n` = `f_unit` ;
+UPDATE `t_lianti` SET `f_name_i18n` = `f_name`, `f_desc_i18n` = `f_desc`, `f_desc_tupo_i18n` = `f_desc_tupo`,`f_food_goodsname_i18n` = `f_food_goodsname`, `f_food_map_i18n` = `f_food_map`, `f_food_monstername_i18n` = `f_food_monstername` ;
+UPDATE `t_totem` SET `f_name_i18n` = `f_name` ;
+UPDATE `t_activity` SET `f_name_i18n` = `f_name`, `f_activity_time_i18n` = `f_activity_time`, `f_maxcount_i18n` = `f_maxcount`, `f_desc_i18n` = `f_desc`;
+UPDATE `t_bangqi_position` SET `f_scene_name_i18n` = `f_scene_name` ;
+UPDATE `t_feast_playconfig` SET `f_name_i18n` = `f_name` ;
+UPDATE `t_gift_packs` SET `desc_str_i18n` = `desc_str` ;
+UPDATE `t_grandprix` SET `f_desc_i18n` = `f_desc`, `f_name_i18n` = `f_name` ;
+UPDATE `t_richplay_rule` SET `f_name_i18n` = `f_name`, `f_ruledesc_i18n` = `f_ruledesc` ;
+UPDATE `t_scroll_bulletin` SET `f_content_i18n` = `f_content` ;
+UPDATE `t_teamfighting` SET `name_i18n` = `name` ;
+UPDATE `t_xianshi_activity` SET `f_name_i18n` = `f_name`, `f_desc_i18n` = `f_desc`, `f_menu_desc_i18n` = `f_menu_desc`, `f_ui_bottom_desc_i18n` = `f_ui_bottom_desc`, `f_remark_i18n` = `f_remark`;
+UPDATE `t_xianshi_activity_reward` SET `f_desc_i18n` = `f_desc`, `f_kuozhan_desc_i18n` = `f_kuozhan_desc`, `f_remark_i18n` = `f_remark`;
+UPDATE `t_skill_effect` SET `f_name_i18n` = `f_name`, `f_desc_i18n` = `f_desc`, `f_clips_desc_i18n` = `f_clips_desc`;
+update t_bowmodel set f_name_i18n=f_name,f_desc_i18n=f_desc

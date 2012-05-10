@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="GBK"?>
+<project basedir="." default="build">
+	<property file="build.properties" />
+	<path id="appClassPath">
+		<fileset dir="${basedir}/../WEB-INF/lib" includes="*.jar" />
+		<fileset dir="${basedir}/applib" includes="*.jar" />
+		
+		
+	</path>
+	<!--建立目录结构-->
+	<target name="build">
+
+		
+		<copy file="${basedir}/appPngToSwf/trans.xml" tofile="d:/ttt/2.xml"   overwrite="true"></copy>
+
+	</target>
+</project>

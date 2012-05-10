@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="GBK"?>
+<project basedir="." default="build">
+	<property file="build.properties" />
+	<path id="appClassPath">
+		<fileset dir="${basedir}/../WEB-INF/lib" includes="*.jar" />
+		<fileset dir="${basedir}/applib" includes="*.jar" />
+	</path>
+	<!--建立目录结构-->
+	<target name="build">
+		
+		<copy  todir="${tomcat2}"   overwrite="true">
+			<fileset dir="${tomcat1}">
+						<include name="**/*.swf" />
+				</fileset>
+		</copy>
+			<copy  todir="${tomcat3}"   overwrite="true">
+			<fileset dir="${tomcat1}">
+						<include name="**/*.swf" />
+				</fileset>
+		</copy>
+		<copy  todir="${tomcat4}"   overwrite="true">
+			<fileset dir="${tomcat1}">
+						<include name="**/*.swf" />
+				</fileset>
+		</copy>
+		<copy  todir="${tomcat22}"   overwrite="true">
+			<fileset dir="${tomcat11}">
+						<include name="**/*.swf" />
+		</fileset>
+		</copy>
+		<copy  todir="${tomcat33}"   overwrite="true">
+			<fileset dir="${tomcat11}">
+						<include name="**/*.swf" />
+		</fileset>
+		</copy>
+		<copy  todir="${tomcat44}"   overwrite="true">
+			<fileset dir="${tomcat11}">
+						<include name="**/*.swf" />
+		</fileset>
+		</copy>
+			
+
+		
+		
+				<copy  todir="${ico2}"   overwrite="true">
+					<fileset dir="${ico1}">
+						<include name="ico.swf" />
+						<include name="ico.tse" />
+						</fileset>
+				</copy>
+					<copy  todir="${ico3}"   overwrite="true">
+					<fileset dir="${ico1}">
+						<include name="ico.swf" />
+						<include name="ico.tse" />
+						</fileset>
+				</copy>
+						<copy  todir="${ico4}"   overwrite="true">
+						<fileset dir="${ico1}">
+						<include name="ico.swf" />
+						<include name="ico.tse" />
+						</fileset>
+				</copy>
+		
+			
+				
+	</target>
+	
+</project> 

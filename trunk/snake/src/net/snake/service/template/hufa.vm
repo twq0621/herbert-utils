@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<root>
+<hufas>
+#foreach($entry in $list)
+<dujie  
+f_id="$!{entry.id}"
+f_name="$!{entry.name}"
+f_need="$!{entry.need}"
+f_need_shentong="$!{entry.need_shentong}"
+f_add_ap="$!{entry.add_ap}"
+f_add_dp="$!{entry.add_dp}"
+f_add_hp="$!{entry.add_hp}"
+f_add_crt="$!{entry.add_crt}"
+f_add_ht="$!{entry.add_ht}"
+f_add_dodge="$!{entry.add_dodge}"
+f_add_as="$!{entry.add_as}"
+f_add_ms="$!{entry.add_ms}"
+f_shentong_buff="$!{entry.shentong_buff}" 
+f_dujie_id="$!{entry.dujieId}" 
+/>
+#end
+</hufas>
+</root>

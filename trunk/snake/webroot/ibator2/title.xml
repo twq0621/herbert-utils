@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ibatorConfiguration PUBLIC "-//Apache Software Foundation//DTD Apache iBATIS Ibator Configuration 1.0//EN" "http://ibatis.apache.org/dtd/ibator-config_1_0.dtd" >
+<ibatorConfiguration>
+	<classPathEntry location="D:\Workspace\tianshen\server\game-lib\lib\mysql.jar" />
+	<ibatorContext id="context1">
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.1.202/aojian_gamedata_v2" userId="sysadmin"
+			password="helloworld">
+		</jdbcConnection>
+
+		<javaModelGenerator targetPackage="net.snake.httpservice.dao.appellation"
+			targetProject="heishiweb" />
+		<sqlMapGenerator targetPackage="net.snake.httpservice.dao.appellation"
+			targetProject="heishiweb" />
+		<daoGenerator targetPackage="net.snake.httpservice.dao.appellation"
+			targetProject="heishiweb" type="SPRING" />
+		<table schema="public" tableName="t_appellation" domainObjectName="Appellation">
+			<columnRenamingRule searchString="^f_" replaceString="" />
+		</table>
+	</ibatorContext>
+</ibatorConfiguration>

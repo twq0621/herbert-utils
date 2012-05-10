@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scene>
+ <head>
+#foreach($entry in $list)
+<grids gridW="25" gridH="25" grid_h="$!{entry.width}" grid_v="$!{entry.height}"/>
+#end
+</head>
+<tiles>
+<t ts="#foreach($entry in $list)
+$!{entry.block}
+#end"/>
+</tiles>
+#foreach($entry in $list)
+$!{entry.movies}
+#end
+</scene>

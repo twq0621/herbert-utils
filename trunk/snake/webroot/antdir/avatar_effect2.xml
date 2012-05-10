@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="GBK"?>
+<project basedir="." default="build">
+	<property file="build.properties" />
+	<path id="appClassPath">
+		<fileset dir="${basedir}/../WEB-INF/lib" includes="*.jar" />
+		<fileset dir="${basedir}/applib" includes="*.jar" />
+		
+		
+	</path>
+	<!--建立目录结构-->
+	<target name="build">
+		<java fork="true" dir="${basedir}/appPngToSwf" classpathref="appClassPath" failonerror="true" classname="net.snake.service.ShengChengVm" args="applicationContext.xml">
+		<arg value="avatar_effect2"/>
+					<arg value="0"/>
+					<arg value="1"/>
+				</java><!---->
+		<exec command="${flash.exe} ${basedir}/appPngToSwf/huanzhuang-effect.jsfl">
+				</exec>
+	<ant target="add" antfile="${basedir}/updateFlash.xml"></ant>
+	</target>
+</project>

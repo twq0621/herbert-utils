@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<monster-model>
+#foreach($entry in $list)
+<model id="$!{entry.id}"
+type="$!{entry.type}"
+headIconId="$!{entry.headIconId}"
+avatarId="$!{entry.avatarId}"
+attack_audio="$!{entry.attackAudio}"
+hurt_audio="$!{entry.hurtAudio}"
+die_audio="$!{entry.delAudio}"
+grade="$!{entry.grade}"
+hp="$!{entry.hp}"
+attack="$!{entry.attack}"
+defence="$!{entry.defence}"
+hit="$!{entry.hit}"
+crt="$!{entry.crt}"
+dodge="$!{entry.dodge}"
+atkColdtime="$!{entry.atkColdtime}"
+movespeed="$!{entry.movespeed}"
+skillPingkan="$!{entry.skillOingkan}"
+skillPingkangrade="$!{entry.skillPingkangrade}"
+skillRelevance="$!{entry.skillRelevance}"
+hpAutoadd="$!{entry.hpAutoadd}"
+addhpPercentage="$!{entry.addhpPercentage}"
+addhpNum="$!{entry.addhpNum}"
+addhpTime="$!{entry.addhpTime}"
+speakTime="$!{entry.speakTime}"
+revivificationTime="$!{entry.revivificationTime}"
+waittime="$!{entry.waittime}"
+responsibility="$!{entry.responsibility}"
+helpHp="$!{entry.helpHp}"
+helpProbability="$!{entry.helpProbability}"
+helpExtent="$!{entry.helpExtent}"
+helpmodelids="$!{entry.helpmodelids}"
+pursuitProbability="$!{entry.pursuitProbability}"
+camp="$!{entry.camp}"
+horseModelId="$!{entry.horseModelId}"
+instance_id="$!{entry.instanceId}"
+subtype="$!{entry.subtype}"
+>
+<name><![CDATA[$!{entry.nameI18n}]]></name>
+<speaks><![CDATA[$!{entry.speaksI18n}]]></speaks>
+<desc><![CDATA[$!{entry.descI18n}]]></desc>
+<skill_desc><![CDATA[$!{entry.skillDescI18n}]]></skill_desc>
+</model>
+#end
+</monster-model>

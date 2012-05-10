@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<root>
+#foreach($entry in $list)
+<skilleffect id="$!{entry.id}"
+userScope="$!{entry.userScope}"
+scopeRadius="$!{entry.scopeRadius}"
+useLimit="$!{entry.useLimit}"
+aoeType="$!{entry.aoeType}"
+hurtConsiderationWay="$!{entry.hurtConsiderationWay}"
+type="$!{entry.type}"
+hurtValue="$!{entry.hurtValue}"
+duration="$!{entry.duration}"
+preDuration="$!{entry.preDuration}"
+effectRepeatOption="$!{entry.effectRepeatOption}"
+effectRepeatCount="$!{entry.effectRepeatCount}"
+specialEffectChange="$!{entry.specialEffectChange}"
+effectRepeatType="$!{entry.effectRepeatType}"
+hurtAdds="$!{entry.hurtAdds}"
+percent="$!{entry.percent}"
+typePn="$!{entry.typePn}"
+jituiDistance="$!{entry.jituiDistance}"
+iconId="$!{entry.iconId}"
+effectId="$!{entry.effectId}"
+buffFlag="$!{entry.buffFlag}"
+>
+<name><![CDATA[$!{entry.nameI18n}]]></name>
+<desc><![CDATA[$!{entry.descI18n}]]></desc>
+<clips_desc><![CDATA[$!{entry.clipsDescI18n}]]></clips_desc>
+</skilleffect>
+#end
+</root>

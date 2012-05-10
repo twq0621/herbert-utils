@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>config.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<import resource="spring_datasource.xml" />
+
+	<bean id="ResiconDAO" class="net.snake.dao.resicon.ResiconDAOImpl">
+		<property name="sqlMapClient" ref="GameDataDBSqlmapclient" />
+	</bean>
+	<bean id="ResIconProvider" class="net.snake.dao.resicon.ResIconProviderImpl">
+		<property name="resiconDAO" ref="ResiconDAO"/>
+	</bean>
+	<bean id="PngToSwf" class="net.snake.service.PngToSwf">
+		<property name="resIconProvider" ref="ResIconProvider" />
+		<property name="pngToSwfJsflTempatePath" value="buildpngtoswf.vm"/>
+		<property name="pngToSWfJsflPath" value="buildpngtoswf.jsfl"/>
+	</bean>
+
+	<!-- dao -->
+	<bean id="GoodModelV2DAO" class="net.snake.dao.goodmodelv2.GoodModelV2DAOImpl">
+		<property name="sqlMapClient" ref="GameDataDBSqlmapclient" />
+	</bean>
+	
+	<bean id="MonsterModelDAO" class="net.snake.dao.monstermodel.MonsterModelDAOImpl">
+		<property name="sqlMapClient" ref="GameDataDBSqlmapclient" ></property>
+	</bean>
+	<bean id="SkillDAO" class="net.snake.dao.skill.SkillDAOImpl">
+		<property name="sqlMapClient" ref="GameDataDBSqlmapclient"></property>
+	</bean>
+	<bean id="NPCDAO" class="net.snake.dao.npc.NPCDAOImpl">
+		<property name="sqlMapClient" ref="GameDataDBSqlmapclient" />
+	</bean>
+	
+	<bean id="TaskDAO" class="net.snake.dao.task.TaskDAOImpl" >
+		<property name="sqlMapClient" ref="GameDataDBSqlmapclient" />
+	</bean>
+	<bean id="TaskdialogDAO" class="net.snake.dao.taskdialog.TaskdialogDAOImpl" >
+		<property name="sqlMapClient" ref="GameDataDBSqlmapclient" />
+	</bean>
+	<bean id="HorseModelDAO" class="net.snake.dao.horsemodel.HorseModelDAOImpl">
+		<property name="sqlMapClient" ref="GameDataDBSqlmapclient"></property>
+	</bean>
+	
+	<bean id="SkillEffectDAO" class="net.snake.dao.skilleffect.SkillEffectDAOImpl">
+		<property name="sqlMapClient" ref="GameDataDBSqlmapclient"></property>
+	</bean>
+	
+	<bean id="AvatarDAO" class="net.snake.dao.avatar.AvatarDAOImpl">
+		<property name="sqlMapClient" ref="GameDataDBSqlmapclient"></property>
+	</bean>
+	<bean id="EffectDAO" class="net.snake.dao.effect.EffectDAOImpl">
+		<property name="sqlMapClient" ref="GameDataDBSqlmapclient"></property>
+	</bean>
+	
+	<bean id="SoundDAO" class="net.snake.dao.sound.SoundDAOImpl">
+		<property name="sqlMapClient" ref="GameDataDBSqlmapclient"></property>
+	</bean>
+	
+	<bean id="MapDAO" class="net.snake.dao.map.MapDAOImpl">
+		<property name="sqlMapClient" ref="GameDataDBSqlmapclient"></property>
+	</bean>
+		<bean id="Map2DAO" class="net.snake.dao.map2.Map2DAOImpl">
+		<property name="sqlMapClient" ref="GameDataDBSqlmapclient"></property>
+	</bean>
+	<bean id="Transport2DAO" class="net.snake.dao.transport2.Transport2DAOImpl">
+		<property name="sqlMapClient" ref="GameDataDBSqlmapclient"></property>
+	</bean>
+	
+	<bean id="SceneMonsterDAO" class="net.snake.dao.sceneMonster.SceneMonsterDAOImpl">
+		<property name="sqlMapClient" ref="GameDataDBSqlmapclient"></property>
+	</bean>
+	
+	<bean id="SkillupgradeExpDAO" class="net.snake.dao.skillupgradeexp.SkillupgradeExpDAOImpl">
+		<property name="sqlMapClient" ref="GameDataDBSqlmapclient"></property>
+	</bean>
+	
+	<bean id="AchieveDAO" class="net.snake.dao.achieve.AchieveDAOImpl">
+		<property name="sqlMapClient" ref="GameDataDBSqlmapclient"></property>
+	</bean>
+	
+	<bean id="InstanceDAO" class="net.snake.dao.instance.InstanceDAOImpl">
+		<property name="sqlMapClient" ref="GameDataDBSqlmapclient"></property>
+	</bean>
+	<bean id="ChannelDAO" class="net.snake.dao.channel.ChannelDAOImpl">
+		<property name="sqlMapClient" ref="GameDataDBSqlmapclient"></property>
+	</bean>
+	<bean id="PublicJavaDao" class="net.snake.dao.publicjava.PublicJavaDaoImpl">
+		<property name="sqlMapClient" ref="GameDataDBSqlmapclient"></property>
+	</bean>
+	
+	<!--Provider -->
+	
+	<bean id="goodModelDataProvider" class="net.snake.dao.goodmodelv2.GoodModelDataProviderImpl">
+		<property name="goodModelV2DAO" ref="GoodModelV2DAO" />
+	</bean>
+	
+	
+	<bean id="monsterModelDataProvider" class="net.snake.dao.monstermodel.MonsterModelDataProviderImpl">
+		<property name="monsterModelDAO" ref="MonsterModelDAO"></property>
+	</bean>
+	
+	<bean id="skillProvider" class="net.snake.dao.skill.SkillProviderImpl">
+		<property name="skillDAO" ref="SkillDAO"></property>
+		<property name="skillupgradeExpDAO" ref="SkillupgradeExpDAO"></property>
+	</bean>
+	
+
+	<bean id="horseModelProvider" class="net.snake.dao.horsemodel.HorseModelProviderImpl">
+		<property name="horseModelDAO" ref="HorseModelDAO"></property>
+	</bean>
+	
+	<bean id="skillEffectProvider" class="net.snake.dao.skilleffect.SkillEffectProviderImpl">
+		<property name="skillEffectDAO"  ref="SkillEffectDAO"></property>
+	</bean>
+	
+	<bean id="avatarProvider" class="net.snake.dao.avatar.AvatarProviderImpl">
+		<property name="avatarDAO"  ref="AvatarDAO"></property>
+		<property name="effectDAO"  ref="EffectDAO"></property>
+		<property name="soundDAO"  ref="SoundDAO"></property>
+	</bean>
+	
+	<bean id="taskDataProvider" class="net.snake.dao.task.TaskDataProviderImpl">
+		<property name="taskDAO" ref="TaskDAO" />
+	</bean>
+	<bean id="taskdialogDataProvider" class="net.snake.dao.taskdialog.TaskdialogDataProviderImpl">
+		<property name="taskdialogDAO" ref="TaskdialogDAO" />
+	</bean>
+	
+	<bean id="nPCDataProvider" class="net.snake.dao.npc.NPCDataProviderImpl">
+		<property name="npcdao" ref="NPCDAO" />
+	</bean>
+	
+	<bean id="MapDataProvider" class="net.snake.dao.map.MapDataProviderImpl">
+		<property name="mapDAO" ref="MapDAO" />
+	</bean>
+		<bean id="Map2DataProvider" class="net.snake.dao.map2.Map2DataProviderImpl">
+		<property name="map2dao" ref="Map2DAO" />
+	</bean>
+	<bean id="Transpert2DataProvider" class="net.snake.dao.transport2.Transport2DataProviderImpl">
+		<property name="transport2dao" ref="Transport2DAO" />
+	</bean>
+	
+	<bean id="SceneMonsterProvider" class="net.snake.dao.sceneMonster.SceneMonsterProviderImpl">
+		<property name="sceneMonsterDAO" ref="SceneMonsterDAO" />
+	</bean>
+	
+	
+	<bean id="PublicJavaProvider" class="net.snake.dao.publicjava.PublicJavaProviderImpl">
+		<property name="achieveDAO" ref="AchieveDAO" />
+		<property name="instanceDAO" ref="InstanceDAO" />
+		<property name="channelDAO" ref="ChannelDAO" />
+		<property name="publicJavaDao" ref="PublicJavaDao" />
+	</bean>
+	
+	
+	<!--serverc-->
+	<bean id="ShengChengVm" class="net.snake.service.ShengChengVm">
+		<property name="horseModelProvider" ref="horseModelProvider"></property>
+		<property name="goodModelDataProvider" ref="goodModelDataProvider"></property>
+		<property name="monsterModelDataProvider" ref="monsterModelDataProvider"></property>
+		<property name="skillProvider" ref="skillProvider"></property>
+		<property name="skillEffectProvider" ref="skillEffectProvider"></property>
+		<property name="npcDataProvider" ref="nPCDataProvider"></property>
+		<property name="taskDataProvider" ref="taskDataProvider"></property>
+		<property name="transpert2DataProvider" ref="Transpert2DataProvider"></property>
+		<property name="mapDataProvider" ref="MapDataProvider"></property>
+		<property name="map2DataProvider" ref="Map2DataProvider"></property>
+		<property name="avatarProvider" ref="avatarProvider"></property>
+		<property name="taskdialogDataProvider" ref="taskdialogDataProvider"></property>
+		<property name="resIconProvider" ref="ResIconProvider" />
+		<property name="sceneMonsterProvider" ref="SceneMonsterProvider" />
+		<property name="publicJavaProvider" ref="PublicJavaProvider" />
+	</bean>
+
+</beans>

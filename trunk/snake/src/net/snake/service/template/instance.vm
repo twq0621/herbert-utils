@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<root>
+<instances>
+#foreach($entry in $list)
+<instance  
+instance_model_id="$!{entry.instanceModelId}"
+instance_type="$!{entry.instanceType}"
+lifecycle="$!{entry.lifecycle}"
+population_high_limit="$!{entry.populationHighLimit}"
+population_lower_limit="$!{entry.populationLowerLimit}"
+level_high_limit="$!{entry.levelHighLimit}"
+level_lower_limit="$!{entry.levelLowerLimit}"
+open_time_limite="$!{entry.openTimeLimite}"
+enable="$!{entry.enable}"
+enter_count_limite="$!{entry.enterCountLimite}"
+weekdayshow="$!{entry.weekdayshow}"
+groupsum="$!{entry.groupsum}"
+maxcount="$!{entry.maxcount}"
+rewardgrade="$!{entry.rewardgrade}"
+team_limite="$!{entry.teamLimite}"
+task_limite="$!{entry.taskLimite}"
+good_limite="$!{entry.goodLimite}"
+revive="$!{entry.revive}"
+transNpcID="$!{entry.transnpcid}"
+>
+<instanceOpenTimeDescrip><![CDATA[$!{entry.instanceopentimedescripI18n}]]></instanceOpenTimeDescrip>
+<instance_name><![CDATA[$!{entry.instanceNameI18n}]]></instance_name>
+<descpt><![CDATA[$!{entry.descptI18n}]]></descpt>
+</instance>
+#end
+</instances>
+</root>
