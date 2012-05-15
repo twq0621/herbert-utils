@@ -1,7 +1,0 @@
-option confirm:yes-to-all
- 
-load d:/TOMCAT3/webapps/eflashdir D:\share\eflashdir02161
-criteria binary
-expand all
-select left.diff left.orphan
-copyto path:relative d:/TOMCAT3/webapps/upgrade_eflashdir
