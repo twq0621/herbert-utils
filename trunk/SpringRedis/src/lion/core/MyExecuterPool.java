@@ -1,7 +1,9 @@
 package lion.core;
 
+import lion.codec.INotNeedAuthProcessor;
 import lion.codec.IServerDispatcher;
 import lion.codec.IThreadProcessor;
+import lion.codec.MsgProcessor;
 import lion.codec.MyRequestMsg;
 
 import org.jboss.netty.channel.Channel;
