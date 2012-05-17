@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>SpringRedis.gs</groupId>
 	<artifactId>gameServer-gs</artifactId>
-	<version>0.1.1-RELEASE</version>
+	<version>0.1.2-RELEASE</version>
 	<name>gameserver.gs</name>
 	<repositories>
 		<repository>
