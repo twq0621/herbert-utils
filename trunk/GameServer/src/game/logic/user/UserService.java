@@ -1,20 +1,5 @@
 package game.logic.user;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import javax.annotation.Resource;
-import org.jboss.netty.channel.Channel;
-import org.jboss.netty.util.internal.ConcurrentHashMap;
-import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
-
-
-import lion.common.BaseServiceImpl;
-import lion.core.UserSession;
 import game.common.ErrorCode;
 import game.dto.CreateRole_C2S;
 import game.dto.CreateRole_S2C;
@@ -25,6 +10,21 @@ import game.dto.Login_S2C;
 import game.entity.Role;
 import game.entity.User;
 import game.logic.role.RoleDao;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.annotation.Resource;
+
+import lion.common.BaseServiceImpl;
+import lion.core.UserSession;
+
+import org.jboss.netty.channel.Channel;
+import org.jboss.netty.util.internal.ConcurrentHashMap;
+import org.springframework.stereotype.Component;
 
 /**
  *  用户信息
@@ -38,7 +38,6 @@ import game.logic.role.RoleDao;
  * @date Apr 4, 2012
  */
 @Component
-@Transactional
 public class UserService extends BaseServiceImpl {
 
 	private Map<Integer, UserSession> usersMap = new ConcurrentHashMap<Integer, UserSession>();
