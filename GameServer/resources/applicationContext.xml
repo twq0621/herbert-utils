@@ -70,7 +70,7 @@
 	<bean id="springContextHolder" class="lion.core.SpringContextHolder" lazy-init="false" />
 
 	<!-- 第一个数据库 Master 负责写 -->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+	<bean id="dataSource" class="org.apache.tomcat.jdbc.DataSource"
 		destroy-method="close">
 		<!-- Connection Info -->
 		<property name="driverClassName">
@@ -86,13 +86,19 @@
 			<value>${mysql.password}</value>
 		</property>
 
-		<!-- Connection Pooling DBCP -->
+		<!-- Connection Pooling tomcat-jdbc -->
+		<!-- @see http://people.apache.org/~fhanik/jdbc-pool/jdbc-pool.html -->
+		<property name="testOnBorrow" value="true" />
+		<property name="validationQuery" value="SELECT 1" />
+		<property name="testOnReturn" value="false" />
+		<property name="validationInterval" value="30000" />
+		<property name="timeBetweenEvictionRunsMillis" value="30000" />
 		<!-- 初始化时创建的连接数 -->
-		<property name="initialSize" value="5" />
+		<property name="initialSize" value="10" />
 		<!-- 最大连接数据库连接数，设置为0时，表示没有限制； -->
 		<property name="maxActive" value="100" />
-		<!-- 最大等待连接中的数量，设置为0时，表示没有限制； -->
-		<property name="maxIdle" value="30" />
+		<!-- 最小等待连接中的数量，设置为0时，表示没有限制； -->
+		<property name="minIdle" value="10" />
 		<!-- 最大等待秒数，单位为毫秒， 超过时间会报出错误信息； -->
 		<property name="maxWait" value="30000" />
 		<!-- 是否可用预执行 -->
@@ -102,35 +108,41 @@
 	</bean>
 
 	<!-- 第二个数据库 Slave 负责读 -->
-	<bean id="dataSourceSlave" class="org.apache.commons.dbcp.BasicDataSource"
+	<bean id="dataSourceSlave" class="org.apache.tomcat.jdbc.DataSource"
 		destroy-method="close">
 		<!-- Connection Info -->
 		<property name="driverClassName">
 			<value>${mysql.classname}</value>
 		</property>
 		<property name="url">
-			<value>${mysql.url1}</value>
+			<value>${mysql.url}</value>
 		</property>
 		<property name="username">
-			<value>${mysql.username1}</value>
+			<value>${mysql.username}</value>
 		</property>
 		<property name="password">
-			<value>${mysql.password1}</value>
+			<value>${mysql.password}</value>
 		</property>
 
-		<!-- Connection Pooling DBCP -->
+		<!-- Connection Pooling tomcat-jdbc -->
+		<!-- @see http://people.apache.org/~fhanik/jdbc-pool/jdbc-pool.html -->
+		<property name="testOnBorrow" value="true" />
+		<property name="validationQuery" value="SELECT 1" />
+		<property name="testOnReturn" value="false" />
+		<property name="validationInterval" value="30000" />
+		<property name="timeBetweenEvictionRunsMillis" value="30000" />
 		<!-- 初始化时创建的连接数 -->
-		<property name="initialSize" value="5" />
+		<property name="initialSize" value="10" />
 		<!-- 最大连接数据库连接数，设置为0时，表示没有限制； -->
 		<property name="maxActive" value="100" />
-		<!-- 最大等待连接中的数量，设置为0时，表示没有限制； -->
-		<property name="maxIdle" value="30" />
+		<!-- 最小等待连接中的数量，设置为0时，表示没有限制； -->
+		<property name="minIdle" value="10" />
 		<!-- 最大等待秒数，单位为毫秒， 超过时间会报出错误信息； -->
 		<property name="maxWait" value="30000" />
 		<!-- 是否可用预执行 -->
 		<property name="poolPreparedStatements" value="true" />
 		<!-- 设置从数据源中返回的连接是否采用自动提交机制，默认值为 true；false支持事务 -->
-		<property name="defaultAutoCommit" value="true" />
+		<property name="defaultAutoCommit" value="false" />
 	</bean>
 
 	<!-- SqlSessionFactory -->
