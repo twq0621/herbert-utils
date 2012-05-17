@@ -1,7 +1,5 @@
 package lion.codec;
 
-import net.snake.netio.message.MsgDispatcher;
-import net.snake.netio.player.GamePlayer;
 
 /**
  * @author serv_devr
