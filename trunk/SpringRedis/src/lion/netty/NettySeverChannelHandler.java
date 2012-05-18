@@ -32,7 +32,7 @@ public class NettySeverChannelHandler extends SimpleChannelHandler {
 	@Override
 	public void channelClosed(ChannelHandlerContext ctx, ChannelStateEvent e) throws Exception {
 		LogicExecuterPool.execute(e.getChannel(), new ChannelClose_C2S());
-		MyExecuterPool.gamePlayermap.remove(e.getChannel().getId());
+		MyExecuterPool.removeGamePlayer(e.getChannel());
 		super.channelClosed(ctx, e);
 	}
 

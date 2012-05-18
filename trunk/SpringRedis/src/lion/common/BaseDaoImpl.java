@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
-import lion.core.ProtobufRedisTemplate;
+import lion.serialize.ProtobufRedisTemplate;
 
 public abstract class BaseDaoImpl<E> extends SqlSessionDaoSupport {
 

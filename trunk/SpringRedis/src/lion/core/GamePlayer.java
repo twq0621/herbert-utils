@@ -6,14 +6,15 @@ import java.util.LinkedList;
 
 import lion.message.MyRequestMsg;
 
-import org.apache.log4j.Logger;
 import org.jboss.netty.channel.Channel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * @author wutao
+ * @author hexuhui
  */
 final public class GamePlayer {
-	private static Logger logger = Logger.getLogger(GamePlayer.class);
+	public static final Logger logger = LoggerFactory.getLogger(GamePlayer.class);
 
 	public static final int Session_Type_Game = 1;
 	public static final int Session_Type_Chat = 2;

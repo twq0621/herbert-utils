@@ -35,7 +35,7 @@ public class MyServerResponse implements MyResponseMsg {
 		capacity = 64;
 
 		output.position(8);
-		//output.position(6);
+		// output.position(6);
 	}
 
 	public MyServerResponse(int initialSize) {
@@ -43,7 +43,7 @@ public class MyServerResponse implements MyResponseMsg {
 		capacity = initialSize;
 
 		output.position(8);
-		//output.position(6);
+		// output.position(6);
 	}
 
 	public final boolean beginBatchAdd(int formatLen) {
@@ -224,6 +224,11 @@ public class MyServerResponse implements MyResponseMsg {
 	@Override
 	public final void setMsgCode(int code) {
 		msgCode = code;
+	}
+
+	@Override
+	public byte[] entireMsg() {
+		return output.array();
 	}
 
 }
