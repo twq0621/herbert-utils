@@ -4,7 +4,7 @@ import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import java.util.LinkedList;
 
-import lion.codec.MyRequestMsg;
+import lion.message.MyRequestMsg;
 
 import org.apache.log4j.Logger;
 import org.jboss.netty.channel.Channel;
