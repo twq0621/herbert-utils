@@ -141,9 +141,9 @@
 				<version>5.1.18</version>
 			</dependency>
 			<dependency>
-				<groupId>quartz</groupId>
-				<artifactId>quartz</artifactId>
-				<version>1.5.2</version>
+			    <groupId>org.quartz-scheduler</groupId>
+			    <artifactId>quartz</artifactId>
+			    <version>1.8.6</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -246,7 +246,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>quartz</groupId>
+			<groupId>org.quartz-scheduler</groupId>
 			<artifactId>quartz</artifactId>
 		</dependency>
 		
