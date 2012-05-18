@@ -1,4 +1,4 @@
-package lion.codec;
+package lion.processor;
 
 /**
  * 实现此接口的处理器可以使用线程池中的线程进行处理,非场景同步消息

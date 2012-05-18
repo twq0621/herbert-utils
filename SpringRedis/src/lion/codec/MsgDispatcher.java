@@ -3,6 +3,8 @@ package lion.codec;
 import java.util.HashMap;
 import java.util.Map;
 
+import lion.processor.MsgProcessor;
+
 import org.apache.log4j.Logger;
 
 

@@ -5,9 +5,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import lion.codec.INotNeedAuthProcessor;
 import lion.codec.IServerDispatcher;
-import lion.codec.IThreadProcessor;
-import lion.codec.MsgProcessor;
 import lion.message.MyRequestMsg;
+import lion.processor.IThreadProcessor;
+import lion.processor.MsgProcessor;
 
 import org.jboss.netty.channel.Channel;
 import org.slf4j.Logger;

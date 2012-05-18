@@ -17,7 +17,6 @@ import java.util.jar.JarFile;
 import java.util.regex.Pattern;
 
 import lion.ann.MsgCodeAnn;
-import lion.codec.MsgProcessor;
 
 import org.apache.log4j.Logger;
 
