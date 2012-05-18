@@ -7,6 +7,7 @@ import org.quartz.CronExpression;
 import org.quartz.CronTrigger;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class QuartzApi {
@@ -64,41 +65,6 @@ public class QuartzApi {
 			triggerMap.put(jobName, Ctrigger);
 			// 注册作业
 			sched.scheduleJob(job, Ctrigger);
-			if (!sched.isShutdown()) {
-				sched.start();
-			}
-
-		} catch (Exception e) {
-			logger.error(e.getMessage(), e);
-		}
-	}
-
-	/**
-	 * cron类型作业
-	 */
-	public void startRankingUpdate() {
-
-		sched = QuartzUtil.getDefaultScheduler();
-
-		String jobName = "RankingUpdate";
-		String groupName = "DEFAULT";
-		// 任务名称，任务组名称，任务实现类
-		job = new JobDetail(jobName, groupName, RankingQuartz.class);
-		try {
-			// 删除作业
-			if (sched.getJobDetail(jobName, groupName) != null) {
-				sched.deleteJob(jobName, groupName);
-			}
-			Ctrigger = new CronTrigger("RankingTrigger", null);
-			CronExpression cronExpression = null;
-			// 夜里6点运行
-			cronExpression = new CronExpression("0 0 4,12 * * ?");
-
-			Ctrigger.setCronExpression(cronExpression);
-
-			// 注册作业
-			sched.scheduleJob(job, Ctrigger);
-
 			if (!sched.isShutdown()) {
 				sched.start();
 			}
