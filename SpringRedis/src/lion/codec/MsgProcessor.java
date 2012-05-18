@@ -1,5 +1,7 @@
 package lion.codec;
 
+import lion.core.GamePlayer;
+
 
 
 
