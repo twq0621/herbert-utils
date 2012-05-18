@@ -79,7 +79,7 @@ final public class GamePlayer {
 	 * 
 	 * @param session
 	 */
-	public static void newPlayer4Session(Channel channel) {
+	public static GamePlayer newPlayer4Session(Channel channel) {
 		GamePlayer player = new GamePlayer();
 		player.requests = new LinkedList<MyRequestMsg>();
 		player.channel = channel;
@@ -87,6 +87,7 @@ final public class GamePlayer {
 		SocketAddress socketaddress = channel.getRemoteAddress();
 		InetSocketAddress s = (InetSocketAddress) socketaddress;
 		player.setAddress(s.getAddress().getHostAddress());
+		return player;
 	}
 
 	public void sendMsg(Object obj) {
