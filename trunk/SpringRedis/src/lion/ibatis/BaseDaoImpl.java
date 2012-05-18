@@ -1,4 +1,4 @@
-package lion.common;
+package lion.ibatis;
 
 import java.util.List;
 import java.util.Map;
