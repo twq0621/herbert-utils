@@ -1,6 +1,7 @@
 package game.logic.role;
 
-import lion.common.BaseDaoImpl;
+import lion.ibatis.BaseDaoImpl;
+
 import org.springframework.stereotype.Repository;
 import game.entity.RoleFriend;
 

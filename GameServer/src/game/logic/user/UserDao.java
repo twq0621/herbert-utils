@@ -1,6 +1,7 @@
 package game.logic.user;
 
-import lion.common.BaseDaoImpl;
+import lion.ibatis.BaseDaoImpl;
+
 import org.springframework.stereotype.Repository;
 import game.entity.User;
 
