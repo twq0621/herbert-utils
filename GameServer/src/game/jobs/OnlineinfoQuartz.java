@@ -1,8 +1,5 @@
 package game.jobs;
 
-import net.snake.GameServer;
-import net.snake.gamemodel.gm.persistence.OnlineinfoManager;
-
 import org.apache.log4j.Logger;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
