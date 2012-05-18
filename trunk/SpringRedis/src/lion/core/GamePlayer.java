@@ -7,34 +7,32 @@ import java.util.LinkedList;
 import lion.codec.MyRequestMsg;
 
 import org.apache.log4j.Logger;
+import org.jboss.netty.channel.Channel;
+
 /**
  * @author wutao
  */
-final public class GamePlayer{
+final public class GamePlayer {
 	private static Logger logger = Logger.getLogger(GamePlayer.class);
-	
-	public static final int Session_Type_Game=1;
-	public static final int Session_Type_Chat=2;
-	
-	
+
+	public static final int Session_Type_Game = 1;
+	public static final int Session_Type_Chat = 2;
+
 	private int accountid;
 	private boolean validate;
 	private int sessionType;
-	
-	/**上次心跳时间戳,上次收到客户端消息的时间戳*/
+
+	/** 上次心跳时间戳,上次收到客户端消息的时间戳 */
 	private volatile long lastTime = System.currentTimeMillis();// 心跳检测使用
 	private long initTime = System.currentTimeMillis();
 	private LinkedList<MyRequestMsg> requests = null;
-	private volatile IoSession client = null;
+	private Channel channel = null;
 	private String address = null;
 	private volatile Object gameCharacter = null;
 	private boolean islogout = false;
 
-	private static final AttributeKey KEY_PLAYER_SESSION = new AttributeKey(
-			GamePlayer.class, "session.player");
-
 	private GamePlayer() {
-		validate =false;
+		validate = false;
 		sessionType = Session_Type_Game;
 	}
 
@@ -45,6 +43,7 @@ final public class GamePlayer{
 	public void setAccountid(int accountid) {
 		this.accountid = accountid;
 	}
+
 	/**
 	 * 是否通过md5验证
 	 * 
@@ -53,13 +52,16 @@ final public class GamePlayer{
 	public final boolean isValidate() {
 		return validate;
 	}
+
 	/**
 	 * 设置该会话已经通过验证
+	 * 
 	 * @param isvalidate
 	 */
 	public final void setValidate(boolean v) {
 		this.validate = v;
 	}
+
 	public long getLastTime() {
 		return lastTime;
 	}
@@ -67,57 +69,31 @@ final public class GamePlayer{
 	public void setLastTime(long lastTime) {
 		this.lastTime = lastTime;
 	}
+
 	public long getInitTime() {
 		return initTime;
 	}
-	public void removeIOSessionMap() {
-		if (client != null) {
-			client.removeAttribute(KEY_PLAYER_SESSION);
-			synchronized (requests) {
-				requests.clear();
-			}
-		}
-	}
 
-	public static GamePlayer getGamePlayer(IoSession session) {
-		Object playerObj = session.getAttribute(KEY_PLAYER_SESSION);
-		return (GamePlayer) playerObj;
-	}
 	/**
 	 * 为新的会话创建一个玩家对象。
+	 * 
 	 * @param session
 	 */
-	public static void newPlayer4Session(IoSession session){
-		GamePlayer player=new GamePlayer();
-		player.requests = new LinkedList<RequestMsg>();
-		player.client = session;
+	public static void newPlayer4Session(Channel channel) {
+		GamePlayer player = new GamePlayer();
+		player.requests = new LinkedList<MyRequestMsg>();
+		player.channel = channel;
 		player.setLastTime(System.currentTimeMillis());
-		SocketAddress socketaddress = session.getRemoteAddress();
+		SocketAddress socketaddress = channel.getRemoteAddress();
 		InetSocketAddress s = (InetSocketAddress) socketaddress;
 		player.setAddress(s.getAddress().getHostAddress());
-		
-		session.setAttribute(KEY_PLAYER_SESSION, player);
 	}
 
-
-	public WriteFuture sendMsg(ResponseMsg msg) {
-		if (client == null || !client.isConnected() || client.isClosing()) {
-			return null;
+	public void sendMsg(Object obj) {
+		if (obj == null || !channel.isConnected()) {
+			return;
 		}
-		return client.write(msg);
-	}
-
-	public Object getAttribute(Object key) {
-		return client.getAttribute(key);
-	}
-
-	public Object setAttribute(Object key, Object value) {
-		return client.setAttribute(key, value);
-	}
-
-	public Object removeAttribute(Object key, Object value) {
-		return client.removeAttribute(key, value);
-
+		channel.write(obj);
 	}
 
 	public void logout() {
@@ -125,10 +101,10 @@ final public class GamePlayer{
 			if (islogout) {
 				return;
 			}
-			
+
 			islogout = true;
 			try {
-				client.close(true);
+				channel.close();
 			} catch (Exception e) {
 			}
 		}
@@ -199,21 +175,21 @@ final public class GamePlayer{
 
 	public void close() {
 		try {
-			client.close(false);
+			channel.close();
 		} catch (Exception e) {
-			logger.error(e.getMessage(),e);
+			logger.error(e.getMessage(), e);
 		}
 	}
 
-	public IoSession getIoSession() {
-		return client;
+	public Channel getIoSession() {
+		return channel;
 	}
-	
-	public final int getSessionType(){
+
+	public final int getSessionType() {
 		return sessionType;
 	}
 
-	public final void setSessionType(int type){
+	public final void setSessionType(int type) {
 		sessionType = type;
 	}
 

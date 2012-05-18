@@ -1,5 +1,6 @@
 package lion.codec;
 
+import lion.core.GamePlayer;
 
 /**
  * @author serv_devr
@@ -28,6 +29,7 @@ public interface IServerDispatcher {
 
 	/**
 	 * 检查IP是否是管理IP
+	 * 
 	 * @param ip
 	 * @return true是
 	 */
@@ -35,6 +37,7 @@ public interface IServerDispatcher {
 
 	/**
 	 * 返回消息号处理类
+	 * 
 	 * @param msgCode
 	 * @return
 	 */
@@ -42,6 +45,7 @@ public interface IServerDispatcher {
 
 	/**
 	 * session关闭处理
+	 * 
 	 * @param player
 	 */
 	public void sessionClosed(GamePlayer player);
