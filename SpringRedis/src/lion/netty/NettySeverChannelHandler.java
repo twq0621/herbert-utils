@@ -6,6 +6,7 @@ import java.nio.channels.ClosedChannelException;
 import lion.core.ChannelClose_C2S;
 import lion.core.IGameService;
 import lion.core.LogicExecuterPool;
+import lion.core.MyExecuterPool;
 
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelStateEvent;
@@ -31,6 +32,7 @@ public class NettySeverChannelHandler extends SimpleChannelHandler {
 	@Override
 	public void channelClosed(ChannelHandlerContext ctx, ChannelStateEvent e) throws Exception {
 		LogicExecuterPool.execute(e.getChannel(), new ChannelClose_C2S());
+		MyExecuterPool.gamePlayermap.remove(e.getChannel().getId());
 		super.channelClosed(ctx, e);
 	}
 
@@ -50,6 +52,12 @@ public class NettySeverChannelHandler extends SimpleChannelHandler {
 		if (e.getChannel().isOpen()) {
 			e.getChannel().close();
 		}
+	}
+
+	@Override
+	public void channelOpen(ChannelHandlerContext ctx, ChannelStateEvent e) throws Exception {
+		super.channelOpen(ctx, e);
+		MyExecuterPool.initGamePlayer(ctx.getChannel());
 	}
 
 }
