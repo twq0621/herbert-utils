@@ -7,7 +7,7 @@ import lion.codec.INotNeedAuthProcessor;
 import lion.codec.IServerDispatcher;
 import lion.codec.IThreadProcessor;
 import lion.codec.MsgProcessor;
-import lion.codec.MyRequestMsg;
+import lion.message.MyRequestMsg;
 
 import org.jboss.netty.channel.Channel;
 import org.slf4j.Logger;

@@ -1,4 +1,4 @@
-package lion.codec;
+package lion.message;
 
 /**
  * 此接口声明了响应消息编码函数，服务端生产的每个响应消息都必须实现此接口。<br>

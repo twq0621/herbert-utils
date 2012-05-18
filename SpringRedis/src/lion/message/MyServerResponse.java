@@ -1,4 +1,4 @@
-package lion.codec;
+package lion.message;
 
 import java.io.IOException;
 import java.io.UTFDataFormatException;
