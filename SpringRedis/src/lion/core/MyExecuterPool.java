@@ -69,6 +69,10 @@ public class MyExecuterPool {
 		}
 	}
 
+	public static void removeGamePlayer(Channel channel) {
+		gamePlayermap.remove(channel.getId());
+	}
+
 	public static void initGamePlayer(Channel channel) {
 		gamePlayermap.put(channel.getId(), GamePlayer.newPlayer4Session(channel));
 	}

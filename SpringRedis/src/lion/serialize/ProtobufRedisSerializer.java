@@ -1,4 +1,4 @@
-package lion.core;
+package lion.serialize;
 
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.SerializationException;
