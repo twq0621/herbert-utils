@@ -1,4 +1,4 @@
-package lion.codec;
+package lion.processor;
 
 import lion.core.GamePlayer;
 import lion.message.MyRequestMsg;
