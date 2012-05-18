@@ -14,3 +14,10 @@ Known issues:
 -------------
 Mixing arrays and generics does not work well. For example the following property 
 would be translated wrong: "public ArrayList<Rollercoaster[]> rollerMatrix;"
+
+
+
+
+-----------------------------------
+release 2
+1.添加了quartz框架
