@@ -156,6 +156,11 @@ final public class GamePlayer {
 		return null;
 	}
 
+	/**
+	 * 登录成功创建Hero对象的时候调用
+	 * 
+	 * @param character
+	 */
 	public <T> void setCurrentCharacter(T character) {
 		gameCharacter = character;
 	}
@@ -164,7 +169,6 @@ final public class GamePlayer {
 		synchronized (requests) {
 			this.requests.clear();
 		}
-
 	}
 
 	public String getAddress() {
