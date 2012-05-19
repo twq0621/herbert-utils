@@ -17,6 +17,8 @@ import java.util.Locale;
  */
 public class KernelConstants {	
     
-    public final static Locale DEFAULT_LOCALE = Locale.CHINA;
+	public final static Locale DEFAULT_LOCALE = Locale.CHINA;
+	
+    public final static boolean isOpenProcessCountInfo = false;
     
 }
