@@ -64,12 +64,15 @@ public class FrameUpdateService implements Runnable {
 			} catch (Exception e) {
 				logger.error("handle hero's msg with err", e);
 			}
-			// 必须要刷楨循环里执行的任务
-			for (Runnable run = taskList.poll(); run != null; run = taskList.poll()) {
-				try {
-					run.run();
-				} catch (Exception ex) {
-					logger.error("loop frame-task with err", ex);
+			if (commontimer.isIntervalOK(starttime)) {
+				// TODO 其他服务器中需要不断刷新的job，例如事件，公告等
+				// 必须要刷楨循环里执行的任务
+				for (Runnable run = taskList.poll(); run != null; run = taskList.poll()) {
+					try {
+						run.run();
+					} catch (Exception ex) {
+						logger.error("loop frame-task with err", ex);
+					}
 				}
 			}
 			// 补帧计算========================================================
@@ -157,6 +160,17 @@ public class FrameUpdateService implements Runnable {
 				logger.error("process msg with err ", e);
 			}
 		}
+	}
+
+	public void startFrameupdate() {
+		logger.warn("人物角色请求、怪物定时攻击等操作，定时轮询刷帧开始");
+		polling = true;
+		frameupdateThread = new Thread(this, FrameUpdateService.class.getName());
+		frameupdateThread.start();
+	}
+
+	public void stopFrameupdate() {
+		polling = false;
 	}
 
 }
