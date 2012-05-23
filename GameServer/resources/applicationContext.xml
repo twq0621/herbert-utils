@@ -46,7 +46,6 @@
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
-
 	<!-- spring-data-redis配置 -->
 	<bean id="jedisConnectionFactory"
 		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
@@ -168,6 +167,4 @@
 			<ref local="dataSource" />
 		</property>
 	</bean>
-
-
 </beans>
