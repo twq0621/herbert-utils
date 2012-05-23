@@ -2,10 +2,8 @@ package game;
 
 import game.logic.account.LoginGameProcessor10001;
 import game.pool.FrameUpdateService;
-import game.service.ServerServiceEnter;
 import lion.codec.IServerDispatcher;
 import lion.core.GamePlayer;
-import lion.core.IGameService;
 import lion.message.MsgDispatcher;
 import lion.netty.NettyServer;
 import lion.processor.MsgProcessor;
@@ -30,8 +28,8 @@ public class GameServer implements IServerDispatcher {
 
 	public static MsgDispatcher msgDispatcher = new MsgDispatcher();
 
-	public GameServer(Class<? extends IGameService> serviceClass) {
-		amf3Server = new NettyServer(serviceClass);
+	public GameServer() {
+		amf3Server = new NettyServer(this);
 		amf3Server.initServer();
 		amf3Server.startServer(8653);
 		addShutDownHook();
@@ -42,7 +40,7 @@ public class GameServer implements IServerDispatcher {
 	 */
 	public static void main(String[] args) {
 		ApplicationContext factory = new ClassPathXmlApplicationContext("applicationContext.xml");
-		GameServer server = new GameServer(ServerServiceEnter.class);
+		GameServer server = new GameServer();
 		logger.info("server init success!,factory={},server={}", factory, server);
 		server.onStart();
 	}
