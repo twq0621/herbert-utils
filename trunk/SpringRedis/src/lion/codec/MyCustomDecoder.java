@@ -46,7 +46,6 @@ public class MyCustomDecoder extends LengthFieldBasedFrameDecoder {
 	 * @param maxFrameLength
 	 */
 	public MyCustomDecoder(int maxFrameLength) {
-
 		super(maxFrameLength, 0, 4, 0, 0);
 	}
 

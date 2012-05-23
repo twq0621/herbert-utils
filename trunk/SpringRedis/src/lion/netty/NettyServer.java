@@ -43,7 +43,7 @@ public class NettyServer {
 		}
 	};
 
-	private final ChannelPipelineFactory pipelineFactory = new Amf3PipelineFactory(handlerFactory);
+	private final ChannelPipelineFactory pipelineFactory = new CustomPiplineFactory(handlerFactory);
 
 	public NettyServer(Class<? extends IGameService> serviceClass) {
 		init(serviceClass);

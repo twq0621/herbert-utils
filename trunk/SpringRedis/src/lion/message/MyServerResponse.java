@@ -34,7 +34,7 @@ public class MyServerResponse implements MyResponseMsg {
 		output = ByteBuffer.allocate(64);
 		capacity = 64;
 
-		output.position(8);
+		output.position(4);
 		// output.position(6);
 	}
 
@@ -42,7 +42,7 @@ public class MyServerResponse implements MyResponseMsg {
 		output = ByteBuffer.allocate(initialSize);
 		capacity = initialSize;
 
-		output.position(8);
+		output.position(4);
 		// output.position(6);
 	}
 
@@ -228,7 +228,12 @@ public class MyServerResponse implements MyResponseMsg {
 
 	@Override
 	public byte[] entireMsg() {
-		return output.array();
+		output.putInt(0, (int) msgCode);
+		int currentPos = output.position();
+		byte[] ret = new byte[currentPos];
+		output.flip();
+		output.get(ret);
+		return ret;
 	}
 
 }

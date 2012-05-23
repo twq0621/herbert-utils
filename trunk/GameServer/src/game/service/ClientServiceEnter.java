@@ -1,6 +1,6 @@
 package game.service;
 
-import game.MainServer;
+import game.GameServer;
 import game.common.ErrorCode;
 import game.dto.CreateRole_C2S;
 import game.dto.CreateRole_S2C;
@@ -31,7 +31,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ClientServiceEnter implements IGameService {
 
-	private static Logger logger = LoggerFactory.getLogger(MainServer.class);
+	private static Logger logger = LoggerFactory.getLogger(GameServer.class);
 
 	public void getNewRole(Channel channel, GetNewRole_S2C msg) {
 		logger.info("receive getNewRoleMsg,count={}", msg.getRoleCount());

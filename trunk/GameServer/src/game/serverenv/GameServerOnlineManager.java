@@ -8,12 +8,15 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+import org.springframework.stereotype.Component;
+
 /**
  * 在线用户缓存管理
  * 
  * @author hexuhui
  * 
  */
+@Component
 public class GameServerOnlineManager {
 
 	private volatile Map<Integer, Hero> onlineCharacterMap = new ConcurrentHashMap<Integer, Hero>();// characterid,character
