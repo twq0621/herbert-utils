@@ -27,6 +27,8 @@ public class GameServer implements IServerDispatcher {
 	private FrameUpdateService frameUpdataService = null;
 
 	public static MsgDispatcher msgDispatcher = new MsgDispatcher();
+	
+	private static GameServer instance = new GameServer();
 
 	public GameServer() {
 		amf3Server = new NettyServer(this);
@@ -35,6 +37,10 @@ public class GameServer implements IServerDispatcher {
 		addShutDownHook();
 	}
 
+	public static GameServer getInstance() {
+		return instance;
+	}
+	
 	/**
 	 * @param args
 	 */

@@ -1,5 +1,6 @@
 package game.pool;
 
+import game.GameServer;
 import game.common.KernelConstants;
 import game.common.SafeTimer;
 import game.entity.Hero;
@@ -131,9 +132,7 @@ public class FrameUpdateService implements Runnable {
 		}
 
 		int msgCode = request.getMsgCode();
-		// TODO get processor
-		// MsgProcessor processor = GameServer.getInstance().getMsgDispatcher().getMsgProcessor(msgCode);
-		MsgProcessor processor = null;
+		MsgProcessor processor = GameServer.getInstance().getMsgDispatcher().getMsgProcessor(msgCode);
 
 		if (processor == null) {
 			return;

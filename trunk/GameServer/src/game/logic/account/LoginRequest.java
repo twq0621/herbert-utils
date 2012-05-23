@@ -9,6 +9,7 @@ public class LoginRequest extends MyServerResponse {
 		try {
 			writeInt(accountId);
 			writeInt(roleId);
+			writeUTF("是咯好同志!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

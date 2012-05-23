@@ -18,8 +18,9 @@ public class LoginGameProcessor10001 extends MsgProcessor implements IThreadProc
 	@Override
 	public void process(GamePlayer session, MyRequestMsg request) throws Exception {
 		int gameaccount = request.getInt();
-		final int characterid = request.getInt();
-		logger.info("request enter game ,account id={},hero id={}", gameaccount, characterid);
+		int characterid = request.getInt();
+		String param = request.getString();
+		logger.info("request enter game ,account id={},hero id={},param={}", new Object[] { gameaccount, characterid, param });
 	}
 
 }
