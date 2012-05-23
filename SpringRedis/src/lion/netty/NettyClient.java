@@ -39,7 +39,8 @@ public class NettyClient {
 		}
 	};
 
-	private final ChannelPipelineFactory pipelineFactory = new Amf3PipelineFactory(handlerFactory);
+	// private final ChannelPipelineFactory pipelineFactory = new Amf3PipelineFactory(handlerFactory);
+	private final ChannelPipelineFactory pipelineFactory = new CustomPiplineFactory(handlerFactory);
 
 	public void shutdown() {
 		bootstrap.releaseExternalResources();

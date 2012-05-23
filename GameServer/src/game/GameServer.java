@@ -1,9 +1,14 @@
 package game;
 
+import game.logic.account.LoginGameProcessor10001;
 import game.pool.FrameUpdateService;
 import game.service.ServerServiceEnter;
+import lion.codec.IServerDispatcher;
+import lion.core.GamePlayer;
 import lion.core.IGameService;
+import lion.message.MsgDispatcher;
 import lion.netty.NettyServer;
+import lion.processor.MsgProcessor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,14 +21,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author hexuhui
  * 
  */
-public class MainServer {
+public class GameServer implements IServerDispatcher {
 
-	private static Logger logger = LoggerFactory.getLogger(MainServer.class);
+	private static Logger logger = LoggerFactory.getLogger(GameServer.class);
 
 	private NettyServer amf3Server;
 	private FrameUpdateService frameUpdataService = null;
 
-	public MainServer(Class<? extends IGameService> serviceClass) {
+	public static MsgDispatcher msgDispatcher = new MsgDispatcher();
+
+	public GameServer(Class<? extends IGameService> serviceClass) {
 		amf3Server = new NettyServer(serviceClass);
 		amf3Server.initServer();
 		amf3Server.startServer(8653);
@@ -35,7 +42,7 @@ public class MainServer {
 	 */
 	public static void main(String[] args) {
 		ApplicationContext factory = new ClassPathXmlApplicationContext("applicationContext.xml");
-		MainServer server = new MainServer(ServerServiceEnter.class);
+		GameServer server = new GameServer(ServerServiceEnter.class);
 		logger.info("server init success!,factory={},server={}", factory, server);
 		server.onStart();
 	}
@@ -91,5 +98,38 @@ public class MainServer {
 	protected void onStart() {
 		frameUpdataService = new FrameUpdateService();// 开启刷帧的线程
 		frameUpdataService.startFrameupdate();
+		// 注册消息
+		msgDispatcher.addMsgProcessor(10001, new LoginGameProcessor10001());
+	}
+
+	@Override
+	public MsgDispatcher getMsgDispatcher() {
+		return null;
+	}
+
+	@Override
+	public String getWorkPath() {
+		return null;
+	}
+
+	@Override
+	public String getProccessProp() {
+		return null;
+	}
+
+	@Override
+	public boolean checkIP(String ip) {
+		// TODO check ip
+		return true;
+	}
+
+	@Override
+	public MsgProcessor getMsgProcessor(int msgCode) {
+		return msgDispatcher.getMsgProcessor(msgCode);
+	}
+
+	@Override
+	public void sessionClosed(GamePlayer player) {
+
 	}
 }

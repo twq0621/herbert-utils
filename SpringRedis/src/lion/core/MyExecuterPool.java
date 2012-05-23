@@ -36,7 +36,7 @@ public class MyExecuterPool {
 		int msgCode = request.getMsgCode();
 		// 该消息处理是系统消息，但ip不是授权ip
 		if (msgCode < 10000 && !gameServer.checkIP(player.getAddress())) {
-			logger.error("invalidate request from ?", player.getAddress());
+			logger.error("invalidate request from {}", player.getAddress());
 			return;
 		}
 		MsgProcessor processor = gameServer.getMsgProcessor(msgCode);

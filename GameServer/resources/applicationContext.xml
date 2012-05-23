@@ -62,7 +62,7 @@
 		<property name="connectionFactory" ref="jedisConnectionFactory" />
 	</bean>
 
-	<bean id="protobufRedisTemplate" class="lion.core.ProtobufRedisTemplate">
+	<bean id="protobufRedisTemplate" class="lion.serialize.ProtobufRedisTemplate">
 		<property name="connectionFactory" ref="jedisConnectionFactory" />
 	</bean>
 
@@ -70,7 +70,7 @@
 	<bean id="springContextHolder" class="lion.core.SpringContextHolder" lazy-init="false" />
 
 	<!-- 第一个数据库 Master 负责写 -->
-	<bean id="dataSource" class="org.apache.tomcat.jdbc.DataSource"
+	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
 		destroy-method="close">
 		<!-- Connection Info -->
 		<property name="driverClassName">
@@ -102,13 +102,13 @@
 		<!-- 最大等待秒数，单位为毫秒， 超过时间会报出错误信息； -->
 		<property name="maxWait" value="30000" />
 		<!-- 是否可用预执行 -->
-		<property name="poolPreparedStatements" value="true" />
+		<!-- property name="poolPreparedStatements" value="true" / -->
 		<!-- 设置从数据源中返回的连接是否采用自动提交机制，默认值为 true；false支持事务 -->
 		<property name="defaultAutoCommit" value="false" />
 	</bean>
 
 	<!-- 第二个数据库 Slave 负责读 -->
-	<bean id="dataSourceSlave" class="org.apache.tomcat.jdbc.DataSource"
+	<bean id="dataSourceSlave" class="org.apache.tomcat.jdbc.pool.DataSource"
 		destroy-method="close">
 		<!-- Connection Info -->
 		<property name="driverClassName">
@@ -139,8 +139,6 @@
 		<property name="minIdle" value="10" />
 		<!-- 最大等待秒数，单位为毫秒， 超过时间会报出错误信息； -->
 		<property name="maxWait" value="30000" />
-		<!-- 是否可用预执行 -->
-		<property name="poolPreparedStatements" value="true" />
 		<!-- 设置从数据源中返回的连接是否采用自动提交机制，默认值为 true；false支持事务 -->
 		<property name="defaultAutoCommit" value="false" />
 	</bean>
