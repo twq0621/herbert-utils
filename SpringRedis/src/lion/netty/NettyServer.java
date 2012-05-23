@@ -4,6 +4,8 @@ import java.net.InetSocketAddress;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+import lion.codec.IServerDispatcher;
+
 import org.jboss.netty.bootstrap.ServerBootstrap;
 import org.jboss.netty.channel.AdaptiveReceiveBufferSizePredictorFactory;
 import org.jboss.netty.channel.ChannelException;
@@ -14,8 +16,6 @@ import org.jboss.netty.handler.execution.ExecutionHandler;
 import org.jboss.netty.handler.execution.OrderedMemoryAwareThreadPoolExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import lion.core.IGameService;
 
 public class NettyServer {
 
@@ -45,11 +45,11 @@ public class NettyServer {
 
 	private final ChannelPipelineFactory pipelineFactory = new CustomPiplineFactory(handlerFactory);
 
-	public NettyServer(Class<? extends IGameService> serviceClass) {
+	public NettyServer(IServerDispatcher serviceClass) {
 		init(serviceClass);
 	}
 
-	private void init(Class<? extends IGameService> serviceClass) {
+	private void init(IServerDispatcher serviceClass) {
 		handler.init(serviceClass);
 	}
 
