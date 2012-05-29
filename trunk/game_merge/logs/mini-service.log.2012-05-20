@@ -1,0 +1,64 @@
+2012-05-20 11:44:25,460 [main] INFO  [net.baishe.ServerMain] - server init success!,factory=org.springframework.context.support.ClassPathXmlApplicationContext@4447393f: startup date [Sun May 20 11:44:23 CST 2012]; root of context hierarchy
+2012-05-20 11:56:31,646 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 11:57:01,943 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 11:57:25,185 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 11:57:25,190 [main] INFO  [net.baishe.ServerMain] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 11:57:49,803 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 11:57:49,808 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 12:46:28,187 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 12:46:28,225 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 12:51:31,081 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 12:51:31,122 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 12:52:48,315 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 12:52:48,362 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 12:54:36,420 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 12:54:36,448 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 12:57:34,878 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 12:57:34,919 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 12:58:31,794 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 12:58:31,825 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 13:00:12,536 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 13:00:12,578 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 13:03:06,341 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 13:03:06,369 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 13:06:21,838 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 13:06:21,882 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 13:07:53,083 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 13:07:53,112 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 13:08:12,838 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 13:08:12,892 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 13:49:33,490 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 13:49:33,539 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 13:50:46,636 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 13:50:46,668 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 13:51:13,419 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 13:51:13,472 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 14:44:11,728 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 14:44:11,746 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 14:45:22,660 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 14:45:22,679 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 16:16:16,739 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 16:16:16,761 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 16:17:00,791 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 16:17:00,816 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 16:40:45,543 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 16:40:45,563 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 16:41:32,940 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 16:41:32,958 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 16:42:54,159 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 16:42:54,179 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 16:43:16,168 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 16:43:16,187 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 16:43:18,626 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 16:43:18,644 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 16:50:28,751 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 16:50:28,770 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 16:50:29,095 [main] INFO  [net.baishe.service.ServerMerge] - {1=10154, 2=10155, 3=10156, 4=10157, 5=10158}
+2012-05-20 16:51:13,724 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 16:51:13,740 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 16:51:14,036 [main] INFO  [net.baishe.service.ServerMerge] - {1=10159, 2=10160, 3=10161, 4=10162, 5=10163}
+2012-05-20 18:08:58,471 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 18:08:58,490 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 18:10:24,590 [main] INFO  [net.baishe.ServerMain] - init successfully!
+2012-05-20 18:10:24,608 [main] INFO  [net.baishe.service.ServerMerge] - targetDbName=todb,source1=db1,source2=db2
+2012-05-20 18:10:40,369 [main] INFO  [net.baishe.service.ServerMerge] - {1=10164, 2=10165, 3=10166, 4=10167, 5=10168}
