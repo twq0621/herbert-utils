@@ -25,6 +25,8 @@ public class ServerMerge {
 
 	private static Logger logger = LoggerFactory.getLogger(ServerMerge.class);
 
+	private String targetDbName;
+
 	private Set<String> excludeTableNames = new HashSet<String>();
 
 	@PostConstruct
@@ -33,38 +35,45 @@ public class ServerMerge {
 	}
 
 	public void startMerge(String targetDbName, String source1DbName, String source2DbName) {
-		logger.info("targetDbName={},source1={},source2={}", new Object[] { targetDbName, source1DbName, source2DbName });
+		logger.info("开始合服操作,targetDb={}", targetDbName);
+		this.targetDbName = targetDbName;
+		parseOneDb(source1DbName);
+		parseOneDb(source2DbName);
+	}
+
+	public void parseOneDb(String sourceDbName) {
+		logger.info("处理一个database的合服操作：source={}", new Object[] { sourceDbName });
 		clearTmpTable();
 		initTableMaxId();
-		copyTblToTargetDb();
+		copyTblToTargetDb(sourceDbName);
 		createIdRelations();
-		parseAccount(targetDbName, source1DbName);
+		parseAccount(sourceDbName);
 		parseCharacter();
 		parseHorse();
 	}
 
-	private void copyTblToTargetDb() {
-		List<String> tableNameList = jdbcTemplate.queryForList("select TABLE_NAME from information_schema.TABLES where TABLE_SCHEMA = 'merge_to'", String.class);
+	private void copyTblToTargetDb(String sourceDbName) {
+		String sql1 = String.format("select TABLE_NAME from information_schema.TABLES where TABLE_SCHEMA = '%s'", targetDbName);
+		List<String> tableNameList = jdbcTemplate.queryForList(sql1, String.class);
 		tableNameList.removeAll(excludeTableNames);
-		jdbcTemplate.execute("use merge_to");
+		jdbcTemplate.execute("use " + targetDbName);
 		for (String tblName : tableNameList) {
 			String dropTriggerSql = String.format("drop trigger if exists trigger_%s", tblName);
 			jdbcTemplate.execute(dropTriggerSql);
 			String triggerSql = String.format("CREATE TRIGGER trigger_%s BEFORE INSERT ON %s FOR EACH ROW BEGIN set NEW.f_id = null;END", tblName, tblName);
 			jdbcTemplate.execute(triggerSql);
-			String mergeSql = String.format("insert into merge_to.%s select * from merge_from1.%s", tblName, tblName);
+			String mergeSql = String.format("insert into %s.%s select * from %s.%s", targetDbName, sourceDbName, tblName, tblName);
 			jdbcTemplate.execute(mergeSql);
 		}
 	}
 
 	private void clearTmpTable() {
-		jdbcTemplate.execute("use merge_to");
-		String tmpTbl = "drop table IF EXISTS id_relations";
-		jdbcTemplate.execute(tmpTbl);
+		jdbcTemplate.execute("use " + targetDbName);
+		jdbcTemplate.execute("drop table IF EXISTS id_relations");
 	}
 
 	private void createIdRelations() {
-		jdbcTemplate.execute("use merge_to");
+		jdbcTemplate.execute("use " + targetDbName);
 		String tmpTbl = "CREATE TABLE `id_relations` (`f_id` int(11) NOT NULL AUTO_INCREMENT, `old_id` int(11) NOT NULL DEFAULT '0', `new_id` int(11) NOT NULL DEFAULT '0',"
 				+ " `tbl_name` varchar(255) NOT NULL DEFAULT '', PRIMARY KEY (`f_id`)) ENGINE=HEAP DEFAULT CHARSET=utf8;";
 		jdbcTemplate.execute(tmpTbl);
@@ -74,21 +83,23 @@ public class ServerMerge {
 	 * 目标数据库每张表的最大id
 	 */
 	private void initTableMaxId() {
-		List<String> tableNameList = jdbcTemplate.queryForList("select TABLE_NAME from information_schema.TABLES where TABLE_SCHEMA = 'merge_to'", String.class);
+		String sql1 = String.format("select TABLE_NAME from information_schema.TABLES where TABLE_SCHEMA = '%s'", targetDbName);
+		List<String> tableNameList = jdbcTemplate.queryForList(sql1, String.class);
 		for (String tblName : tableNameList) {
-			int maxId = jdbcTemplate.queryForInt(String.format("select max(f_id) from merge_to.%s", tblName));
+			int maxId = jdbcTemplate.queryForInt(String.format("select max(f_id) from %s.%s", targetDbName, tblName));
 			tableMaxId.put(tblName, maxId);
 		}
 	}
 
-	public void parseAccount(String targetDbName, String source1DbName) {
-		List<Map<String, Object>> oldIdMapList = jdbcTemplate.queryForList("select f_id from merge_from1.t_account");
+	public void parseAccount(String sourceDbName) {
+		String sql1 = String.format("select f_id from %s.t_account", sourceDbName);
+		List<Map<String, Object>> oldIdMapList = jdbcTemplate.queryForList(sql1);
 		List<Integer> oldIdList = new ArrayList<Integer>();
 		for (Map<String, Object> map : oldIdMapList) {
 			Object idObj = map.get("f_id");
 			oldIdList.add(((Long) idObj).intValue());
 		}
-		String afterInsertIdSql = String.format("select f_id from merge_to.t_account where f_id > %s", tableMaxId.get("t_account"));
+		String afterInsertIdSql = String.format("select f_id from %s.t_account where f_id > %s", targetDbName, tableMaxId.get("t_account"));
 		List<Integer> newIdList = new ArrayList<Integer>();
 		List<Map<String, Object>> objMapList = jdbcTemplate.queryForList(afterInsertIdSql);
 		for (Map<String, Object> map : objMapList) {
@@ -96,8 +107,9 @@ public class ServerMerge {
 			newIdList.add(((Long) idObj).intValue());
 		}
 		// 创建map
+		String sql2 = String.format("insert into %s.id_relations(old_id,new_id,tbl_name) values(?,?,?)", targetDbName);
 		for (int i = 0; i < oldIdList.size(); i++) {
-			jdbcTemplate.update("insert into merge_to.id_relations(old_id,new_id,tbl_name) values(?,?,?)", new Object[] { oldIdList.get(i), newIdList.get(i), "t_account" });
+			jdbcTemplate.update(sql2, new Object[] { oldIdList.get(i), newIdList.get(i), "t_account" });
 		}
 	}
 
