@@ -50,6 +50,8 @@ public class ServerMerge {
 		parseAccount(sourceDbName);
 		parseCharacter();
 		parseHorse();
+		parseCharacterVip();
+		parseCharacterAchieve();
 	}
 
 	private void copyTblToTargetDb(String sourceDbName) {
@@ -125,6 +127,18 @@ public class ServerMerge {
 				.update("update t_character_horse,id_relations set t_character_horse.f_character_id = id_relations.new_id where t_character_horse.f_id > ? and t_character_horse.f_character_id = id_relations.old_id and id_relations.tbl_name = ?",
 						tableMaxId.get("t_character_horse"), "t_character");
 		logger.info("ret={}", ret);
+	}
+	
+	private void parseCharacterVip() {
+		jdbcTemplate
+		.update("update character_vip,id_relations set character_vip.f_character_id = id_relations.new_id where character_vip.id > ? and character_vip.f_character_id = id_relations.old_id and id_relations.tbl_name = ?",
+				tableMaxId.get("character_vip"), "t_character");
+	}
+	
+	private void parseCharacterAchieve() {
+		jdbcTemplate
+		.update("update t_character_achieve,id_relations set t_character_achieve.f_character_id = id_relations.new_id where t_character_achieve.f_id > ? and t_character_achieve.f_character_id = id_relations.old_id and id_relations.tbl_name = ?",
+				tableMaxId.get("t_character_achieve"), "t_character");
 	}
 
 	private void mapId(String tblName) {
