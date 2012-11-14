@@ -66,7 +66,7 @@
 				<attribute name="Built-By" value="${user.name}" />
 				<attribute name="Built-Date" value="${TODAY}" />
 				<attribute name="Main-Class" value="${main.class}"/>
-				<attribute name="Class-Path" value="${mf.classpath}" />
+				<attribute name="Class-Path" value=". ${mf.classpath}" /> <!-- 包含当前路径，用.表示 -->
 			</manifest>
 		</jar>
 		
