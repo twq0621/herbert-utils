@@ -35,7 +35,6 @@ public class HttpRequestTest extends TestCase {
 	
 	public void testSendJson() {
 		String ret = "";
-		HttpClient httpClient = new DefaultHttpClient();
 		try {
 			String url = "http://192.168.1.250:8080/gameApp/cs_json_api";
 			byte[] respByte = HttpRequestUtil.sendRequestV2(url,
@@ -45,14 +44,11 @@ public class HttpRequestTest extends TestCase {
 			logger.info("http response={}", ret);
 		} catch (Exception e) {
 			logger.error("error", e);
-		} finally {
-			httpClient.getConnectionManager().shutdown();
 		}
 	}
 	
 	public void testPlayerQuery() {
 		String ret = "";
-		HttpClient httpClient = new DefaultHttpClient();
 		try {
 			String url = "http://192.168.1.250:8080/gameApp/cs_json_api";
 			byte[] respByte = HttpRequestUtil.sendRequestV2(url,
@@ -62,14 +58,11 @@ public class HttpRequestTest extends TestCase {
 			logger.info("http response={}", ret);
 		} catch (Exception e) {
 			logger.error("error", e);
-		} finally {
-			httpClient.getConnectionManager().shutdown();
 		}
 	}
 	
 	public void testPropsQueries() {
 		String ret = "";
-		HttpClient httpClient = new DefaultHttpClient();
 		try {
 			String url = "http://192.168.1.250:8080/gameApp/cs_json_api";
 			byte[] respByte = HttpRequestUtil.sendRequestV2(url,
@@ -79,14 +72,11 @@ public class HttpRequestTest extends TestCase {
 			logger.info("http response={}", ret);
 		} catch (Exception e) {
 			logger.error("error", e);
-		} finally {
-			httpClient.getConnectionManager().shutdown();
 		}
 	}
 
 	public void testTasksQueries() {
 		String ret = "";
-		HttpClient httpClient = new DefaultHttpClient();
 		try {
 			String url = "http://192.168.1.250:8080/gameApp/cs_json_api";
 			byte[] respByte = HttpRequestUtil.sendRequestV2(url,
@@ -96,8 +86,6 @@ public class HttpRequestTest extends TestCase {
 			logger.info("http response={}", ret);
 		} catch (Exception e) {
 			logger.error("error", e);
-		} finally {
-			httpClient.getConnectionManager().shutdown();
 		}
 	}
 
